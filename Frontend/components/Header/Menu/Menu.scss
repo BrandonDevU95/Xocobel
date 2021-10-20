@@ -1,0 +1,50 @@
+.menu {
+   background-color: $background-chocolate;
+   border-radius: 0px;
+
+   .ui.grid {
+      margin: 0px;
+   }
+
+   &__left,
+   &__right {
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center;
+
+      .ui.menu {
+         border: 0px;
+         box-shadow: none;
+         height: 100%;
+         background: transparent;
+
+         .icon {
+            margin-right: 10px !important;
+            color: $font-white;
+         }
+
+         .item {
+            color: $font-white;
+            border-radius: 0px !important;
+
+            &:hover {
+               color: $font-white;
+               background-color: $background-honey;
+
+               &::before {
+                  background-color: $background-honey;
+               }
+            }
+
+            &.m-0 i {
+               margin: 0px !important;
+            }
+         }
+      }
+   }
+
+   &__right {
+      display: flex;
+      justify-content: flex-end;
+   }
+}
