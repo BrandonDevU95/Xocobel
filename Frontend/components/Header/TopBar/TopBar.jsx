@@ -10,7 +10,7 @@ export default function TopBar() {
                   <Logo />
                </Grid.Column>
                <Grid.Column width={8} className="top-bar__right">
-                  <Input icon="search" placeholder="Search..." />
+                  <Search />
                </Grid.Column>
             </Grid>
          </Container>
@@ -26,4 +26,8 @@ function Logo() {
          </a>
       </Link>
    );
+}
+
+function Search() {
+   return <Input id="xoco-search" icon={{ name: 'search' }} />;
 }
