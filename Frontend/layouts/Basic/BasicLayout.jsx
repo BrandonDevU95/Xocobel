@@ -1,10 +1,10 @@
-import {Container} from 'semantic-ui-react'
+import { Container } from 'semantic-ui-react';
 
-export default function Basic({children}) {
-    return (
-        <Container className='basic-layout'>
-            <h1>Basic Layout</h1>
-            {children}
-        </Container>
-    )
+export default function Basic({ children }) {
+   return (
+      <Container className="basic-layout">
+         <Container className="content">{children}</Container>
+         <h1>Basic Layout</h1>
+      </Container>
+   );
 }
