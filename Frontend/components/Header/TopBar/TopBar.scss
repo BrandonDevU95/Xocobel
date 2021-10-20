@@ -1,0 +1,28 @@
+.top-bar {
+   height: 90px;
+   background-color: $backgroud-chocolate;
+
+   .ui.grid {
+      margin: 0;
+      padding: 0;
+      .column {
+         padding: 0;
+      }
+   }
+
+   &__left {
+      display: flex !important;
+      align-items: center;
+      padding-top: 0px !important;
+      padding-bottom: 0px !important;
+
+      img {
+         height: 70px;
+         transition: all 0.5s;
+
+         &:hover {
+            transform: translateX(-15px);
+         }
+      }
+   }
+}

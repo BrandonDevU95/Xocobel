@@ -1,10 +1,11 @@
 import { Container } from 'semantic-ui-react';
+import Header from '../../components/Header';
 
 export default function Basic({ children }) {
    return (
-      <Container className="basic-layout">
+      <Container fluid className="basic-layout">
+         <Header />
          <Container className="content">{children}</Container>
-         <h1>Basic Layout</h1>
       </Container>
    );
 }
