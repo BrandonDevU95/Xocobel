@@ -6,7 +6,6 @@ export default function Header() {
       <div className="header">
          <TopBar />
          <Menu />
-         <div className="">Menu</div>
       </div>
    );
 }
