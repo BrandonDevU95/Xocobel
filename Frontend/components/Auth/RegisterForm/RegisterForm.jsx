@@ -63,7 +63,7 @@ export default function RegisterForm({ showLoginForm }) {
             error={formik.errors.password}
          />
          <div className="actions">
-            <Button type="button" basic>
+            <Button type="button" onClick={showLoginForm} basic>
                Iniciar Sesion
             </Button>
             <Button type="submit" className="submit" loading={loading}>
