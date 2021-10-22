@@ -8,8 +8,7 @@ import { Form, Button } from 'semantic-ui-react';
 
 export default function LoginForm({ showRegisterForm, onCloseModal }) {
    const [loading, setLoading] = useState(false);
-   const auth = useAuth();
-   console.log(auth);
+   const { login } = useAuth();
 
    const formik = useFormik({
       initialValues: initialValues(),
@@ -19,6 +18,7 @@ export default function LoginForm({ showRegisterForm, onCloseModal }) {
          const response = await loginApi(FormData);
          if (response?.jwt) {
             toast.success('Bienvenido ' + response.user?.name);
+            login(response.jwt);
             onCloseModal();
          } else {
             toast.error('Usuario o contraseña incorrectos');
