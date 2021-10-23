@@ -4,6 +4,9 @@
 // Layouts
 @import '../layouts/Basic/BasicLayout.scss';
 
+//Pages
+@import '../pages/account.scss';
+
 // Components
 @import '../components/Header/Header.scss';
 @import '../components/Header/TopBar/TopBar.scss';
@@ -11,6 +14,4 @@
 @import '../components/Modal/BasicModal/BasicModal.scss';
 @import '../components/Auth/LoginForm/LoginForm.scss';
 @import '../components/account/ChangeNameForm/ChangeNameForm.scss';
-
-//Pages
-@import '../pages/account.scss';
+@import '../components/account/ChangeEmailForm/ChangeEmailForm.scss';

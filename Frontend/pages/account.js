@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import BasicLayout from '../layouts/Basic';
 import { useState, useEffect } from 'react';
 import ChangeNameForm from '../components/account/ChangeNameForm';
+import ChangeEmailForm from '../components/account/ChangeEmailForm';
 
 export default function account() {
    const router = useRouter();
@@ -40,6 +41,11 @@ function Configuration({ user, logout, setReloadUser }) {
          <div className="title">Configuracion</div>
          <div className="data">
             <ChangeNameForm
+               user={user}
+               logout={logout}
+               setReloadUser={setReloadUser}
+            />
+            <ChangeEmailForm
                user={user}
                logout={logout}
                setReloadUser={setReloadUser}
