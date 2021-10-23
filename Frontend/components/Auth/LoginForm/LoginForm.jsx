@@ -8,7 +8,7 @@ import { Form, Button } from 'semantic-ui-react';
 
 export default function LoginForm({ showRegisterForm, onCloseModal }) {
    const [loading, setLoading] = useState(false);
-   const { login } = useAuth();
+   const { auth, login } = useAuth();
 
    const formik = useFormik({
       initialValues: initialValues(),
