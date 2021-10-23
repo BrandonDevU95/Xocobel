@@ -5,6 +5,7 @@ import BasicLayout from '../layouts/Basic';
 import { useState, useEffect } from 'react';
 import ChangeNameForm from '../components/account/ChangeNameForm';
 import ChangeEmailForm from '../components/account/ChangeEmailForm';
+import ChangePasswordForm from '../components/account/ChangePasswordForm';
 
 export default function account() {
    const router = useRouter();
@@ -50,6 +51,7 @@ function Configuration({ user, logout, setReloadUser }) {
                logout={logout}
                setReloadUser={setReloadUser}
             />
+            <ChangePasswordForm user={user} logout={logout} />
          </div>
       </div>
    );
