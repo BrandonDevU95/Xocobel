@@ -4,6 +4,11 @@
    > h4 {
       color: $font-honey;
       font-size: 22px;
+
+      > span {
+         color: $font-gold;
+         font-size: 16px;
+      }
    }
 
    > form {
