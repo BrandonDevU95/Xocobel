@@ -3,6 +3,7 @@ import useAuth from '../hooks/useAuth';
 import { useRouter } from 'next/router';
 import BasicLayout from '../layouts/Basic';
 import { useState, useEffect } from 'react';
+import ChangeNameForm from '../components/account/ChangeNameForm';
 
 export default function account() {
    const router = useRouter();
@@ -24,16 +25,18 @@ export default function account() {
 
    return (
       <BasicLayout className="account">
-         <Configuration />
+         <Configuration user={user} />
       </BasicLayout>
    );
 }
 
-function Configuration() {
+function Configuration({ user }) {
    return (
       <div className="account__configuration">
          <div className="title">Configuracion</div>
-         <div className="data">Formularios</div>
+         <div className="data">
+            <ChangeNameForm user={user} />
+         </div>
       </div>
    );
 }
