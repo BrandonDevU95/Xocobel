@@ -1,10 +1,12 @@
-import { Container, Menu, Grid, Icon, Label } from 'semantic-ui-react';
-import { useState } from 'react';
-import Auth from '../../Auth';
-import BasicModal from '../../Modal/BasicModal';
 import Link from 'next/link';
+import Auth from '../../Auth';
+import { useState } from 'react';
+import useAuth from '../../../hooks/useAuth';
+import BasicModal from '../../Modal/BasicModal';
+import { Container, Menu, Grid, Icon, Label } from 'semantic-ui-react';
 
 export default function MenuWeb() {
+   const { auth, logout } = useAuth();
    const [showModal, setShowModal] = useState(false);
    const [titleModal, setTitleModal] = useState('Iniciar Sesion');
 
@@ -19,7 +21,11 @@ export default function MenuWeb() {
                   <MenuChocolate />
                </Grid.Column>
                <Grid.Column width={10} className="menu__right">
-                  <MenuOptions onShowModal={onShowModal} />
+                  {auth ? (
+                     <button onClick={logout}>Cerra</button>
+                  ) : (
+                     <MenuOptions onShowModal={onShowModal} />
+                  )}
                </Grid.Column>
             </Grid>
          </Container>
