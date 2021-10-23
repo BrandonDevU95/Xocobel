@@ -1,1 +1,1 @@
-export { defaul } from './BasicLayout.jsx';
+export { default } from './BasicLayout.jsx';
