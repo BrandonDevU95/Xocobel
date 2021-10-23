@@ -12,15 +12,16 @@ export default function ChangeEmailForm({ user, logout, setReloadUser }) {
       initialValues: initialValues(user.name, user.lastname),
       validationSchema: Yup.object(validationSchema()),
       onSubmit: async (formData) => {
-         //  setLoading(true);
-         //  const response = await updateEmailApi(user.id, formData, logout);
-         //  if (!response) {
-         //     toast.error('Error al actualizar el nombre');
-         //  } else {
-         //     setReloadUser(true);
-         //     toast.success('Nombre actualizado');
-         //  }
-         //  setLoading(false);
+         setLoading(true);
+         const response = await updateEmailApi(user.id, formData.email, logout);
+         if (!response || response.statusCode === 400) {
+            toast.error('Error al actualizar el email');
+         } else {
+            setReloadUser(true);
+            formik.resetForm();
+            toast.success('Email actualizado correctamente');
+         }
+         setLoading(false);
       },
    });
 
