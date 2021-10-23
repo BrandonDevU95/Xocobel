@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { Form, Button } from 'semantic-ui-react';
 import { updateNameApi } from '../../../api/user';
 
-export default function ChangeNameForm({ user, logout }) {
+export default function ChangeNameForm({ user, logout, setReloadUser }) {
    const [loading, setLoading] = useState(false);
 
    const formik = useFormik({
@@ -17,6 +17,7 @@ export default function ChangeNameForm({ user, logout }) {
          if (!response) {
             toast.error('Error al actualizar el nombre');
          } else {
+            setReloadUser(true);
             toast.success('Nombre actualizado');
          }
          setLoading(false);
