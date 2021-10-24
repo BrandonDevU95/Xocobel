@@ -4,7 +4,7 @@ import useAuth from '../../../hooks/useAuth';
 import { Grid, Button } from 'semantic-ui-react';
 import { getAddressApi } from '../../../api/address';
 
-export default function ListAddress() {
+export default function ListAddress({ reloadAddresses, setReloadAddresses }) {
    const { auth, logout } = useAuth();
    const [addresses, setAddresses] = useState(null);
 
@@ -12,8 +12,11 @@ export default function ListAddress() {
       (async () => {
          const response = await getAddressApi(auth.idUser, logout);
          setAddresses(response ? response : []);
+         setReloadAddresses(false);
       })();
-   }, []);
+   }, [reloadAddresses]);
+
+   if (!addresses) return null;
 
    return (
       <div className="list-address">

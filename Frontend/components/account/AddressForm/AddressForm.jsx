@@ -6,7 +6,7 @@ import { Form, Button } from 'semantic-ui-react';
 import { createAddressApi } from '../../../api/address';
 import { toast } from 'react-toastify';
 
-export default function AddressForm({ setShowModal }) {
+export default function AddressForm({ setShowModal, setReloadAddresses }) {
    const { auth, logout } = useAuth();
    const [loading, setLoading] = useState(false);
 
@@ -29,8 +29,9 @@ export default function AddressForm({ setShowModal }) {
          toast.warning('Error al crear la dirección');
          setLoading(false);
       } else {
-         formik.resetForm();
          toast.success('Dirección creada con éxito');
+         formik.resetForm();
+         setReloadAddresses(true);
          setLoading(false);
          setShowModal(false);
       }
