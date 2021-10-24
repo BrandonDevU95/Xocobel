@@ -5,6 +5,7 @@ import { Icon } from 'semantic-ui-react';
 import BasicLayout from '../layouts/Basic';
 import { useState, useEffect } from 'react';
 import BasicModal from '../components/Modal/BasicModal';
+import AddressForm from '../components/account/AddressForm';
 import ChangeNameForm from '../components/account/ChangeNameForm';
 import ChangeEmailForm from '../components/account/ChangeEmailForm';
 import ChangePasswordForm from '../components/account/ChangePasswordForm';
@@ -67,7 +68,7 @@ function Addresses() {
 
    const openModal = (title) => {
       setTitleModal(title);
-      setFormModal(<h1>New Address...</h1>);
+      setFormModal(<AddressForm />);
       setShowModal(true);
    };
 
@@ -85,7 +86,7 @@ function Addresses() {
             <p>Lista de direcciones</p>
          </div>
          <BasicModal show={showModal} setShow={setShowModal} title={titleModal}>
-            <p>Formulario</p>
+            {formModal}
          </BasicModal>
       </div>
    );
