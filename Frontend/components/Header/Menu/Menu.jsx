@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import Auth from '../../Auth';
+import { map } from 'lodash';
 import { useState, useEffect } from 'react';
 import { getMeApi } from '../../../api/user';
 import useAuth from '../../../hooks/useAuth';
 import BasicModal from '../../Modal/BasicModal';
 import { getMenusApi } from '../../../api/menu';
-import { Container, Menu, Grid, Icon, Label } from 'semantic-ui-react';
+import { Container, Menu, Grid, Icon } from 'semantic-ui-react';
 
 export default function MenuWeb() {
    const { auth, logout } = useAuth();
@@ -36,7 +37,7 @@ export default function MenuWeb() {
          <Container>
             <Grid>
                <Grid.Column width={6} className="menu__left">
-                  <MenuChocolate />
+                  <MenuChocolate menus={menus} />
                </Grid.Column>
                <Grid.Column width={10} className="menu__right">
                   {user !== undefined && (
@@ -61,24 +62,16 @@ export default function MenuWeb() {
    );
 }
 
-function MenuChocolate() {
+function MenuChocolate({ menus }) {
    return (
       <Menu>
-         <Link href="/boutique">
-            <Menu.Item as="a">Boutique</Menu.Item>
-         </Link>
-         <Link href="/events">
-            <Menu.Item as="a">Events</Menu.Item>
-         </Link>
-         <Link href="/gifts">
-            <Menu.Item as="a">Gifts</Menu.Item>
-         </Link>
-         <Link href="/corporate">
-            <Menu.Item as="a">Corporate</Menu.Item>
-         </Link>
-         <Link href="/xocobel">
-            <Menu.Item as="a">Xocobel</Menu.Item>
-         </Link>
+         {map(menus, (menu) => (
+            <Link key={menu._id} href={`/menu/${menu.url}`}>
+               <Menu.Item as="a" name={menu.url}>
+                  {menu.title}
+               </Menu.Item>
+            </Link>
+         ))}
       </Menu>
    );
 }
