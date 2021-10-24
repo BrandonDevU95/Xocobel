@@ -4,11 +4,13 @@ import { useState, useEffect } from 'react';
 import { getMeApi } from '../../../api/user';
 import useAuth from '../../../hooks/useAuth';
 import BasicModal from '../../Modal/BasicModal';
+import { getMenusApi } from '../../../api/menu';
 import { Container, Menu, Grid, Icon, Label } from 'semantic-ui-react';
 
 export default function MenuWeb() {
    const { auth, logout } = useAuth();
    const [user, setUser] = useState(undefined);
+   const [menus, setMenus] = useState([]);
    const [showModal, setShowModal] = useState(false);
    const [titleModal, setTitleModal] = useState('Iniciar Sesion');
 
@@ -18,6 +20,13 @@ export default function MenuWeb() {
          setUser(response);
       })();
    }, [auth]);
+
+   useEffect(() => {
+      (async () => {
+         const response = await getMenusApi();
+         setMenus(response || []);
+      })();
+   }, []);
 
    const onShowModal = () => setShowModal(true);
    const onCloseModal = () => setShowModal(false);
