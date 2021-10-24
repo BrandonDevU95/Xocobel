@@ -1,6 +1,7 @@
 import { getMeApi } from '../api/user';
 import useAuth from '../hooks/useAuth';
 import { useRouter } from 'next/router';
+import { Icon } from 'semantic-ui-react';
 import BasicLayout from '../layouts/Basic';
 import { useState, useEffect } from 'react';
 import ChangeNameForm from '../components/account/ChangeNameForm';
@@ -32,6 +33,7 @@ export default function account() {
             logout={logout}
             setReloadUser={setReloadUser}
          />
+         <Addresses />
       </BasicLayout>
    );
 }
@@ -52,6 +54,20 @@ function Configuration({ user, logout, setReloadUser }) {
                setReloadUser={setReloadUser}
             />
             <ChangePasswordForm user={user} logout={logout} />
+         </div>
+      </div>
+   );
+}
+
+function Addresses() {
+   return (
+      <div className="account__addresses">
+         <div className="title">
+            Direcciones
+            <Icon name="plus" link />
+         </div>
+         <div className="data">
+            <p>Lista de direcciones</p>
          </div>
       </div>
    );
