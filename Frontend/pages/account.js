@@ -6,6 +6,7 @@ import BasicLayout from '../layouts/Basic';
 import { useState, useEffect } from 'react';
 import BasicModal from '../components/Modal/BasicModal';
 import AddressForm from '../components/account/AddressForm';
+import ListAddress from '../components/account/ListAddress';
 import ChangeNameForm from '../components/account/ChangeNameForm';
 import ChangeEmailForm from '../components/account/ChangeEmailForm';
 import ChangePasswordForm from '../components/account/ChangePasswordForm';
@@ -83,7 +84,7 @@ function Addresses() {
             />
          </div>
          <div className="data">
-            <p>Lista de direcciones</p>
+            <ListAddress />
          </div>
          <BasicModal show={showModal} setShow={setShowModal} title={titleModal}>
             {formModal}
