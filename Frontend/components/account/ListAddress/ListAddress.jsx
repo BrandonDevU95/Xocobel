@@ -4,7 +4,11 @@ import useAuth from '../../../hooks/useAuth';
 import { Grid, Button } from 'semantic-ui-react';
 import { getAddressApi, deleteAddressApi } from '../../../api/address';
 
-export default function ListAddress({ reloadAddresses, setReloadAddresses }) {
+export default function ListAddress({
+   reloadAddresses,
+   setReloadAddresses,
+   openModal,
+}) {
    const { auth, logout } = useAuth();
    const [addresses, setAddresses] = useState(null);
 
@@ -35,6 +39,7 @@ export default function ListAddress({ reloadAddresses, setReloadAddresses }) {
                         address={address}
                         logout={logout}
                         setReloadAddresses={setReloadAddresses}
+                        openModal={openModal}
                      />
                   </Grid.Column>
                ))}
@@ -44,7 +49,7 @@ export default function ListAddress({ reloadAddresses, setReloadAddresses }) {
    );
 }
 
-function Address({ address, logout, setReloadAddresses }) {
+function Address({ address, logout, setReloadAddresses, openModal }) {
    const [loading, setLoading] = useState(false);
 
    const deleteAddress = async () => {
@@ -64,7 +69,12 @@ function Address({ address, logout, setReloadAddresses }) {
          </p>
          <p>{address.phone}</p>
          <div className="actions">
-            <Button primary>Editar</Button>
+            <Button
+               primary
+               onClick={() => openModal(`Editar ${address.title}`, address)}
+            >
+               Editar
+            </Button>
             <Button onClick={deleteAddress} loading={loading}>
                Eliminar
             </Button>

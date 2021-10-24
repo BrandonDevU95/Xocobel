@@ -68,12 +68,14 @@ function Addresses() {
    const [formModal, setFormModal] = useState(null);
    const [reloadAddresses, setReloadAddresses] = useState(false);
 
-   const openModal = (title) => {
+   const openModal = (title, address) => {
       setTitleModal(title);
       setFormModal(
          <AddressForm
             setReloadAddresses={setReloadAddresses}
             setShowModal={setShowModal}
+            newAddress={address ? false : true}
+            address={address || null}
          />
       );
       setShowModal(true);
@@ -93,6 +95,7 @@ function Addresses() {
             <ListAddress
                reloadAddresses={reloadAddresses}
                setReloadAddresses={setReloadAddresses}
+               openModal={openModal}
             />
          </div>
          <BasicModal show={showModal} setShow={setShowModal} title={titleModal}>
