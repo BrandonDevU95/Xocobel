@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { Icon } from 'semantic-ui-react';
 import BasicLayout from '../layouts/Basic';
 import { useState, useEffect } from 'react';
+import BasicModal from '../components/Modal/BasicModal';
 import ChangeNameForm from '../components/account/ChangeNameForm';
 import ChangeEmailForm from '../components/account/ChangeEmailForm';
 import ChangePasswordForm from '../components/account/ChangePasswordForm';
@@ -60,15 +61,32 @@ function Configuration({ user, logout, setReloadUser }) {
 }
 
 function Addresses() {
+   const [showModal, setShowModal] = useState(false);
+   const [titleModal, setTitleModal] = useState('');
+   const [formModal, setFormModal] = useState(null);
+
+   const openModal = (title) => {
+      setTitleModal(title);
+      setFormModal(<h1>New Address...</h1>);
+      setShowModal(true);
+   };
+
    return (
       <div className="account__addresses">
          <div className="title">
             Direcciones
-            <Icon name="plus" link />
+            <Icon
+               name="plus"
+               link
+               onClick={() => openModal('Agregar dirección')}
+            />
          </div>
          <div className="data">
             <p>Lista de direcciones</p>
          </div>
+         <BasicModal show={showModal} setShow={setShowModal} title={titleModal}>
+            <p>Formulario</p>
+         </BasicModal>
       </div>
    );
 }
