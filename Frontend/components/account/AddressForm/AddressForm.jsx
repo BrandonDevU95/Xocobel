@@ -1,10 +1,10 @@
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { useFormik } from 'formik';
+import { toast } from 'react-toastify';
 import useAuth from '../../../hooks/useAuth';
 import { Form, Button } from 'semantic-ui-react';
-import { createAddressApi } from '../../../api/address';
-import { toast } from 'react-toastify';
+import { createAddressApi, updateAddressApi } from '../../../api/address';
 
 export default function AddressForm({
    setShowModal,
@@ -48,6 +48,21 @@ export default function AddressForm({
          ...formData,
          user: auth.idUser,
       };
+      const response = await updateAddressApi(
+         address._id,
+         formDataTemp,
+         logout
+      );
+      if (!response) {
+         toast.warning('Error al actualizar la dirección');
+         setLoading(false);
+      } else {
+         toast.success('Dirección actualizada');
+         formik.resetForm();
+         setReloadAddresses(true);
+         setLoading(false);
+         setShowModal(false);
+      }
    };
 
    return (
