@@ -1,8 +1,8 @@
-import { map, size } from 'lodash';
+import { map, set, size } from 'lodash';
 import { useState, useEffect } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import { Grid, Button } from 'semantic-ui-react';
-import { getAddressApi } from '../../../api/address';
+import { getAddressApi, deleteAddressApi } from '../../../api/address';
 
 export default function ListAddress({ reloadAddresses, setReloadAddresses }) {
    const { auth, logout } = useAuth();
@@ -31,7 +31,11 @@ export default function ListAddress({ reloadAddresses, setReloadAddresses }) {
                      tablet={8}
                      computer={4}
                   >
-                     <Address address={address} />
+                     <Address
+                        address={address}
+                        logout={logout}
+                        setReloadAddresses={setReloadAddresses}
+                     />
                   </Grid.Column>
                ))}
             </Grid>
@@ -40,7 +44,16 @@ export default function ListAddress({ reloadAddresses, setReloadAddresses }) {
    );
 }
 
-function Address({ address }) {
+function Address({ address, logout, setReloadAddresses }) {
+   const [loading, setLoading] = useState(false);
+
+   const deleteAddress = async () => {
+      setLoading(true);
+      const response = await deleteAddressApi(address._id, logout);
+      if (response) setReloadAddresses(true);
+      setLoading(false);
+   };
+
    return (
       <div className="address">
          <p>{address.title}</p>
@@ -52,7 +65,9 @@ function Address({ address }) {
          <p>{address.phone}</p>
          <div className="actions">
             <Button primary>Editar</Button>
-            <Button>Eliminar</Button>
+            <Button onClick={deleteAddress} loading={loading}>
+               Eliminar
+            </Button>
          </div>
       </div>
    );
