@@ -12,16 +12,19 @@ export default function ChangePasswordForm({ user, logout }) {
       initialValues: initialValues(),
       validationSchema: Yup.object(validationSchema()),
       onSubmit: async (formData) => {
-         console.log(formData);
-         //  setLoading(true);
-         //  const response = await updatePasswordApi(user.id, formData, logout);
-         //  if (!response) {
-         //     toast.error('Error al actualizar el nombre');
-         //  } else {
-         //     setReloadUser(true);
-         //     toast.success('Nombre actualizado');
-         //  }
-         //  setLoading(false);
+         setLoading(true);
+         const response = await updatePasswordApi(
+            user.id,
+            formData.password,
+            logout
+         );
+         if (!response) {
+            toast.error('Error al actualizar la contraseña');
+         } else {
+            logout();
+            toast.success('Contraseña actualizada');
+         }
+         setLoading(false);
       },
    });
 
