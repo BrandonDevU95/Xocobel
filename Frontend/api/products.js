@@ -1,8 +1,8 @@
 import { BASE_PATH } from '../utils/constants';
 
-export async function getCategoryRetailApi() {
+export async function getProductsApi() {
    try {
-      const url = `${BASE_PATH}/category-retails`;
+      const url = `${BASE_PATH}/products`;
       const response = await fetch(url);
       const result = await response.json();
       return result;

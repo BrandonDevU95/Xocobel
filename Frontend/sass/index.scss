@@ -6,13 +6,15 @@
 
 //Pages
 @import '../pages/account.scss';
+@import '../pages/boutique.scss';
 
 // Components
 @import '../components/Header/Header.scss';
 @import '../components/Header/TopBar/TopBar.scss';
 @import '../components/Header/Menu/Menu.scss';
-@import '../components/Modal/BasicModal/BasicModal.scss';
 @import '../components/Auth/LoginForm/LoginForm.scss';
+@import '../components/ListProducts/ListProducts.scss';
+@import '../components/Modal/BasicModal/BasicModal.scss';
 @import '../components/account/ListAddress/ListAddress.scss';
 @import '../components/account/AddressForm/AddressForm.scss';
 @import '../components/account/ChangeNameForm/ChangeNameForm.scss';
