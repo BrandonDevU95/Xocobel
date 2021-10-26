@@ -5,13 +5,11 @@ import { useState, useEffect } from 'react';
 import { getMeApi } from '../../../api/user';
 import useAuth from '../../../hooks/useAuth';
 import BasicModal from '../../Modal/BasicModal';
-import { getMenusApi } from '../../../api/menu';
 import { Container, Menu, Grid, Icon } from 'semantic-ui-react';
 
 export default function MenuWeb() {
    const { auth, logout } = useAuth();
    const [user, setUser] = useState(undefined);
-   const [menus, setMenus] = useState([]);
    const [showModal, setShowModal] = useState(false);
    const [titleModal, setTitleModal] = useState('Iniciar Sesion');
 
@@ -22,13 +20,6 @@ export default function MenuWeb() {
       })();
    }, [auth]);
 
-   useEffect(() => {
-      (async () => {
-         const response = await getMenusApi();
-         setMenus(response || []);
-      })();
-   }, []);
-
    const onShowModal = () => setShowModal(true);
    const onCloseModal = () => setShowModal(false);
 
@@ -37,7 +28,7 @@ export default function MenuWeb() {
          <Container>
             <Grid>
                <Grid.Column width={6} className="menu__left">
-                  <MenuChocolate menus={menus} />
+                  <MenuChocolate />
                </Grid.Column>
                <Grid.Column width={10} className="menu__right">
                   {user !== undefined && (
@@ -62,16 +53,34 @@ export default function MenuWeb() {
    );
 }
 
-function MenuChocolate({ menus }) {
+function MenuChocolate() {
    return (
       <Menu>
-         {map(menus, (menu) => (
-            <Link key={menu._id} href={`/menu/${menu.url}`}>
-               <Menu.Item as="a" name={menu.url}>
-                  {menu.title}
-               </Menu.Item>
-            </Link>
-         ))}
+         <Link href="/boutique">
+            <Menu.Item as="a" name="boutique">
+               Boutique
+            </Menu.Item>
+         </Link>
+         <Link href="/events">
+            <Menu.Item as="a" name="events">
+               Events
+            </Menu.Item>
+         </Link>
+         <Link href="/gifts">
+            <Menu.Item as="a" name="gifts">
+               Gifts
+            </Menu.Item>
+         </Link>
+         <Link href="/corporate">
+            <Menu.Item as="a" name="corporate">
+               Corporate
+            </Menu.Item>
+         </Link>
+         <Link href="/xocobel">
+            <Menu.Item as="a" name="xocobel">
+               Xocobel
+            </Menu.Item>
+         </Link>
       </Menu>
    );
 }
