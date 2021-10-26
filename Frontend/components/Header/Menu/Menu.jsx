@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Auth from '../../Auth';
-import { map } from 'lodash';
 import { useState, useEffect } from 'react';
 import { getMeApi } from '../../../api/user';
 import useAuth from '../../../hooks/useAuth';
