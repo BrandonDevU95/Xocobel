@@ -24,7 +24,7 @@ export default function MenuWeb() {
 
    return (
       <div className="menu">
-         <Container>
+         <Container fluid className="menu-container">
             <Grid>
                <Grid.Column width={6} className="menu__left">
                   <MenuChocolate />

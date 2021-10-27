@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function TopBar() {
    return (
       <div className="top-bar">
-         <Container>
+         <Container fluid className="top-bar-container">
             <Grid className="top-bar">
                <Grid.Column width={8} className="top-bar__left">
                   <Logo />

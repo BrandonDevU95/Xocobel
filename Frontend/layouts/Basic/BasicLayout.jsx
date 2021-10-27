@@ -9,7 +9,9 @@ export default function Basic({ children, className }) {
          className={classNames('basic-layout', { [className]: className })}
       >
          <Header />
-         <Container className="content">{children}</Container>
+         <Container fluid className="content">
+            {children}
+         </Container>
       </Container>
    );
 }

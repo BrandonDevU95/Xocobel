@@ -2,6 +2,11 @@
    background-color: $background-chocolate;
    border-radius: 0px;
 
+   &-container {
+      padding-left: 10rem;
+      padding-right: 10rem;
+   }
+
    .ui.grid {
       margin: 0px;
    }
