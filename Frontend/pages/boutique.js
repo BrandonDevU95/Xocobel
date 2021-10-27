@@ -32,6 +32,7 @@ export default function boutique() {
 
    return (
       <BasicLayout className="boutique">
+         <CategoryRetail categoryRetail={categoryRetail} />
          {!products && <Loader active>Cargando Productos</Loader>}
          {size(products) > 0 && <ListProducts products={products} />}
          {products && size(products) === 0 && (
@@ -45,7 +46,7 @@ export default function boutique() {
 
 function CategoryRetail({ categoryRetail }) {
    return (
-      <div>
+      <Menu>
          {map(categoryRetail, (category) => (
             <Link href={`/boutique/${category.url}`} key={category._id}>
                <Menu.Item as="a" name={category.url}>
@@ -53,6 +54,6 @@ function CategoryRetail({ categoryRetail }) {
                </Menu.Item>
             </Link>
          ))}
-      </div>
+      </Menu>
    );
 }
