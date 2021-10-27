@@ -1,5 +1,15 @@
 .boutique {
    .content {
-      padding: 20px;
+      padding-top: 20px;
+   }
+
+   &__menu {
+      a {
+         &:hover {
+            background-color: $background-honey !important;
+            color: $font-marmol !important;
+            border-radius: 0 !important;
+         }
+      }
    }
 }

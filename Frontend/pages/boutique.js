@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { size, map } from 'lodash';
 import BasicLayout from '../layouts/Basic';
 import { useEffect, useState } from 'react';
-import { Menu, Loader } from 'semantic-ui-react';
+import { Menu, Loader, Grid } from 'semantic-ui-react';
 import { getProductsApi } from '../api/products';
 import ListProducts from '../components/ListProducts';
 import { getCategoryRetailApi } from '../api/category-retail';
@@ -32,21 +32,27 @@ export default function boutique() {
 
    return (
       <BasicLayout className="boutique">
-         <CategoryRetail categoryRetail={categoryRetail} />
-         {!products && <Loader active>Cargando Productos</Loader>}
-         {size(products) > 0 && <ListProducts products={products} />}
-         {products && size(products) === 0 && (
-            <div>
-               <h3>No hay productos</h3>
-            </div>
-         )}
+         <Grid>
+            <Grid.Column width={3}>
+               <CategoryRetail categoryRetail={categoryRetail} />
+            </Grid.Column>
+            <Grid.Column stretched width={12}>
+               {!products && <Loader active>Cargando Productos</Loader>}
+               {size(products) > 0 && <ListProducts products={products} />}
+               {products && size(products) === 0 && (
+                  <div>
+                     <h3>No hay productos</h3>
+                  </div>
+               )}
+            </Grid.Column>
+         </Grid>
       </BasicLayout>
    );
 }
 
 function CategoryRetail({ categoryRetail }) {
    return (
-      <Menu>
+      <Menu fluid vertical tabular className="boutique__menu">
          {map(categoryRetail, (category) => (
             <Link href={`/boutique/${category.url}`} key={category._id}>
                <Menu.Item as="a" name={category.url}>
