@@ -41,7 +41,7 @@ export default function ListProducts({ products }) {
 function Product({ product }) {
    return (
       <Grid.Column className="list-products__product">
-         <Link href={`/boutique/${product.url}`}>
+         <Link href={`/boutique/${product.category_retail.url}/${product.url}`}>
             <a>
                <div className="list-products__product-poster">
                   <Image

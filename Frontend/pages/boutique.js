@@ -1,18 +1,15 @@
-import Link from 'next/link';
-import { size, map } from 'lodash';
+import { size } from 'lodash';
 import BasicLayout from '../layouts/Basic';
 import { useEffect, useState } from 'react';
-import { Menu, Loader, Grid } from 'semantic-ui-react';
 import { getProductsApi } from '../api/products';
+import { Grid, Loader } from 'semantic-ui-react';
 import ListProducts from '../components/ListProducts';
+import CategoryRetail from '../components/categoryRetail';
 import { getCategoryRetailApi } from '../api/category-retail';
 
 export default function boutique() {
+   const [products, setProducts] = useState(false);
    const [categoryRetail, setCategoryRetail] = useState([]);
-   const [products, setProducts] = useState([]);
-
-   //    console.log(categoryRetail);
-   //    console.log(products);
 
    useEffect(() => {
       (async () => {
@@ -34,32 +31,19 @@ export default function boutique() {
       <BasicLayout className="boutique">
          <Grid>
             <Grid.Column width={3}>
+               <h3>Categorias</h3>
                <CategoryRetail categoryRetail={categoryRetail} />
             </Grid.Column>
             <Grid.Column stretched width={12}>
                {!products && <Loader active>Cargando Productos</Loader>}
-               {size(products) > 0 && <ListProducts products={products} />}
                {products && size(products) === 0 && (
                   <div>
                      <h3>No hay productos</h3>
                   </div>
                )}
+               {size(products) > 0 && <ListProducts products={products} />}
             </Grid.Column>
          </Grid>
       </BasicLayout>
-   );
-}
-
-function CategoryRetail({ categoryRetail }) {
-   return (
-      <Menu fluid vertical tabular className="boutique__menu">
-         {map(categoryRetail, (category) => (
-            <Link href={`/boutique/${category.url}`} key={category._id}>
-               <Menu.Item as="a" name={category.url}>
-                  {category.title}
-               </Menu.Item>
-            </Link>
-         ))}
-      </Menu>
    );
 }
