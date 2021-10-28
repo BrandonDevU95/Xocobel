@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { getProductByUrlApi } from '../api/products';
 import BasicLayout from '../layouts/Basic/BasicLayout';
+import HeaderProduct from '../components/Product/HeaderProduct';
 
 export default function Product() {
    const { query } = useRouter();
@@ -14,9 +15,12 @@ export default function Product() {
       })();
    }, [query]);
 
+   if (!product) return null;
+
    return (
       <BasicLayout className="product">
-         <h1>Estamos en product</h1>
+         <HeaderProduct product={product} />
+         <p>Tabs game</p>
       </BasicLayout>
    );
 }
