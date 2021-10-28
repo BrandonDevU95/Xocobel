@@ -1,0 +1,29 @@
+.carousel-screen {
+   padding: 10px;
+
+   .slick-slide {
+      padding: 5px;
+
+      .ui.image:hover {
+         cursor: pointer !important;
+         opacity: 0.8;
+      }
+   }
+
+   .slick-arrow {
+      z-index: 1;
+
+      &:before {
+         font-size: 50px;
+         color: $font-honey;
+      }
+
+      &.slick-next {
+         right: 30px;
+      }
+
+      &.slick-prev {
+         left: 1px;
+      }
+   }
+}

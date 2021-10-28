@@ -4,6 +4,7 @@ import { getProductByUrlApi } from '../api/products';
 import BasicLayout from '../layouts/Basic/BasicLayout';
 import HeaderProduct from '../components/Product/HeaderProduct';
 import TabsProduct from '../components/Product/TabsProduct/TabsProduct';
+import CarouselScreen from '../components/Product/CarouselScreen/CarouselScreen';
 
 export default function Product() {
    const { query } = useRouter();
@@ -21,6 +22,7 @@ export default function Product() {
    return (
       <BasicLayout className="product">
          <HeaderProduct product={product} />
+         <CarouselScreen title={product.title} screenShots={product.galery} />
          <TabsProduct product={product} />
       </BasicLayout>
    );
