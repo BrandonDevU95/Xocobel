@@ -17,7 +17,14 @@ const limitPerPage = 10;
 export default function CategoryRetailWeb() {
    const { query } = useRouter();
    const [products, setProducts] = useState(null);
+   const [totalProducts, setTotalProducts] = useState(null);
    const [categoryRetail, setCategoryRetail] = useState([]);
+
+   const getStartItem = () => {
+      const currentPages = parseInt(query.page);
+      if (!query.page || currentPages === 1) return 0;
+      else return currentPages * limitPerPage - limitPerPage;
+   };
 
    useEffect(() => {
       (async () => {
@@ -33,7 +40,7 @@ export default function CategoryRetailWeb() {
             const response = await getProductsByCategoryApi(
                query.categoryRetail,
                limitPerPage,
-               0
+               getStartItem()
             );
             setProducts(response);
          }
@@ -45,7 +52,7 @@ export default function CategoryRetailWeb() {
          const response = await getTotalProductsByCategoryApi(
             query.categoryRetail
          );
-         console.log(response);
+         setTotalProducts(response);
       })();
    }, [query]);
 
@@ -64,6 +71,13 @@ export default function CategoryRetailWeb() {
                   </div>
                )}
                {size(products) > 0 && <ListProducts products={products} />}
+               {totalProducts ? (
+                  <Pagination
+                     totalProducts={totalProducts}
+                     page={query.page ? parseInt(query.page) : 1}
+                     limitPerPage={limitPerPage}
+                  />
+               ) : null}
             </Grid.Column>
          </Grid>
       </BasicLayout>
