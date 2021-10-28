@@ -14,7 +14,6 @@ export default function RegisterForm({ showLoginForm }) {
       onSubmit: async (formData) => {
          setLoading(true);
          const response = await registerApi(formData);
-         console.log(response);
          if (response?.jwt) {
             showLoginForm();
             toast.success('Usuario registrado');
