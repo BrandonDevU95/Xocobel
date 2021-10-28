@@ -64,7 +64,7 @@ export default function boutique() {
                   </div>
                )}
                {size(products) > 0 && <ListProducts products={products} />}
-               {totalProducts ? (
+               {size(products) > 0 && totalProducts ? (
                   <Pagination
                      totalProducts={totalProducts}
                      page={query.page ? parseInt(query.page) : 1}
