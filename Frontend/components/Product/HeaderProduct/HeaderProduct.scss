@@ -2,4 +2,111 @@
    &.ui.grid {
       margin: 0;
    }
+
+   &__title {
+      position: relative;
+      background-color: $background-honey;
+      padding: 10px 0;
+      color: $font-marmol;
+      text-align: center;
+      font-weight: bold;
+
+      i.icon {
+         position: absolute;
+         height: 100%;
+         top: 0;
+         right: 9px;
+         display: flex;
+         align-items: center;
+         font-size: 18px;
+         opacity: 1 !important;
+
+         &.like {
+            color: $font-red-wine;
+         }
+      }
+   }
+
+   &__delivery {
+      text-align: center;
+      color: $font-cocoa;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 10px 0;
+   }
+
+   &__description {
+      background-color: $background-grey-marmol;
+      padding: 20px;
+      font-size: 14px;
+   }
+
+   &__buy {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: $background-honey;
+      color: $font-marmol;
+      padding: 15px 20px;
+      margin-top: 15px;
+
+      &-price {
+         display: flex;
+         flex-direction: column;
+
+         > p {
+            text-align: center;
+            color: $font-cocoa;
+            margin: 0;
+         }
+
+         &-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+
+            > p {
+               margin: 0;
+               font-weight: bold;
+
+               &:first-of-type {
+                  font-size: 25px;
+               }
+
+               &:last-of-type {
+                  font-size: 40px;
+                  color: $font-cocoa;
+               }
+            }
+         }
+      }
+
+      &-button.ui.button {
+         position: relative;
+         width: 200px;
+         background-color: $background-cocoa !important;
+         color: $font-marmol !important;
+         font-size: 18px;
+         padding: 19px 0;
+         left: -20px;
+         transition: 0.2s;
+
+         &:hover {
+            left: -10px;
+         }
+
+         &:after {
+            position: absolute;
+            top: 10px;
+            right: -15px;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px 4px 10px 0;
+            -ms-transform: rotate(45deg) skew(15deg, 15deg);
+            transform: rotate(45deg) skew(15deg, 15deg);
+            background-color: $background-cocoa;
+            content: '';
+         }
+      }
+   }
 }
