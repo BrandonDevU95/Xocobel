@@ -5,8 +5,11 @@ import { useState, useEffect } from 'react';
 import ListProducts from '../../components/ListProducts';
 import BasicLayout from '../../layouts/Basic/BasicLayout';
 import CategoryRetail from '../../components/categoryRetail';
-import { getProductsByCategoryApi } from '../../api/products';
 import { getCategoryRetailApi } from '../../api/category-retail';
+import {
+   getProductsByCategoryApi,
+   getTotalProductsByCategoryApi,
+} from '../../api/products';
 
 const limitPerPage = 10;
 
@@ -33,6 +36,15 @@ export default function CategoryRetailWeb() {
             );
             setProducts(response);
          }
+      })();
+   }, [query]);
+
+   useEffect(() => {
+      (async () => {
+         const response = await getTotalProductsByCategoryApi(
+            query.categoryRetail
+         );
+         console.log(response);
       })();
    }, [query]);
 

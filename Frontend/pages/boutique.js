@@ -1,15 +1,29 @@
 import { size } from 'lodash';
+import { useRouter } from 'next/router';
 import BasicLayout from '../layouts/Basic';
 import { useEffect, useState } from 'react';
 import { getProductsApi } from '../api/products';
 import { Grid, Loader } from 'semantic-ui-react';
 import ListProducts from '../components/ListProducts';
 import CategoryRetail from '../components/categoryRetail';
-import { getCategoryRetailApi } from '../api/category-retail';
+import {
+   getCategoryRetailApi,
+   getTotalProductsCategoryApi,
+} from '../api/category-retail';
+
+const limitPerPage = 10;
 
 export default function boutique() {
+   const { query } = useRouter();
    const [products, setProducts] = useState(false);
+   const [totalProducts, setTotalProducts] = useState(null);
    const [categoryRetail, setCategoryRetail] = useState([]);
+
+   const getStartItem = () => {
+      const currentPages = parseInt(query.page);
+      if (!query.page || currentPages === 1) return 0;
+      else return currentPages * limitPerPage - limitPerPage;
+   };
 
    useEffect(() => {
       (async () => {
@@ -26,6 +40,15 @@ export default function boutique() {
          else setProducts([]);
       })();
    }, []);
+
+   useEffect(() => {
+      (async () => {
+         const response = await getTotalProductsCategoryApi();
+         setTotalProducts(response);
+      })();
+   }, []);
+
+   console.log(getStartItem());
 
    return (
       <BasicLayout className="boutique">
