@@ -34,7 +34,7 @@ function Info({ product }) {
          />
          <div className="header-product__buy">
             <div className="header-product__buy-price">
-               <p>Precio de venta: ${product.price}</p>
+               <p>Precio de venta al publico: ${product.price}</p>
                <div className="header-product__buy-price-actions">
                   <p>-{product.discount}%</p>
                   <p>
