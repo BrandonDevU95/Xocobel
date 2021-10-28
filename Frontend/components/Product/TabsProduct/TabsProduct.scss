@@ -4,4 +4,9 @@
    .ui.tab {
       padding: 0;
    }
+
+   &__ingredients,
+   &__nutrition {
+      padding: 15px;
+   }
 }
