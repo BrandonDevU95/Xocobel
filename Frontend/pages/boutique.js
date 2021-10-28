@@ -4,6 +4,7 @@ import BasicLayout from '../layouts/Basic';
 import { useEffect, useState } from 'react';
 import { getProductsApi } from '../api/products';
 import { Grid, Loader } from 'semantic-ui-react';
+import Pagination from '../components/Pagination';
 import ListProducts from '../components/ListProducts';
 import CategoryRetail from '../components/categoryRetail';
 import {
@@ -35,11 +36,11 @@ export default function boutique() {
 
    useEffect(() => {
       (async () => {
-         const response = await getProductsApi();
+         const response = await getProductsApi(limitPerPage, getStartItem());
          if (size(response) > 0) setProducts(response);
          else setProducts([]);
       })();
-   }, []);
+   }, [query]);
 
    useEffect(() => {
       (async () => {
@@ -47,8 +48,6 @@ export default function boutique() {
          setTotalProducts(response);
       })();
    }, []);
-
-   console.log(getStartItem());
 
    return (
       <BasicLayout className="boutique">
@@ -65,6 +64,13 @@ export default function boutique() {
                   </div>
                )}
                {size(products) > 0 && <ListProducts products={products} />}
+               {totalProducts ? (
+                  <Pagination
+                     totalProducts={totalProducts}
+                     page={query.page ? parseInt(query.page) : 1}
+                     limitPerPage={limitPerPage}
+                  />
+               ) : null}
             </Grid.Column>
          </Grid>
       </BasicLayout>

@@ -1,7 +1,8 @@
 import { size } from 'lodash';
 import { useRouter } from 'next/router';
-import { Loader, Grid } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
+import { Loader, Grid } from 'semantic-ui-react';
+import Pagination from '../../components/Pagination';
 import ListProducts from '../../components/ListProducts';
 import BasicLayout from '../../layouts/Basic/BasicLayout';
 import CategoryRetail from '../../components/categoryRetail';

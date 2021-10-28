@@ -1,8 +1,11 @@
 import { BASE_PATH } from '../utils/constants';
 
-export async function getProductsApi() {
+export async function getProductsApi(limit, start) {
    try {
-      const url = `${BASE_PATH}/products`;
+      const limitItems = `_limit=${limit}`;
+      const sortItems = `_sort=createdAt:desc`;
+      const startItems = `_start=${start}`;
+      const url = `${BASE_PATH}/products?${limitItems}&${sortItems}&${startItems}`;
       const response = await fetch(url);
       const result = await response.json();
       return result;
