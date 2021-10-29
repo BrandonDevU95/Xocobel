@@ -2,7 +2,7 @@ import { size } from 'lodash';
 import useAuth from '../../../hooks/useAuth';
 import classNames from 'classnames';
 import { useState, useEffect } from 'react';
-import { isFavoriteApi } from '../../../api/favorite';
+import { isFavoriteApi, addFavoriteApi } from '../../../api/favorite';
 import { BASE_PATH } from '../../../utils/constants';
 import { Grid, Image, Icon, Button } from 'semantic-ui-react';
 
@@ -26,6 +26,7 @@ export default function HeaderProduct({ product }) {
 function Info({ product }) {
    const { auth, logout } = useAuth();
    const [isFavorite, setIsFavorite] = useState(false);
+   const [reloadFavorite, setReloadFavorite] = useState(false);
 
    useEffect(() => {
       (async () => {
@@ -33,10 +34,15 @@ function Info({ product }) {
          if (size(response) > 0) setIsFavorite(true);
          else setIsFavorite(false);
       })();
-   }, [product]);
+      setReloadFavorite(false);
+   }, [product, reloadFavorite]);
 
-   const addFavorite = () => {
-      console.log('añadir');
+   const addFavorite = async () => {
+      if (auth) {
+         //Bloquear icno hasta que se complete la peticion
+         await addFavoriteApi(auth.idUser, product.id, logout);
+         setReloadFavorite(true);
+      }
    };
 
    const removeFavorite = () => {
