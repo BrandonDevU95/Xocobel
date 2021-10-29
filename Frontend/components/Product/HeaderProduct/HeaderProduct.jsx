@@ -1,5 +1,8 @@
 import { size } from 'lodash';
+import useAuth from '../../../hooks/useAuth';
+import classNames from 'classnames';
 import { useState, useEffect } from 'react';
+import { isFavoriteApi } from '../../../api/favorite';
 import { BASE_PATH } from '../../../utils/constants';
 import { Grid, Image, Icon, Button } from 'semantic-ui-react';
 
@@ -21,11 +24,37 @@ export default function HeaderProduct({ product }) {
 }
 
 function Info({ product }) {
+   const { auth, logout } = useAuth();
+   const [isFavorite, setIsFavorite] = useState(false);
+
+   useEffect(() => {
+      (async () => {
+         const response = await isFavoriteApi(auth.idUser, product.id, logout);
+         if (size(response) > 0) setIsFavorite(true);
+         else setIsFavorite(false);
+      })();
+   }, [product]);
+
+   const addFavorite = () => {
+      console.log('añadir');
+   };
+
+   const removeFavorite = () => {
+      console.log('quitar');
+   };
+
    return (
       <>
          <div className="header-product__title">
             {product.title}
-            <Icon name="heart" className="like" link />
+            <Icon
+               name={isFavorite ? 'heart' : 'heart outline'}
+               className={classNames({
+                  like: isFavorite,
+               })}
+               link
+               onClick={isFavorite ? removeFavorite : addFavorite}
+            />
          </div>
          <div className="header-product__delivery">Entrega en 24/48 horas</div>
          <div
