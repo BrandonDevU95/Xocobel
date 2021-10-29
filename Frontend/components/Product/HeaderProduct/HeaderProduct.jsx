@@ -1,10 +1,14 @@
 import { size } from 'lodash';
-import useAuth from '../../../hooks/useAuth';
 import classNames from 'classnames';
 import { useState, useEffect } from 'react';
-import { isFavoriteApi, addFavoriteApi } from '../../../api/favorite';
+import useAuth from '../../../hooks/useAuth';
 import { BASE_PATH } from '../../../utils/constants';
 import { Grid, Image, Icon, Button } from 'semantic-ui-react';
+import {
+   isFavoriteApi,
+   addFavoriteApi,
+   deleteFavoriteApi,
+} from '../../../api/favorite';
 
 export default function HeaderProduct({ product }) {
    return (
@@ -45,8 +49,12 @@ function Info({ product }) {
       }
    };
 
-   const removeFavorite = () => {
-      console.log('quitar');
+   const removeFavorite = async () => {
+      if (auth) {
+         //Bloquear icno hasta que se complete la peticion
+         await deleteFavoriteApi(auth.idUser, product.id, logout);
+         setReloadFavorite(true);
+      }
    };
 
    return (

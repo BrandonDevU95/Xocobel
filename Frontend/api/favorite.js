@@ -34,3 +34,25 @@ export async function addFavoriteApi(idUser, idProduct, logout) {
       return null;
    }
 }
+
+export async function deleteFavoriteApi(idUser, idProduct, logout) {
+   try {
+      const dataFound = await isFavoriteApi(idUser, idProduct, logout);
+      if (size(dataFound) > 0 || !dataFound) {
+         const url = `${BASE_PATH}/favorites/${dataFound[0]?._id}`;
+         const params = {
+            method: 'DELETE',
+            headers: {
+               'Content-Type': 'application/json',
+            },
+         };
+         const result = await authFetch(url, params, logout);
+         return result;
+      } else {
+         return 'Este producto no esta en lista de favoritos';
+      }
+   } catch (error) {
+      console.log(error);
+      return null;
+   }
+}
