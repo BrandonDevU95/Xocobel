@@ -82,8 +82,10 @@ function Info({ product }) {
                   <p>-{product.discount}%</p>
                   <p>
                      $
-                     {product.price -
-                        Math.floor(product.price * product.discount) / 100}
+                     {(
+                        product.price -
+                        Math.floor(product.price * product.discount) / 100
+                     ).toFixed(2)}
                   </p>
                </div>
             </div>
