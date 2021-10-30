@@ -1,8 +1,10 @@
 import { size } from 'lodash';
 import { useRouter } from 'next/router';
+import { Loader } from 'semantic-ui-react';
 import BasicLayout from '../layouts/Basic';
 import { useState, useEffect } from 'react';
 import { searcgProductsApi } from '../api/products';
+import ListProducts from '../components/ListProducts';
 
 export default function search() {
    const [products, setProducts] = useState(null);
@@ -26,7 +28,15 @@ export default function search() {
 
    return (
       <BasicLayout className="search">
-         <h1>Search</h1>
+         {!products && <Loader active>Buscando productos</Loader>}
+         {products && size(products) === 0 && (
+            <div className="no-results">
+               <h3>No se encontraron resultados</h3>
+            </div>
+         )}
+         {size(products) > 0 && <ListProducts products={products} />}
+         {/* TODO: agregar componente de paginacion  */}
+         {/* TODO: Buscar como reparar los espacios en las busquedas */}
       </BasicLayout>
    );
 }
