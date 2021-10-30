@@ -16,11 +16,11 @@ module.exports = {
     products.forEach((product) => {
       totalPayment += product.price;
     });
-    const charge = await stripe.charge.create({
+    const charge = await stripe.charges.create({
       amount: totalPayment * 100,
       currency: "mxn",
-      description: `ID Usuario: ${idUser}`,
       source: token.id,
+      description: `ID Usuario: ${idUser}`,
     });
 
     const createOrder = [];
@@ -33,7 +33,7 @@ module.exports = {
         addressShipping,
       };
       const validData = await strapi.entityValidator.validateEntity(
-        strapi.model.order,
+        strapi.models.order,
         data
       );
       const entry = await strapi.query("order").create(validData);
