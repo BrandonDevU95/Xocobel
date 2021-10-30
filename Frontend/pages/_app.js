@@ -5,7 +5,11 @@ import AuthContext from '../context/AuthContext';
 import { useMemo, useState, useEffect } from 'react';
 import { setToken, getToken, removeToken } from '../api/token';
 import CartContext from '../context/CartContext';
-import { getProductsCart, addProductCart } from '../api/cart';
+import {
+   getProductsCart,
+   addProductCart,
+   countProductsCart,
+} from '../api/cart';
 
 // Styles
 import '../sass/global.scss';
@@ -17,7 +21,9 @@ import 'slick-carousel/slick/slick-theme.css';
 export default function MyApp({ Component, pageProps }) {
    const router = useRouter();
    const [auth, setAuth] = useState(undefined);
+   const [reloadCart, setReloadCart] = useState(false);
    const [reloadUser, setReloadUser] = useState(false);
+   const [totalProductsCart, setTotalProductsCart] = useState(0);
 
    useEffect(() => {
       const token = getToken();
@@ -31,6 +37,11 @@ export default function MyApp({ Component, pageProps }) {
          setAuth(null);
       }
    }, [reloadUser]);
+
+   useEffect(() => {
+      setTotalProductsCart(countProductsCart());
+      setReloadCart(false);
+   }, [reloadCart, auth]);
 
    const login = (token) => {
       setToken(token);
@@ -62,6 +73,7 @@ export default function MyApp({ Component, pageProps }) {
       const token = getToken();
       if (token) {
          addProductCart(product);
+         setReloadCart(true);
       } else {
          toast.warning('Debe iniciar sesión para agregar productos al carrito');
       }
@@ -69,13 +81,13 @@ export default function MyApp({ Component, pageProps }) {
 
    const cartData = useMemo(
       () => ({
-         productsCart: 0,
+         productsCart: totalProductsCart,
          addProductCart: (product) => addProduct(product),
          getProductsCart,
          removeProductCart: () => null,
          clearProductsCart: () => null,
       }),
-      []
+      [totalProductsCart]
    );
 
    if (auth === undefined) return null;

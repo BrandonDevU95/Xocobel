@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Auth from '../../Auth';
 import { useState, useEffect } from 'react';
 import { getMeApi } from '../../../api/user';
+import useCart from '../../../hooks/useCart';
 import useAuth from '../../../hooks/useAuth';
 import BasicModal from '../../Modal/BasicModal';
-import { Container, Menu, Grid, Icon } from 'semantic-ui-react';
+import { Container, Menu, Grid, Icon, Label } from 'semantic-ui-react';
 
 export default function MenuWeb() {
    const { auth, logout } = useAuth();
@@ -85,6 +86,8 @@ function MenuChocolate() {
 }
 
 function MenuOptions({ onShowModal, user, logout }) {
+   const { productsCart } = useCart();
+
    return (
       <Menu>
          {user ? (
@@ -110,6 +113,9 @@ function MenuOptions({ onShowModal, user, logout }) {
                <Link href="/cart">
                   <Menu.Item as="a">
                      <Icon name="cart" />
+                     <Label color="red" floating circular>
+                        {productsCart}
+                     </Label>
                      Shop
                   </Menu.Item>
                </Link>
