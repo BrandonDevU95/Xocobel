@@ -113,9 +113,11 @@ function MenuOptions({ onShowModal, user, logout }) {
                <Link href="/cart">
                   <Menu.Item as="a">
                      <Icon name="cart" />
-                     <Label color="red" floating circular>
-                        {productsCart}
-                     </Label>
+                     {productsCart > 0 && (
+                        <Label color="red" floating circular>
+                           {productsCart}
+                        </Label>
+                     )}
                      Shop
                   </Menu.Item>
                </Link>
