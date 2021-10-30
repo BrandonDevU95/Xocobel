@@ -9,6 +9,7 @@ import {
    getProductsCart,
    addProductCart,
    countProductsCart,
+   removeProductCart,
 } from '../api/cart';
 
 // Styles
@@ -79,12 +80,17 @@ export default function MyApp({ Component, pageProps }) {
       }
    };
 
+   const removeProduct = (product) => {
+      removeProductCart(product);
+      setReloadCart(true);
+   };
+
    const cartData = useMemo(
       () => ({
          productsCart: totalProductsCart,
          addProductCart: (product) => addProduct(product),
-         getProductsCart: getProductsCart,
-         removeProductCart: () => null,
+         getProductsCart,
+         removeProductCart: (product) => removeProduct(product),
          clearProductsCart: () => null,
       }),
       [totalProductsCart]

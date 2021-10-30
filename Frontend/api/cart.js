@@ -40,3 +40,14 @@ export function countProductsCart() {
       return size(cart);
    }
 }
+
+export function removeProductCart(product) {
+   const cart = getProductsCart();
+   if (cart) {
+      remove(cart, (item) => {
+         return item === product;
+      });
+      if (size(cart) > 0) localStorage.setItem(CART, cart);
+      else localStorage.removeItem(CART);
+   }
+}

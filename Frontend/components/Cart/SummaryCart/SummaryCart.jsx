@@ -4,7 +4,8 @@ import { Table, Image, Icon, Tab } from 'semantic-ui-react';
 import { BASE_PATH } from '../../../utils/constants';
 import useCart from '../../../hooks/useCart';
 
-export default function SummaryCart({ products }) {
+export default function SummaryCart({ products, reloadCart, setReloadCart }) {
+   const { removeProductCart } = useCart();
    const [totalPrice, setTotalPrice] = useState(0);
 
    useEffect(() => {
@@ -13,7 +14,12 @@ export default function SummaryCart({ products }) {
          price += product.price;
       });
       setTotalPrice(price);
-   }, []);
+   }, [reloadCart, products]);
+
+   const removeProduct = (product) => {
+      removeProductCart(product);
+      setReloadCart(true);
+   };
 
    return (
       <div className="summary-cart">
@@ -38,7 +44,7 @@ export default function SummaryCart({ products }) {
                            <Icon
                               name="close"
                               link
-                              onClick={() => console.log('Borrar')}
+                              onClick={() => removeProduct(product.url)}
                            />
                            <Image
                               src={`${BASE_PATH}${product.poster.url}`}
