@@ -27,8 +27,6 @@ function FullCart({ products }) {
    const [reloadCart, setReloadCart] = useState(false);
    const [productsData, setProductsData] = useState(null);
 
-   console.log(address);
-
    useEffect(() => {
       (async () => {
          const productsTemp = [];
