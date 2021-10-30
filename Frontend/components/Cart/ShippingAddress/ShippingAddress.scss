@@ -19,5 +19,15 @@
       &:hover {
          cursor: pointer;
       }
+
+      &.active {
+         color: $font-white;
+         background-color: $background-honey;
+         border-color: $border-red-wine;
+
+         p {
+            border-color: $border-white;
+         }
+      }
    }
 }

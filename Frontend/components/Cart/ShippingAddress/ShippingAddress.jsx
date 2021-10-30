@@ -6,9 +6,10 @@ import useAuth from '../../../hooks/useAuth';
 import { Grid, Button } from 'semantic-ui-react';
 import { getAddressApi } from '../../../api/address';
 
-export default function ShippingAddress() {
+export default function ShippingAddress({ setAddress }) {
    const { auth, logout } = useAuth();
    const [addresses, setAddresses] = useState(null);
+   const [addressActive, setAddressActive] = useState(null);
 
    useEffect(() => {
       (async () => {
@@ -37,7 +38,12 @@ export default function ShippingAddress() {
                         tablet={8}
                         computer={4}
                      >
-                        <Address address={address} />
+                        <Address
+                           address={address}
+                           addressActive={addressActive}
+                           setAddressActive={setAddressActive}
+                           setAddress={setAddress}
+                        />
                      </Grid.Column>
                   ))}
                </Grid>
@@ -47,9 +53,19 @@ export default function ShippingAddress() {
    );
 }
 
-function Address({ address }) {
+function Address({ address, addressActive, setAddressActive, setAddress }) {
+   const changeAddress = (address) => {
+      setAddressActive(address._id);
+      setAddress(address);
+   };
+
    return (
-      <div className="address">
+      <div
+         className={classNames('address', {
+            active: addressActive === address._id,
+         })}
+         onClick={() => changeAddress(address)}
+      >
          <p>{address.title}</p>
          <p>{address.name}</p>
          <p>{address.address}</p>
