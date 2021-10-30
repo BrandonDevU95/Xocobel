@@ -83,7 +83,7 @@ export default function MyApp({ Component, pageProps }) {
       () => ({
          productsCart: totalProductsCart,
          addProductCart: (product) => addProduct(product),
-         getProductsCart,
+         getProductsCart: getProductsCart,
          removeProductCart: () => null,
          clearProductsCart: () => null,
       }),

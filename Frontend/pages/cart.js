@@ -1,7 +1,8 @@
 import useCart from '../hooks/useCart';
-import { useState, useEffect } from 'react';
 import BasicLayout from '../layouts/Basic';
+import { useState, useEffect } from 'react';
 import { getProductByUrlApi } from '../api/products';
+import SummaryCart from '../components/Cart/SummaryCart';
 
 export default function cart() {
    const { getProductsCart } = useCart();
@@ -21,7 +22,6 @@ function EmptyCart() {
 
 function FullCart({ products }) {
    const [productsData, setProductsData] = useState(null);
-   console.log(productsData);
 
    useEffect(() => {
       (async () => {
@@ -36,7 +36,7 @@ function FullCart({ products }) {
 
    return (
       <BasicLayout className="cart-full">
-         <h1>Carrito</h1>
+         <SummaryCart products={productsData} />
       </BasicLayout>
    );
 }
