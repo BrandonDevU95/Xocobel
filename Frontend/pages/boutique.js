@@ -54,6 +54,7 @@ export default function boutique() {
          <Grid>
             <Grid.Column width={3}>
                <h3>Categorias</h3>
+               {/* TODO: Refrescar solo fila de la derecha para todas las paginas*/}
                <CategoryRetail categoryRetail={categoryRetail} />
             </Grid.Column>
             <Grid.Column stretched width={12}>

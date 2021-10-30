@@ -43,7 +43,7 @@ function Info({ product }) {
 
    const addFavorite = async () => {
       if (auth) {
-         //Bloquear icno hasta que se complete la peticion
+         //TODO: Bloquear icno hasta que se complete la peticion
          await addFavoriteApi(auth.idUser, product.id, logout);
          setReloadFavorite(true);
       }
@@ -51,7 +51,7 @@ function Info({ product }) {
 
    const removeFavorite = async () => {
       if (auth) {
-         //Bloquear icno hasta que se complete la peticion
+         //TODO: Bloquear icno hasta que se complete la peticion
          await deleteFavoriteApi(auth.idUser, product.id, logout);
          setReloadFavorite(true);
       }

@@ -95,7 +95,7 @@ function MenuOptions({ onShowModal, user, logout }) {
                      Orders
                   </Menu.Item>
                </Link>
-               <Link href="/whishlist">
+               <Link href="/wishlist">
                   <Menu.Item as="a">
                      <Icon name="heart" />
                      Wishlist
