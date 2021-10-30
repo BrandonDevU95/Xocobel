@@ -3,6 +3,7 @@ import BasicLayout from '../layouts/Basic';
 import { useState, useEffect } from 'react';
 import { getProductByUrlApi } from '../api/products';
 import SummaryCart from '../components/Cart/SummaryCart';
+import ShippingAddress from '../components/Cart/ShippingAddress';
 
 export default function cart() {
    const { getProductsCart } = useCart();
@@ -43,6 +44,7 @@ function FullCart({ products }) {
             reloadCart={reloadCart}
             setReloadCart={setReloadCart}
          />
+         <ShippingAddress />
       </BasicLayout>
    );
 }
