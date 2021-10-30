@@ -79,3 +79,7 @@ export async function paymentCartApi(token, products, idUser, address, logout) {
       return error;
    }
 }
+
+export function removeAllProductsCart() {
+   localStorage.removeItem(CART);
+}

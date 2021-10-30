@@ -10,6 +10,7 @@ import {
    addProductCart,
    countProductsCart,
    removeProductCart,
+   removeAllProductsCart,
 } from '../api/cart';
 
 // Styles
@@ -85,13 +86,19 @@ export default function MyApp({ Component, pageProps }) {
       setReloadCart(true);
    };
 
+   const clearProductsCart = () => {
+      // FIXME: Reparar la alerta de componente desmontado del carrito
+      removeAllProductsCart();
+      setReloadCart(true);
+   };
+
    const cartData = useMemo(
       () => ({
          productsCart: totalProductsCart,
          addProductCart: (product) => addProduct(product),
          getProductsCart,
          removeProductCart: (product) => removeProduct(product),
-         clearProductsCart: () => null,
+         clearProductsCart,
       }),
       [totalProductsCart]
    );
