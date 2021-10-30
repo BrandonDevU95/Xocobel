@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { getProductByUrlApi } from '../api/products';
 import SummaryCart from '../components/Cart/SummaryCart';
 import ShippingAddress from '../components/Cart/ShippingAddress';
+import Payment from '../components/Cart/Payment';
 
 export default function cart() {
    const { getProductsCart } = useCart();
@@ -48,6 +49,7 @@ function FullCart({ products }) {
             setReloadCart={setReloadCart}
          />
          <ShippingAddress setAddress={setAddress} />
+         {address && <Payment products={productsData} address={address} />}
       </BasicLayout>
    );
 }
