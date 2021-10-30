@@ -4,6 +4,9 @@ import { ToastContainer } from 'react-toastify';
 import AuthContext from '../context/AuthContext';
 import { useMemo, useState, useEffect } from 'react';
 import { setToken, getToken, removeToken } from '../api/token';
+import CartContext from '../context/CartContext';
+import { getProductsCart } from '../api/cart';
+
 // Styles
 import '../sass/global.scss';
 import 'semantic-ui-css/semantic.min.css';
@@ -55,22 +58,35 @@ export default function MyApp({ Component, pageProps }) {
       [auth]
    );
 
+   const cartData = useMemo(
+      () => ({
+         productsCart: 0,
+         addProductCart: () => null,
+         getProductsCart,
+         removeProductCart: () => null,
+         clearProductsCart: () => null,
+      }),
+      []
+   );
+
    if (auth === undefined) return null;
 
    return (
       <AuthContext.Provider value={authData}>
-         <Component {...pageProps} />
-         <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar
-            newestOnTop
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss={false}
-            draggable
-            pauseOnHover
-         />
+         <CartContext.Provider value={cartData}>
+            <Component {...pageProps} />
+            <ToastContainer
+               position="top-right"
+               autoClose={5000}
+               hideProgressBar
+               newestOnTop
+               closeOnClick
+               rtl={false}
+               pauseOnFocusLoss={false}
+               draggable
+               pauseOnHover
+            />
+         </CartContext.Provider>
       </AuthContext.Provider>
    );
 }
