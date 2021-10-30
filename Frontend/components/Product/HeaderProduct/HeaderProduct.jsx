@@ -1,6 +1,7 @@
 import { size } from 'lodash';
 import classNames from 'classnames';
 import { useState, useEffect } from 'react';
+import useCart from '../../../hooks/useCart';
 import useAuth from '../../../hooks/useAuth';
 import { BASE_PATH } from '../../../utils/constants';
 import { Grid, Image, Icon, Button } from 'semantic-ui-react';
@@ -29,6 +30,7 @@ export default function HeaderProduct({ product }) {
 
 function Info({ product }) {
    const { auth, logout } = useAuth();
+   const { addProductCart } = useCart();
    const [isFavorite, setIsFavorite] = useState(false);
    const [reloadFavorite, setReloadFavorite] = useState(false);
 
@@ -89,7 +91,12 @@ function Info({ product }) {
                   </p>
                </div>
             </div>
-            <Button className="header-product__buy-button">Comprar</Button>
+            <Button
+               className="header-product__buy-button"
+               onClick={() => addProductCart(product.url)}
+            >
+               Comprar
+            </Button>
          </div>
       </>
    );

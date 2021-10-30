@@ -1,11 +1,11 @@
 import jwtDecode from 'jwt-decode';
 import { useRouter } from 'next/router';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import AuthContext from '../context/AuthContext';
 import { useMemo, useState, useEffect } from 'react';
 import { setToken, getToken, removeToken } from '../api/token';
 import CartContext from '../context/CartContext';
-import { getProductsCart } from '../api/cart';
+import { getProductsCart, addProductCart } from '../api/cart';
 
 // Styles
 import '../sass/global.scss';
@@ -58,10 +58,19 @@ export default function MyApp({ Component, pageProps }) {
       [auth]
    );
 
+   const addProduct = (product) => {
+      const token = getToken();
+      if (token) {
+         addProductCart(product);
+      } else {
+         toast.warning('Debe iniciar sesión para agregar productos al carrito');
+      }
+   };
+
    const cartData = useMemo(
       () => ({
          productsCart: 0,
-         addProductCart: () => null,
+         addProductCart: (product) => addProduct(product),
          getProductsCart,
          removeProductCart: () => null,
          clearProductsCart: () => null,
