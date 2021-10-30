@@ -1,10 +1,15 @@
 import React from 'react';
 import BasicLayout from '../layouts/Basic';
 
-export default function orders() {
+export default function Orders() {
    return (
-      <BasicLayout>
-         <h1>Ordenes</h1>
+      <BasicLayout className="orders">
+         <div className="orders__block">
+            <div className="title">Mis pedidos</div>
+            <div className="data">
+               <p>Lista de pedidos</p>
+            </div>
+         </div>
       </BasicLayout>
    );
 }
