@@ -11,9 +11,11 @@ export default function Order({
       product: { title, poster, url },
       totalPayment,
       createdAt,
-      addressShiping,
+      addressShipping,
    },
 }) {
+   const [showModal, setShowModal] = useState(false);
+
    return (
       <>
          <div className="order">
@@ -38,11 +40,38 @@ export default function Order({
                      name="eye"
                      circular
                      link
-                     onClick={() => console.log('Info')}
+                     onClick={() => setShowModal(true)}
                   />
                </div>
             </div>
          </div>
+         <AddressModal
+            showModal={showModal}
+            setShowModal={setShowModal}
+            addressShipping={addressShipping}
+            title={title}
+         />
       </>
+   );
+}
+
+function AddressModal({ showModal, setShowModal, addressShipping, title }) {
+   return (
+      <BasicModal
+         show={showModal}
+         setShow={setShowModal}
+         size="tiny"
+         title={title}
+      >
+         <h3>Datos de envio</h3>
+         <p>{addressShipping.title}</p>
+         <p>{addressShipping.name}</p>
+         <p>{addressShipping.address}</p>
+         <p>
+            {addressShipping.state}, {addressShipping.city}{' '}
+            {addressShipping.postalCode}
+         </p>
+         <p>{addressShipping.phone}</p>
+      </BasicModal>
    );
 }
