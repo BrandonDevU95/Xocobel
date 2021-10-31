@@ -1,3 +1,4 @@
+import Seo from '../components/Seo';
 import { getMeApi } from '../api/user';
 import useAuth from '../hooks/useAuth';
 import { useRouter } from 'next/router';
@@ -31,6 +32,7 @@ export default function account() {
 
    return (
       <BasicLayout className="account">
+         <Seo title={`MI CUENTA | ${user.name} ${user.lastname}`} />
          <Configuration
             user={user}
             logout={logout}

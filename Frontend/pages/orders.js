@@ -5,6 +5,7 @@ import { getOrdersApi } from '../api/order';
 import { map, size } from 'lodash';
 import Order from '../components/Orders/Order';
 import BasicLayout from '../layouts/Basic';
+import Seo from '../components/Seo';
 
 export default function Orders() {
    const { auth, logout } = useAuth();
@@ -19,6 +20,7 @@ export default function Orders() {
 
    return (
       <BasicLayout className="orders">
+         <Seo title="Mis pedidos" />
          <div className="orders__block">
             <div className="title">Mis pedidos</div>
             <div className="data">

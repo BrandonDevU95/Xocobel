@@ -1,5 +1,6 @@
 import { size } from 'lodash';
 import { useRouter } from 'next/router';
+import Seo from '../components/Seo';
 import BasicLayout from '../layouts/Basic';
 import { useEffect, useState } from 'react';
 import { getProductsApi } from '../api/products';
@@ -51,6 +52,7 @@ export default function boutique() {
 
    return (
       <BasicLayout className="boutique">
+         <Seo title="BOUTIQUE | LO MEJOR EN CHOCOLATES" />
          <Grid>
             <Grid.Column width={3}>
                <h3>Categorias</h3>

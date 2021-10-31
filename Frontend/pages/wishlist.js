@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { getFavoriteApi } from '../api/favorite';
 import ListProducts from '../components/ListProducts';
 import { Loader } from 'semantic-ui-react';
+import Seo from '../components/Seo';
 
 export default function wishlist() {
    const { auth, logout } = useAuth();
@@ -16,7 +17,6 @@ export default function wishlist() {
          if (size(response) > 0) {
             const productsList = [];
             forEach(response, (data) => {
-               console.log(data);
                productsList.push(data.product);
             });
             setProducts(productsList);
@@ -28,6 +28,11 @@ export default function wishlist() {
 
    return (
       <BasicLayout className="wishlist">
+         <Seo
+            title={`WISHLIST | LISTA: ${
+               products !== null ? products?.length : 0
+            }`}
+         />
          <div className="wishlist__block">
             <div className="title">Lista de deseos</div>
             <div className="data">

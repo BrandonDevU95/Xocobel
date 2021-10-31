@@ -5,6 +5,7 @@ import { getProductByUrlApi } from '../api/products';
 import SummaryCart from '../components/Cart/SummaryCart';
 import ShippingAddress from '../components/Cart/ShippingAddress';
 import Payment from '../components/Cart/Payment';
+import Seo from '../components/Seo';
 
 export default function cart() {
    const { getProductsCart } = useCart();
@@ -16,6 +17,7 @@ export default function cart() {
 function EmptyCart() {
    return (
       <BasicLayout className="cart-empty">
+         <Seo title="XOCOBEL | MIS COMPRAS" />
          <h1>Tu carrito está vacío</h1>
          <p>Añade productos al carrito para poder comprarlos</p>
       </BasicLayout>
@@ -41,6 +43,11 @@ function FullCart({ products }) {
 
    return (
       <BasicLayout className="cart-full">
+         <Seo
+            title={`XOCOBEL | MI CARRITO: ${
+               products !== null || products ? products?.length : 0
+            }`}
+         />
          <SummaryCart
             products={productsData}
             reloadCart={reloadCart}

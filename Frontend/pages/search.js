@@ -5,6 +5,7 @@ import BasicLayout from '../layouts/Basic';
 import { useState, useEffect } from 'react';
 import { searcgProductsApi } from '../api/products';
 import ListProducts from '../components/ListProducts';
+import Seo from '../components/Seo';
 
 export default function search() {
    const [products, setProducts] = useState(null);
@@ -28,6 +29,7 @@ export default function search() {
 
    return (
       <BasicLayout className="search">
+         <Seo title={`PRODUCTOS | BUSCANDO: ${query.query.toUpperCase()}`} />
          {!products && <Loader active>Buscando productos</Loader>}
          {products && size(products) === 0 && (
             <div className="no-results">
