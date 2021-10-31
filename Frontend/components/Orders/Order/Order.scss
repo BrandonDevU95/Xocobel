@@ -21,5 +21,41 @@
             margin-right: 20px;
          }
       }
+
+      &-data {
+         display: flex;
+         flex-direction: row;
+         justify-content: flex-start;
+
+         > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h2 {
+               font-size: 14px;
+               margin-bottom: 5px;
+            }
+         }
+      }
+
+      &-other {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: flex-end;
+         align-items: center;
+         padding-right: 10px;
+
+         &-date {
+            margin: 0 20px 0 0;
+            margin-right: auto;
+            width: 125px;
+
+            i {
+               padding-left: 20px;
+               color: $font-honey;
+            }
+         }
+      }
    }
 }
