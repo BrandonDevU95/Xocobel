@@ -1,0 +1,44 @@
+.about {
+   padding: 0 10rem;
+   background-color: $background-grey-marmol;
+
+   &-container {
+      padding: 5rem 0;
+
+      &-description {
+         display: flex !important;
+         flex-direction: column;
+
+         h2 {
+            font-family: 'Pacific Beach', Helvetica, sans-serif;
+            font-size: 3rem;
+            color: $font-chocolate;
+         }
+
+         p {
+            font-family: 'Source Sans Pro', Helvetica, sans-serif;
+            font-size: 1.2rem;
+            color: $font-chocolate;
+            padding-top: 2rem;
+            padding-bottom: 5rem;
+            text-align: justify;
+         }
+
+         .ui.basic.button {
+            margin-top: auto;
+            margin-right: auto;
+            font-family: 'Source Sans Pro', Helvetica, sans-serif;
+            color: $font-honey !important;
+            border: 1px solid $border-honey !important;
+            font-size: 18px;
+            padding-left: 4rem;
+            padding-right: 4rem;
+
+            &:hover {
+               background-color: $background-honey !important;
+               color: $font-marmol !important;
+            }
+         }
+      }
+   }
+}
