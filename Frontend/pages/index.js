@@ -3,6 +3,7 @@ import MainBanner from '../components/Home/MainBanner';
 import BasicLayout from '../layouts/Basic/BasicLayout';
 import PopularProducts from '../components/Home/PopularProducts/PopularProducts.jsx';
 import About from '../components/Home/About/About.jsx';
+import Ingredients from '../components/Home/Ingredients/Ingredients.jsx';
 
 export default function Home() {
    return (
@@ -11,6 +12,7 @@ export default function Home() {
          <MainBanner />
          <PopularProducts />
          <About />
+         <Ingredients />
       </BasicLayout>
    );
 }
