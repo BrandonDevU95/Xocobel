@@ -18,10 +18,10 @@ export default function MainBanner() {
                   </p>
                   <div className="actions">
                      <Button type="button" primary>
-                        More
+                        MORE
                      </Button>
                      <Button type="button" basic>
-                        Shop Now
+                        SHOP NOW
                      </Button>
                   </div>
                </Grid.Column>

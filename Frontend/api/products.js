@@ -65,3 +65,18 @@ export async function searcgProductsApi(search) {
       return null;
    }
 }
+
+export async function getPopularProductsApi() {
+   try {
+      const popular = 'popular=true';
+      const limitItems = `_limit=4`;
+      const sortItems = `_sort=createdAt:desc`;
+      const url = `${BASE_PATH}/products?${popular}&${limitItems}&${sortItems}`;
+      const response = await fetch(url);
+      const result = await response.json();
+      return result;
+   } catch (error) {
+      console.log(error);
+      return null;
+   }
+}

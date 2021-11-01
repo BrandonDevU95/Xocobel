@@ -58,6 +58,9 @@
     },
     "stock": {
       "type": "integer"
+    },
+    "popular": {
+      "type": "boolean"
     }
   }
 }

@@ -43,6 +43,10 @@
                   padding-left: 4rem;
                   padding-right: 4rem;
                   margin-right: 1rem;
+
+                  &:hover {
+                     opacity: 0.8;
+                  }
                }
 
                .ui.basic.button {
