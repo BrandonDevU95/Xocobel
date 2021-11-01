@@ -1,5 +1,5 @@
 .menu {
-   background-color: $background-chocolate;
+   background-color: $background-grey-marmol;
    border-radius: 0px;
 
    &-container {
@@ -22,14 +22,16 @@
          box-shadow: none;
          height: 100%;
          background: transparent;
+         font-size: 1rem;
+         font-family: 'Pacific Beach', Helvetica, sans-serif;
 
          .icon {
             margin-right: 10px !important;
-            color: $font-white;
+            color: $font-cocoa;
          }
 
          .item {
-            color: $font-white;
+            color: $font-cocoa;
             border-radius: 0px !important;
 
             &:hover {
@@ -39,6 +41,10 @@
                &::before {
                   background-color: $background-honey;
                }
+            }
+
+            &::before {
+               background: none;
             }
 
             &.m-0 i {

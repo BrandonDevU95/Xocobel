@@ -50,6 +50,8 @@ export default function boutique() {
       })();
    }, []);
 
+   // FIXME: Agregar padding a la pagina para alinear con header
+
    return (
       <BasicLayout className="boutique">
          <Seo title="BOUTIQUE | LO MEJOR EN CHOCOLATES" />
