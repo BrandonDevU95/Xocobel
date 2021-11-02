@@ -4,6 +4,7 @@ import BasicLayout from '../layouts/Basic/BasicLayout';
 import PopularProducts from '../components/Home/PopularProducts/PopularProducts.jsx';
 import About from '../components/Home/About/About.jsx';
 import Ingredients from '../components/Home/Ingredients/Ingredients.jsx';
+import Contact from '../components/Home/Contact/Contact.jsx';
 
 export default function Home() {
    return (
@@ -13,6 +14,7 @@ export default function Home() {
          <PopularProducts />
          <About />
          <Ingredients />
+         <Contact />
       </BasicLayout>
    );
 }
