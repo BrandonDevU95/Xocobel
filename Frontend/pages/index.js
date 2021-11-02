@@ -6,6 +6,7 @@ import About from '../components/Home/About/About.jsx';
 import Ingredients from '../components/Home/Ingredients/Ingredients.jsx';
 import Contact from '../components/Home/Contact/Contact.jsx';
 import Shipping from '../components/Home/Shipping/Shipping.jsx';
+import Footer from '../components/Home/Footer/Footer.jsx';
 
 export default function Home() {
    return (
@@ -17,6 +18,7 @@ export default function Home() {
          <Ingredients />
          <Contact />
          <Shipping />
+         <Footer />
       </BasicLayout>
    );
 }
