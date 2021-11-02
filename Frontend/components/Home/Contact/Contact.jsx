@@ -12,11 +12,17 @@ import {
 } from 'semantic-ui-react';
 
 export default function Contact() {
+   const [loading, setLoading] = useState(false);
+
    const formik = useFormik({
       initialValues: initialValues(),
       validationSchema: Yup.object(validationSchema()),
       onSubmit: (formData) => {
+         setLoading(true);
          console.log(formData);
+         formik.resetForm();
+         toast.success('Message sent successfully!');
+         setLoading(false);
       },
    });
 
@@ -80,7 +86,7 @@ export default function Contact() {
                         error={formik.errors.message}
                      />
                      <div className="action">
-                        <Button basic type="submit">
+                        <Button basic type="submit" loading={loading}>
                            Send
                         </Button>
                      </div>
