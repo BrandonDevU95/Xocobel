@@ -1,5 +1,13 @@
 .category-retail {
    .content {
-      padding-top: 20px;
+      padding: 20px 0;
+   }
+
+   &_container {
+      padding: 0 10rem;
+
+      .ui.grid {
+         justify-content: space-between;
+      }
    }
 }

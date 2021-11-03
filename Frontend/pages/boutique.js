@@ -4,8 +4,9 @@ import Seo from '../components/Seo';
 import BasicLayout from '../layouts/Basic';
 import { useEffect, useState } from 'react';
 import { getProductsApi } from '../api/products';
-import { Grid, Loader } from 'semantic-ui-react';
+import { Container, Grid, Loader } from 'semantic-ui-react';
 import Pagination from '../components/Pagination';
+import PopularProducts from '../components/Home/PopularProducts';
 import ListProducts from '../components/ListProducts';
 import CategoryRetail from '../components/categoryRetail';
 import {
@@ -50,34 +51,36 @@ export default function boutique() {
       })();
    }, []);
 
-   // FIXME: Agregar padding a la pagina para alinear con header
+   // TODO: Crear componente de recomendados
 
    return (
       <BasicLayout className="boutique">
          <Seo title="BOUTIQUE | LO MEJOR EN CHOCOLATES" />
-         <Grid>
-            <Grid.Column width={3}>
-               <h3>Categorias</h3>
-               {/* TODO: Refrescar solo fila de la derecha para todas las paginas*/}
-               <CategoryRetail categoryRetail={categoryRetail} />
-            </Grid.Column>
-            <Grid.Column stretched width={12}>
-               {!products && <Loader active>Cargando Productos</Loader>}
-               {products && size(products) === 0 && (
-                  <div>
-                     <h3>No hay productos</h3>
-                  </div>
-               )}
-               {size(products) > 0 && <ListProducts products={products} />}
-               {size(products) > 0 && totalProducts ? (
-                  <Pagination
-                     totalProducts={totalProducts}
-                     page={query.page ? parseInt(query.page) : 1}
-                     limitPerPage={limitPerPage}
-                  />
-               ) : null}
-            </Grid.Column>
-         </Grid>
+         <Container fluid className="boutique-container">
+            <Grid>
+               <Grid.Column width={3}>
+                  <h3>Categorias</h3>
+                  <CategoryRetail categoryRetail={categoryRetail} />
+               </Grid.Column>
+               <Grid.Column stretched width={12}>
+                  {!products && <Loader active>Cargando Productos</Loader>}
+                  {products && size(products) === 0 && (
+                     <div>
+                        <h3>No hay productos</h3>
+                     </div>
+                  )}
+                  {size(products) > 0 && <ListProducts products={products} />}
+                  {size(products) > 0 && totalProducts ? (
+                     <Pagination
+                        totalProducts={totalProducts}
+                        page={query.page ? parseInt(query.page) : 1}
+                        limitPerPage={limitPerPage}
+                     />
+                  ) : null}
+               </Grid.Column>
+            </Grid>
+            <PopularProducts />
+         </Container>
       </BasicLayout>
    );
 }

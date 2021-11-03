@@ -1,0 +1,9 @@
+.category-retail {
+   a {
+      &:hover {
+         background-color: $background-honey !important;
+         color: $font-marmol !important;
+         border-radius: 0 !important;
+      }
+   }
+}

@@ -1,4 +1,8 @@
 .list-products {
+   .ui.grid {
+      justify-content: flex-start;
+   }
+
    &__product {
       padding: 15px;
 

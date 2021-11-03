@@ -70,10 +70,7 @@ export default function FooterLinks() {
                      <h3>Social Media</h3>
                      <div className="list-icons">
                         <Icon name="instagram" />
-                        <Icon
-                           name="facebook oficial"
-                           style={{ marginLeft: '14px' }}
-                        />
+                        <Icon name="facebook" style={{ marginLeft: '14px' }} />
                         <Icon name="youtube" style={{ marginLeft: '14px' }} />
                      </div>
                   </div>

@@ -2,7 +2,7 @@ import { size } from 'lodash';
 import Seo from '../../components/Seo';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import { Loader, Grid } from 'semantic-ui-react';
+import { Loader, Grid, Container } from 'semantic-ui-react';
 import Pagination from '../../components/Pagination';
 import ListProducts from '../../components/ListProducts';
 import BasicLayout from '../../layouts/Basic/BasicLayout';
@@ -62,31 +62,33 @@ export default function CategoryRetailWeb() {
          <Seo
             title={
                'BOUTIQUE | ' +
-               query.categoryRetail.split('-').join(' ').toUpperCase()
+               query.categoryRetail?.split('-').join(' ').toUpperCase()
             }
          />
-         <Grid>
-            <Grid.Column width={3}>
-               <h3>Categorias</h3>
-               <CategoryRetail categoryRetail={categoryRetail} />
-            </Grid.Column>
-            <Grid.Column stretched width={12}>
-               {!products && <Loader active>Cargando Productos</Loader>}
-               {products && size(products) === 0 && (
-                  <div>
-                     <h3>No hay productos</h3>
-                  </div>
-               )}
-               {size(products) > 0 && <ListProducts products={products} />}
-               {size(products) > 0 && totalProducts ? (
-                  <Pagination
-                     totalProducts={totalProducts}
-                     page={query.page ? parseInt(query.page) : 1}
-                     limitPerPage={limitPerPage}
-                  />
-               ) : null}
-            </Grid.Column>
-         </Grid>
+         <Container fluid className="category-retail_container">
+            <Grid>
+               <Grid.Column width={3}>
+                  <h3>Categorias</h3>
+                  <CategoryRetail categoryRetail={categoryRetail} />
+               </Grid.Column>
+               <Grid.Column stretched width={12}>
+                  {!products && <Loader active>Cargando Productos</Loader>}
+                  {products && size(products) === 0 && (
+                     <div>
+                        <h3>No hay productos</h3>
+                     </div>
+                  )}
+                  {size(products) > 0 && <ListProducts products={products} />}
+                  {size(products) > 0 && totalProducts ? (
+                     <Pagination
+                        totalProducts={totalProducts}
+                        page={query.page ? parseInt(query.page) : 1}
+                        limitPerPage={limitPerPage}
+                     />
+                  ) : null}
+               </Grid.Column>
+            </Grid>
+         </Container>
       </BasicLayout>
    );
 }

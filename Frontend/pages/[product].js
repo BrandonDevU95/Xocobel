@@ -6,6 +6,7 @@ import HeaderProduct from '../components/Product/HeaderProduct';
 import TabsProduct from '../components/Product/TabsProduct/TabsProduct';
 import CarouselScreen from '../components/Product/CarouselScreen/CarouselScreen';
 import Seo from '../components/Seo';
+import { Container } from 'semantic-ui-react';
 
 export default function Product() {
    const { query } = useRouter();
@@ -26,9 +27,10 @@ export default function Product() {
             title={product.title.toUpperCase()}
             description={product.description}
          />
-         <HeaderProduct product={product} />
-         <CarouselScreen title={product.title} screenShots={product.galery} />
-         <TabsProduct product={product} />
+         <Container fluid className="product-container">
+            <HeaderProduct product={product} />
+            <TabsProduct product={product} />
+         </Container>
       </BasicLayout>
    );
 }

@@ -13,6 +13,7 @@
 @import '../pages/orders.scss';
 @import '../pages/search.scss';
 @import '../pages/account.scss';
+@import '../pages/product.scss';
 @import '../pages/boutique.scss';
 @import '../pages/wishlist.scss';
 @import '../pages/boutique/categoryRetail.scss';
@@ -33,9 +34,11 @@
 @import '../components/Modal/BasicModal/BasicModal.scss';
 @import '../components/Home/Ingredients/Ingredients.scss';
 @import '../components/Cart/SummaryCart/SummaryCart.scss';
+@import '../components/categoryRetail/CategoryRetail.scss';
 @import '../components/account/AddressForm/AddressForm.scss';
 @import '../components/Product/TabsProduct/TabsProduct.scss';
 @import '../components/account/ListAddress/ListAddress.scss';
+@import '../components/Home/IconicProducts/IconicProducts.scss';
 @import '../components/Home/Footer/FooterLinks/FooterLinks.scss';
 @import '../components/Home/Footer/FooterTerms/FooterTerms.scss';
 @import '../components/Product/HeaderProduct/HeaderProduct.scss';

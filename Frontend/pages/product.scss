@@ -1,13 +1,9 @@
-.boutique {
+.product {
    .content {
       padding: 20px 0;
    }
 
    &-container {
       padding: 0 10rem;
-
-      .ui.grid {
-         justify-content: space-between;
-      }
    }
 }

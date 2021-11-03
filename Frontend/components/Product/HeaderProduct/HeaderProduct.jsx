@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import useCart from '../../../hooks/useCart';
 import useAuth from '../../../hooks/useAuth';
 import { BASE_PATH } from '../../../utils/constants';
+import CarouselScreen from '../CarouselScreen';
 import { Grid, Image, Icon, Button } from 'semantic-ui-react';
 import {
    isFavoriteApi,
@@ -23,6 +24,10 @@ export default function HeaderProduct({ product }) {
          </Grid.Column>
          <Grid.Column mobile={16} tablet={10} computer={11}>
             <Info product={product} />
+            <CarouselScreen
+               title={product.title}
+               screenShots={product.galery}
+            />
          </Grid.Column>
       </Grid>
    );

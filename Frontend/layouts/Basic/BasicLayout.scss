@@ -1,13 +1,13 @@
-.basic-layout {
-   min-height: 100vh;
+// .basic-layout {
+//    // min-height: 100vh;
 
-   .content {
-      background-color: $background-white;
-      height: calc(100vh - 130px);
-      overflow-y: scroll;
+//    .content {
+//       background-color: $background-white;
+//       height: calc(100vh - 130px);
+//       // overflow-y: scroll;
 
-      &::-webkit-scrollbar {
-         display: none;
-      }
-   }
-}
+//       &::-webkit-scrollbar {
+//          display: none;
+//       }
+//    }
+// }
