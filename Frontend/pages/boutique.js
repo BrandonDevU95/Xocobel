@@ -6,9 +6,9 @@ import { useEffect, useState } from 'react';
 import { getProductsApi } from '../api/products';
 import { Container, Grid, Loader } from 'semantic-ui-react';
 import Pagination from '../components/Pagination';
-import PopularProducts from '../components/Home/PopularProducts';
 import ListProducts from '../components/ListProducts';
 import CategoryRetail from '../components/categoryRetail';
+import RecommendedProducts from '../components/Home/RecommendedProducts';
 import {
    getCategoryRetailApi,
    getTotalProductsCategoryApi,
@@ -79,7 +79,7 @@ export default function boutique() {
                   ) : null}
                </Grid.Column>
             </Grid>
-            <PopularProducts />
+            <RecommendedProducts />
          </Container>
       </BasicLayout>
    );
