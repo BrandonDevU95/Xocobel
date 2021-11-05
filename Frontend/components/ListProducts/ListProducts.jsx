@@ -48,6 +48,7 @@ function Product({ product }) {
                   <Image
                      src={`${BASE_PATH}${product.poster.url}`}
                      alt={product.title}
+                     fluid
                   />
                   <div className="list-products__product-poster-info">
                      {product.discount ? (
