@@ -5,6 +5,7 @@
 
    &__product {
       padding: 15px;
+      margin-top: auto !important;
 
       &:hover {
          opacity: 0.6;
@@ -24,11 +25,6 @@
       &-poster {
          position: relative;
          min-height: 167.19px;
-
-         &-poster > img {
-            height: 150px;
-            width: 150px;
-         }
 
          &-info {
             position: absolute;
