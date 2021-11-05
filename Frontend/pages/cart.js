@@ -6,6 +6,7 @@ import SummaryCart from '../components/Cart/SummaryCart';
 import ShippingAddress from '../components/Cart/ShippingAddress';
 import Payment from '../components/Cart/Payment';
 import Seo from '../components/Seo';
+import { Container } from 'semantic-ui-react';
 
 export default function cart() {
    const { getProductsCart } = useCart();
@@ -18,8 +19,10 @@ function EmptyCart() {
    return (
       <BasicLayout className="cart-empty">
          <Seo title="XOCOBEL | MIS COMPRAS" />
-         <h1>Tu carrito está vacío</h1>
-         <p>Añade productos al carrito para poder comprarlos</p>
+         <Container fluid className="cart-empty-container">
+            <h1>Tu carrito está vacío</h1>
+            <p>Añade productos al carrito para poder comprarlos</p>
+         </Container>
       </BasicLayout>
    );
 }
@@ -48,13 +51,15 @@ function FullCart({ products }) {
                products !== null || products ? products?.length : 0
             }`}
          />
-         <SummaryCart
-            products={productsData}
-            reloadCart={reloadCart}
-            setReloadCart={setReloadCart}
-         />
-         <ShippingAddress setAddress={setAddress} />
-         {address && <Payment products={productsData} address={address} />}
+         <Container fluid className="cart-full-container">
+            <SummaryCart
+               products={productsData}
+               reloadCart={reloadCart}
+               setReloadCart={setReloadCart}
+            />
+            <ShippingAddress setAddress={setAddress} />
+            {address && <Payment products={productsData} address={address} />}
+         </Container>
       </BasicLayout>
    );
 }

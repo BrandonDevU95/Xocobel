@@ -1,32 +1,37 @@
 .wishlist {
-   &__block {
-      padding: 10px;
+   &-container {
+      padding: 0 10rem;
+      min-height: 100vh;
 
-      .title {
-         width: max-content;
-         background-color: $background-cocoa;
-         color: $font-white;
-         padding: 5px 10px;
-         border-radius: 5px 5px 0 0;
-      }
+      &__block {
+         padding: 10px;
 
-      .data {
-         background-color: $background-grey-marmol;
-         box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.1);
-
-         &__not-found {
-            text-align: center;
-            padding: 20px 0;
+         .title {
+            width: max-content;
+            background-color: $background-cocoa;
+            color: $font-white;
+            padding: 5px 10px;
+            border-radius: 5px 5px 0 0;
          }
 
-         .list-products {
-            .ui.grid {
-               margin: 0;
+         .data {
+            background-color: $background-grey-marmol;
+            box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.1);
+
+            &__not-found {
+               text-align: center;
+               padding: 20px 0;
             }
 
-            &__product {
-               padding-top: 0px;
-               padding-bottom: 0px;
+            .list-products {
+               .ui.grid {
+                  margin: 0;
+               }
+
+               &__product {
+                  padding-top: 0px;
+                  padding-bottom: 0px;
+               }
             }
          }
       }

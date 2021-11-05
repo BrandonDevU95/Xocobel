@@ -80,3 +80,17 @@ export async function getPopularProductsApi() {
       return null;
    }
 }
+
+export async function getRecommendedProductsApi() {
+   try {
+      const popular = 'recommended=true';
+      const sortItems = `_sort=createdAt:desc`;
+      const url = `${BASE_PATH}/products?${popular}&${sortItems}`;
+      const response = await fetch(url);
+      const result = await response.json();
+      return result;
+   } catch (error) {
+      console.log(error);
+      return null;
+   }
+}

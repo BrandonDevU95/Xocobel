@@ -1,12 +1,24 @@
 .cart-empty {
-   h1,
-   h2 {
-      text-align: center;
-      padding-top: 50px;
-   }
+   &-container {
+      padding: 0 10rem;
+      min-height: 100vh;
 
-   p {
-      text-align: center;
-      font-size: 18px;
+      h1,
+      h2 {
+         text-align: center;
+         padding-top: 50px;
+      }
+
+      p {
+         text-align: center;
+         font-size: 18px;
+      }
+   }
+}
+
+.cart-full {
+   &-container {
+      padding: 0 10rem;
+      min-height: 100vh;
    }
 }

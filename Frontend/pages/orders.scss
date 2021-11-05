@@ -1,17 +1,21 @@
 .orders {
-   &__block {
-      padding: 10px;
-      .title {
-         width: max-content;
-         background-color: $background-cocoa;
-         color: $font-white;
-         padding: 5px 10px;
-         border-radius: 5px 5px 0 0;
-      }
-
-      .data {
+   &-container {
+      padding: 0 10rem;
+      &__block {
+         min-height: 100vh;
          padding: 10px;
-         background-color: $background-grey-marmol;
+         .title {
+            width: max-content;
+            background-color: $background-cocoa;
+            color: $font-white;
+            padding: 5px 10px;
+            border-radius: 5px 5px 0 0;
+         }
+
+         .data {
+            padding: 10px;
+            background-color: $background-grey-marmol;
+         }
       }
    }
 }

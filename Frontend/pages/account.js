@@ -2,7 +2,7 @@ import Seo from '../components/Seo';
 import { getMeApi } from '../api/user';
 import useAuth from '../hooks/useAuth';
 import { useRouter } from 'next/router';
-import { Icon } from 'semantic-ui-react';
+import { Container, Icon } from 'semantic-ui-react';
 import BasicLayout from '../layouts/Basic';
 import { useState, useEffect } from 'react';
 import BasicModal from '../components/Modal/BasicModal';
@@ -33,19 +33,21 @@ export default function account() {
    return (
       <BasicLayout className="account">
          <Seo title={`MI CUENTA | ${user.name} ${user.lastname}`} />
-         <Configuration
-            user={user}
-            logout={logout}
-            setReloadUser={setReloadUser}
-         />
-         <Addresses />
+         <Container fluid className="account-container">
+            <Configuration
+               user={user}
+               logout={logout}
+               setReloadUser={setReloadUser}
+            />
+            <Addresses />
+         </Container>
       </BasicLayout>
    );
 }
 
 function Configuration({ user, logout, setReloadUser }) {
    return (
-      <div className="account__configuration">
+      <div className="account-container__configuration">
          <div className="title">Configuracion</div>
          <div className="data">
             <ChangeNameForm
@@ -84,7 +86,7 @@ function Addresses() {
    };
 
    return (
-      <div className="account__addresses">
+      <div className="account-container__addresses">
          <div className="title">
             Direcciones
             <Icon

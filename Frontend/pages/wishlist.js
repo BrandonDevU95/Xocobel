@@ -4,7 +4,7 @@ import BasicLayout from '../layouts/Basic';
 import { useState, useEffect } from 'react';
 import { getFavoriteApi } from '../api/favorite';
 import ListProducts from '../components/ListProducts';
-import { Loader } from 'semantic-ui-react';
+import { Container, Loader } from 'semantic-ui-react';
 import Seo from '../components/Seo';
 
 export default function wishlist() {
@@ -33,26 +33,28 @@ export default function wishlist() {
                products !== null ? products?.length : 0
             }`}
          />
-         <div className="wishlist__block">
-            <div className="title">Lista de deseos</div>
-            <div className="data">
-               {!products && <Loader active>Cargando Productos</Loader>}
-               {products && size(products) === 0 && (
-                  <div className="data__not-found">
-                     <h3>No hay productos</h3>
-                  </div>
-               )}
-               {size(products) > 0 && <ListProducts products={products} />}
-               {/* TODO: Agregar la paginacion a favoritos */}
-               {/* {size(products) > 0 && totalProducts ? (
+         <Container fluid className="wishlist-container">
+            <div className="wishlist-container__block">
+               <div className="title">Lista de deseos</div>
+               <div className="data">
+                  {!products && <Loader active>Cargando Productos</Loader>}
+                  {products && size(products) === 0 && (
+                     <div className="data__not-found">
+                        <h3>No hay productos</h3>
+                     </div>
+                  )}
+                  {size(products) > 0 && <ListProducts products={products} />}
+                  {/* TODO: Agregar la paginacion a favoritos */}
+                  {/* {size(products) > 0 && totalProducts ? (
                   <Pagination
                      totalProducts={totalProducts}
                      page={query.page ? parseInt(query.page) : 1}
                      limitPerPage={limitPerPage}
                   />
                ) : null} */}
+               </div>
             </div>
-         </div>
+         </Container>
       </BasicLayout>
    );
 }
