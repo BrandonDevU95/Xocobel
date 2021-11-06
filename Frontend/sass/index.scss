@@ -18,6 +18,7 @@
 @import '../pages/product.scss';
 @import '../pages/boutique.scss';
 @import '../pages/wishlist.scss';
+@import '../pages/corporate.scss';
 @import '../pages/boutique/categoryRetail.scss';
 
 // Components
@@ -34,12 +35,15 @@
 @import '../components/ListProducts/ListProducts.scss';
 @import '../components/Home/MainBanner/MainBanner.scss';
 @import '../components/Modal/BasicModal/BasicModal.scss';
+@import '../components/Corporate/Catalogs/Catalogs.scss';
 @import '../components/Home/Ingredients/Ingredients.scss';
 @import '../components/Cart/SummaryCart/SummaryCart.scss';
 @import '../components/categoryRetail/CategoryRetail.scss';
 @import '../components/account/AddressForm/AddressForm.scss';
 @import '../components/Product/TabsProduct/TabsProduct.scss';
+@import '../components/Corporate/MainBanner/MainBanner.scss';
 @import '../components/account/ListAddress/ListAddress.scss';
+@import '../components/Corporate/ServiceInfo/ServiceInfo.scss';
 @import '../components/Home/IconicProducts/IconicProducts.scss';
 @import '../components/Home/Footer/FooterLinks/FooterLinks.scss';
 @import '../components/Home/Footer/FooterTerms/FooterTerms.scss';

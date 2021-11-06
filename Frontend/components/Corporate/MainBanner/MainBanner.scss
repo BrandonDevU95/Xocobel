@@ -1,0 +1,33 @@
+.main-banner-corporate {
+   &-container {
+      margin-bottom: 1.5rem;
+      background-color: $background-grey-marmol-dark;
+
+      &__banner {
+         padding: 0 10rem;
+
+         .nine.wide.column {
+            padding: 0 !important;
+         }
+
+         &_left {
+            padding-top: 5rem;
+
+            h1 {
+               font-family: 'Pacific Beach', Helvetica, sans-serif;
+               font-size: 3rem;
+               color: $font-chocolate;
+            }
+
+            p {
+               font-family: 'Source Sans Pro', Helvetica, sans-serif;
+               font-size: 1.1rem;
+               color: $font-chocolate;
+               text-align: justify;
+               padding-top: 1rem;
+               padding-bottom: 5rem;
+            }
+         }
+      }
+   }
+}

@@ -1,0 +1,101 @@
+.service-info {
+   &-container {
+      margin: 5rem 0;
+      padding: 0 10rem;
+
+      .eight.wide.column {
+         padding: 0 !important;
+      }
+
+      &_info {
+         padding: 3rem;
+
+         h2 {
+            font-family: 'Pacific Beach', Helvetica, sans-serif;
+            color: $font-chocolate;
+            font-size: 2.5rem;
+            padding-bottom: 1.5rem;
+         }
+
+         p {
+            font-family: 'Source Sans Pro', Helvetica, sans-serif;
+            color: $font-chocolate;
+            font-size: 1.2rem;
+            padding-right: 5rem;
+            text-align: justify;
+            padding-bottom: 1.5rem;
+         }
+
+         .ui.basic.button {
+            margin-top: auto;
+            margin-right: auto;
+            font-family: 'Source Sans Pro', Helvetica, sans-serif;
+            color: $font-honey !important;
+            border: 1px solid $border-honey !important;
+            font-size: 18px;
+            padding-left: 4rem;
+            padding-right: 4rem;
+            box-shadow: none;
+
+            &:hover {
+               background-color: $background-honey !important;
+               color: $font-marmol !important;
+            }
+         }
+      }
+
+      &_modal {
+         .header {
+            background-color: $background-honey !important;
+            color: $font-marmol !important;
+            display: flex !important;
+            justify-content: space-between !important;
+         }
+
+         .ui.form {
+            .field {
+               padding: 1rem 0;
+
+               label {
+                  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+                  font-weight: normal;
+                  color: $font-cocoa;
+                  font-size: 1.5rem;
+               }
+
+               .ui.input {
+                  input {
+                     border: 1px solid $border-honey;
+                     border-radius: 13px;
+                  }
+               }
+
+               textarea {
+                  border: 1px solid $border-honey;
+                  border-radius: 13px;
+               }
+            }
+
+            .action {
+               display: flex;
+               justify-content: flex-end;
+
+               .ui.basic.button {
+                  font-family: 'Pacific Beach', Helvetica, sans-serif;
+                  background-color: $background-honey !important;
+                  border: 1px solid $background-honey !important;
+                  color: $font-white !important;
+                  font-size: 18px;
+                  padding-left: 4rem;
+                  padding-right: 4rem;
+
+                  &:hover {
+                     background-color: transparent !important;
+                     color: $font-honey !important;
+                  }
+               }
+            }
+         }
+      }
+   }
+}

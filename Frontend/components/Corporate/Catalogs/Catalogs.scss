@@ -1,0 +1,38 @@
+.catalogs {
+   &-container {
+      margin: 5rem 0;
+      padding: 0 10rem;
+
+      &_catalog {
+         padding: 3rem;
+         text-align: center;
+         border: 1px solid $border-marmol;
+         box-shadow: 3px 5px 9px -4px rgba(0, 0, 0, 0.29);
+         -webkit-box-shadow: 3px 5px 9px -4px rgba(0, 0, 0, 0.29);
+         -moz-box-shadow: 3px 5px 9px -4px rgba(0, 0, 0, 0.29);
+
+         h3 {
+            font-family: 'Source Sans Pro';
+            font-size: 2.5rem;
+            color: $font-cocoa;
+         }
+
+         .ui.basic.button {
+            margin-top: auto;
+            margin-right: auto;
+            font-family: 'Source Sans Pro', Helvetica, sans-serif;
+            color: $font-honey !important;
+            border: 1px solid $border-honey !important;
+            font-size: 18px;
+            padding-left: 4rem;
+            padding-right: 4rem;
+            box-shadow: none;
+
+            &:hover {
+               background-color: $background-honey !important;
+               color: $font-marmol !important;
+            }
+         }
+      }
+   }
+}
