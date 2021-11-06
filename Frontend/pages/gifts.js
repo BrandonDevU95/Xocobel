@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Seo from '../components/Seo';
 import BasicLayout from '../layouts/Basic';
 import { useEffect, useState } from 'react';
-import { getGiftsProductsApi } from '../api/products';
+import { getGiftsProductsApi, getTotalGiftsApi } from '../api/products';
 import { Container, Grid, Loader } from 'semantic-ui-react';
 import Pagination from '../components/Pagination';
 import ListProducts from '../components/ListProducts';
@@ -15,6 +15,7 @@ const limitPerPage = 10;
 export default function gifts() {
    const { query } = useRouter();
    const [gifts, setGifts] = useState(null);
+   const [totalProducts, setTotalProducts] = useState(null);
 
    const getStartItem = () => {
       const currentPages = parseInt(query.page);
@@ -33,6 +34,13 @@ export default function gifts() {
       })();
    }, [query]);
 
+   useEffect(() => {
+      (async () => {
+         const response = await getTotalGiftsApi();
+         setTotalProducts(response);
+      })();
+   }, []);
+
    if (!gifts) return null;
 
    return (
@@ -48,13 +56,13 @@ export default function gifts() {
                      </div>
                   )}
                   {size(gifts) > 0 && <ListProducts products={gifts} />}
-                  {size(gifts) > 0 && (
+                  {size(gifts) > 0 && totalProducts ? (
                      <Pagination
-                        totalProducts={12}
+                        totalProducts={totalProducts}
                         page={query.page ? parseInt(query.page) : 1}
                         limitPerPage={limitPerPage}
                      />
-                  )}
+                  ) : null}
                </Grid.Column>
             </Grid>
             <RecommendedProducts />
