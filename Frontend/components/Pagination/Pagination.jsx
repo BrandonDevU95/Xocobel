@@ -16,7 +16,7 @@ export default function Pagination({ totalProducts, page, limitPerPage }) {
    return (
       <div className="pagination">
          <PaginationSU
-            defaultActivePage={totalProducts}
+            defaultActivePage={page}
             totalPages={totalPages}
             firstItem={null}
             lastItem={null}
