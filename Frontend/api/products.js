@@ -83,9 +83,25 @@ export async function getPopularProductsApi() {
 
 export async function getRecommendedProductsApi() {
    try {
-      const popular = 'recommended=true';
+      const recommended = 'recommended=true';
       const sortItems = `_sort=createdAt:desc`;
-      const url = `${BASE_PATH}/products?${popular}&${sortItems}`;
+      const url = `${BASE_PATH}/products?${recommended}&${sortItems}`;
+      const response = await fetch(url);
+      const result = await response.json();
+      return result;
+   } catch (error) {
+      console.log(error);
+      return null;
+   }
+}
+
+export async function getGiftsProductsApi(limit, start) {
+   try {
+      const limitItems = `_limit=${limit}`;
+      const sortItems = `_sort=createdAt:desc`;
+      const startItems = `_start=${start}`;
+      const gift = 'gift=true';
+      const url = `${BASE_PATH}/products?${gift}&${limitItems}&${sortItems}&${startItems}`;
       const response = await fetch(url);
       const result = await response.json();
       return result;

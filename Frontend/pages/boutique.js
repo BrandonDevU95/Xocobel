@@ -46,6 +46,7 @@ export default function boutique() {
 
    useEffect(() => {
       (async () => {
+         // TODO: Optimizar la funcion con el size de lodash
          const response = await getTotalProductsCategoryApi();
          setTotalProducts(response);
       })();
