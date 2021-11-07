@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Seo from '../components/Seo';
 import BasicLayout from '../layouts/Basic';
 import { useEffect, useState } from 'react';
-import { getProductsApi } from '../api/products';
+import { getProductsByCategoryApi } from '../api/products';
 import { Container, Grid, Loader } from 'semantic-ui-react';
 import Pagination from '../components/Pagination';
 import ListProducts from '../components/ListProducts';
@@ -19,6 +19,7 @@ const limitPerPage = 10;
 export default function boutique() {
    const { query } = useRouter();
    const [products, setProducts] = useState(false);
+   const [category, setCategory] = useState(null);
    const [totalProducts, setTotalProducts] = useState(null);
    const [categoryRetail, setCategoryRetail] = useState([]);
 
@@ -38,18 +39,22 @@ export default function boutique() {
 
    useEffect(() => {
       (async () => {
-         const response = await getProductsApi(limitPerPage, getStartItem());
+         const response = await getProductsByCategoryApi(
+            category,
+            limitPerPage,
+            getStartItem()
+         );
          if (size(response) > 0) setProducts(response);
          else setProducts([]);
       })();
-   }, [query]);
+   }, [category]);
 
    useEffect(() => {
       (async () => {
-         const response = await getTotalProductsCategoryApi();
+         const response = await getTotalProductsCategoryApi(category);
          setTotalProducts(response);
       })();
-   }, []);
+   }, [category]);
 
    return (
       <BasicLayout className="boutique">
@@ -58,7 +63,10 @@ export default function boutique() {
             <Grid>
                <Grid.Column width={3}>
                   <h3>Categorias</h3>
-                  <CategoryRetail categoryRetail={categoryRetail} />
+                  <CategoryRetail
+                     categoryRetail={categoryRetail}
+                     setCategory={setCategory}
+                  />
                </Grid.Column>
                <Grid.Column stretched width={12}>
                   {!products && <Loader active>Cargando Productos</Loader>}

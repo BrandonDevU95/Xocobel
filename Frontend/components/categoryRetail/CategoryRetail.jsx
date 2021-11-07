@@ -1,17 +1,40 @@
 import { map } from 'lodash';
-import Link from 'next/link';
-import { Menu } from 'semantic-ui-react';
+import { useState } from 'react';
+import { Menu, Button, Icon } from 'semantic-ui-react';
 
-export default function CategoryRetail({ categoryRetail }) {
+export default function CategoryRetail({ categoryRetail, setCategory }) {
+   const [categoryFocus, setCategoryFocus] = useState(null);
+
+   const handleCategory = (url, title) => {
+      setCategory(url);
+      setCategoryFocus(title);
+   };
+
+   const handleResetCategory = () => {
+      setCategory(null);
+      setCategoryFocus(null);
+   };
+
    return (
       <Menu fluid vertical tabular className="category-retail">
          {map(categoryRetail, (category) => (
-            <Link href={`/boutique/${category.url}`} key={category._id}>
-               <Menu.Item as="a" name={category.url}>
-                  {category.title}
-               </Menu.Item>
-            </Link>
+            <Button
+               basic
+               onClick={() => handleCategory(category.url, category.title)}
+               key={category._id}
+            >
+               {category.title}
+            </Button>
          ))}
+         {categoryFocus && (
+            <div className="category-retail_filter">
+               <p>Filter:</p>
+               <div className="filter">
+                  <Button basic>{categoryFocus}</Button>
+                  <Icon name="close" onClick={handleResetCategory} />
+               </div>
+            </div>
+         )}
       </Menu>
    );
 }

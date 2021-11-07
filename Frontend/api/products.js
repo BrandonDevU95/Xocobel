@@ -1,26 +1,21 @@
 import { BASE_PATH } from '../utils/constants';
 
-export async function getProductsApi(limit, start) {
+export async function getProductsByCategoryApi(
+   category = null,
+   limit = 10,
+   start = 0
+) {
    try {
       const limitItems = `_limit=${limit}`;
       const sortItems = `_sort=createdAt:desc`;
       const startItems = `_start=${start}`;
-      const url = `${BASE_PATH}/products?${limitItems}&${sortItems}&${startItems}`;
-      const response = await fetch(url);
-      const result = await response.json();
-      return result;
-   } catch (error) {
-      console.log(error);
-      return null;
-   }
-}
+      let url = '';
+      if (!category) {
+         url = `${BASE_PATH}/products?${limitItems}&${sortItems}&${startItems}`;
+      } else {
+         url = `${BASE_PATH}/products?category_retail.url=${category}&${limitItems}&${sortItems}&${startItems}`;
+      }
 
-export async function getProductsByCategoryApi(category, limit, start) {
-   try {
-      const limitItems = `_limit=${limit}`;
-      const sortItems = `_sort=createdAt:desc`;
-      const startItems = `_start=${start}`;
-      const url = `${BASE_PATH}/products?category_retail.url=${category}&${limitItems}&${sortItems}&${startItems}`;
       const response = await fetch(url);
       const result = await response.json();
       return result;

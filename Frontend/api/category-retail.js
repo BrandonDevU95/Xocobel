@@ -12,9 +12,12 @@ export async function getCategoryRetailApi() {
    }
 }
 
-export async function getTotalProductsCategoryApi() {
+export async function getTotalProductsCategoryApi(category = null) {
    try {
-      const url = `${BASE_PATH}/products/count`;
+      let url = '';
+      if (!category) url = `${BASE_PATH}/products/count`;
+      else url = `${BASE_PATH}/products/count?category_retail.url=${category}`;
+
       const response = await fetch(url);
       const result = await response.json();
       return result;
