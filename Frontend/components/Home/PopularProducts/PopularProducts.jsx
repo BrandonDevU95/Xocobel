@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Container, Loader } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import ListProducts from '../../ListProducts';
 import { getPopularProductsApi } from '../../../api/products';
 import { size } from 'lodash';
@@ -18,7 +18,6 @@ export default function PopularProducts() {
       <Container fluid className="popular-products">
          <h1>Popular Products</h1>
          <div className="popular-products__list">
-            {!popularProducts && <Loader active>Cargando Productos</Loader>}
             {popularProducts && size(popularProducts) === 0 && (
                <div className="popular-products__list-not-found">
                   <h3>Por el momento no hay productos populares disponibles</h3>
