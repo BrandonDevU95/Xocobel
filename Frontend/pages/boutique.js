@@ -47,7 +47,7 @@ export default function boutique() {
          if (size(response) > 0) setProducts(response);
          else setProducts([]);
       })();
-   }, [category]);
+   }, [query, category]);
 
    useEffect(() => {
       (async () => {
