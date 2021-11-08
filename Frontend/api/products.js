@@ -1,4 +1,5 @@
 import { BASE_PATH } from '../utils/constants';
+import { authFetch } from '../utils/fetch';
 
 export async function getProductsByCategoryApi(
    category = null,
@@ -118,13 +119,32 @@ export async function getTotalGiftsApi() {
    }
 }
 
-export async function checkStockProductApi(product) {
+export async function checkStockProductApi(product, amount) {
    try {
       const url = `${BASE_PATH}/products?_id=${product}`;
       const response = await fetch(url);
       const result = await response.json();
-      if (result[0].stock > 0) return true;
+      if (result[0].stock > 0 && amount <= result[0].stock) return true;
       else return false;
+   } catch (error) {
+      console.log(error);
+      return null;
+   }
+}
+
+export async function discountingStockProductsApi(idProduct, stock, logout) {
+   try {
+      const url = `${BASE_PATH}/products/${idProduct}`;
+      const params = {
+         method: 'PUT',
+         headers: {
+            'Content-Type': 'application/json',
+         },
+         body: JSON.stringify({ stock }),
+      };
+      const result = await authFetch(url, params, logout);
+      if (result.statusCode === 500 || result.statusCode === 400) return false;
+      else return true;
    } catch (error) {
       console.log(error);
       return null;

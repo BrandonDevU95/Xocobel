@@ -6,7 +6,10 @@ import { useState, useEffect } from 'react';
 import useAuth from '../../../../hooks/useAuth';
 import useCart from '../../../../hooks/useCart';
 import { paymentCartApi } from '../../../../api/cart';
-import { checkStockProductApi } from '../../../../api/products';
+import {
+   checkStockProductApi,
+   discountingStockProductsApi,
+} from '../../../../api/products';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
 export default function FormPayment({ products, address, setReloadCart }) {
@@ -30,6 +33,7 @@ export default function FormPayment({ products, address, setReloadCart }) {
       removeProductCart(product);
    };
 
+   // TODO: Descomponer esta funcion en varias partes
    const handleSubmit = async (event) => {
       event.preventDefault();
       if (totalPrice <= 20) {
@@ -45,8 +49,8 @@ export default function FormPayment({ products, address, setReloadCart }) {
             toast.error(result.error.message);
          } else {
             let stock = [];
-            for await (const { _id, url, title } of products) {
-               const result = await checkStockProductApi(_id);
+            for await (const { _id, url, title, amount } of products) {
+               const result = await checkStockProductApi(_id, amount);
                if (!result) {
                   stock.push({ url, title });
                }
@@ -54,7 +58,9 @@ export default function FormPayment({ products, address, setReloadCart }) {
             if (size(stock) > 0) {
                forEach(stock, (product) => {
                   toast.error(
-                     `El producto ${lowerCase(product.title)} no tiene stock`
+                     `El producto ${lowerCase(
+                        product.title
+                     )} no tiene stock suficiente`
                   );
                   removeProduct(product.url);
                });
@@ -70,10 +76,42 @@ export default function FormPayment({ products, address, setReloadCart }) {
                   logout
                );
                if (size(response) > 0 && response.statusCode !== 500) {
-                  toast.success('Pago realizado con éxito');
-                  clearProductsCart();
-                  router.push('/orders');
-                  return null;
+                  let discount = [];
+                  for await (const {
+                     stock,
+                     amount,
+                     url,
+                     title,
+                     _id,
+                  } of products) {
+                     const newStock = stock - amount;
+                     const result = await discountingStockProductsApi(
+                        _id,
+                        newStock,
+                        logout
+                     );
+                     if (!result) {
+                        discount.push({ url, title });
+                     }
+                  }
+                  if (size(discount) > 0) {
+                     for await (const product of discount) {
+                        toast.warning(
+                           `${lowerCase(product.title)} no tiene stock`
+                        );
+                     }
+                     toast.warning(
+                        'Tu pago fue procesado pero los siguientes productos no estan es stock'
+                     );
+                     clearProductsCart();
+                     router.push('/orders');
+                     return null;
+                  } else {
+                     toast.success('Pago realizado con éxito');
+                     clearProductsCart();
+                     router.push('/orders');
+                     return null;
+                  }
                } else {
                   toast.error('Error al realizar el pago');
                }
