@@ -39,7 +39,7 @@ function Info({ product }) {
    const { auth, logout } = useAuth();
    const { addProductCart } = useCart();
    const [loading, setLoading] = useState(false);
-   const [amount, setAmount] = useState(1);
+   const [amount, setAmount] = useState(0);
    const [isFavorite, setIsFavorite] = useState(false);
    const [reloadFavorite, setReloadFavorite] = useState(false);
 
@@ -75,7 +75,7 @@ function Info({ product }) {
    };
 
    const handleLess = () => {
-      if (amount > 1) setAmount(amount - 1);
+      if (amount >= 1) setAmount(amount - 1);
    };
 
    return (
@@ -105,6 +105,7 @@ function Info({ product }) {
             <Input type="text" placeholder="1" action>
                <Button
                   type="button"
+                  disabled={amount === 0}
                   onClick={handleLess}
                   className="header-product__amount-less"
                >
@@ -113,6 +114,7 @@ function Info({ product }) {
                <input disabled value={amount} />
                <Button
                   type="button"
+                  disabled={amount === product.stock}
                   onClick={handleMore}
                   className="header-product__amount-more"
                >
@@ -127,7 +129,42 @@ function Info({ product }) {
                      <p>Precio de venta al publico: ${product.price}</p>
                      <div className="header-product__buy-price-actions">
                         <p>-{product.discount}%</p>
-                        <p style={{ marginLeft: '1rem' }}>
+                        {amount === 0 ? (
+                           <p style={{ marginLeft: '1rem' }}>
+                              $
+                              {(
+                                 product.price -
+                                 Math.floor(product.price * product.discount) /
+                                    100
+                              ).toFixed(2)}
+                           </p>
+                        ) : (
+                           <p style={{ marginLeft: '1rem' }}>
+                              $
+                              {(
+                                 (product.price -
+                                    Math.floor(
+                                       product.price * product.discount
+                                    ) /
+                                       100) *
+                                 amount
+                              ).toFixed(2)}
+                           </p>
+                        )}
+                     </div>
+                  </>
+               ) : (
+                  <div className="header-product__buy-price-actions">
+                     {amount === 0 ? (
+                        <p>
+                           $
+                           {(
+                              product.price -
+                              Math.floor(product.price * product.discount) / 100
+                           ).toFixed(2)}
+                        </p>
+                     ) : (
+                        <p>
                            $
                            {(
                               (product.price -
@@ -136,24 +173,13 @@ function Info({ product }) {
                               amount
                            ).toFixed(2)}
                         </p>
-                     </div>
-                  </>
-               ) : (
-                  <div className="header-product__buy-price-actions">
-                     <p>
-                        $
-                        {(
-                           (product.price -
-                              Math.floor(product.price * product.discount) /
-                                 100) *
-                           amount
-                        ).toFixed(2)}
-                     </p>
+                     )}
                   </div>
                )}
             </div>
             <Button
                className="header-product__buy-button"
+               disabled={amount === 0}
                onClick={() => addProductCart(product.url, amount)}
             >
                Comprar
