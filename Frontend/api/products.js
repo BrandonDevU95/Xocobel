@@ -117,3 +117,16 @@ export async function getTotalGiftsApi() {
       return null;
    }
 }
+
+export async function checkStockProductApi(product) {
+   try {
+      const url = `${BASE_PATH}/products?_id=${product}`;
+      const response = await fetch(url);
+      const result = await response.json();
+      if (result[0].stock > 0) return true;
+      else return false;
+   } catch (error) {
+      console.log(error);
+      return null;
+   }
+}

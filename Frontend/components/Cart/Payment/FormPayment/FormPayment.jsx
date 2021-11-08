@@ -1,4 +1,4 @@
-import { size, forEach } from 'lodash';
+import { size, forEach, lowerCase } from 'lodash';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import { Button } from 'semantic-ui-react';
@@ -6,14 +6,15 @@ import { useState, useEffect } from 'react';
 import useAuth from '../../../../hooks/useAuth';
 import useCart from '../../../../hooks/useCart';
 import { paymentCartApi } from '../../../../api/cart';
+import { checkStockProductApi } from '../../../../api/products';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
-export default function FormPayment({ products, address }) {
+export default function FormPayment({ products, address, setReloadCart }) {
    const router = useRouter();
    const stripe = useStripe();
    const elements = useElements();
    const { auth, logout } = useAuth();
-   const { clearProductsCart } = useCart();
+   const { clearProductsCart, removeProductCart } = useCart();
    const [loading, setLoading] = useState(false);
    const [totalPrice, setTotalPrice] = useState(0);
 
@@ -24,6 +25,10 @@ export default function FormPayment({ products, address }) {
       });
       setTotalPrice(price);
    }, [products]);
+
+   const removeProduct = (product) => {
+      removeProductCart(product);
+   };
 
    const handleSubmit = async (event) => {
       event.preventDefault();
@@ -39,22 +44,42 @@ export default function FormPayment({ products, address }) {
          if (result.error) {
             toast.error(result.error.message);
          } else {
-            const response = await paymentCartApi(
-               result.token,
-               products,
-               auth.idUser,
-               address,
-               logout
-            );
-            if (size(response) > 0 && response.statusCode !== 500) {
-               toast.success('Pago realizado con éxito');
-               clearProductsCart();
-               router.push('/orders');
-            } else {
-               toast.error('Error al realizar el pago');
+            let stock = [];
+            for await (const { _id, url, title } of products) {
+               const result = await checkStockProductApi(_id);
+               if (!result) {
+                  stock.push({ url, title });
+               }
             }
+            if (size(stock) > 0) {
+               forEach(stock, (product) => {
+                  toast.error(
+                     `El producto ${lowerCase(product.title)} no tiene stock`
+                  );
+                  removeProduct(product.url);
+               });
+               setReloadCart(true);
+               setLoading(false);
+               return null;
+            } else {
+               const response = await paymentCartApi(
+                  result.token,
+                  products,
+                  auth.idUser,
+                  address,
+                  logout
+               );
+               if (size(response) > 0 && response.statusCode !== 500) {
+                  toast.success('Pago realizado con éxito');
+                  clearProductsCart();
+                  router.push('/orders');
+                  return null;
+               } else {
+                  toast.error('Error al realizar el pago');
+               }
+            }
+            setLoading(false);
          }
-         setLoading(false);
       }
    };
 

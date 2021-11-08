@@ -1,4 +1,4 @@
-import { BASE_PATH, CART } from '../utils/constants';
+import { BASE_PATH, CART, AMOUNT } from '../utils/constants';
 import { size, includes, remove } from 'lodash';
 import { toast } from 'react-toastify';
 import { authFetch } from '../utils/fetch';
@@ -9,24 +9,33 @@ export function getProductsCart() {
    if (!cart) {
       return null;
    } else {
-      const products = cart.split(',');
+      const products = JSON.parse(cart);
       return products;
    }
 }
 
-export function addProductCart(product) {
+function findCartProduct(product) {
+   const cart = getProductsCart();
+   let response = false;
+   cart.forEach((element) => {
+      if (element.product == product) response = true;
+   });
+   return response;
+}
+
+export function addProductCart(product, amount = 1) {
    const cart = getProductsCart();
 
    if (!cart) {
-      localStorage.setItem(CART, product);
+      localStorage.setItem(CART, JSON.stringify([{ product, amount }]));
       toast.success('Producto añadido al carrito');
    } else {
-      const productFound = includes(cart, product);
+      const productFound = findCartProduct(product);
       if (productFound) {
          toast.warning('Producto ya existe en el carrito');
       } else {
-         cart.push(product);
-         localStorage.setItem(CART, cart);
+         cart.push({ product, amount });
+         localStorage.setItem(CART, JSON.stringify(cart));
          toast.success('Producto añadido al carrito');
       }
    }
@@ -46,9 +55,9 @@ export function removeProductCart(product) {
    const cart = getProductsCart();
    if (cart) {
       remove(cart, (item) => {
-         return item === product;
+         return item.product === product;
       });
-      if (size(cart) > 0) localStorage.setItem(CART, cart);
+      if (size(cart) > 0) localStorage.setItem(CART, JSON.stringify(cart));
       else localStorage.removeItem(CART);
    }
 }

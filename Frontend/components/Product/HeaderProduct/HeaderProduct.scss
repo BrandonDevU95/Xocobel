@@ -3,22 +3,57 @@
       margin: 0;
    }
 
+   .carousel-screen {
+      .slick-arrow {
+         &:before {
+            font-size: 35px;
+            color: $font-honey;
+         }
+
+         &.slick-next {
+            right: 10px;
+         }
+
+         &.slick-prev {
+            left: -6px;
+         }
+      }
+   }
+
    &__title {
       position: relative;
       background-color: $background-honey;
-      padding: 10px 0;
+      padding: 15px 0;
       color: $font-marmol;
-      text-align: center;
+      text-align: start;
       font-weight: bold;
+      font-size: 1.6rem;
+      font-family: 'Pacific Beach', Helvetica, sans-serif;
+      padding-left: 1.5rem;
+
+      p {
+         margin: 0;
+         text-align: start;
+         font-size: 1.2rem;
+         padding-top: 10px;
+         color: $font-grey-marmol;
+         font-family: 'Source Sans Pro';
+         font-weight: lighter;
+      }
+
+      .ui.loader {
+         left: 96.7% !important;
+         top: 30% !important;
+      }
 
       i.icon {
          position: absolute;
-         height: 100%;
+         height: 61%;
          top: 0;
          right: 9px;
          display: flex;
          align-items: center;
-         font-size: 18px;
+         font-size: 1.5rem;
          opacity: 1 !important;
 
          &.like {
@@ -37,8 +72,39 @@
 
    &__description {
       background-color: $background-grey-marmol;
-      padding: 20px;
-      font-size: 14px;
+      padding: 2rem 1.5rem;
+      font-size: 1.2rem;
+      color: $font-cocoa;
+      text-align: justify;
+      font-weight: bold;
+      font-family: 'Source Sans Pro', Helvetica, sans-serif;
+   }
+
+   &__amount {
+      padding-top: 1rem;
+
+      &-less {
+         border-radius: 0.28571429rem 0 0 0.28571429rem !important;
+
+         i {
+            margin: auto !important;
+         }
+      }
+
+      &-more {
+         i {
+            margin: auto !important;
+         }
+      }
+
+      input {
+         max-width: 35% !important;
+         border-radius: 0 !important;
+         text-align: center !important;
+         font-size: 1.5rem !important;
+         margin: 0 !important;
+         padding: 0.5rem 0 !important;
+      }
    }
 
    &__buy {
@@ -55,7 +121,7 @@
          flex-direction: column;
 
          > p {
-            text-align: center;
+            text-align: start;
             color: $font-cocoa;
             margin: 0;
          }

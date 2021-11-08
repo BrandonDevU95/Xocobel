@@ -6,13 +6,17 @@ import FormPayment from './FormPayment';
 
 const stripePromise = loadStripe(STRIPE_TOKEN);
 
-export default function Payment({ products, address }) {
+export default function Payment({ products, address, setReloadCart }) {
    return (
       <div className="payment">
          <div className="title">Pago</div>
          <div className="data">
             <Elements stripe={stripePromise}>
-               <FormPayment products={products} address={address} />
+               <FormPayment
+                  products={products}
+                  address={address}
+                  setReloadCart={setReloadCart}
+               />
             </Elements>
          </div>
       </div>

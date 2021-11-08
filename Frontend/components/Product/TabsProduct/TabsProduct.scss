@@ -1,6 +1,5 @@
 .tabs-product {
-   margin: 15px;
-
+   margin-top: 1.5rem;
    .ui.tab {
       padding: 0;
    }
@@ -8,5 +7,18 @@
    &__ingredients,
    &__nutrition {
       padding: 15px;
+
+      h2 {
+         color: $font-chocolate;
+         font-size: 1.5rem;
+         font-family: 'Pacific Beach', Helvetica, sans-serif;
+      }
+
+      h3 {
+         font-size: 1rem;
+         color: $font-cocoa;
+         text-align: justify;
+         font-family: 'Source Sans Pro', Helvetica, sans-serif;
+      }
    }
 }

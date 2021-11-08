@@ -71,10 +71,10 @@ export default function MyApp({ Component, pageProps }) {
       [auth]
    );
 
-   const addProduct = (product) => {
+   const addProduct = (product, amount) => {
       const token = getToken();
       if (token) {
-         addProductCart(product);
+         addProductCart(product, amount);
          setReloadCart(true);
       } else {
          toast.warning('Debe iniciar sesión para agregar productos al carrito');
@@ -95,7 +95,7 @@ export default function MyApp({ Component, pageProps }) {
    const cartData = useMemo(
       () => ({
          productsCart: totalProductsCart,
-         addProductCart: (product) => addProduct(product),
+         addProductCart: (product, amount) => addProduct(product, amount),
          getProductsCart,
          removeProductCart: (product) => removeProduct(product),
          clearProductsCart,

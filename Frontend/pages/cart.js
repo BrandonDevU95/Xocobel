@@ -8,9 +8,11 @@ import Payment from '../components/Cart/Payment';
 import Seo from '../components/Seo';
 import { Container } from 'semantic-ui-react';
 
-export default function cart() {
+export default function Cart() {
    const { getProductsCart } = useCart();
    const products = getProductsCart();
+
+   // return <EmptyCart />;
 
    return !products ? <EmptyCart /> : <FullCart products={products} />;
 }
@@ -35,14 +37,33 @@ function FullCart({ products }) {
    useEffect(() => {
       (async () => {
          const productsTemp = [];
+         let i = 0;
          for await (const product of products) {
-            const data = await getProductByUrlApi(product);
+            const data = await getProductByUrlApi(product.product);
+            data = {
+               ...data,
+               amount: product.amount,
+               priceDiscount: 0,
+               totalPrice: 0,
+            };
+            data.priceDiscount = parseFloat(
+               (
+                  data.price -
+                  Math.floor(data.price * data.discount) / 100
+               ).toFixed(2)
+            );
+            data.totalPrice = parseFloat(
+               (data.priceDiscount * data.amount).toFixed(2)
+            );
+            i++;
             productsTemp.push(data);
          }
          setProductsData(productsTemp);
       })();
       setReloadCart(false);
    }, [reloadCart]);
+
+   if (!productsData) return null;
 
    return (
       <BasicLayout className="cart-full">
@@ -58,7 +79,13 @@ function FullCart({ products }) {
                setReloadCart={setReloadCart}
             />
             <ShippingAddress setAddress={setAddress} />
-            {address && <Payment products={productsData} address={address} />}
+            {address && (
+               <Payment
+                  products={productsData}
+                  address={address}
+                  setReloadCart={setReloadCart}
+               />
+            )}
          </Container>
       </BasicLayout>
    );

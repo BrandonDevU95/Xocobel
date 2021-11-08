@@ -7,7 +7,7 @@ export default function TabsProduct({ product }) {
          menuItem: 'Ingredients',
          render: () => (
             <Tab.Pane>
-               <IngredientsTab product={product} />{' '}
+               <IngredientsTab product={product} />
             </Tab.Pane>
          ),
       },
@@ -15,8 +15,7 @@ export default function TabsProduct({ product }) {
          menuItem: 'Nutrition Values',
          render: () => (
             <Tab.Pane>
-               {' '}
-               <NutritionValuesTab product={product} />{' '}
+               <NutritionValuesTab product={product} />
             </Tab.Pane>
          ),
       },

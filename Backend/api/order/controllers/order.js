@@ -14,7 +14,7 @@ module.exports = {
     const { token, products, idUser, addressShipping } = ctx.request.body;
     let totalPayment = 0;
     products.forEach((product) => {
-      totalPayment += product.price;
+      totalPayment += product.totalPrice;
     });
     const charge = await stripe.charges.create({
       amount: totalPayment * 100,
@@ -27,6 +27,7 @@ module.exports = {
     for await (const product of products) {
       const data = {
         product: product.id,
+        amount: product.amount,
         user: idUser,
         totalPayment,
         idPayment: charge.id,

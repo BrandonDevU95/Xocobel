@@ -1,1 +1,1 @@
-export { defaul } from './TabsProduct.jsx';
+export { default } from './TabsProduct.jsx';

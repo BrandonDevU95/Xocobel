@@ -5,7 +5,8 @@ import useCart from '../../../hooks/useCart';
 import useAuth from '../../../hooks/useAuth';
 import { BASE_PATH } from '../../../utils/constants';
 import CarouselScreen from '../CarouselScreen';
-import { Grid, Image, Icon, Button } from 'semantic-ui-react';
+import { Grid, Image, Icon, Button, Loader, Input } from 'semantic-ui-react';
+import TabsProduct from '../TabsProduct';
 import {
    isFavoriteApi,
    addFavoriteApi,
@@ -15,19 +16,20 @@ import {
 export default function HeaderProduct({ product }) {
    return (
       <Grid className="header-product">
-         <Grid.Column mobile={16} tablet={6} computer={5}>
+         <Grid.Column mobile={16} tablet={6} computer={6}>
             <Image
                src={`${BASE_PATH}${product.poster.url}`}
                alt={product.title}
                fluid
             />
-         </Grid.Column>
-         <Grid.Column mobile={16} tablet={10} computer={11}>
-            <Info product={product} />
             <CarouselScreen
                title={product.title}
                screenShots={product.galery}
             />
+         </Grid.Column>
+         <Grid.Column mobile={16} tablet={10} computer={10}>
+            <Info product={product} />
+            <TabsProduct product={product} />
          </Grid.Column>
       </Grid>
    );
@@ -36,6 +38,8 @@ export default function HeaderProduct({ product }) {
 function Info({ product }) {
    const { auth, logout } = useAuth();
    const { addProductCart } = useCart();
+   const [loading, setLoading] = useState(false);
+   const [amount, setAmount] = useState(1);
    const [isFavorite, setIsFavorite] = useState(false);
    const [reloadFavorite, setReloadFavorite] = useState(false);
 
@@ -50,55 +54,107 @@ function Info({ product }) {
 
    const addFavorite = async () => {
       if (auth) {
-         //TODO: Bloquear icno hasta que se complete la peticion
+         setLoading(true);
          await addFavoriteApi(auth.idUser, product.id, logout);
          setReloadFavorite(true);
+         setLoading(false);
       }
    };
 
    const removeFavorite = async () => {
       if (auth) {
-         //TODO: Bloquear icno hasta que se complete la peticion
+         setLoading(true);
          await deleteFavoriteApi(auth.idUser, product.id, logout);
          setReloadFavorite(true);
+         setLoading(false);
       }
+   };
+
+   const handleMore = () => {
+      if (amount < product.stock) setAmount(amount + 1);
+   };
+
+   const handleLess = () => {
+      if (amount > 1) setAmount(amount - 1);
    };
 
    return (
       <>
          <div className="header-product__title">
             {product.title}
-            <Icon
-               name={isFavorite ? 'heart' : 'heart outline'}
-               className={classNames({
-                  like: isFavorite,
-               })}
-               link
-               onClick={isFavorite ? removeFavorite : addFavorite}
-            />
+            <p>Stock: {product.stock}</p>
+            {loading ? (
+               <Loader active={loading} size="small" />
+            ) : (
+               <Icon
+                  name={isFavorite ? 'heart' : 'heart outline'}
+                  className={classNames({
+                     like: isFavorite,
+                  })}
+                  link
+                  onClick={isFavorite ? removeFavorite : addFavorite}
+               />
+            )}
          </div>
-         <div className="header-product__delivery">Entrega en 24/48 horas</div>
+         <div className="header-product__delivery">Entrega de 24/48 horas</div>
          <div
             className="header-product__description"
             dangerouslySetInnerHTML={{ __html: product.description }}
          />
+         <div className="header-product__amount">
+            <Input type="text" placeholder="1" action>
+               <Button
+                  type="button"
+                  onClick={handleLess}
+                  className="header-product__amount-less"
+               >
+                  <Icon name="minus" />
+               </Button>
+               <input disabled value={amount} />
+               <Button
+                  type="button"
+                  onClick={handleMore}
+                  className="header-product__amount-more"
+               >
+                  <Icon name="add" />
+               </Button>
+            </Input>
+         </div>
          <div className="header-product__buy">
             <div className="header-product__buy-price">
-               <p>Precio de venta al publico: ${product.price}</p>
-               <div className="header-product__buy-price-actions">
-                  <p>-{product.discount}%</p>
-                  <p>
-                     $
-                     {(
-                        product.price -
-                        Math.floor(product.price * product.discount) / 100
-                     ).toFixed(2)}
-                  </p>
-               </div>
+               {product.discount > 0 ? (
+                  <>
+                     <p>Precio de venta al publico: ${product.price}</p>
+                     <div className="header-product__buy-price-actions">
+                        <p>-{product.discount}%</p>
+                        <p style={{ marginLeft: '1rem' }}>
+                           $
+                           {(
+                              (product.price -
+                                 Math.floor(product.price * product.discount) /
+                                    100) *
+                              amount
+                           ).toFixed(2)}
+                        </p>
+                     </div>
+                  </>
+               ) : (
+                  <div className="header-product__buy-price-actions">
+                     <p>
+                        $
+                        {(
+                           (product.price -
+                              Math.floor(product.price * product.discount) /
+                                 100) *
+                           amount
+                        ).toFixed(2)}
+                     </p>
+                  </div>
+               )}
             </div>
             <Button
                className="header-product__buy-button"
-               onClick={() => addProductCart(product.url)}
+               onClick={() => addProductCart(product.url, amount)}
             >
                Comprar
             </Button>

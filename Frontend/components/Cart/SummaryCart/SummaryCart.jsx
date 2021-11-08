@@ -11,7 +11,7 @@ export default function SummaryCart({ products, reloadCart, setReloadCart }) {
    useEffect(() => {
       let price = 0;
       forEach(products, (product) => {
-         price += product.price;
+         price += product.totalPrice;
       });
       setTotalPrice(price);
    }, [reloadCart, products]);
@@ -20,6 +20,8 @@ export default function SummaryCart({ products, reloadCart, setReloadCart }) {
       removeProductCart(product);
       setReloadCart(true);
    };
+
+   if (!products) return null;
 
    return (
       <div className="summary-cart">
@@ -30,8 +32,9 @@ export default function SummaryCart({ products, reloadCart, setReloadCart }) {
                   <Table.Row>
                      <Table.HeaderCell>Producto</Table.HeaderCell>
                      <Table.HeaderCell>Categoria</Table.HeaderCell>
-                     <Table.HeaderCell>Entrega</Table.HeaderCell>
-                     <Table.HeaderCell>Precio</Table.HeaderCell>
+                     <Table.HeaderCell>P. Unitario</Table.HeaderCell>
+                     <Table.HeaderCell>Cantidad</Table.HeaderCell>
+                     <Table.HeaderCell>Total</Table.HeaderCell>
                   </Table.Row>
                </Table.Header>
                <Table.Body>
@@ -52,18 +55,21 @@ export default function SummaryCart({ products, reloadCart, setReloadCart }) {
                            />
                            {product.title}
                         </Table.Cell>
-                        <Table.Cell>{product.category_retail.title}</Table.Cell>
-                        <Table.Cell>Inmediata</Table.Cell>
                         <Table.Cell>
-                           <span className="price">$ {product.price}</span>
+                           {product.category_retail?.title}
+                        </Table.Cell>
+                        <Table.Cell>${product.priceDiscount}</Table.Cell>
+                        <Table.Cell>{product.amount}</Table.Cell>
+                        <Table.Cell>
+                           <span className="price">$ {product.totalPrice}</span>
                         </Table.Cell>
                      </Table.Row>
                   ))}
                   <Table.Row className="summary-cart__resume">
                      <Table.Cell className="clear" />
-                     <Table.Cell colSpan="2">Total:</Table.Cell>
+                     <Table.Cell colSpan="3">Total:</Table.Cell>
                      <Table.Cell className="total-price">
-                        ${totalPrice.toFixed(2)}
+                        ${totalPrice}
                      </Table.Cell>
                   </Table.Row>
                </Table.Body>
