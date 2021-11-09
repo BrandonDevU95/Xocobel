@@ -8,9 +8,7 @@
       min-height: 100vh;
 
       &_info {
-         img {
-            padding: 5px;
-         }
+         padding: 0 10rem;
 
          &-description {
             padding-top: 2rem;
@@ -29,11 +27,6 @@
          }
       }
 
-      .contact {
-         background-color: $background-marmol;
-      }
-
-      .ui.grid,
       .carousel-screen,
       .slick-arrow {
          padding: 0 10rem;
