@@ -1,10 +1,129 @@
 .xocobel {
-   .content {
-      padding-top: 20px;
-   }
-
    &-container {
-      padding: 0 10rem;
       min-height: 100vh;
+
+      &-banner {
+         background-image: url('/xocobel-banner.jpeg');
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+         height: 400px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+
+         &-info {
+            padding: 0 10rem;
+            text-align: center;
+            color: $font-white;
+
+            h2 {
+               font-size: 4rem;
+               font-family: 'Pacific Beach', Helvetica, sans-serif;
+            }
+
+            p {
+               font-size: 1.2rem;
+               font-family: 'Source Sans Pro', Helvetica, sans-serif;
+            }
+         }
+      }
+
+      &-band {
+         background-color: $background-grey-marmol;
+         height: 200px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin-bottom: 1rem;
+
+         p {
+            font-family: 'Pacific Beach', Helvetica, sans-serif;
+            color: $font-cocoa;
+            font-size: 2rem;
+         }
+      }
+
+      &-band-foot {
+         background-color: $background-grey-marmol;
+
+         &-data {
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            h3 {
+               font-family: 'Pacific Beach', Helvetica, sans-serif;
+               color: $font-cocoa;
+               font-size: 2rem;
+            }
+
+            p {
+               font-family: 'Source Sans Pro', Helvetica, sans-serif;
+               color: $font-cocoa;
+               font-size: 1.2rem;
+            }
+         }
+      }
+
+      &-grid-1 {
+         .eight.wide.column {
+            padding-top: 0 !important;
+            padding-right: 0 !important;
+         }
+
+         &_column {
+            display: flex !important;
+            align-items: center !important;
+            padding: 0 !important;
+
+            &-description {
+               padding: 0 10rem 0 5rem;
+
+               h3 {
+                  font-family: 'Pacific Beach';
+                  font-size: 1.8rem;
+                  color: $font-cocoa;
+               }
+
+               p {
+                  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+                  font-size: 1.2rem;
+                  color: $font-cocoa;
+               }
+            }
+         }
+      }
+
+      &-grid-2 {
+         .eight.wide.column {
+            padding-top: 0 !important;
+            padding-left: 0 !important;
+         }
+
+         &_column {
+            display: flex !important;
+            align-items: center !important;
+
+            &-description {
+               padding: 0 5rem 0 10rem;
+
+               h3 {
+                  font-family: 'Pacific Beach';
+                  font-size: 1.8rem;
+                  color: $font-cocoa;
+               }
+
+               p {
+                  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+                  font-size: 1.2rem;
+                  color: $font-cocoa;
+               }
+            }
+         }
+      }
    }
 }
