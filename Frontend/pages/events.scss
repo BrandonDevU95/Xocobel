@@ -4,7 +4,66 @@
    }
 
    &-container {
-      padding: 0 10rem;
+      margin-top: 3rem;
       min-height: 100vh;
+
+      &_info {
+         img {
+            padding: 5px;
+         }
+
+         &-description {
+            padding-top: 2rem;
+            h2 {
+               font-family: 'Pacific Beach Script';
+               color: $font-cocoa;
+               font-size: 4rem;
+            }
+
+            p {
+               font-family: 'Source Sans Pro';
+               text-align: justify;
+               font-size: 1.5rem;
+               color: $font-cocoa;
+            }
+         }
+      }
+
+      .contact {
+         background-color: $background-marmol;
+      }
+
+      .ui.grid,
+      .carousel-screen,
+      .slick-arrow {
+         padding: 0 10rem;
+      }
+
+      .carousel-screen {
+         margin: 5rem 0;
+         .slick-slide {
+            .ui.image:hover {
+               cursor: auto !important;
+               opacity: 1;
+            }
+         }
+
+         .slick-arrow {
+            z-index: 1;
+
+            &:before {
+               font-size: 50px;
+               color: $font-cocoa;
+            }
+
+            &.slick-next {
+               right: 35px;
+            }
+
+            &.slick-prev {
+               left: -20px;
+            }
+         }
+      }
    }
 }
