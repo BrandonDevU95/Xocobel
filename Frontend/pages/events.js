@@ -62,6 +62,20 @@ export default function Events() {
                      alt="Events Slide 2"
                   />
                </div>
+               <div>
+                  <Image
+                     fluid
+                     src="/events-slide-3.jpeg"
+                     alt="Events Slide 3"
+                  />
+               </div>
+               <div>
+                  <Image
+                     fluid
+                     src="/events-slide-4.jpeg"
+                     alt="Events Slide 4"
+                  />
+               </div>
             </Slider>
             <Contact />
          </Container>
