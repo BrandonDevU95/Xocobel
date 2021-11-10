@@ -5,6 +5,7 @@ import useCart from '../../../hooks/useCart';
 import useAuth from '../../../hooks/useAuth';
 import { BASE_PATH } from '../../../utils/constants';
 import CarouselScreen from '../CarouselScreen';
+import { toast } from 'react-toastify';
 import { Grid, Image, Icon, Button, Loader, Input } from 'semantic-ui-react';
 import TabsProduct from '../TabsProduct';
 import {
@@ -45,7 +46,7 @@ function Info({ product }) {
 
    useEffect(() => {
       (async () => {
-         const response = await isFavoriteApi(auth.idUser, product.id, logout);
+         const response = await isFavoriteApi(auth?.idUser, product.id, logout);
          if (size(response) > 0) setIsFavorite(true);
          else setIsFavorite(false);
       })();
@@ -55,16 +56,18 @@ function Info({ product }) {
    const addFavorite = async () => {
       if (auth) {
          setLoading(true);
-         await addFavoriteApi(auth.idUser, product.id, logout);
+         await addFavoriteApi(auth?.idUser, product.id, logout);
          setReloadFavorite(true);
          setLoading(false);
+      } else {
+         toast.warning('Debes iniciar sesión para poder agregar a favoritos');
       }
    };
 
    const removeFavorite = async () => {
       if (auth) {
          setLoading(true);
-         await deleteFavoriteApi(auth.idUser, product.id, logout);
+         await deleteFavoriteApi(auth?.idUser, product.id, logout);
          setReloadFavorite(true);
          setLoading(false);
       }

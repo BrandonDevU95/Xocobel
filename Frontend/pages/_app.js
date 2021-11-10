@@ -38,6 +38,7 @@ export default function MyApp({ Component, pageProps }) {
       } else {
          setAuth(null);
       }
+      setReloadUser(false);
    }, [reloadUser]);
 
    useEffect(() => {
