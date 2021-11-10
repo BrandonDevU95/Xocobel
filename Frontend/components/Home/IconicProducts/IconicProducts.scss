@@ -1,7 +1,12 @@
 .iconic-products {
    &__grid {
       padding: 0 10rem;
-      height: 70vh;
+      height: 80vh;
+      margin-bottom: 10rem;
+
+      @media (max-width: 1300px) {
+         height: 55vh;
+      }
 
       .ui.grid {
          display: flex;
