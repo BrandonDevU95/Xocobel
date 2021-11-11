@@ -46,16 +46,17 @@ export default function LoginForm({ showRegisterForm, onCloseModal }) {
    return (
       <Form className="login-form" onSubmit={formik.handleSubmit}>
          <Form.Input
+            label="Correo Electronico"
             name="identifier"
             type="text"
-            placeholder="Correo"
+            placeholder="account@xocobel.com.mx"
             onChange={formik.handleChange}
             error={formik.errors.identifier}
          />
          <Form.Input
+            label="Constraseña"
             name="password"
             type="password"
-            placeholder="Contraseña"
             onChange={formik.handleChange}
             error={formik.errors.password}
          />
@@ -85,7 +86,7 @@ function initialValues() {
 
 function validationSchema() {
    return {
-      identifier: Yup.string().email(true).required(true),
-      password: Yup.string().required(true),
+      identifier: Yup.string().email(true).required('Correo no valido'),
+      password: Yup.string().required('Contraseña no valida'),
    };
 }

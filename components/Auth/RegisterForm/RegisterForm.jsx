@@ -24,6 +24,8 @@ export default function RegisterForm({ showLoginForm }) {
       },
    });
 
+   // TODO: Agregar un campo de validacion de contraseña
+
    return (
       <Form className="login-form" onSubmit={formik.handleSubmit}>
          <Form.Input
