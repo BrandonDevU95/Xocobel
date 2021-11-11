@@ -27,7 +27,7 @@ export default function AddressForm({
       setLoading(true);
       const formDataTemp = {
          ...formData,
-         user: auth.idUser,
+         users_permissions_user: auth.idUser,
       };
       const response = await createAddressApi(formDataTemp, logout);
       if (!response) {
@@ -46,7 +46,7 @@ export default function AddressForm({
       setLoading(true);
       const formDataTemp = {
          ...formData,
-         user: auth.idUser,
+         users_permissions_user: auth.idUser,
       };
       const response = await updateAddressApi(
          address._id,
