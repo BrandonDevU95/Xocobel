@@ -40,7 +40,7 @@ function Info({ product }) {
    const { auth, logout } = useAuth();
    const { addProductCart } = useCart();
    const [loading, setLoading] = useState(false);
-   const [amount, setAmount] = useState(0);
+   const [amount, setAmount] = useState(1);
    const [isFavorite, setIsFavorite] = useState(false);
    const [reloadFavorite, setReloadFavorite] = useState(false);
 
