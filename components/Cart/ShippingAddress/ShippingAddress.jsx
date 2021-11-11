@@ -25,7 +25,7 @@ export default function ShippingAddress({ setAddress }) {
             {size(addresses) === 0 ? (
                <h3>
                   No hay direcciones registradas,{' '}
-                  <Link href="/address">
+                  <Link href="/account">
                      <a>Agregar direccion</a>
                   </Link>
                </h3>
