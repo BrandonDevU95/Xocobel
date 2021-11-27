@@ -23,10 +23,12 @@ export default function HeaderProduct({ product }) {
                alt={product.title}
                fluid
             />
-            <CarouselScreen
-               title={product.title}
-               screenShots={product.galery}
-            />
+            {size(product.galery) >= 2 && (
+               <CarouselScreen
+                  title={product.title}
+                  screenShots={product.galery}
+               />
+            )}
          </Grid.Column>
          <Grid.Column mobile={16} tablet={10} computer={10}>
             <Info product={product} />
