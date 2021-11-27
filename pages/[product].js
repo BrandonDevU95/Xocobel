@@ -1,10 +1,11 @@
+import Seo from '../components/Seo';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
+import { Container } from 'semantic-ui-react';
 import { getProductByUrlApi } from '../api/products';
 import BasicLayout from '../layouts/Basic/BasicLayout';
 import HeaderProduct from '../components/Product/HeaderProduct';
-import Seo from '../components/Seo';
-import { Container } from 'semantic-ui-react';
+import RecommendedProducts from '../components/Home/RecommendedProducts';
 
 export default function Product() {
    const { query } = useRouter();
@@ -27,6 +28,7 @@ export default function Product() {
          />
          <Container fluid className="product-container">
             <HeaderProduct product={product} />
+            <RecommendedProducts />
          </Container>
       </BasicLayout>
    );

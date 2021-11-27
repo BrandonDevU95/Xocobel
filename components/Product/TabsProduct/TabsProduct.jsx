@@ -11,14 +11,6 @@ export default function TabsProduct({ product }) {
             </Tab.Pane>
          ),
       },
-      {
-         menuItem: 'Nutrition Values',
-         render: () => (
-            <Tab.Pane>
-               <NutritionValuesTab product={product} />
-            </Tab.Pane>
-         ),
-      },
    ];
 
    return <Tab className="tabs-product" panes={panes} />;
@@ -29,15 +21,6 @@ function IngredientsTab({ product }) {
       <div className="tabs-product__ingredients">
          <h2>{product.title}</h2>
          <h3>{product.ingredients}</h3>
-      </div>
-   );
-}
-
-function NutritionValuesTab({ product }) {
-   return (
-      <div className="tabs-product__nutrition">
-         <h2>{product.title}</h2>
-         <h3>{product.nutrition}</h3>
       </div>
    );
 }

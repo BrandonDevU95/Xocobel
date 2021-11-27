@@ -85,7 +85,7 @@ function Info({ product }) {
       <>
          <div className="header-product__title">
             {product.title}
-            <p>Stock: {product.stock}</p>
+            <p>Existencia: {product.stock}</p>
             {loading ? (
                <Loader active={loading} size="small" />
             ) : (
@@ -99,7 +99,9 @@ function Info({ product }) {
                />
             )}
          </div>
-         <div className="header-product__delivery">Entrega de 24/48 horas</div>
+         <div className="header-product__delivery">
+            Entrega aproximada 2 días
+         </div>
          <div
             className="header-product__description"
             dangerouslySetInnerHTML={{ __html: product.description }}
