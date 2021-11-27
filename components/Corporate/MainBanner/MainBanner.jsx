@@ -2,7 +2,7 @@ import { Container, Grid, Image } from 'semantic-ui-react';
 
 export default function MainBanner() {
    return (
-      <Container fluid className="main-banner-corporate-container">
+      <section className="main-banner-corporate-container">
          <Container fluid className="main-banner-corporate-container__banner">
             <Grid>
                <Grid.Column width={7}>
@@ -20,13 +20,9 @@ export default function MainBanner() {
                      </p>
                   </div>
                </Grid.Column>
-               <Grid.Column width={9}>
-                  <div className="main-banner-corporate-container__banner_right">
-                     <Image src="/corporate-banner.jpeg" />
-                  </div>
-               </Grid.Column>
+               <Grid.Column width={9}></Grid.Column>
             </Grid>
          </Container>
-      </Container>
+      </section>
    );
 }
