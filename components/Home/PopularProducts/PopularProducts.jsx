@@ -16,7 +16,7 @@ export default function PopularProducts() {
 
    return (
       <Container fluid className="popular-products">
-         <h1>Popular Products</h1>
+         <h1>Productos Estrella</h1>
          <div className="popular-products__list">
             {popularProducts && size(popularProducts) === 0 && (
                <div className="popular-products__list-not-found">
