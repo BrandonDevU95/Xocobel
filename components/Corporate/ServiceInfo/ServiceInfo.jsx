@@ -90,8 +90,8 @@ function FormModal({ formik, loading }) {
             <Form.Input
                name="name"
                type="text"
-               label="Name"
-               placeholder="Full Name"
+               label="Nombre"
+               placeholder="Nombre Completo"
                onChange={formik.handleChange}
                value={formik.values.name}
                error={formik.errors.name}
@@ -99,8 +99,8 @@ function FormModal({ formik, loading }) {
             <Form.Input
                name="email"
                type="text"
-               label="Email"
-               placeholder="example@xocobel.com.mx"
+               label="Correo"
+               placeholder="ejemplo@xocobel.com.mx"
                onChange={formik.handleChange}
                value={formik.values.email}
                error={formik.errors.email}
@@ -110,8 +110,8 @@ function FormModal({ formik, loading }) {
             <Form.Input
                name="organization"
                type="text"
-               label="Organization"
-               placeholder="Organization Name"
+               label="Organización"
+               placeholder="Xocobel Sa de CV"
                onChange={formik.handleChange}
                value={formik.values.organization}
                error={formik.errors.organization}
@@ -121,8 +121,8 @@ function FormModal({ formik, loading }) {
             <Form.Input
                name="phone"
                type="text"
-               label="Phone"
-               placeholder="(555) 555 5555"
+               label="Teléfono"
+               placeholder="(56) 1234 5678"
                onChange={formik.handleChange}
                value={formik.values.phone}
                error={formik.errors.phone}
@@ -130,8 +130,8 @@ function FormModal({ formik, loading }) {
             <Form.Input
                name="subject"
                type="text"
-               label="Subject"
-               placeholder="Chocolate"
+               label="Asunto"
+               placeholder="Pedido de Chocolate"
                onChange={formik.handleChange}
                value={formik.values.subject}
                error={formik.errors.subject}
@@ -141,8 +141,8 @@ function FormModal({ formik, loading }) {
             <Form.Input
                name="budget"
                type="text"
-               label="Budget"
-               placeholder="$1,500"
+               label="Presupuesto"
+               placeholder="$25,500"
                onChange={formik.handleChange}
                value={formik.values.budget}
                error={formik.errors.budget}
@@ -150,8 +150,8 @@ function FormModal({ formik, loading }) {
             <Form.Input
                name="people"
                type="text"
-               label="People"
-               placeholder="15 people"
+               label="Personal"
+               placeholder="15 personas"
                onChange={formik.handleChange}
                value={formik.values.people}
                error={formik.errors.people}
@@ -159,8 +159,8 @@ function FormModal({ formik, loading }) {
             <Form.Input
                name="date"
                type="text"
-               label="Date"
-               placeholder="14/12/21"
+               label="Fecha"
+               placeholder="24/12/26"
                onChange={formik.handleChange}
                value={formik.values.date}
                error={formik.errors.date}
@@ -169,15 +169,15 @@ function FormModal({ formik, loading }) {
          <Form.TextArea
             name="message"
             type="text"
-            label="Message"
-            placeholder="Tell us more about..."
+            label="Mensaje"
+            placeholder="Cuentanos mas acerca de tu pedido..."
             onChange={formik.handleChange}
             value={formik.values.message}
             error={formik.errors.message}
          />
          <div className="action">
             <Button basic type="submit" loading={loading}>
-               Send
+               Enviar
             </Button>
          </div>
       </Form>
