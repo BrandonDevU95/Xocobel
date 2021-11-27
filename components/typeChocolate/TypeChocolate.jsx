@@ -28,6 +28,7 @@ export default function CategoryRetail({
                basic
                onClick={() => handleCategory(category.url, category.title)}
                key={category._id}
+               id={category.url}
             >
                {category.title}
             </Button>

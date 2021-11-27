@@ -26,7 +26,7 @@ export async function getTotalProductsCategoryApi(
             ? `types_chocolate.url=${chocolate}`
             : '';
       let url = '';
-      if (!category) url = `${BASE_PATH}/products/count`;
+      if (!category && !chocolate) url = `${BASE_PATH}/products/count`;
       else url = `${BASE_PATH}/products/count?${filters}`;
 
       const response = await fetch(url);

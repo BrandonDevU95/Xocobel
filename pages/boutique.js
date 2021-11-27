@@ -16,7 +16,7 @@ import {
 } from '../api/category-retail';
 import { getTypeChocolateApi } from '../api/type-chocolate';
 
-const limitPerPage = 2;
+const limitPerPage = 10;
 
 export default function boutique() {
    const { query, replace } = useRouter();
@@ -27,6 +27,8 @@ export default function boutique() {
    const [categoryRetail, setCategoryRetail] = useState([]);
    const [typeChocolate, setTypeChocolate] = useState([]);
    const [cleanUrl, setCleanUrl] = useState(false);
+   const [queryType, setQueryType] = useState(null);
+   const btn = document.getElementById(queryType);
 
    const getStartItem = () => {
       const currentPages = parseInt(query.page);
@@ -35,7 +37,18 @@ export default function boutique() {
    };
 
    useEffect(() => {
-      replace('/boutique');
+      if (btn) {
+         btn.click();
+      }
+   }, [btn]);
+
+   useEffect(() => {
+      if (query.type && !query.page) {
+         setQueryType(query.type);
+         replace(`/boutique`);
+      } else {
+         replace(`/boutique`);
+      }
       setCleanUrl(false);
    }, [cleanUrl]);
 
@@ -46,7 +59,6 @@ export default function boutique() {
          else setCategoryRetail([]);
       })();
    }, []);
-
    useEffect(() => {
       (async () => {
          const response = await getTypeChocolateApi();

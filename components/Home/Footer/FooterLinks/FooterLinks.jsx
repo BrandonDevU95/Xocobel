@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Container, Grid, Icon, Image } from 'semantic-ui-react';
 
 export default function FooterLinks() {
+   // TOOD: traer de la base de datos
    return (
       <div className="footer-links">
          <Container fluid className="footer-links-container">
@@ -13,9 +14,36 @@ export default function FooterLinks() {
                   <div className="footer-links-container_top-list">
                      <h3>Productos</h3>
                      <ul>
-                        <li>Chocolate Semiamargo</li>
-                        <li>Chocolate con Leche</li>
-                        <li>Chocolate Blanco</li>
+                        <li>
+                           <Link
+                              href={{
+                                 pathname: '/boutique',
+                                 query: { type: 'chocolate-semiamargo' },
+                              }}
+                           >
+                              <a>Chocolate Semiamargo</a>
+                           </Link>
+                        </li>
+                        <li>
+                           <Link
+                              href={{
+                                 pathname: '/boutique',
+                                 query: { type: 'chocolate-con-leche' },
+                              }}
+                           >
+                              <a>Chocolate con Leche</a>
+                           </Link>
+                        </li>
+                        <li>
+                           <Link
+                              href={{
+                                 pathname: '/boutique',
+                                 query: { type: 'chocolate-blanco' },
+                              }}
+                           >
+                              <a>Chocolate Blanco</a>
+                           </Link>
+                        </li>
                      </ul>
                   </div>
                   <div className="footer-links-container_bottom-list">
