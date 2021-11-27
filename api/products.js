@@ -3,6 +3,7 @@ import { authFetch } from '../utils/fetch';
 
 export async function getProductsByCategoryApi(
    category = null,
+   chocolate = null,
    limit = 10,
    start = 0
 ) {
@@ -10,11 +11,19 @@ export async function getProductsByCategoryApi(
       const limitItems = `_limit=${limit}`;
       const sortItems = `_sort=createdAt:desc`;
       const startItems = `_start=${start}`;
+      const filters =
+         category && chocolate
+            ? `category_retail.url=${category}&types_chocolate.url=${chocolate}`
+            : category
+            ? `category_retail.url=${category}`
+            : chocolate
+            ? `types_chocolate.url=${chocolate}`
+            : '';
       let url = '';
-      if (!category) {
+      if (!category && !chocolate) {
          url = `${BASE_PATH}/products?${limitItems}&${sortItems}&${startItems}`;
       } else {
-         url = `${BASE_PATH}/products?category_retail.url=${category}&${limitItems}&${sortItems}&${startItems}`;
+         url = `${BASE_PATH}/products?${filters}&${limitItems}&${sortItems}&${startItems}`;
       }
 
       const response = await fetch(url);

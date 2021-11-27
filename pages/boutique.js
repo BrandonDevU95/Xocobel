@@ -8,20 +8,24 @@ import { Container, Grid, Loader } from 'semantic-ui-react';
 import Pagination from '../components/Pagination';
 import ListProducts from '../components/ListProducts';
 import CategoryRetail from '../components/categoryRetail';
+import TypeChocolate from '../components/typeChocolate';
 import RecommendedProducts from '../components/Home/RecommendedProducts';
 import {
    getCategoryRetailApi,
    getTotalProductsCategoryApi,
 } from '../api/category-retail';
+import { getTypeChocolateApi } from '../api/type-chocolate';
 
 const limitPerPage = 10;
 
 export default function boutique() {
-   const { query } = useRouter();
+   const { query, replace } = useRouter();
    const [products, setProducts] = useState(false);
    const [category, setCategory] = useState(null);
+   const [chocolate, setChocolate] = useState(null);
    const [totalProducts, setTotalProducts] = useState(null);
    const [categoryRetail, setCategoryRetail] = useState([]);
+   const [typeChocolate, setTypeChocolate] = useState([]);
 
    const getStartItem = () => {
       const currentPages = parseInt(query.page);
@@ -39,22 +43,34 @@ export default function boutique() {
 
    useEffect(() => {
       (async () => {
+         const response = await getTypeChocolateApi();
+         if (size(response) > 0) setTypeChocolate(response);
+         else setTypeChocolate([]);
+      })();
+   }, []);
+
+   useEffect(() => {
+      (async () => {
+         const response = await getTotalProductsCategoryApi(
+            category,
+            chocolate
+         );
+         setTotalProducts(response);
+      })();
+   }, [category, chocolate]);
+
+   useEffect(() => {
+      (async () => {
          const response = await getProductsByCategoryApi(
             category,
+            chocolate,
             limitPerPage,
             getStartItem()
          );
          if (size(response) > 0) setProducts(response);
          else setProducts([]);
       })();
-   }, [query, category]);
-
-   useEffect(() => {
-      (async () => {
-         const response = await getTotalProductsCategoryApi(category);
-         setTotalProducts(response);
-      })();
-   }, [category]);
+   }, [query, category, chocolate]);
 
    return (
       <BasicLayout className="boutique">
@@ -66,6 +82,11 @@ export default function boutique() {
                   <CategoryRetail
                      categoryRetail={categoryRetail}
                      setCategory={setCategory}
+                  />
+                  <h3>Tipo de Chocolate</h3>
+                  <TypeChocolate
+                     typeChocolate={typeChocolate}
+                     setChocolate={setChocolate}
                   />
                </Grid.Column>
                <Grid.Column stretched width={12}>
