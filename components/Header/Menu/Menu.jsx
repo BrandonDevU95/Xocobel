@@ -63,17 +63,17 @@ function MenuChocolate() {
          </Link>
          <Link href="/events">
             <Menu.Item as="a" name="events">
-               Events
+               Eventos
             </Menu.Item>
          </Link>
          <Link href="/gifts">
             <Menu.Item as="a" name="gifts">
-               Gifts
+               Regalos
             </Menu.Item>
          </Link>
          <Link href="/corporate">
             <Menu.Item as="a" name="corporate">
-               Corporate
+               Corporativos
             </Menu.Item>
          </Link>
          <Link href="/xocobel">
@@ -95,7 +95,7 @@ function MenuOptions({ onShowModal, user, logout }) {
                <Link href="/orders">
                   <Menu.Item as="a">
                      <Icon name="box" />
-                     Orders
+                     Pedidos
                   </Menu.Item>
                </Link>
                <Link href="/wishlist">
@@ -118,7 +118,7 @@ function MenuOptions({ onShowModal, user, logout }) {
                            {productsCart}
                         </Label>
                      )}
-                     Shop
+                     Carrito
                   </Menu.Item>
                </Link>
                <Menu.Item className="m-0" onClick={logout}>
@@ -128,7 +128,7 @@ function MenuOptions({ onShowModal, user, logout }) {
          ) : (
             <Menu.Item onClick={onShowModal}>
                <Icon name="user outline" />
-               Mi cuenta
+               Iniciar Sesion
             </Menu.Item>
          )}
       </Menu>
