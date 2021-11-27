@@ -11,7 +11,7 @@ export default function FooterTerms() {
                   <p>Xocobel SA DE CV</p>
                </div>
                <div className="footer-terms-container_content_right">
-                  <p style={{ paddingRight: '1rem' }}>Privacy & Cookies</p>
+                  {/* TODO: Hacer un modal con los términos y condiciones */}
                   <p>Terms & Conditions</p>
                </div>
             </div>
