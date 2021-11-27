@@ -2,17 +2,23 @@ import { map } from 'lodash';
 import { useState } from 'react';
 import { Menu, Button, Icon } from 'semantic-ui-react';
 
-export default function CategoryRetail({ categoryRetail, setCategory }) {
+export default function CategoryRetail({
+   categoryRetail,
+   setCategory,
+   setCleanUrl,
+}) {
    const [categoryFocus, setCategoryFocus] = useState(null);
 
    const handleCategory = (url, title) => {
       setCategory(url);
       setCategoryFocus(title);
+      setCleanUrl(true);
    };
 
    const handleResetCategory = () => {
       setCategory(null);
       setCategoryFocus(null);
+      setCleanUrl(true);
    };
 
    return (

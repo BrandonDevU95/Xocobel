@@ -16,7 +16,7 @@ import {
 } from '../api/category-retail';
 import { getTypeChocolateApi } from '../api/type-chocolate';
 
-const limitPerPage = 10;
+const limitPerPage = 2;
 
 export default function boutique() {
    const { query, replace } = useRouter();
@@ -26,12 +26,18 @@ export default function boutique() {
    const [totalProducts, setTotalProducts] = useState(null);
    const [categoryRetail, setCategoryRetail] = useState([]);
    const [typeChocolate, setTypeChocolate] = useState([]);
+   const [cleanUrl, setCleanUrl] = useState(false);
 
    const getStartItem = () => {
       const currentPages = parseInt(query.page);
       if (!query.page || currentPages === 1) return 0;
       else return currentPages * limitPerPage - limitPerPage;
    };
+
+   useEffect(() => {
+      replace('/boutique');
+      setCleanUrl(false);
+   }, [cleanUrl]);
 
    useEffect(() => {
       (async () => {
@@ -82,11 +88,13 @@ export default function boutique() {
                   <CategoryRetail
                      categoryRetail={categoryRetail}
                      setCategory={setCategory}
+                     setCleanUrl={setCleanUrl}
                   />
                   <h3>Tipo de Chocolate</h3>
                   <TypeChocolate
                      typeChocolate={typeChocolate}
                      setChocolate={setChocolate}
+                     setCleanUrl={setCleanUrl}
                   />
                </Grid.Column>
                <Grid.Column stretched width={12}>
