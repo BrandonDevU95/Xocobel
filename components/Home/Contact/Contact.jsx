@@ -29,7 +29,7 @@ export default function Contact() {
    return (
       <Container fluid className="contact">
          <Container fluid className="contact-container">
-            <h2>Conatct Us</h2>
+            <h2>Contactanos</h2>
             <Grid>
                <Grid.Column width={8}>
                   <Image fluid src="/contact.jpeg" />
@@ -40,8 +40,8 @@ export default function Contact() {
                         <Form.Input
                            name="name"
                            type="text"
-                           label="Name"
-                           placeholder="Full Name"
+                           label="Nombre"
+                           placeholder="Nombre Completo"
                            onChange={formik.handleChange}
                            value={formik.values.name}
                            error={formik.errors.name}
@@ -49,8 +49,8 @@ export default function Contact() {
                         <Form.Input
                            name="email"
                            type="text"
-                           label="Email"
-                           placeholder="example@xocobel.com.mx"
+                           label="Correo"
+                           placeholder="ejemplo@xocobel.com.mx"
                            onChange={formik.handleChange}
                            value={formik.values.email}
                            error={formik.errors.email}
@@ -60,8 +60,8 @@ export default function Contact() {
                         <Form.Input
                            name="phone"
                            type="text"
-                           label="Phone"
-                           placeholder="(555) 555 5555"
+                           label="Teléfono"
+                           placeholder="(55) 1234 5678"
                            onChange={formik.handleChange}
                            value={formik.values.phone}
                            error={formik.errors.phone}
@@ -69,7 +69,7 @@ export default function Contact() {
                         <Form.Input
                            name="subject"
                            type="text"
-                           label="Subject"
+                           label="Asunto"
                            placeholder="Chocolate"
                            onChange={formik.handleChange}
                            value={formik.values.subject}
@@ -79,15 +79,15 @@ export default function Contact() {
                      <Form.TextArea
                         name="message"
                         type="text"
-                        label="Message"
-                        placeholder="Tell us more about..."
+                        label="Mensaje"
+                        placeholder="Cuéntanos más sobre tus dudas..."
                         onChange={formik.handleChange}
                         value={formik.values.message}
                         error={formik.errors.message}
                      />
                      <div className="action">
                         <Button basic type="submit" loading={loading}>
-                           Send
+                           Enviar
                         </Button>
                      </div>
                   </Form>
