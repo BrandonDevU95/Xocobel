@@ -1,15 +1,9 @@
 .about {
-   padding: 0 10rem;
+   padding: 5rem 10rem;
    background-color: $background-grey-marmol;
 
    &-container {
-      padding: 5rem 0;
-
       &-description {
-         display: flex !important;
-         flex-direction: column;
-         padding-right: 5rem !important;
-
          h2 {
             font-family: 'Pacific Beach', Helvetica, sans-serif;
             font-size: 3rem;
@@ -18,16 +12,13 @@
 
          p {
             font-family: 'Source Sans Pro', Helvetica, sans-serif;
-            font-size: 1.2rem;
-            color: $font-chocolate;
-            padding-top: 2rem;
-            padding-bottom: 5rem;
             text-align: justify;
+            font-size: 1.5rem;
+            padding: 2rem 3rem 2rem 0;
+            color: $font-cocoa;
          }
 
          .ui.basic.button {
-            margin-top: auto;
-            margin-right: auto;
             font-family: 'Source Sans Pro', Helvetica, sans-serif;
             color: $font-honey !important;
             border: 1px solid $border-honey !important;
