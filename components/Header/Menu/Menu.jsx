@@ -61,14 +61,14 @@ function MenuChocolate() {
                Boutique
             </Menu.Item>
          </Link>
-         <Link href="/events">
-            <Menu.Item as="a" name="events">
-               Eventos
-            </Menu.Item>
-         </Link>
          <Link href="/gifts">
             <Menu.Item as="a" name="gifts">
                Regalos
+            </Menu.Item>
+         </Link>
+         <Link href="/events">
+            <Menu.Item as="a" name="events">
+               Eventos
             </Menu.Item>
          </Link>
          <Link href="/corporate">
