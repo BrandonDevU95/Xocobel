@@ -15,7 +15,6 @@ export default function Corporate() {
             <Catalogs />
             <ServiceInfo />
             <Contact />
-            <Shipping />
          </Container>
       </BasicLayout>
    );

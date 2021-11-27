@@ -36,7 +36,9 @@ export default function ServiceInfo() {
                         corrupti. Beatae dicta ratione perspiciatis qui, odio
                         deserunt et praesentium quia?
                      </p>
-                     <Button basic>Contactenos</Button>
+                     <Button as="a" href="/corporate#contact" basic>
+                        Contáctanos
+                     </Button>
                   </div>
                </Grid.Column>
                <Grid.Column width={8}>

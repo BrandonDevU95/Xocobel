@@ -13,7 +13,13 @@ export default function Catalogs() {
                         fluid
                      />
                      <h3>Catálogo para la Navideño</h3>
-                     <Button basic type="button">
+                     <Button
+                        as="a"
+                        href="/pdf/catalogo-navidad.pdf"
+                        target="_blank"
+                        basic
+                        type="button"
+                     >
                         Descarga el catalogo
                      </Button>
                   </div>
@@ -26,8 +32,13 @@ export default function Catalogs() {
                         fluid
                      />
                      <h3>Catálogo para las Empresas</h3>
-                     <Button basic type="button">
-                        Descarga el catalogo
+                     <Button
+                        as="a"
+                        href="/corporate#contact"
+                        basic
+                        type="button"
+                     >
+                        Contáctanos
                      </Button>
                   </div>
                </Grid.Column>
@@ -39,8 +50,13 @@ export default function Catalogs() {
                         fluid
                      />
                      <h3>Proyectos Personalizados</h3>
-                     <Button basic type="button">
-                        Contactanos
+                     <Button
+                        as="a"
+                        href="/corporate#contact"
+                        basic
+                        type="button"
+                     >
+                        Contáctanos
                      </Button>
                   </div>
                </Grid.Column>
