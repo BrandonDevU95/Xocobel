@@ -1,4 +1,4 @@
-import React from 'react';
+import Link from 'next/link';
 import { Container, Grid, Icon, Image } from 'semantic-ui-react';
 
 export default function FooterLinks() {
@@ -11,42 +11,40 @@ export default function FooterLinks() {
                </Grid.Column>
                <Grid.Column width={4}>
                   <div className="footer-links-container_top-list">
-                     <h3>Products</h3>
+                     <h3>Productos</h3>
                      <ul>
-                        <li>Full Asortment</li>
-                        <li>Ballotins</li>
-                        <li>Bars & Tablets</li>
-                        <li>Carres</li>
-                        <li>Gifts Boxes</li>
-                        <li>Hosting Box</li>
+                        <li>Chocolate Semiamargo</li>
+                        <li>Chocolate con Leche</li>
+                        <li>Chocolate Blanco</li>
                      </ul>
                   </div>
                   <div className="footer-links-container_bottom-list">
-                     <h3>Payment Methods</h3>
+                     <h3>Metodos de Pago</h3>
                      <div className="list-icons">
-                        <Icon name="cc paypal" />
-                        <Icon
-                           name="cc mastercard"
-                           style={{ marginLeft: '14px' }}
-                        />
-                        <Icon name="cc visa" style={{ marginLeft: '14px' }} />
+                        <Icon name="cc visa" />
+                        <Icon name="cc mastercard" />
+                        <Icon name="cc amex" />
                      </div>
                   </div>
                </Grid.Column>
                <Grid.Column width={4}>
                   <div className="footer-links-container_top-list">
-                     <h3>Gifts Occasions</h3>
+                     <h3>Regalos</h3>
                      <ul>
-                        <li>Birthday Gifts</li>
-                        <li>Congratulations</li>
-                        <li>Dinner Party</li>
-                        <li>Gifts for Her</li>
-                        <li>Gifts for Him</li>
-                        <li>Thank You GIfts</li>
+                        <li>
+                           <a href="/pdf/catalogo-navidad.pdf" target="_blank">
+                              Navideños
+                           </a>
+                        </li>
+                        <li>
+                           <Link href="/corporate">
+                              <a>Corporativos</a>
+                           </Link>
+                        </li>
                      </ul>
                   </div>
                   <div className="footer-links-container_bottom-list">
-                     <h3>Shipping Methods</h3>
+                     <h3>Envios</h3>
                      <div className="list-icons">
                         <Icon name="truck" />
                         <Icon
@@ -59,19 +57,28 @@ export default function FooterLinks() {
                </Grid.Column>
                <Grid.Column width={4}>
                   <div className="footer-links-container_top-list">
-                     <h3>Customer Service</h3>
+                     <h3>Servicio al Cliente</h3>
                      <ul>
-                        <li>FAQ'S</li>
-                        <li>Shipping & Delivery</li>
-                        <li>Contact Us</li>
+                        <li>
+                           <a href="#contact">Contacto</a>
+                        </li>
                      </ul>
                   </div>
                   <div className="footer-links-container_bottom-list">
-                     <h3>Social Media</h3>
+                     <h3>Redes Sociales</h3>
                      <div className="list-icons">
-                        <Icon name="instagram" />
-                        <Icon name="facebook" style={{ marginLeft: '14px' }} />
-                        <Icon name="youtube" style={{ marginLeft: '14px' }} />
+                        <a
+                           href="https://www.facebook.com/Xocobel-107604454840465"
+                           target="_blank"
+                        >
+                           <Icon name="facebook" />
+                        </a>
+                        <a
+                           href="https://www.instagram.com/xocobelmx/?hl=es-la"
+                           target="_blank"
+                        >
+                           <Icon name="instagram" />
+                        </a>
                      </div>
                   </div>
                </Grid.Column>

@@ -27,7 +27,7 @@ export default function Contact() {
    });
 
    return (
-      <Container fluid className="contact">
+      <section className="contact" id="contact">
          <Container fluid className="contact-container">
             <h2>Contactanos</h2>
             <Grid>
@@ -94,7 +94,7 @@ export default function Contact() {
                </Grid.Column>
             </Grid>
          </Container>
-      </Container>
+      </section>
    );
 }
 
