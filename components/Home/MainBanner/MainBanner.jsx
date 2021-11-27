@@ -29,7 +29,7 @@ export default function MainBanner() {
                      size="big"
                      primary
                   >
-                     Descarga Catalogo 2021
+                     Catalogo Navideño 2021
                   </Button>
                </div>
             </div>
