@@ -9,8 +9,8 @@ export default function Shipping() {
                <Grid.Column>
                   <div className="shipping-container_data">
                      <div className="shipping-container_data-info">
-                        <h3>Free</h3>
-                        <h4>Gift Message</h4>
+                        <h3>Regalos</h3>
+                        <h4>Personalizados</h4>
                      </div>
                      <Image src="/icons/gift-box.svg" />
                   </div>
@@ -18,8 +18,8 @@ export default function Shipping() {
                <Grid.Column>
                   <div className="shipping-container_data">
                      <div className="shipping-container_data-info">
-                        <h4>Fast & Cooled</h4>
-                        <h3>Shipping</h3>
+                        <h4>Envios Faciles &</h4>
+                        <h3>Rapidos</h3>
                      </div>
                      <Image src="/icons/truck.svg" />
                   </div>
@@ -27,8 +27,8 @@ export default function Shipping() {
                <Grid.Column>
                   <div className="shipping-container_data">
                      <div className="shipping-container_data-info">
-                        <h3>Secure</h3>
-                        <h4>Payments</h4>
+                        <h3>Pagos</h3>
+                        <h4>Seguros</h4>
                      </div>
                      <Image src="/icons/padlock.svg" />
                   </div>
