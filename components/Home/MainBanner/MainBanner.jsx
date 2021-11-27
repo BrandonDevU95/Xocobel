@@ -1,32 +1,39 @@
-import { Button, Container, Grid } from 'semantic-ui-react';
+import { useEffect, useState } from 'react';
+import { Button, Container, Image } from 'semantic-ui-react';
+import { BASE_PATH } from '../../../utils/constants';
+import { getMainBannerApi } from '../../../api/sources';
+const Catalogo = '/pdf/catalogo-navidad.pdf';
 
 export default function MainBanner() {
+   const [mainBanner, setMainBanner] = useState(undefined);
+
+   useEffect(() => {
+      (async () => {
+         const response = await getMainBannerApi();
+         setMainBanner(response[0].mainBanner[0]);
+      })();
+   }, []);
+
+   if (!mainBanner) return null;
+
    return (
-      <Container fluid className="main-banner-container">
-         <Container fluid className="main-banner-container__banner">
-            <Grid>
-               <Grid.Column width={6}>
-                  <h1>Mexican Chocolate</h1>
-                  <p>
-                     Lorem esse consequat amet ullamco sint ullamco consequat in
-                     amet dolor consectetur sit duis ex. Id incididunt mollit
-                     amet sint elit ex do consequat quis laboris ea. Culpa irure
-                     qui aliqua irure mollit amet excepteur adipisicing culpa
-                     pariatur ipsum laborum. Magna sint duis id qui Lorem elit
-                     ad laboris enim id. Aliquip nisi aliquip nisi fugiat aute
-                     est laborum irure proident fugiat.
-                  </p>
-                  <div className="actions">
-                     <Button type="button" primary>
-                        MORE
-                     </Button>
-                     <Button type="button" basic>
-                        SHOP NOW
-                     </Button>
-                  </div>
-               </Grid.Column>
-            </Grid>
+      <section className="main-banner">
+         <Container fluid className="main-banner_container">
+            <div className="main-banner_container-content">
+               <img src={BASE_PATH + mainBanner.url} alt={mainBanner.name} />
+               <div className="main-banner_container-content_btn">
+                  <Button
+                     as="a"
+                     href={Catalogo}
+                     target="_blank"
+                     size="big"
+                     primary
+                  >
+                     Descarga Catalogo 2021
+                  </Button>
+               </div>
+            </div>
          </Container>
-      </Container>
+      </section>
    );
 }

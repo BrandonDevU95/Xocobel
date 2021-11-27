@@ -1,62 +1,49 @@
 .main-banner {
-   &-container {
+   &_container {
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center;
+      min-height: calc(100vh - 134px);
       background-image: url('/marble-white.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      padding-top: 9rem;
-      padding-bottom: 9rem;
 
-      &__banner {
-         padding: 0 10rem;
-         background-image: url('/Banner.jpeg');
-         background-size: cover;
-         background-position: center;
-         background-repeat: no-repeat;
+      &-content {
+         position: relative;
 
-         .ui.grid {
-            padding-top: 5rem;
-            padding-bottom: 10rem;
+         img {
+            height: 600px;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+         }
 
-            h1 {
-               font-family: 'Pacific Beach', Helvetica, sans-serif;
-               font-size: 3rem;
-               color: $font-chocolate;
-            }
+         &_btn {
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
 
-            p {
+            .ui.button.primary {
                font-family: 'Source Sans Pro', Helvetica, sans-serif;
-               font-size: 1.1rem;
-               color: $font-chocolate;
-               text-align: justify;
-               padding-top: 1rem;
-               padding-bottom: 5rem;
-            }
+               background-color: $background-chocolate;
+               border: 1px solid $background-chocolate;
+               color: $font-white;
+               font-size: 18px;
+               padding-left: 4rem;
+               padding-right: 4rem;
 
-            .actions {
-               .ui.button.primary {
-                  font-family: 'Source Sans Pro', Helvetica, sans-serif;
-                  background-color: $background-chocolate;
-                  border: 1px solid $background-chocolate;
-                  color: $font-white;
-                  font-size: 18px;
-                  padding-left: 4rem;
-                  padding-right: 4rem;
-                  margin-right: 1rem;
-
-                  &:hover {
-                     opacity: 0.8;
-                  }
+               &:hover {
+                  background-color: $background-honey !important;
+                  color: $font-marmol !important;
+                  border-color: $border-gold !important;
                }
 
-               .ui.basic.button {
-                  font-family: 'Source Sans Pro', Helvetica, sans-serif;
-                  color: $font-chocolate !important;
-                  background-color: $background-marmol !important;
-                  border: 1px solid $background-chocolate !important;
-                  font-size: 18px;
-                  padding-left: 2.8rem;
-                  padding-right: 2.8rem;
+               &:focus {
+                  background-color: $background-honey !important;
+                  color: $font-marmol !important;
+                  border-color: $border-gold !important;
                }
             }
          }
