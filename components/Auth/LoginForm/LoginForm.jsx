@@ -49,7 +49,7 @@ export default function LoginForm({ showRegisterForm, onCloseModal }) {
             label="Correo Electronico"
             name="identifier"
             type="text"
-            placeholder="account@xocobel.com.mx"
+            placeholder="ejemplo@xocobel.com.mx"
             onChange={formik.handleChange}
             error={formik.errors.identifier}
          />
@@ -69,7 +69,7 @@ export default function LoginForm({ showRegisterForm, onCloseModal }) {
                   Iniciar Sesión
                </Button>
                <Button type="button" onClick={resetPassword}>
-                  Has olvidado la contraseña?
+                  ¿Has olvidado la contraseña?
                </Button>
             </div>
          </div>
