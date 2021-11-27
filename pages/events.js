@@ -2,7 +2,6 @@ import React from 'react';
 import Slider from 'react-slick';
 import BasicLayout from '../layouts/Basic';
 import Contact from '../components/Home/Contact';
-import Shipping from '../components/Home/Shipping';
 import { Container, Grid, Image } from 'semantic-ui-react';
 
 // TODO: Verificar que los nombres de componentes esten en mayuscylas
@@ -79,7 +78,6 @@ export default function Events() {
                </div>
             </Slider>
             <Contact />
-            <Shipping />
          </Container>
       </BasicLayout>
    );
