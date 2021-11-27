@@ -18,7 +18,7 @@ export default function CarouselProducts({ products }) {
 
    return (
       <Container fluid className="carousel-products">
-         <h2>Recommendations</h2>
+         <h2>Recomendados</h2>
          <Slider {...settings}>
             {map(products, (product) => (
                <div className="carousel-products_product" key={product._id}>
