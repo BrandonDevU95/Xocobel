@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import { Container, Grid, Image, Input } from 'semantic-ui-react';
+import { Container, Grid, Icon, Image, Input } from 'semantic-ui-react';
 
 export default function TopBar() {
    return (
@@ -13,6 +13,20 @@ export default function TopBar() {
                </Grid.Column>
                <Grid.Column width={8} className="top-bar__right">
                   <Search />
+                  <div className="list-icons">
+                     <a
+                        href="https://www.facebook.com/Xocobel-107604454840465"
+                        target="_blank"
+                     >
+                        <Icon name="facebook" />
+                     </a>
+                     <a
+                        href="https://www.instagram.com/xocobelmx/?hl=es-la"
+                        target="_blank"
+                     >
+                        <Icon name="instagram" />
+                     </a>
+                  </div>
                </Grid.Column>
             </Grid>
          </Container>
