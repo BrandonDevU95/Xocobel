@@ -2,17 +2,15 @@ import { Container, Grid, Image } from 'semantic-ui-react';
 
 export default function Ingredients() {
    return (
-      <Container fluid className="ingredients">
+      <section className="ingredients">
          <Container fluid className="ingredients-container">
             <Grid columns={3}>
                <Grid.Column>
                   <div className="ingredients-container_column">
-                     <h2>Natural Ingredients</h2>
+                     <h2>Ingredientes Naturales</h2>
                      <Image src="/icons/cocoa.svg" />
                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptatibus quam dolores placeat repellendus eaque
-                        necessitatibus assumenda.
+                        Chocolate certificado SICAO <br /> por Barry Callebaut
                      </p>
                   </div>
                </Grid.Column>
@@ -22,25 +20,22 @@ export default function Ingredients() {
 
                      <Image src="/icons/chef.svg" />
                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Sit laborum odio itaque eum? Lorem ipsum dolor sit amet.
+                        Chocolatería y bombonera <br /> artesanal
                      </p>
                   </div>
                </Grid.Column>
                <Grid.Column>
                   <div className="ingredients-container_column">
-                     <h2>Made In Mexico</h2>
+                     <h2>Hecho En Mexico</h2>
 
                      <img src="/icons/pyramid-of-the-magician.svg" />
                      <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Repudiandae eum ducimus natus dolorem enim rem
-                        debitis repellat neque!
+                        Elaborada por expertos <br /> chocolateros mexicanos
                      </p>
                   </div>
                </Grid.Column>
             </Grid>
          </Container>
-      </Container>
+      </section>
    );
 }
