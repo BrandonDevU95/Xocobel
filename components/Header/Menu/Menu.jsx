@@ -12,6 +12,10 @@ export default function MenuWeb() {
    const [user, setUser] = useState(undefined);
    const [showModal, setShowModal] = useState(false);
    const [titleModal, setTitleModal] = useState('Iniciar Sesión');
+   const left = !user ? 12 : 8;
+   const right = !user ? 4 : 8;
+
+   console.log(!user);
 
    useEffect(() => {
       (async () => {
@@ -27,10 +31,10 @@ export default function MenuWeb() {
       <div className="menu">
          <Container fluid className="menu-container">
             <Grid>
-               <Grid.Column width={6} className="menu__left">
+               <Grid.Column width={left} className="menu__left">
                   <MenuChocolate />
                </Grid.Column>
-               <Grid.Column width={10} className="menu__right">
+               <Grid.Column width={right} className="menu__right">
                   {user !== undefined && (
                      <MenuOptions
                         onShowModal={onShowModal}
