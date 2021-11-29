@@ -133,7 +133,7 @@ function Info({ product }) {
             <div className="header-product__buy-price">
                {product.discount > 0 ? (
                   <>
-                     <p>Precio de venta al publico: ${product.price}</p>
+                     <p>Precio de venta al público: ${product.price}</p>
                      <div className="header-product__buy-price-actions">
                         <p>-{product.discount}%</p>
                         {amount === 0 ? (

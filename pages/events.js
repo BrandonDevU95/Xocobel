@@ -35,7 +35,7 @@ export default function Events() {
                            mediante el diseño, personalización y montaje de
                            mesas de postres para cualquier tipo de evento u
                            ocasión. Poniendo a su disposición nuestro amplio
-                           catalogo de deliciosos y originales productos,
+                           catálogo de deliciosos y originales productos,
                            montados y presentados sobre una gran variedad de
                            bases y arreglos. Además, un experto chocolatero
                            siempre estará a su disposición para el diseño de la

@@ -21,15 +21,15 @@ export default function xocobel() {
                </div>
             </div>
             <div className="xocobel-container-band">
-               <h3>NUESTRA MISION</h3>
+               <h3>NUESTRA MISIÓN</h3>
                <p>
                   Nuestra misión se basa en contribuir al desarrollo de la
                   <br />
                   industria nacional chocolatera a través de la producción
                   <br />
-                  eficiente y responsable de chocolatería fina de la mas alta
+                  eficiente y responsable de chocolatería fina de la más alta
                   <br />
-                  calidad, permitiendonos llegar a diferentes categorías y<br />
+                  calidad, permitiéndonos llegar a diferentes categorías y<br />
                   nuevos mercados, promoviendo la reinvención e innovación
                   <br />
                   continua, teniendo como principal objetivo ser una compañía
@@ -123,7 +123,7 @@ export default function xocobel() {
             </div>
             <div className="xocobel-container-band-foot">
                <div className="xocobel-container-band-foot-data">
-                  <h3>PROPOSITO</h3>
+                  <h3>PROPÓSITO</h3>
                   <p>
                      El éxito de Xocobel se ha basado en un crecimiento
                      <br />

@@ -63,7 +63,7 @@ function AddressModal({ showModal, setShowModal, addressShipping, title }) {
          size="tiny"
          title={title}
       >
-         <h3>Datos de envio</h3>
+         <h3>Datos de envío</h3>
          <p>{addressShipping.title}</p>
          <p>{addressShipping.name}</p>
          <p>{addressShipping.address}</p>

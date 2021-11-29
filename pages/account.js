@@ -48,7 +48,7 @@ export default function account() {
 function Configuration({ user, logout, setReloadUser }) {
    return (
       <div className="account-container__configuration">
-         <div className="title">Configuracion</div>
+         <div className="title">Configuración</div>
          <div className="data">
             <ChangeNameForm
                user={user}

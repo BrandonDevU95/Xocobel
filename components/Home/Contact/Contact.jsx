@@ -29,7 +29,7 @@ export default function Contact() {
    return (
       <section className="contact" id="contact">
          <Container fluid className="contact-container">
-            <h2>Contactanos</h2>
+            <h2>Contáctanos</h2>
             <Grid>
                <Grid.Column width={8}>
                   <Image fluid src="/contact.jpeg" />

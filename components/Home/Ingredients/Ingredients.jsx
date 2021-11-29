@@ -26,7 +26,7 @@ export default function Ingredients() {
                </Grid.Column>
                <Grid.Column>
                   <div className="ingredients-container_column">
-                     <h2>Hecho En Mexico</h2>
+                     <h2>Hecho En México</h2>
 
                      <img src="/icons/pyramid-of-the-magician.svg" />
                      <p>

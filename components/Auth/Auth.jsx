@@ -6,7 +6,7 @@ export default function Auth({ onCloseModal, setTitleModal }) {
    const [showLogin, setShowLogin] = useState(true);
 
    const showLoginForm = () => {
-      setTitleModal('Iniciar Sesion');
+      setTitleModal('Iniciar Sesión');
       setShowLogin(true);
    };
    const showRegisterForm = () => {

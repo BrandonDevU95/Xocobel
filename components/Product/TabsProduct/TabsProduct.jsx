@@ -4,7 +4,7 @@ import { Tab } from 'semantic-ui-react';
 export default function TabsProduct({ product }) {
    const panes = [
       {
-         menuItem: 'Ingredients',
+         menuItem: 'Ingredientes ',
          render: () => (
             <Tab.Pane>
                <IngredientsTab product={product} />

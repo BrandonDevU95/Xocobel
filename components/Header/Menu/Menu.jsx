@@ -11,7 +11,7 @@ export default function MenuWeb() {
    const { auth, logout } = useAuth();
    const [user, setUser] = useState(undefined);
    const [showModal, setShowModal] = useState(false);
-   const [titleModal, setTitleModal] = useState('Iniciar Sesion');
+   const [titleModal, setTitleModal] = useState('Iniciar Sesión');
 
    useEffect(() => {
       (async () => {
@@ -128,7 +128,7 @@ function MenuOptions({ onShowModal, user, logout }) {
          ) : (
             <Menu.Item onClick={onShowModal}>
                <Icon name="user outline" />
-               Iniciar Sesion
+               Iniciar Sesión
             </Menu.Item>
          )}
       </Menu>

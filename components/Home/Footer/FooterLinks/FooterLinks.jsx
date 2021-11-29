@@ -47,7 +47,7 @@ export default function FooterLinks() {
                      </ul>
                   </div>
                   <div className="footer-links-container_bottom-list">
-                     <h3>Metodos de Pago</h3>
+                     <h3>Métodos de Pago</h3>
                      <div className="list-icons">
                         <Icon name="cc visa" />
                         <Icon name="cc mastercard" />
@@ -72,7 +72,7 @@ export default function FooterLinks() {
                      </ul>
                   </div>
                   <div className="footer-links-container_bottom-list">
-                     <h3>Envios</h3>
+                     <h3>Envíos</h3>
                      <div className="list-icons">
                         <Icon name="truck" />
                         <Icon

@@ -7,7 +7,7 @@ export default function MainBanner() {
             <Grid>
                <Grid.Column width={7}>
                   <div className="main-banner-corporate-container__banner_left">
-                     <h1>Regalos de empresa</h1>
+                     <h1>Regalos de Empresa</h1>
                      <p>
                         Lorem esse consequat amet ullamco sint ullamco consequat
                         in amet dolor consectetur sit duis ex. Id incididunt

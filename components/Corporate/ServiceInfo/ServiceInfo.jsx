@@ -51,7 +51,7 @@ export default function ServiceInfo() {
                </Grid.Column>
                <Grid.Column width={8}>
                   <div className="service-info-container_info">
-                     <h2>Solicite un presupuesto</h2>
+                     <h2>Solicite un Presupuesto</h2>
                      <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Sed exercitationem quaerat cupiditate amet non delectus
@@ -170,7 +170,7 @@ function FormModal({ formik, loading }) {
             name="message"
             type="text"
             label="Mensaje"
-            placeholder="Cuentanos mas acerca de tu pedido..."
+            placeholder="Cuentanos más acerca de tu pedido..."
             onChange={formik.handleChange}
             value={formik.values.message}
             error={formik.errors.message}

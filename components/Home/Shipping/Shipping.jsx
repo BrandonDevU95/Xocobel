@@ -18,8 +18,8 @@ export default function Shipping() {
                <Grid.Column>
                   <div className="shipping-container_data">
                      <div className="shipping-container_data-info">
-                        <h4>Envios Faciles &</h4>
-                        <h3>Rapidos</h3>
+                        <h4>Envíos Fáciles &</h4>
+                        <h3>Rápidos</h3>
                      </div>
                      <Image src="/icons/truck.svg" />
                   </div>

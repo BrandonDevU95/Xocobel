@@ -96,7 +96,7 @@ export default function boutique() {
          <Container fluid className="boutique-container">
             <Grid>
                <Grid.Column width={3}>
-                  <h3>Categorias</h3>
+                  <h3>Categorías</h3>
                   <CategoryRetail
                      categoryRetail={categoryRetail}
                      setCategory={setCategory}

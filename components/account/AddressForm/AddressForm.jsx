@@ -70,8 +70,8 @@ export default function AddressForm({
          <Form.Input
             name="title"
             type="text"
-            label="Titulo de la direccion"
-            placeholder="Titulo de la direccion"
+            label="Título de la dirección"
+            placeholder="Título de la dirección"
             onChange={formik.handleChange}
             value={formik.values.title}
             error={formik.errors.title}
@@ -89,8 +89,8 @@ export default function AddressForm({
             <Form.Input
                name="address"
                type="text"
-               label="Direccion"
-               placeholder="Direccion"
+               label="Dirección"
+               placeholder="Dirección"
                onChange={formik.handleChange}
                value={formik.values.address}
                error={formik.errors.address}
@@ -120,8 +120,8 @@ export default function AddressForm({
             <Form.Input
                name="postalCode"
                type="text"
-               label="Codigo Postal"
-               placeholder="Codigo Postal"
+               label="Código Postal"
+               placeholder="Código Postal"
                onChange={formik.handleChange}
                value={formik.values.postalCode}
                error={formik.errors.postalCode}
@@ -129,8 +129,8 @@ export default function AddressForm({
             <Form.Input
                name="phone"
                type="text"
-               label="Telefono"
-               placeholder="Telefono"
+               label="Teléfono"
+               placeholder="Teléfono"
                onChange={formik.handleChange}
                value={formik.values.phone}
                error={formik.errors.phone}
@@ -138,7 +138,7 @@ export default function AddressForm({
          </Form.Group>
          <div className="actions">
             <Button type="submit" className="submit" loading={loading}>
-               {newAddress ? 'Crear dirección' : 'Actualizar Direccion'}
+               {newAddress ? 'Crear Dirección' : 'Actualizar Dirección'}
             </Button>
          </div>
       </Form>

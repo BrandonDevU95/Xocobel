@@ -46,7 +46,7 @@ export default function LoginForm({ showRegisterForm, onCloseModal }) {
    return (
       <Form className="login-form" onSubmit={formik.handleSubmit}>
          <Form.Input
-            label="Correo Electronico"
+            label="Correo Electrónico"
             name="identifier"
             type="text"
             placeholder="ejemplo@xocobel.com.mx"

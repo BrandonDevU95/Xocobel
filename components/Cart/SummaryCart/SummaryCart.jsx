@@ -31,7 +31,7 @@ export default function SummaryCart({ products, reloadCart, setReloadCart }) {
                <Table.Header>
                   <Table.Row>
                      <Table.HeaderCell>Producto</Table.HeaderCell>
-                     <Table.HeaderCell>Categoria</Table.HeaderCell>
+                     <Table.HeaderCell>Categoría</Table.HeaderCell>
                      <Table.HeaderCell>P. Unitario</Table.HeaderCell>
                      <Table.HeaderCell>Cantidad</Table.HeaderCell>
                      <Table.HeaderCell>Total</Table.HeaderCell>

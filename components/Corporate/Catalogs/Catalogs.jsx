@@ -20,7 +20,7 @@ export default function Catalogs() {
                         basic
                         type="button"
                      >
-                        Descarga el catalogo
+                        Descarga el Catálogo
                      </Button>
                   </div>
                </Grid.Column>

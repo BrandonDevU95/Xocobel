@@ -12,7 +12,7 @@ export default function FooterTerms() {
                </div>
                <div className="footer-terms-container_content_right">
                   {/* TODO: Hacer un modal con los términos y condiciones */}
-                  <p>Terms & Conditions</p>
+                  <p>Términos y Condiciones</p>
                </div>
             </div>
          </Container>
