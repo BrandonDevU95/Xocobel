@@ -9,7 +9,7 @@ import {
 } from '../../utils/breakpoint';
 import useWindowSize from '../../hooks/useWindowSize';
 
-export default function ListProducts({ products }) {
+export default function ListProducts({ products, size = 'thumbnail' }) {
    console.log(products);
    const { width } = useWindowSize();
 
@@ -31,7 +31,7 @@ export default function ListProducts({ products }) {
          <Grid>
             <Grid.Row columns={getColumnsRender()}>
                {map(products, (product) => (
-                  <Product key={product._id} product={product} />
+                  <Product key={product._id} product={product} size={size} />
                ))}
             </Grid.Row>
          </Grid>
@@ -39,14 +39,18 @@ export default function ListProducts({ products }) {
    );
 }
 
-function Product({ product }) {
+function Product({ product, size }) {
    return (
       <Grid.Column className="list-products__product">
          <Link href={`/${product.url}`}>
             <a>
                <div className="list-products__product-poster">
                   <Image
-                     src={`${BASE_PATH}${product.poster.formats.thumbnail.url}`}
+                     src={
+                        size === 'medium'
+                           ? BASE_PATH + product.poster.formats.medium.url
+                           : BASE_PATH + product.poster.formats.thumbnail.url
+                     }
                      alt={product.title}
                      fluid
                   />
