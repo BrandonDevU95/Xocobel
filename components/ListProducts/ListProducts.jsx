@@ -10,6 +10,7 @@ import {
 import useWindowSize from '../../hooks/useWindowSize';
 
 export default function ListProducts({ products }) {
+   console.log(products);
    const { width } = useWindowSize();
 
    const getColumnsRender = () => {
@@ -41,12 +42,11 @@ export default function ListProducts({ products }) {
 function Product({ product }) {
    return (
       <Grid.Column className="list-products__product">
-         {/*href={`/boutique/${product.category_retail.url}/${product.url}`} */}
          <Link href={`/${product.url}`}>
             <a>
                <div className="list-products__product-poster">
                   <Image
-                     src={`${BASE_PATH}${product.poster.url}`}
+                     src={`${BASE_PATH}${product.poster.formats.thumbnail.url}`}
                      alt={product.title}
                      fluid
                   />
