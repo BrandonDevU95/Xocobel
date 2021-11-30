@@ -9,7 +9,6 @@ import Pagination from '../components/Pagination';
 import ListProducts from '../components/ListProducts';
 import RecommendedProducts from '../components/Home/RecommendedProducts';
 
-// TODO: Cambiar esta variable desde strapi
 const limitPerPage = 10;
 
 export default function Gifts() {

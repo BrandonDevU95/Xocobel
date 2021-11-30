@@ -1,20 +1,44 @@
 import { useState, useEffect } from 'react';
 import { Container, Grid } from 'semantic-ui-react';
 import useAuth from '../hooks/useAuth';
-import { getOrdersApi } from '../api/order';
+import { getOrdersApi, getTotalOrdersApi } from '../api/order';
 import { map, size } from 'lodash';
 import Order from '../components/Orders/Order';
 import BasicLayout from '../layouts/Basic';
 import Seo from '../components/Seo';
+import { useRouter } from 'next/router';
+import Pagination from '../components/Pagination';
+
+const limitPerPage = 5;
 
 export default function Orders() {
    const { auth, logout } = useAuth();
+   const { query } = useRouter();
    const [orders, setOrders] = useState(null);
+   const [totalProducts, setTotalProducts] = useState(null);
+
+   const getStartItem = () => {
+      const currentPages = parseInt(query.page);
+      if (!query.page || currentPages === 1) return 0;
+      else return currentPages * limitPerPage - limitPerPage;
+   };
 
    useEffect(() => {
       (async () => {
-         const response = await getOrdersApi(auth.idUser);
+         const response = await getOrdersApi(
+            auth.idUser,
+            logout,
+            limitPerPage,
+            getStartItem()
+         );
          setOrders(response || []);
+      })();
+   }, [query]);
+
+   useEffect(() => {
+      (async () => {
+         const response = await getTotalOrdersApi(auth.idUser);
+         setTotalProducts(response);
       })();
    }, []);
 
@@ -33,6 +57,13 @@ export default function Orders() {
                      <OrdersList orders={orders} />
                   )}
                </div>
+               {size(orders) > 0 && totalProducts ? (
+                  <Pagination
+                     totalProducts={totalProducts}
+                     page={query.page ? parseInt(query.page) : 1}
+                     limitPerPage={limitPerPage}
+                  />
+               ) : null}
             </div>
          </Container>
       </BasicLayout>
