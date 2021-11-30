@@ -1,15 +1,16 @@
 import { size, forEach } from 'lodash';
+import dynamic from 'next/dynamic';
 import useAuth from '../hooks/useAuth';
 import BasicLayout from '../layouts/Basic';
 import { useState, useEffect } from 'react';
 import { getFavoriteApi, getTotalFavoriteApi } from '../api/favorite';
-import ListProducts from '../components/ListProducts';
 import { Container, Loader } from 'semantic-ui-react';
 import Seo from '../components/Seo';
 import Pagination from '../components/Pagination';
 import { useRouter } from 'next/router';
 
 const limitPerPage = 10;
+const DynamicListProducts = dynamic(() => import('../components/ListProducts'));
 
 export default function Wishlist() {
    const { query } = useRouter();
@@ -67,7 +68,9 @@ export default function Wishlist() {
                         <h3>No hay productos</h3>
                      </div>
                   )}
-                  {size(products) > 0 && <ListProducts products={products} />}
+                  {size(products) > 0 && (
+                     <DynamicListProducts products={products} size="medium" />
+                  )}
                </div>
                {size(products) > 0 && totalProducts ? (
                   <Pagination

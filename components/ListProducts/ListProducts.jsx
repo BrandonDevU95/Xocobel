@@ -10,7 +10,6 @@ import {
 import useWindowSize from '../../hooks/useWindowSize';
 
 export default function ListProducts({ products, size = 'thumbnail' }) {
-   console.log(products);
    const { width } = useWindowSize();
 
    const getColumnsRender = () => {
