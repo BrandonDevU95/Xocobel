@@ -1,14 +1,7 @@
-//Flama Font
+//Valencia Font
 @font-face {
-   font-family: 'Flama';
-   src: url('../fonts/FlamaRegular.woff') format('woff');
-   font-weight: normal;
-}
-
-//Flama Italic Font
-@font-face {
-   font-family: 'Flama Italic';
-   src: url('../fonts/FlamaItalic.woff') format('woff');
+   font-family: 'Valencia';
+   src: url('../fonts/Valencia.woff') format('woff');
    font-weight: normal;
 }
 
@@ -17,32 +10,4 @@
    font-family: 'De Valencia';
    src: url('../fonts/DeValencia.otf') format('opentype');
    font-weight: normal;
-}
-
-//Source Sans Pro Font
-@font-face {
-   font-family: 'Source Sans Pro';
-   src: url('../fonts/SourceSansPro-Regular.otf') format('opentype');
-   font-weight: normal;
-}
-
-//Source Sans Pro Light Font
-@font-face {
-   font-family: 'Source Sans Pro';
-   src: url('../fonts/SourceSansPro-Light.otf') format('opentype');
-   font-weight: lighter;
-}
-
-//Source Sans Pro Extra Light Font
-@font-face {
-   font-family: 'Source Sans Pro';
-   src: url('../fonts/SourceSansPro-ExtraLight.otf') format('opentype');
-   font-weight: 100;
-}
-
-//Source Sans Pro Bold Font
-@font-face {
-   font-family: 'Source Sans Pro';
-   src: url('../fonts/SourceSansPro-Semibold.otf') format('opentype');
-   font-weight: bold;
 }

@@ -15,8 +15,6 @@ export default function MenuWeb() {
    const left = !user ? 12 : 8;
    const right = !user ? 4 : 8;
 
-   console.log(!user);
-
    useEffect(() => {
       (async () => {
          const response = await getMeApi(logout);
