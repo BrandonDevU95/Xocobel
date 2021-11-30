@@ -19,7 +19,7 @@ export default function About() {
                   </Link>
                </Grid.Column>
                <Grid.Column width={8}>
-                  <Image src="/chocolate-about.jpg" />
+                  <Image src="/chocolate-about.webp" />
                </Grid.Column>
             </Grid>
          </Container>

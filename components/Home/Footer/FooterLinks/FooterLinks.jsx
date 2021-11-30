@@ -8,7 +8,7 @@ export default function FooterLinks() {
          <Container fluid className="footer-links-container">
             <Grid>
                <Grid.Column width={4}>
-                  <Image fluid src="/logo_corona.png" />
+                  <Image fluid src="/logo_corona.webp" />
                </Grid.Column>
                <Grid.Column width={4}>
                   <div className="footer-links-container_top-list">

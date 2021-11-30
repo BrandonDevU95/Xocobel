@@ -32,7 +32,7 @@ export default function Contact() {
             <h2>Contáctanos</h2>
             <Grid>
                <Grid.Column width={8}>
-                  <Image fluid src="/contact.jpeg" />
+                  <Image fluid src="/contact.webp" />
                </Grid.Column>
                <Grid.Column width={8}>
                   <Form onSubmit={formik.handleSubmit}>

@@ -7,7 +7,7 @@ export default function IconicProducts() {
             <Grid>
                <Grid.Column width={8}>
                   <div className="iconic-products_container-content">
-                     <Image src="/Popular1.jpeg" fluid alt="Product 1" />
+                     <Image src="/Popular1.webp" fluid alt="Product 1" />
                      <div className="iconic-products_container-content-description">
                         <p>Chocolate</p>
                         <p>Con leche</p>
@@ -19,7 +19,7 @@ export default function IconicProducts() {
                      </div>
                   </div>
                   <div className="iconic-products_container-content">
-                     <Image src="/Popular2.jpeg" fluid alt="Product 2" />
+                     <Image src="/Popular2.webp" fluid alt="Product 2" />
                      <div className="iconic-products_container-content-description">
                         <p>Chocolate</p>
                         <p>Blanco</p>
@@ -33,7 +33,7 @@ export default function IconicProducts() {
                </Grid.Column>
                <Grid.Column width={8}>
                   <div className="iconic-products_container-content">
-                     <Image src="/Popular3.jpeg" fluid alt="Product 3" />
+                     <Image src="/Popular3.webp" fluid alt="Product 3" />
                      <div className="iconic-products_container-content-description">
                         <p>Chocolate</p>
                         <p>Semiamargo</p>
