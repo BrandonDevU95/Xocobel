@@ -20,7 +20,17 @@ export default function Catalogs() {
                         basic
                         type="button"
                      >
-                        Descarga el Catálogo
+                        Descarga el Catálogo - 5
+                     </Button>
+                     <Button
+                        as="a"
+                        href="/pdf/catalogo-navidad-2.pdf"
+                        target="_blank"
+                        basic
+                        type="button"
+                        style={{ marginTop: '10px' }}
+                     >
+                        Descarga el Catálogo - 21
                      </Button>
                   </div>
                </Grid.Column>
