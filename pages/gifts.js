@@ -7,8 +7,8 @@ import { useEffect, useState } from 'react';
 import { getGiftsProductsApi, getTotalGiftsApi } from '../api/products';
 import { Container, Grid, Loader } from 'semantic-ui-react';
 import Pagination from '../components/Pagination';
-import ListProducts from '../components/ListProducts';
 
+const DynamicListProducts = dynamic(() => import('../components/ListProducts'));
 const DynamicRecommendedProducts = dynamic(() =>
    import('../components/Home/RecommendedProducts')
 );
@@ -58,7 +58,9 @@ export default function Gifts() {
                         <h3>No hay productos</h3>
                      </div>
                   )}
-                  {size(gifts) > 0 && <ListProducts products={gifts} />}
+                  {size(gifts) > 0 && (
+                     <DynamicListProducts products={gifts} size="medium" />
+                  )}
                   {size(gifts) > 0 && totalProducts ? (
                      <Pagination
                         totalProducts={totalProducts}
