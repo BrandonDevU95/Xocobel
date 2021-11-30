@@ -18,7 +18,7 @@ import { getTypeChocolateApi } from '../api/type-chocolate';
 
 const limitPerPage = 10;
 
-export default function boutique() {
+export default function Boutique() {
    const { query, replace } = useRouter();
    const [products, setProducts] = useState(false);
    const [category, setCategory] = useState(null);

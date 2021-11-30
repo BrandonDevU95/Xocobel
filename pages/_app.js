@@ -78,7 +78,9 @@ export default function MyApp({ Component, pageProps }) {
          addProductCart(product, amount);
          setReloadCart(true);
       } else {
-         toast.warning('Debe iniciar sesión para agregar productos al carrito');
+         toast.warning(
+            'Debes iniciar sesión para agregar productos al carrito'
+         );
       }
    };
 
@@ -88,7 +90,6 @@ export default function MyApp({ Component, pageProps }) {
    };
 
    const clearProductsCart = () => {
-      // FIXME: Reparar la alerta de componente desmontado del carrito
       removeAllProductsCart();
       setReloadCart(true);
    };

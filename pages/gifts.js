@@ -12,7 +12,7 @@ import RecommendedProducts from '../components/Home/RecommendedProducts';
 // TODO: Cambiar esta variable desde strapi
 const limitPerPage = 10;
 
-export default function gifts() {
+export default function Gifts() {
    const { query } = useRouter();
    const [gifts, setGifts] = useState(null);
    const [totalProducts, setTotalProducts] = useState(null);

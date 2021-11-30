@@ -7,7 +7,7 @@ import ListProducts from '../components/ListProducts';
 import { Container, Loader } from 'semantic-ui-react';
 import Seo from '../components/Seo';
 
-export default function wishlist() {
+export default function Wishlist() {
    const { auth, logout } = useAuth();
    const [products, setProducts] = useState(null);
 

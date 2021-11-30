@@ -4,7 +4,6 @@ import BasicLayout from '../layouts/Basic';
 import Contact from '../components/Home/Contact';
 import { Container, Grid, Image } from 'semantic-ui-react';
 
-// TODO: Verificar que los nombres de componentes esten en mayuscylas
 export default function Events() {
    const settings = {
       className: 'carousel-screen',

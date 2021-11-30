@@ -12,7 +12,7 @@ import ChangeNameForm from '../components/account/ChangeNameForm';
 import ChangeEmailForm from '../components/account/ChangeEmailForm';
 import ChangePasswordForm from '../components/account/ChangePasswordForm';
 
-export default function account() {
+export default function Account() {
    const router = useRouter();
    const { auth, logout, setReloadUser } = useAuth();
    const [user, setUser] = useState(undefined);

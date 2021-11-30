@@ -3,7 +3,7 @@ import { Container, Grid, Image } from 'semantic-ui-react';
 import Shipping from '../components/Home/Shipping';
 import BasicLayout from '../layouts/Basic';
 
-export default function xocobel() {
+export default function Xocobel() {
    return (
       <BasicLayout className="xocobel">
          <Container fluid className="xocobel-container">
