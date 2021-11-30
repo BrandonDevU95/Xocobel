@@ -7,15 +7,19 @@ import { useEffect, useState } from 'react';
 import { getProductsByCategoryApi } from '../api/products';
 import { Container, Grid, Loader } from 'semantic-ui-react';
 import Pagination from '../components/Pagination';
-import ListProducts from '../components/ListProducts';
-import CategoryRetail from '../components/categoryRetail';
-import TypeChocolate from '../components/typeChocolate';
 import {
    getCategoryRetailApi,
    getTotalProductsCategoryApi,
 } from '../api/category-retail';
 import { getTypeChocolateApi } from '../api/type-chocolate';
 
+const DynamicTypeChocolate = dynamic(() =>
+   import('../components/typeChocolate')
+);
+const DynamicCategoryRetail = dynamic(() =>
+   import('../components/categoryRetail')
+);
+const DynamicListProducts = dynamic(() => import('../components/ListProducts'));
 const DynamicRecommendedProducts = dynamic(() =>
    import('../components/Home/RecommendedProducts')
 );
@@ -102,13 +106,13 @@ export default function Boutique() {
             <Grid>
                <Grid.Column width={3}>
                   <h3>Categorías</h3>
-                  <CategoryRetail
+                  <DynamicCategoryRetail
                      categoryRetail={categoryRetail}
                      setCategory={setCategory}
                      setCleanUrl={setCleanUrl}
                   />
                   <h3>Tipo de Chocolate</h3>
-                  <TypeChocolate
+                  <DynamicTypeChocolate
                      typeChocolate={typeChocolate}
                      setChocolate={setChocolate}
                      setCleanUrl={setCleanUrl}
@@ -121,7 +125,9 @@ export default function Boutique() {
                         <h3>No hay productos</h3>
                      </div>
                   )}
-                  {size(products) > 0 && <ListProducts products={products} />}
+                  {size(products) > 0 && (
+                     <DynamicListProducts products={products} />
+                  )}
                   {size(products) > 0 && totalProducts ? (
                      <Pagination
                         totalProducts={totalProducts}
