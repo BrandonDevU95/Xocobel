@@ -5,8 +5,10 @@ import { useState, useEffect } from 'react';
 import { Container } from 'semantic-ui-react';
 import { getProductByUrlApi } from '../api/products';
 import BasicLayout from '../layouts/Basic/BasicLayout';
-import HeaderProduct from '../components/Product/HeaderProduct';
 
+const DynamicHeaderProduct = dynamic(() =>
+   import('../components/Product/HeaderProduct')
+);
 const DynamicRecommendedProducts = dynamic(() =>
    import('../components/Home/RecommendedProducts')
 );
@@ -31,7 +33,7 @@ export default function Product() {
             description={product.description}
          />
          <Container fluid className="product-container">
-            <HeaderProduct product={product} />
+            <DynamicHeaderProduct product={product} />
             <DynamicRecommendedProducts />
          </Container>
       </BasicLayout>
