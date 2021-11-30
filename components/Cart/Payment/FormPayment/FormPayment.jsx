@@ -33,7 +33,6 @@ export default function FormPayment({ products, address, setReloadCart }) {
       removeProductCart(product);
    };
 
-   // TODO: Descomponer esta funcion en varias partes
    const handleSubmit = async (event) => {
       event.preventDefault();
       if (totalPrice <= 20) {

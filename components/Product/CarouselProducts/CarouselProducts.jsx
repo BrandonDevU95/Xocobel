@@ -14,8 +14,6 @@ export default function CarouselProducts({ products }) {
       swipeToSlide: true,
    };
 
-   // TODO: Corregir carga de imagenes para que no se vea grande al cargar el componente
-
    return (
       <Container fluid className="carousel-products">
          <h2>Recomendados</h2>
