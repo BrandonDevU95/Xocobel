@@ -47,7 +47,7 @@ export default function xocobel() {
                      className="xocobel-container-grid-1_column"
                   >
                      <div className="xocobel-container-grid-1_column-description">
-                        <h3>SUSTAINABLY SOURCED CACAO</h3>
+                        <h3>OBJETIVO CLARO</h3>
                         <p>
                            Nuestro objetivo es poder permanecer en el gusto del
                            mercado a través de la innovación continua, adoptando
@@ -66,7 +66,7 @@ export default function xocobel() {
                      className="xocobel-container-grid-2_column"
                   >
                      <div className="xocobel-container-grid-2_column-description">
-                        <h3>WE INVEST IN OUR OWN CACAO FARM</h3>
+                        <h3>GRAN VARIEDAD DE PRODUCTOS</h3>
                         <p>
                            Algunos de nuestros productos son: Chocolatines,
                            Trufas, Mazapanes, Ganaches, Galletas, Pralinés,
@@ -90,7 +90,7 @@ export default function xocobel() {
                      className="xocobel-container-grid-1_column"
                   >
                      <div className="xocobel-container-grid-1_column-description">
-                        <h3>FROM BEAN TO PRALINE</h3>
+                        <h3>LA MÁS ALTA CALIDAD</h3>
                         <p>
                            Equipo de última generación, con una capacidad de
                            producción en toneladas diarias. Personal altamente
@@ -108,7 +108,7 @@ export default function xocobel() {
                      className="xocobel-container-grid-2_column"
                   >
                      <div className="xocobel-container-grid-2_column-description">
-                        <h3>NATURAL INGREDIENTS</h3>
+                        <h3>PROCESOS CERTIFICADOS</h3>
                         <p>
                            Certificación ante Global Foof Safety Initiative.
                            Líneas de producción altamente eficientes y
