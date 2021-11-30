@@ -19,7 +19,7 @@ export default function HeaderProduct({ product }) {
       <Grid className="header-product">
          <Grid.Column mobile={16} tablet={6} computer={6}>
             <Image
-               src={`${BASE_PATH}${product.poster.formats.large.url}`}
+               src={`${BASE_PATH}${product.poster.formats?.large?.url}`}
                alt={product.title}
                fluid
             />
