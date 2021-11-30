@@ -8,7 +8,7 @@ export default function Catalogs() {
                <Grid.Column>
                   <div className="catalogs-container_catalog">
                      <Image
-                        src="/catalogo-navideno.jpeg"
+                        src="/catalogo-navideno.webp"
                         alt="catalogo-navideño"
                         fluid
                      />
@@ -27,7 +27,7 @@ export default function Catalogs() {
                <Grid.Column>
                   <div className="catalogs-container_catalog">
                      <Image
-                        src="/catalogo-empresas.jpeg"
+                        src="/catalogo-empresas.webp"
                         alt="catalogo-empresas"
                         fluid
                      />
@@ -45,7 +45,7 @@ export default function Catalogs() {
                <Grid.Column>
                   <div className="catalogs-container_catalog">
                      <Image
-                        src="/catalogo-personalizado.jpeg"
+                        src="/catalogo-personalizado.webp"
                         alt="catalogo-personalizado"
                         fluid
                      />

@@ -42,12 +42,12 @@ export default function ServiceInfo() {
                   </div>
                </Grid.Column>
                <Grid.Column width={8}>
-                  <Image src="/service-info-1.jpeg" alt="service-info" />
+                  <Image src="/service-info-1.webp" alt="service-info" />
                </Grid.Column>
             </Grid>
             <Grid>
                <Grid.Column width={8}>
-                  <Image src="/service-info-2.jpeg" alt="service-info" />
+                  <Image src="/service-info-2.webp" alt="service-info" />
                </Grid.Column>
                <Grid.Column width={8}>
                   <div className="service-info-container_info">
