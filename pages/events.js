@@ -22,7 +22,7 @@ export default function Events() {
                   <Grid.Column width={8}>
                      <Image
                         fluid
-                        src="/events-banner.jpeg"
+                        src="/events-banner.webp"
                         alt="Events Banner"
                      />
                   </Grid.Column>
@@ -50,28 +50,28 @@ export default function Events() {
                <div>
                   <Image
                      fluid
-                     src="/events-slide-1.jpeg"
+                     src="/events-slide-1.webp"
                      alt="Events Slide 1"
                   />
                </div>
                <div>
                   <Image
                      fluid
-                     src="/events-slide-2.jpeg"
+                     src="/events-slide-2.webp"
                      alt="Events Slide 2"
                   />
                </div>
                <div>
                   <Image
                      fluid
-                     src="/events-slide-3.jpeg"
+                     src="/events-slide-3.webp"
                      alt="Events Slide 3"
                   />
                </div>
                <div>
                   <Image
                      fluid
-                     src="/events-slide-4.jpeg"
+                     src="/events-slide-4.webp"
                      alt="Events Slide 4"
                   />
                </div>
