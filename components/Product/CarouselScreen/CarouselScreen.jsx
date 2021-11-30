@@ -27,9 +27,11 @@ export default function CarouselScreen({ title, screenShots }) {
             {map(screenShots, (screenShot) => (
                <Image
                   key={screenShot.id}
-                  src={`${BASE_PATH}${screenShot.url}`}
+                  src={`${BASE_PATH}${screenShot.formats.thumbnail?.url}`}
                   alt={screenShot.name}
-                  onClick={() => openImage(`${BASE_PATH}${screenShot.url}`)}
+                  onClick={() =>
+                     openImage(`${BASE_PATH}${screenShot.formats.medium?.url}`)
+                  }
                />
             ))}
          </Slider>
