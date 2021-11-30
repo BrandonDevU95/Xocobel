@@ -27,7 +27,7 @@ export default function ServiceInfo() {
             <Grid>
                <Grid.Column width={8}>
                   <div className="service-info-container_info">
-                     <h2>Nuestros Servicios</h2>
+                     <h2>Servicios Corporativos</h2>
                      <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Sed exercitationem quaerat cupiditate amet non delectus
@@ -73,7 +73,7 @@ export default function ServiceInfo() {
             <BasicModal
                show={showModal}
                setShow={setShowModal}
-               title="Solocite Informacion"
+               title="Solicite un Presupuesto"
                className="service-info-container_modal"
             >
                <FormModal formik={formik} loading={loading} />
@@ -111,7 +111,7 @@ function FormModal({ formik, loading }) {
                name="organization"
                type="text"
                label="Organización"
-               placeholder="Xocobel Sa de CV"
+               placeholder="Xocobel SA de CV"
                onChange={formik.handleChange}
                value={formik.values.organization}
                error={formik.errors.organization}
@@ -130,8 +130,8 @@ function FormModal({ formik, loading }) {
             <Form.Input
                name="subject"
                type="text"
-               label="Asunto"
-               placeholder="Pedido de Chocolate"
+               label="Tipo de Evento"
+               placeholder="Aniversario de la Empresa"
                onChange={formik.handleChange}
                value={formik.values.subject}
                error={formik.errors.subject}
@@ -150,7 +150,7 @@ function FormModal({ formik, loading }) {
             <Form.Input
                name="people"
                type="text"
-               label="Personal"
+               label="Personas Aprox"
                placeholder="15 personas"
                onChange={formik.handleChange}
                value={formik.values.people}
@@ -170,7 +170,7 @@ function FormModal({ formik, loading }) {
             name="message"
             type="text"
             label="Mensaje"
-            placeholder="Cuentanos más acerca de tu pedido..."
+            placeholder="Cuentanos más acerca de tu evento..."
             onChange={formik.handleChange}
             value={formik.values.message}
             error={formik.errors.message}
