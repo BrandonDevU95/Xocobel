@@ -40,7 +40,7 @@ export default function Boutique() {
       if (btn) {
          btn.click();
       }
-   }, [btn]);
+   }, [btn, query.type]);
 
    useEffect(() => {
       if (query.type && !query.page) {
@@ -59,6 +59,7 @@ export default function Boutique() {
          else setCategoryRetail([]);
       })();
    }, []);
+
    useEffect(() => {
       (async () => {
          const response = await getTypeChocolateApi();
