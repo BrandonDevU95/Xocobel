@@ -40,7 +40,7 @@ export default function Xocobel() {
             <div className="xocobel-container-grid-1">
                <Grid>
                   <Grid.Column width={8}>
-                     <Image src="/xocobel-1.jpeg" alt="Xocobel 1" fluid />
+                     <Image src="/xocobel-1.webp" alt="Xocobel 1" fluid />
                   </Grid.Column>
                   <Grid.Column
                      width={8}
@@ -76,14 +76,14 @@ export default function Xocobel() {
                      </div>
                   </Grid.Column>
                   <Grid.Column width={8}>
-                     <Image src="/xocobel-2.jpeg" alt="Xocobel 2" fluid />
+                     <Image src="/xocobel-2.webp" alt="Xocobel 2" fluid />
                   </Grid.Column>
                </Grid>
             </div>
             <div className="xocobel-container-grid-1">
                <Grid>
                   <Grid.Column width={8}>
-                     <Image src="/xocobel-3.jpeg" alt="Xocobel 3" fluid />
+                     <Image src="/xocobel-3.webp" alt="Xocobel 3" fluid />
                   </Grid.Column>
                   <Grid.Column
                      width={8}
@@ -117,7 +117,7 @@ export default function Xocobel() {
                      </div>
                   </Grid.Column>
                   <Grid.Column width={8}>
-                     <Image src="/xocobel-4.jpeg" alt="Xocobel 4" fluid />
+                     <Image src="/xocobel-4.webp" alt="Xocobel 4" fluid />
                   </Grid.Column>
                </Grid>
             </div>
