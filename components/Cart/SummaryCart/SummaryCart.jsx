@@ -50,7 +50,7 @@ export default function SummaryCart({ products, reloadCart, setReloadCart }) {
                               onClick={() => removeProduct(product.url)}
                            />
                            <Image
-                              src={`${BASE_PATH}${product.poster.url}`}
+                              src={`${BASE_PATH}${product.poster.formats.thumbnail.url}`}
                               alt={product.title}
                            />
                            {product.title}
