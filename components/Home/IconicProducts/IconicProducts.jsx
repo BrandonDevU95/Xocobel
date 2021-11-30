@@ -1,4 +1,5 @@
 import { Button, Container, Grid, Image } from 'semantic-ui-react';
+import Link from 'next/link';
 
 export default function IconicProducts() {
    return (
@@ -13,9 +14,18 @@ export default function IconicProducts() {
                         <p>Con leche</p>
                      </div>
                      <div className="iconic-products_container-content-btnAction-right_1">
-                        <Button type="button" primary>
-                           MÁS
-                        </Button>
+                        <Link
+                           href={{
+                              pathname: '/boutique',
+                              query: { type: 'chocolate-con-leche' },
+                           }}
+                        >
+                           <a>
+                              <Button type="button" primary>
+                                 MÁS
+                              </Button>
+                           </a>
+                        </Link>
                      </div>
                   </div>
                   <div className="iconic-products_container-content">
@@ -25,9 +35,18 @@ export default function IconicProducts() {
                         <p>Blanco</p>
                      </div>
                      <div className="iconic-products_container-content-btnAction-left">
-                        <Button type="button" primary>
-                           MÁS
-                        </Button>
+                        <Link
+                           href={{
+                              pathname: '/boutique',
+                              query: { type: 'chocolate-blanco' },
+                           }}
+                        >
+                           <a>
+                              <Button type="button" primary>
+                                 MÁS
+                              </Button>
+                           </a>
+                        </Link>
                      </div>
                   </div>
                </Grid.Column>
@@ -39,9 +58,18 @@ export default function IconicProducts() {
                         <p>Semiamargo</p>
                      </div>
                      <div className="iconic-products_container-content-btnAction-right_2">
-                        <Button type="button" primary>
-                           DESCUBRE
-                        </Button>
+                        <Link
+                           href={{
+                              pathname: '/boutique',
+                              query: { type: 'chocolate-blanco' },
+                           }}
+                        >
+                           <a>
+                              <Button type="button" primary>
+                                 DESCUBRE
+                              </Button>
+                           </a>
+                        </Link>
                      </div>
                   </div>
                </Grid.Column>
