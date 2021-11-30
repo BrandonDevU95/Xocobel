@@ -13,6 +13,7 @@ export default function RegisterForm({ showLoginForm }) {
       validationSchema: Yup.object(validationSchema()),
       onSubmit: async (formData) => {
          setLoading(true);
+         delete formData.repeatPassword;
          const response = await registerApi(formData);
          if (response?.jwt) {
             showLoginForm();
@@ -23,8 +24,6 @@ export default function RegisterForm({ showLoginForm }) {
          setLoading(false);
       },
    });
-
-   // TODO: Agregar un campo de validacion de contraseña
 
    return (
       <Form className="login-form" onSubmit={formik.handleSubmit}>
@@ -63,6 +62,13 @@ export default function RegisterForm({ showLoginForm }) {
             onChange={formik.handleChange}
             error={formik.errors.password}
          />
+         <Form.Input
+            name="repeatPassword"
+            type="password"
+            placeholder="Repetir Contraseña"
+            onChange={formik.handleChange}
+            error={formik.errors.repeatPassword}
+         />
          <div className="actions">
             <Button type="button" onClick={showLoginForm} basic>
                Iniciar Sesión
@@ -82,6 +88,7 @@ function initialValues() {
       username: '',
       email: '',
       password: '',
+      repeatPassword: '',
    };
 }
 
@@ -91,6 +98,14 @@ function validationSchema() {
       lastname: Yup.string().required(true),
       username: Yup.string().required(true),
       email: Yup.string().email(true).required(true),
-      password: Yup.string().required(true),
+      password: Yup.string()
+         .oneOf(
+            [Yup.ref('repeatPassword'), null],
+            'Las contraseñas no coinciden'
+         )
+         .required(true),
+      repeatPassword: Yup.string()
+         .oneOf([Yup.ref('password'), null], 'Las contraseñas no coinciden')
+         .required(true),
    };
 }
