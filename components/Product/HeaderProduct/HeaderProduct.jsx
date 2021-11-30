@@ -15,7 +15,6 @@ import {
 } from '../../../api/favorite';
 
 export default function HeaderProduct({ product }) {
-   console.log(product);
    return (
       <Grid className="header-product">
          <Grid.Column mobile={16} tablet={6} computer={6}>
