@@ -54,7 +54,7 @@ export default function LoginForm({ showRegisterForm, onCloseModal }) {
             error={formik.errors.identifier}
          />
          <Form.Input
-            label="Constraseña"
+            label="Contraseña"
             name="password"
             type="password"
             onChange={formik.handleChange}
