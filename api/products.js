@@ -59,9 +59,25 @@ export async function getProductByUrlApi(path) {
    }
 }
 
-export async function searcgProductsApi(search) {
+export async function searchProductsApi(search, limit = 10, start = 0) {
+   const limitItems = `_limit=${limit}`;
+   const sortItems = `_sort=createdAt:desc`;
+   const startItems = `_start=${start}`;
+
    try {
-      const url = `${BASE_PATH}/products?_q=${search}`;
+      const url = `${BASE_PATH}/products?_q=${search}&${limitItems}&${sortItems}&${startItems}`;
+      const response = await fetch(url);
+      const result = await response.json();
+      return result;
+   } catch (error) {
+      console.log(error);
+      return null;
+   }
+}
+
+export async function getTotalsearchProductsApi(search) {
+   try {
+      const url = `${BASE_PATH}/products/count?_q=${search}`;
       const response = await fetch(url);
       const result = await response.json();
       return result;
