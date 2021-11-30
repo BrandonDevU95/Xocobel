@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { Container } from 'semantic-ui-react';
-import ListProducts from '../../ListProducts';
 import { getPopularProductsApi } from '../../../api/products';
 import { size } from 'lodash';
+
+const DynamicListProducts = dynamic(() => import('../../ListProducts'));
 
 export default function PopularProducts() {
    const [popularProducts, setPopularProducts] = useState(null);
@@ -24,7 +26,7 @@ export default function PopularProducts() {
                </div>
             )}
             {size(popularProducts) > 0 && (
-               <ListProducts products={popularProducts} />
+               <DynamicListProducts products={popularProducts} size="medium" />
             )}
          </div>
       </Container>
