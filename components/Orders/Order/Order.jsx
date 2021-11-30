@@ -23,7 +23,10 @@ export default function Order({
                <div className="order__info-data">
                   <Link href={`/${url}`}>
                      <a>
-                        <Image src={`${BASE_PATH}${poster.url}`} alt={title} />
+                        <Image
+                           src={BASE_PATH + poster.formats.thumbnail.url}
+                           alt={title}
+                        />
                      </a>
                   </Link>
                   <div>
