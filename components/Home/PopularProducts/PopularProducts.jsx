@@ -26,7 +26,7 @@ export default function PopularProducts() {
                </div>
             )}
             {size(popularProducts) > 0 && (
-               <DynamicListProducts products={popularProducts} size="medium" />
+               <DynamicListProducts products={popularProducts} size="small" />
             )}
          </div>
       </Container>
