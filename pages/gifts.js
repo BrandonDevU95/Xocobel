@@ -1,4 +1,5 @@
 import { size } from 'lodash';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import Seo from '../components/Seo';
 import BasicLayout from '../layouts/Basic';
@@ -7,7 +8,10 @@ import { getGiftsProductsApi, getTotalGiftsApi } from '../api/products';
 import { Container, Grid, Loader } from 'semantic-ui-react';
 import Pagination from '../components/Pagination';
 import ListProducts from '../components/ListProducts';
-import RecommendedProducts from '../components/Home/RecommendedProducts';
+
+const DynamicRecommendedProducts = dynamic(() =>
+   import('../components/Home/RecommendedProducts')
+);
 
 const limitPerPage = 10;
 
@@ -64,7 +68,7 @@ export default function Gifts() {
                   ) : null}
                </Grid.Column>
             </Grid>
-            <RecommendedProducts />
+            <DynamicRecommendedProducts />
          </Container>
       </BasicLayout>
    );

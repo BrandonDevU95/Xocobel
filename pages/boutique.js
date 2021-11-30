@@ -1,4 +1,5 @@
 import { size } from 'lodash';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import Seo from '../components/Seo';
 import BasicLayout from '../layouts/Basic';
@@ -9,12 +10,15 @@ import Pagination from '../components/Pagination';
 import ListProducts from '../components/ListProducts';
 import CategoryRetail from '../components/categoryRetail';
 import TypeChocolate from '../components/typeChocolate';
-import RecommendedProducts from '../components/Home/RecommendedProducts';
 import {
    getCategoryRetailApi,
    getTotalProductsCategoryApi,
 } from '../api/category-retail';
 import { getTypeChocolateApi } from '../api/type-chocolate';
+
+const DynamicRecommendedProducts = dynamic(() =>
+   import('../components/Home/RecommendedProducts')
+);
 
 const limitPerPage = 10;
 
@@ -127,7 +131,7 @@ export default function Boutique() {
                   ) : null}
                </Grid.Column>
             </Grid>
-            <RecommendedProducts />
+            <DynamicRecommendedProducts />
          </Container>
       </BasicLayout>
    );
