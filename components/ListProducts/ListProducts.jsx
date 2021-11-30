@@ -47,8 +47,8 @@ function Product({ product, size }) {
                   <Image
                      src={
                         size === 'medium'
-                           ? BASE_PATH + product.poster.formats.medium.url
-                           : BASE_PATH + product.poster.formats.thumbnail.url
+                           ? BASE_PATH + product.poster.formats?.medium?.url
+                           : BASE_PATH + product.poster.formats?.thumbnail?.url
                      }
                      alt={product.title}
                      fluid
