@@ -15,11 +15,12 @@ import {
 } from '../../../api/favorite';
 
 export default function HeaderProduct({ product }) {
+   console.log(product);
    return (
       <Grid className="header-product">
          <Grid.Column mobile={16} tablet={6} computer={6}>
             <Image
-               src={`${BASE_PATH}${product.poster.url}`}
+               src={`${BASE_PATH}${product.poster.formats.large.url}`}
                alt={product.title}
                fluid
             />
