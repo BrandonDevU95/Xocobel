@@ -24,7 +24,7 @@ export default function CarouselProducts({ products }) {
                      <a>
                         <div className="carousel-products_product__product-poster">
                            <Image
-                              src={`${BASE_PATH}${product.poster.url}`}
+                              src={`${BASE_PATH}${product.poster.formats.small?.url}`}
                               alt={product.title}
                            />
                            <div className="carousel-products_product__product-poster-info">
