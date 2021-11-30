@@ -39,20 +39,23 @@ export default function ListProducts({ products, size = 'thumbnail' }) {
 }
 
 function Product({ product, size }) {
+   const sizeImg =
+      size === 'large'
+         ? BASE_PATH + product.poster.formats?.large?.url
+         : size === 'medium'
+         ? BASE_PATH + product.poster.formats?.medium?.url
+         : size === 'small'
+         ? BASE_PATH + product.poster.formats?.small?.url
+         : size === 'thumbnail'
+         ? BASE_PATH + product.poster.formats?.thumbnail?.url
+         : '';
+
    return (
       <Grid.Column className="list-products__product">
          <Link href={`/${product.url}`}>
             <a>
                <div className="list-products__product-poster">
-                  <Image
-                     src={
-                        size === 'medium'
-                           ? BASE_PATH + product.poster.formats?.medium?.url
-                           : BASE_PATH + product.poster.formats?.thumbnail?.url
-                     }
-                     alt={product.title}
-                     fluid
-                  />
+                  <Image src={sizeImg} alt={product.title} fluid />
                   <div className="list-products__product-poster-info">
                      {product.discount ? (
                         <span className="discount">-{product.discount}%</span>
