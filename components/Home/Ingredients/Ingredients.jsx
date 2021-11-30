@@ -20,7 +20,7 @@ export default function Ingredients() {
 
                      <Image src="/icons/chef.svg" />
                      <p>
-                        Chocolatería y bombonera <br /> artesanal
+                        Chocolatería y Bombonería <br /> artesanal
                      </p>
                   </div>
                </Grid.Column>
