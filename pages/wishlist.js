@@ -2,18 +2,35 @@ import { size, forEach } from 'lodash';
 import useAuth from '../hooks/useAuth';
 import BasicLayout from '../layouts/Basic';
 import { useState, useEffect } from 'react';
-import { getFavoriteApi } from '../api/favorite';
+import { getFavoriteApi, getTotalFavoriteApi } from '../api/favorite';
 import ListProducts from '../components/ListProducts';
 import { Container, Loader } from 'semantic-ui-react';
 import Seo from '../components/Seo';
+import Pagination from '../components/Pagination';
+import { useRouter } from 'next/router';
+
+const limitPerPage = 10;
 
 export default function Wishlist() {
+   const { query } = useRouter();
    const { auth, logout } = useAuth();
    const [products, setProducts] = useState(null);
+   const [totalProducts, setTotalProducts] = useState(null);
+
+   const getStartItem = () => {
+      const currentPages = parseInt(query.page);
+      if (!query.page || currentPages === 1) return 0;
+      else return currentPages * limitPerPage - limitPerPage;
+   };
 
    useEffect(() => {
       (async () => {
-         const response = await getFavoriteApi(auth.idUser, logout);
+         const response = await getFavoriteApi(
+            auth.idUser,
+            logout,
+            limitPerPage,
+            getStartItem()
+         );
          if (size(response) > 0) {
             const productsList = [];
             forEach(response, (data) => {
@@ -23,6 +40,13 @@ export default function Wishlist() {
          } else {
             setProducts([]);
          }
+      })();
+   }, [query]);
+
+   useEffect(() => {
+      (async () => {
+         const response = await getTotalFavoriteApi(auth.idUser, logout);
+         setTotalProducts(response);
       })();
    }, []);
 
@@ -44,15 +68,14 @@ export default function Wishlist() {
                      </div>
                   )}
                   {size(products) > 0 && <ListProducts products={products} />}
-                  {/* TODO: Agregar la paginacion a favoritos */}
-                  {/* {size(products) > 0 && totalProducts ? (
+               </div>
+               {size(products) > 0 && totalProducts ? (
                   <Pagination
                      totalProducts={totalProducts}
                      page={query.page ? parseInt(query.page) : 1}
                      limitPerPage={limitPerPage}
                   />
-               ) : null} */}
-               </div>
+               ) : null}
             </div>
          </Container>
       </BasicLayout>

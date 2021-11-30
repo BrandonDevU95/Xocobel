@@ -60,9 +60,24 @@ export async function deleteFavoriteApi(idUser, idProduct, logout) {
    }
 }
 
-export async function getFavoriteApi(idUser, logout) {
+export async function getFavoriteApi(idUser, logout, limit = 10, start = 0) {
+   const limitItems = `_limit=${limit}`;
+   const sortItems = `_sort=createdAt:desc`;
+   const startItems = `_start=${start}`;
+
    try {
-      const url = `${BASE_PATH}/favorites?users_permissions_user=${idUser}`;
+      const url = `${BASE_PATH}/favorites?users_permissions_user=${idUser}&${limitItems}&${sortItems}&${startItems}`;
+      const result = await authFetch(url, null, logout);
+      return result;
+   } catch (error) {
+      console.log(error);
+      return null;
+   }
+}
+
+export async function getTotalFavoriteApi(idUser, logout) {
+   try {
+      const url = `${BASE_PATH}/favorites/count?users_permissions_user=${idUser}`;
       const result = await authFetch(url, null, logout);
       return result;
    } catch (error) {
