@@ -5,15 +5,13 @@ import { getMeApi } from '../../../api/user';
 import useCart from '../../../hooks/useCart';
 import useAuth from '../../../hooks/useAuth';
 import BasicModal from '../../Modal/BasicModal';
-import { Container, Menu, Grid, Icon, Label } from 'semantic-ui-react';
+import { Menu, Icon, Label } from 'semantic-ui-react';
 
 export default function MenuWeb() {
    const { auth, logout } = useAuth();
    const [user, setUser] = useState(undefined);
    const [showModal, setShowModal] = useState(false);
    const [titleModal, setTitleModal] = useState('Iniciar Sesión');
-   const left = !user ? 12 : 8;
-   const right = !user ? 4 : 8;
 
    useEffect(() => {
       (async () => {
@@ -26,23 +24,39 @@ export default function MenuWeb() {
    const onCloseModal = () => setShowModal(false);
 
    return (
-      <div className="menu">
-         <Container fluid className="menu-container">
-            <Grid>
-               <Grid.Column width={left} className="menu__left">
-                  <MenuChocolate />
-               </Grid.Column>
-               <Grid.Column width={right} className="menu__right">
-                  {user !== undefined && (
-                     <MenuOptions
-                        onShowModal={onShowModal}
-                        user={user}
-                        logout={logout}
-                     />
-                  )}
-               </Grid.Column>
-            </Grid>
-         </Container>
+      <section className="menu">
+         <nav className="navbar navbar-expand-lg navbar-light bg-light p-0">
+            <div className="container">
+               <button
+                  className="navbar-toggler ms-auto m-2"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarMenuNavigation"
+                  aria-controls="navbarMenuNavigation"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+               >
+                  <span className="navbar-toggler-icon"></span>
+               </button>
+               <div
+                  className="collapse navbar-collapse"
+                  id="navbarMenuNavigation"
+               >
+                  <div className="me-auto mb-2 mb-lg-0">
+                     <MenuChocolate />
+                  </div>
+                  <div className="ms-auto mb-2 mb-lg-0">
+                     {user !== undefined && (
+                        <MenuOptions
+                           onShowModal={onShowModal}
+                           user={user}
+                           logout={logout}
+                        />
+                     )}
+                  </div>
+               </div>
+            </div>
+         </nav>
          <BasicModal
             show={showModal}
             setShow={setShowModal}
@@ -51,7 +65,7 @@ export default function MenuWeb() {
          >
             <Auth onCloseModal={onCloseModal} setTitleModal={setTitleModal} />
          </BasicModal>
-      </div>
+      </section>
    );
 }
 

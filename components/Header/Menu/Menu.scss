@@ -1,61 +1,61 @@
 .menu {
-   background-color: $background-grey-marmol;
-   border-radius: 0px;
+   .ui.menu {
+      border: 0px;
+      box-shadow: none;
+      background: transparent;
+      font-family: 'Valencia', Helvetica, sans-serif;
 
-   &-container {
-      padding-left: 10rem;
-      padding-right: 10rem;
-   }
+      @media (max-width: 992px) {
+         display: flex;
+         flex-direction: column;
+      }
 
-   .ui.grid {
-      margin: 0px;
-   }
+      .icon {
+         margin-right: 10px !important;
+         color: $font-cocoa;
 
-   &__left,
-   &__right {
-      padding: 0 !important;
-      display: flex !important;
-      align-items: center;
-
-      .ui.menu {
-         border: 0px;
-         box-shadow: none;
-         height: 100%;
-         background: transparent;
-         font-size: 1.1rem;
-         font-family: 'Valencia', Helvetica, sans-serif;
-
-         .icon {
-            margin-right: 10px !important;
-            color: $font-cocoa;
+         @media (max-width: 1200px) {
+            margin-right: 5px !important;
          }
 
-         .item {
-            color: $font-cocoa;
-            border-radius: 0px !important;
-
-            &:hover {
-               color: $font-white;
-               background-color: $background-honey;
-
-               &::before {
-                  background-color: $background-honey;
-               }
-            }
-
-            &::before {
-               background: none;
-            }
-
-            &.m-0 i {
-               margin: 0px !important;
-            }
+         @media (max-width: 992px) {
+            margin-right: 10px !important;
          }
       }
-   }
 
-   &__right {
-      display: flex;
-      justify-content: flex-end;
+      .item {
+         color: $font-cocoa;
+         border-radius: 0px !important;
+
+         @media (max-width: 1200px) {
+            padding: 0 8px;
+         }
+
+         @media (max-width: 992px) {
+            padding: 1rem;
+
+            .ui.red.circular.floating.label {
+               left: 18% !important;
+               top: 0 !important;
+            }
+         }
+
+         &:hover {
+            color: $font-white;
+            background-color: $background-honey;
+
+            &::before {
+               background-color: $background-honey;
+            }
+         }
+
+         &::before {
+            background: none;
+         }
+
+         &.m-0 i {
+            margin: 0px !important;
+         }
+      }
    }
 }
