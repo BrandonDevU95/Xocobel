@@ -31,6 +31,10 @@
       align-items: center;
       justify-content: flex-end;
 
+      @media (max-width: 768px) {
+         display: none !important;
+      }
+
       .ui.icon.input > input {
          padding-right: 5px !important;
       }

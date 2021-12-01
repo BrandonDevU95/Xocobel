@@ -9,10 +9,20 @@ export default function TopBar() {
       <section className="top-bar">
          <div className="top-bar-container container">
             <Grid className="top-bar">
-               <Grid.Column width={8} className="top-bar__left">
+               <Grid.Column
+                  mobile={16}
+                  tablet={6}
+                  computer={8}
+                  className="top-bar__left"
+               >
                   <Logo />
                </Grid.Column>
-               <Grid.Column width={8} className="top-bar__right">
+               <Grid.Column
+                  mobile={16}
+                  tablet={10}
+                  computer={8}
+                  className="top-bar__right"
+               >
                   <DynamicSearch />
                   <div className="list-icons">
                      <a
