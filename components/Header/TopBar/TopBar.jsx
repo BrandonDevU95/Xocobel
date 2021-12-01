@@ -6,8 +6,8 @@ const DynamicSearch = dynamic(() => import('./Search'));
 
 export default function TopBar() {
    return (
-      <div className="top-bar">
-         <Container fluid className="top-bar-container">
+      <section className="top-bar">
+         <div className="top-bar-container container">
             <Grid className="top-bar">
                <Grid.Column width={8} className="top-bar__left">
                   <Logo />
@@ -30,8 +30,8 @@ export default function TopBar() {
                   </div>
                </Grid.Column>
             </Grid>
-         </Container>
-      </div>
+         </div>
+      </section>
    );
 }
 
