@@ -1,16 +1,7 @@
-// .basic-layout {
-//    // min-height: 100vh;
+.basic-layout {
+   padding: 0 !important;
 
-//    .content {
-//       background-color: $background-white;
-//       height: calc(100vh - 130px);
-//       // overflow-y: scroll;
-
-//       &::-webkit-scrollbar {
-//          display: none;
-//       }
-//    }
-// }
-// .content {
-//    min-height: 100vh;
-// }
+   .content {
+      padding: 0 !important;
+   }
+}
