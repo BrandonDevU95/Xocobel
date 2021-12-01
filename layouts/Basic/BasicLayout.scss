@@ -10,8 +10,6 @@
    }
 }
 
-@media (max-width: 768px) {
-   .ui.container {
-      margin: 0 !important;
-   }
+.ui.fluid.container {
+   margin: 0 !important;
 }
