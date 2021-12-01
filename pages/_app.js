@@ -16,6 +16,7 @@ import {
 // Styles
 import '../sass/global.scss';
 import 'semantic-ui-css/semantic.min.css';
+import 'bootstrap/scss/bootstrap.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
