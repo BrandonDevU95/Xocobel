@@ -16,7 +16,7 @@ import {
 // Styles
 import '../sass/global.scss';
 import 'semantic-ui-css/semantic.min.css';
-import 'bootstrap/scss/bootstrap.scss';
+import 'bootstrap/dist/css/bootstrap.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -27,6 +27,10 @@ export default function MyApp({ Component, pageProps }) {
    const [reloadCart, setReloadCart] = useState(false);
    const [reloadUser, setReloadUser] = useState(false);
    const [totalProductsCart, setTotalProductsCart] = useState(0);
+
+   useEffect(() => {
+      import('bootstrap/dist/js/bootstrap');
+   }, []);
 
    useEffect(() => {
       const token = getToken();
