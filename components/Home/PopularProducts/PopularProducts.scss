@@ -1,29 +1,24 @@
 .popular-products {
    padding: 5rem 0;
 
-   h1 {
-      text-align: center;
-      color: $font-chocolate;
-      font-size: 2.5rem;
-      font-family: 'Valencia';
-   }
-
-   &__list {
-      padding: 0 10rem;
-      padding-top: 3rem;
-
-      .ui.grid {
-         display: flex;
-         justify-content: space-between;
+   &_container {
+      h1 {
+         text-align: center;
+         color: $font-chocolate;
+         font-size: 2.5rem;
+         font-family: 'Valencia';
+         padding-bottom: 2rem;
       }
 
-      &-not-found {
-         h3 {
-            text-align: center;
-            padding-top: 2rem;
-            font-size: 2rem;
-            font-family: 'Open Sans';
-            color: $font-chocolate;
+      &__list {
+         &-not-found {
+            h3 {
+               text-align: center;
+               padding-top: 2rem;
+               font-size: 2rem;
+               font-family: 'Open Sans';
+               color: $font-chocolate;
+            }
          }
       }
    }
