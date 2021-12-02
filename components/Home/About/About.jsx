@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import { Button, Image } from 'semantic-ui-react';
+import Image from 'next/image';
+import { Button } from 'semantic-ui-react';
+import AboutImg from '../../../public/chocolate-about.webp';
 
 export default function About() {
    return (
@@ -23,7 +25,7 @@ export default function About() {
                   </div>
                </div>
                <div className="about-container_row-col col-sm-12 col-md-6 col-lg-6 order-1 order-md-2">
-                  <Image src="/chocolate-about.webp" fluid />
+                  <Image src={AboutImg} alt="Nuestro Chocolate" />
                </div>
             </div>
          </div>

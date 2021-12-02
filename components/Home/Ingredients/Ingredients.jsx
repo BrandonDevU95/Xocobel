@@ -1,4 +1,7 @@
-import { Image } from 'semantic-ui-react';
+import Image from 'next/image';
+import Cocoa from '../../../public/icons/cocoa.svg';
+import Chef from '../../../public/icons/chef.svg';
+import Pyramid from '../../../public/icons/pyramid-of-the-magician.svg';
 
 export default function Ingredients() {
    return (
@@ -8,7 +11,7 @@ export default function Ingredients() {
                <div className="ingredients-container_row-col col-12 col-sm-4 col-md-4 col-lg-4">
                   <div className="ingredients-container_row-col-description">
                      <h2 className="h2">Ingredientes Naturales</h2>
-                     <Image src="/icons/cocoa.svg" />
+                     <Image src={Cocoa} alt="Cocoa" />
                      <p>
                         Chocolate certificado SICAO <br /> por Barry Callebaut
                      </p>
@@ -18,7 +21,7 @@ export default function Ingredients() {
                   <div className="ingredients-container_row-col-description">
                      <h2 className="h2">Gourmet</h2>
 
-                     <Image src="/icons/chef.svg" />
+                     <Image src={Chef} alt="Gourmet" />
                      <p>
                         Chocolatería y Bombonería <br /> artesanal
                      </p>
@@ -28,7 +31,7 @@ export default function Ingredients() {
                   <div className="ingredients-container_row-col-description">
                      <h2 className="h2">Hecho En México</h2>
 
-                     <Image src="/icons/pyramid-of-the-magician.svg" />
+                     <Image src={Pyramid} alt="Hecho En México" />
                      <p>
                         Elaborada por expertos <br /> chocolateros mexicanos
                      </p>
