@@ -1,17 +1,5 @@
 .footer-terms {
-   padding: 0 10rem;
    background-color: $background-grey-marmol;
-
-   &_modal {
-      &-button {
-         display: flex;
-         justify-content: flex-end;
-
-         .ui.primary.button {
-            background-color: $background-chocolate !important;
-         }
-      }
-   }
 
    &-container {
       padding: 3rem 0;
@@ -20,10 +8,14 @@
          justify-content: space-between;
          align-items: center;
 
+         @media (max-width: 576px) {
+            flex-direction: column;
+         }
+
          &_left,
          &_right {
             display: flex;
-            align-items: center;
+            align-items: baseline;
 
             a {
                font-size: 1.2rem;
@@ -38,9 +30,25 @@
          }
 
          &_left {
+            p {
+               font-size: 1.2rem;
+               color: $font-chocolate;
+            }
+
             i {
                font-size: 1.2rem !important;
             }
+         }
+      }
+   }
+
+   &_modal {
+      &-button {
+         display: flex;
+         justify-content: flex-end;
+
+         .ui.primary.button {
+            background-color: $background-chocolate !important;
          }
       }
    }

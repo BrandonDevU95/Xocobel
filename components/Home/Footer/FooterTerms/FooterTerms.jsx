@@ -6,12 +6,12 @@ export default function FooterTerms() {
    const [showModal, setShowModal] = useState(false);
 
    return (
-      <div className="footer-terms">
-         <Container fluid className="footer-terms-container">
+      <section className="footer-terms">
+         <div className="footer-terms-container container">
             <div className="footer-terms-container_content">
                <div className="footer-terms-container_content_left">
-                  <Icon name="copyright outline" />
-                  <p>Xocobel SA DE CV</p>
+                  <p className="m-0 pe-2">Xocobel SA DE CV</p>
+                  <Icon name="registered outline" />
                </div>
                <div className="footer-terms-container_content_right">
                   <a onClick={() => setShowModal(true)}>
@@ -19,7 +19,7 @@ export default function FooterTerms() {
                   </a>
                </div>
             </div>
-         </Container>
+         </div>
          <BasicModal
             show={showModal}
             size="tiny"
@@ -29,7 +29,7 @@ export default function FooterTerms() {
          >
             <Terms setShowModal={setShowModal} />
          </BasicModal>
-      </div>
+      </section>
    );
 }
 
