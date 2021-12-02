@@ -1,4 +1,4 @@
-import { Button, Container, Grid, Image } from 'semantic-ui-react';
+import { Button, Image } from 'semantic-ui-react';
 import Link from 'next/link';
 
 export default function IconicProducts() {

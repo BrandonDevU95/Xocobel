@@ -1,35 +1,51 @@
 .about {
-   padding: 5rem 10rem;
+   padding: 5rem 0;
    background-color: $background-grey-marmol;
 
    &-container {
-      &-description {
-         h2 {
-            font-family: 'Valencia', Helvetica, sans-serif;
-            font-size: 3rem;
-            color: $font-chocolate;
-         }
+      &_row {
+         &-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
 
-         p {
-            font-family: 'Open Sans', Helvetica, sans-serif;
-            text-align: justify;
-            font-size: 1.5rem;
-            padding: 2rem 3rem 2rem 0;
-            color: $font-cocoa;
-         }
+            &-description {
+               @media (max-width: 768px) {
+                  padding-top: 2rem;
+                  text-align: center;
+               }
 
-         .ui.basic.button {
-            font-family: 'Open Sans', Helvetica, sans-serif;
-            color: $font-honey !important;
-            border: 1px solid $border-honey !important;
-            font-size: 18px;
-            padding-left: 4rem;
-            padding-right: 4rem;
-            box-shadow: none;
+               h2 {
+                  font-family: 'Valencia', Helvetica, sans-serif;
+                  color: $font-chocolate;
+               }
 
-            &:hover {
-               background-color: $background-honey !important;
-               color: $font-marmol !important;
+               p {
+                  font-family: 'Open Sans', Helvetica, sans-serif;
+                  text-align: justify;
+                  padding: 2rem 3rem 2rem 0;
+                  color: $font-cocoa;
+
+                  @media (max-width: 768px) {
+                     padding: 2rem 0;
+                     text-align: center;
+                  }
+               }
+            }
+
+            .ui.basic.button {
+               font-family: 'Open Sans', Helvetica, sans-serif;
+               color: $font-honey !important;
+               border: 1px solid $border-honey !important;
+               font-size: 18px;
+               padding-left: 4rem;
+               padding-right: 4rem;
+               box-shadow: none;
+
+               &:hover {
+                  background-color: $background-honey !important;
+                  color: $font-marmol !important;
+               }
             }
          }
       }
