@@ -1,31 +1,77 @@
 .ingredients {
-   padding: 0 10rem;
-
+   padding: 5rem 0;
    &-container {
-      padding: 5rem 0;
+      &_row {
+         &-col {
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-      &_column {
-         text-align: center;
-         display: flex;
-         flex-direction: column;
-         align-items: center;
+            &-description {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: space-between;
+               text-align: center;
+               height: 100%;
 
-         h2 {
-            font-family: 'Valencia', Helvetica, sans-serif;
-            font-size: 2rem;
-            color: $font-chocolate;
-         }
+               @media (max-width: 576px) {
+                  padding: 1rem 0;
+               }
 
-         p {
-            font-family: 'Open Sans', Helvetica, sans-serif;
-            font-size: 1.5rem;
-            color: $font-chocolate;
-         }
+               h2 {
+                  font-family: 'Valencia', Helvetica, sans-serif;
+                  color: $font-chocolate;
 
-         img {
-            padding: 2rem 0;
-            width: 8rem;
-            height: auto;
+                  @media (max-width: 992px) {
+                     font-size: 1.8rem;
+                  }
+
+                  @media (max-width: 768px) {
+                     font-size: 1.5rem;
+                  }
+
+                  @media (max-width: 576px) {
+                     font-size: 1.8rem;
+                  }
+               }
+
+               p {
+                  font-family: 'Open Sans', Helvetica, sans-serif;
+                  font-size: 1.5rem;
+                  color: $font-chocolate;
+
+                  @media (max-width: 992px) {
+                     font-size: 1.2rem;
+                  }
+
+                  @media (max-width: 768px) {
+                     font-size: 1rem;
+                  }
+
+                  @media (max-width: 576px) {
+                     font-size: 1.2rem;
+                  }
+               }
+
+               img {
+                  padding: 1rem 0;
+                  width: 8rem;
+                  height: auto;
+
+                  @media (max-width: 992px) {
+                     width: 6rem;
+                  }
+
+                  @media (max-width: 768px) {
+                     width: 4rem;
+                  }
+
+                  @media (max-width: 576px) {
+                     width: 6rem;
+                  }
+               }
+            }
          }
       }
    }

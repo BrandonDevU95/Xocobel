@@ -1,41 +1,41 @@
-import { Container, Grid, Image } from 'semantic-ui-react';
+import { Image } from 'semantic-ui-react';
 
 export default function Ingredients() {
    return (
       <section className="ingredients">
-         <Container fluid className="ingredients-container">
-            <Grid columns={3}>
-               <Grid.Column>
-                  <div className="ingredients-container_column">
-                     <h2>Ingredientes Naturales</h2>
+         <div className="ingredients-container container">
+            <div className="ingredients-container_row row">
+               <div className="ingredients-container_row-col col-12 col-sm-4 col-md-4 col-lg-4">
+                  <div className="ingredients-container_row-col-description">
+                     <h2 className="h2">Ingredientes Naturales</h2>
                      <Image src="/icons/cocoa.svg" />
                      <p>
                         Chocolate certificado SICAO <br /> por Barry Callebaut
                      </p>
                   </div>
-               </Grid.Column>
-               <Grid.Column>
-                  <div className="ingredients-container_column">
-                     <h2>Gourmet</h2>
+               </div>
+               <div className="ingredients-container_row-col col-12 col-sm-4 col-md-4 col-lg-4">
+                  <div className="ingredients-container_row-col-description">
+                     <h2 className="h2">Gourmet</h2>
 
                      <Image src="/icons/chef.svg" />
                      <p>
                         Chocolatería y Bombonería <br /> artesanal
                      </p>
                   </div>
-               </Grid.Column>
-               <Grid.Column>
-                  <div className="ingredients-container_column">
-                     <h2>Hecho En México</h2>
+               </div>
+               <div className="ingredients-container_row-col col-12 col-sm-4 col-md-4 col-lg-4">
+                  <div className="ingredients-container_row-col-description">
+                     <h2 className="h2">Hecho En México</h2>
 
-                     <img src="/icons/pyramid-of-the-magician.svg" />
+                     <Image src="/icons/pyramid-of-the-magician.svg" />
                      <p>
                         Elaborada por expertos <br /> chocolateros mexicanos
                      </p>
                   </div>
-               </Grid.Column>
-            </Grid>
-         </Container>
+               </div>
+            </div>
+         </div>
       </section>
    );
 }
