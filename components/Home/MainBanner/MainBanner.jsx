@@ -18,7 +18,7 @@ export default function MainBanner() {
 
    return (
       <section className="main-banner">
-         <Container fluid className="main-banner_container">
+         <div className="main-banner_container container-fluid p-0">
             <div className="main-banner_container-content">
                <img src={BASE_PATH + mainBanner.url} alt={mainBanner.name} />
                <div className="main-banner_container-content_btn">
@@ -33,7 +33,7 @@ export default function MainBanner() {
                   </Button>
                </div>
             </div>
-         </Container>
+         </div>
       </section>
    );
 }

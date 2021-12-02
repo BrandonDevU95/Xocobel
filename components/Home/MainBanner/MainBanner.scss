@@ -9,6 +9,18 @@
       background-position: center;
       background-repeat: no-repeat;
 
+      @media (max-width: 992px) {
+         min-height: calc(80vh - 134px);
+      }
+
+      @media (max-width: 768px) {
+         min-height: calc(80vh - 98px);
+      }
+
+      @media (max-width: 576px) {
+         min-height: calc(100vh - 98px);
+      }
+
       &-content {
          position: relative;
 
@@ -17,6 +29,14 @@
             width: 100%;
             object-fit: cover;
             object-position: center;
+
+            @media (max-width: 992px) {
+               height: 400px;
+            }
+
+            @media (max-width: 576px) {
+               height: 450px;
+            }
          }
 
          &_btn {
@@ -24,6 +44,10 @@
             top: 65%;
             left: 50%;
             transform: translate(-50%, -50%);
+
+            @media (max-width: 768px) {
+               top: 50%;
+            }
 
             .ui.button.primary {
                font-family: 'Open Sans', Helvetica, sans-serif;
@@ -33,6 +57,19 @@
                font-size: 18px;
                padding-left: 4rem;
                padding-right: 4rem;
+
+               @media (max-width: 768px) {
+                  font-size: 16px;
+                  padding-left: 3rem;
+                  padding-right: 3rem;
+               }
+
+               @media (max-width: 576px) {
+                  font-size: 18px;
+                  padding-left: 1rem;
+                  padding-right: 1rem;
+                  line-height: 1.5rem;
+               }
 
                &:hover {
                   background-color: $background-honey !important;
