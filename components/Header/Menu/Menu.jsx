@@ -5,7 +5,8 @@ import { getMeApi } from '../../../api/user';
 import useCart from '../../../hooks/useCart';
 import useAuth from '../../../hooks/useAuth';
 import BasicModal from '../../Modal/BasicModal';
-import { Menu, Icon, Label } from 'semantic-ui-react';
+import { Menu, Icon, Label, Image } from 'semantic-ui-react';
+import classNames from 'classnames';
 
 export default function MenuWeb() {
    const { auth, logout } = useAuth();
@@ -25,8 +26,23 @@ export default function MenuWeb() {
 
    return (
       <section className="menu">
-         <nav className="navbar navbar-expand-lg navbar-light bg-light p-0">
+         <nav
+            className={classNames(
+               'navbar navbar-light bg-light p-0',
+               {
+                  'navbar-expand-lg': user,
+               },
+               { 'navbar-expand-md': !user }
+            )}
+         >
             <div className="container">
+               <div className="d-md-none py-3">
+                  <Link href="/">
+                     <a>
+                        <Image src="/logo.png" alt="Xocobel" />
+                     </a>
+                  </Link>
+               </div>
                <button
                   className="navbar-toggler ms-auto m-2"
                   type="button"
@@ -36,15 +52,30 @@ export default function MenuWeb() {
                   aria-expanded="false"
                   aria-label="Toggle navigation"
                >
-                  <span className="navbar-toggler-icon"></span>
+                  {/* <span className="navbar-toggler-icon"></span> */}
+                  <Icon name="sidebar" className="m-1" />
                </button>
                <div
                   className="collapse navbar-collapse"
                   id="navbarMenuNavigation"
                >
+                  <hr
+                     className={classNames(
+                        '',
+                        { 'd-lg-none hr-user': user },
+                        { 'd-md-none hr-no-user': !user }
+                     )}
+                  />
                   <div className="me-auto mb-2 mb-lg-0">
-                     <MenuChocolate />
+                     <MenuChocolate user={user} />
                   </div>
+                  <hr
+                     className={classNames(
+                        '',
+                        { 'd-lg-none hr-user': user },
+                        { 'd-md-none hr-no-user': !user }
+                     )}
+                  />
                   <div className="ms-auto mb-2 mb-lg-0">
                      {user !== undefined && (
                         <MenuOptions
@@ -69,9 +100,9 @@ export default function MenuWeb() {
    );
 }
 
-function MenuChocolate() {
+function MenuChocolate({ user }) {
    return (
-      <Menu>
+      <Menu className={classNames('', { 'display-user': user })}>
          <Link href="/boutique">
             <Menu.Item as="a" name="boutique">
                Boutique
@@ -105,7 +136,7 @@ function MenuOptions({ onShowModal, user, logout }) {
    const { productsCart } = useCart();
 
    return (
-      <Menu>
+      <Menu className={classNames('', { 'display-user': user })}>
          {user ? (
             <>
                <Link href="/orders">
