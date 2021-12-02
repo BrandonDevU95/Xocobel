@@ -1,18 +1,36 @@
 .footer-links {
-   padding: 0 10rem;
+   padding: 3rem 0;
    background-color: $background-grey-marmol;
 
+   @media (max-width: 768px) {
+      padding: 0rem;
+   }
+
    &-container {
-      padding: 5rem 0;
+      &_row {
+         &-col {
+            display: flex !important;
+            flex-direction: column;
+            justify-content: space-between;
 
-      .four.wide.column {
-         display: flex !important;
-         flex-direction: column;
-         justify-content: space-between;
-      }
+            @media (max-width: 576px) {
+               flex-direction: row;
+               justify-content: space-between;
+               align-items: baseline;
+            }
 
-      .ui.image {
-         padding: 0 1.5rem;
+            img {
+               @media (max-width: 576px) {
+                  padding: 2rem 2rem 0 2rem;
+               }
+            }
+         }
+
+         .desc {
+            @media (max-width: 768px) {
+               padding-top: 3rem;
+            }
+         }
       }
 
       &_top-list,

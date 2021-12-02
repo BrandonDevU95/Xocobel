@@ -5,12 +5,16 @@ export default function FooterLinks() {
    // TOOD: traer de la base de datos
    return (
       <div className="footer-links">
-         <Container fluid className="footer-links-container">
-            <Grid>
-               <Grid.Column width={4}>
-                  <Image fluid src="/logo_corona.webp" />
-               </Grid.Column>
-               <Grid.Column width={4}>
+         <div className="footer-links-container container">
+            <div className="footer-links-container_row row">
+               <div className="col-12 col-sm-12 col-md-12 col-lg-3 footer-links-container_row-col">
+                  <Image
+                     fluid
+                     src="/logo_corona.webp"
+                     className="d-sm-none d-lg-block"
+                  />
+               </div>
+               <div className="col-12 col-sm-6 col-md-4 col-lg-3 footer-links-container_row-col desc">
                   <div className="footer-links-container_top-list">
                      <h3>Productos</h3>
                      <ul>
@@ -54,8 +58,8 @@ export default function FooterLinks() {
                         <Icon name="cc amex" />
                      </div>
                   </div>
-               </Grid.Column>
-               <Grid.Column width={4}>
+               </div>
+               <div className="col-12 col-sm-6 col-md-4 col-lg-3 footer-links-container_row-col desc">
                   <div className="footer-links-container_top-list">
                      <h3>Regalos</h3>
                      <ul>
@@ -82,8 +86,8 @@ export default function FooterLinks() {
                         <Icon name="tag" style={{ marginLeft: '14px' }} />
                      </div>
                   </div>
-               </Grid.Column>
-               <Grid.Column width={4}>
+               </div>
+               <div className="col-12 col-sm-6 col-md-4 col-lg-3 footer-links-container_row-col desc">
                   <div className="footer-links-container_top-list">
                      <h3>Servicio al Cliente</h3>
                      <ul>
@@ -109,9 +113,9 @@ export default function FooterLinks() {
                         </a>
                      </div>
                   </div>
-               </Grid.Column>
-            </Grid>
-         </Container>
+               </div>
+            </div>
+         </div>
       </div>
    );
 }
