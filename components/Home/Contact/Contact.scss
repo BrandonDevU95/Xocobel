@@ -1,57 +1,66 @@
 .contact {
-   padding: 0 10rem;
+   padding: 5rem 0;
    background-color: $background-grey-marmol;
 
    h2 {
       font-family: 'Valencia', Helvetica, sans-serif;
-      font-size: 3.5rem;
       text-align: center;
       padding-bottom: 2.5rem;
    }
 
    &-container {
-      padding: 5rem 0;
-
-      .ui.form {
-         .field {
-            padding: 1rem 0;
-
-            label {
-               font-family: 'Open Sans', Helvetica, sans-serif;
-               font-weight: normal;
-               color: $font-cocoa;
-               font-size: 1.5rem;
+      &_row {
+         &-col {
+            &-img {
+               height: 100%;
+               width: 100%;
+               background-image: url('/contact.webp');
+               background-size: cover;
+               background-position: center center;
+               background-repeat: no-repeat;
             }
 
-            .ui.input {
+            &_form {
+               @media (max-width: 576px) {
+                  padding: 1rem;
+               }
+
+               label {
+                  font-family: 'Open Sans', Helvetica, sans-serif;
+                  font-weight: normal;
+                  color: $font-cocoa;
+                  font-size: 1.5rem;
+               }
+
                input {
                   border: 1px solid $border-honey;
                   border-radius: 13px;
                }
-            }
 
-            textarea {
-               border: 1px solid $border-honey;
-               border-radius: 13px;
-            }
-         }
+               textarea {
+                  border: 1px solid $border-honey;
+                  border-radius: 13px;
+               }
 
-         .action {
-            display: flex;
-            justify-content: flex-end;
+               .action {
+                  display: flex;
+                  justify-content: flex-end;
+                  padding: 1rem 0;
 
-            .ui.basic.button {
-               font-family: 'Valencia', Helvetica, sans-serif;
-               background-color: $background-honey !important;
-               border: 1px solid $background-honey !important;
-               color: $font-white !important;
-               font-size: 18px;
-               padding-left: 4rem;
-               padding-right: 4rem;
+                  button {
+                     font-family: 'Valencia', Helvetica, sans-serif;
+                     background-color: $background-honey !important;
+                     border: 1px solid $background-honey !important;
+                     color: $font-white !important;
+                     font-size: 18px;
+                     padding-left: 4rem;
+                     padding-right: 4rem;
 
-               &:hover {
-                  background-color: transparent !important;
-                  color: $font-honey !important;
+                     &:hover {
+                        background-color: transparent !important;
+                        color: $font-honey !important;
+                     }
+                  }
                }
             }
          }

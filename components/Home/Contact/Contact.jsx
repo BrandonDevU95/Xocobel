@@ -1,100 +1,161 @@
-import * as Yup from 'yup';
+// components/contactus-form.component.js
+
 import { useState } from 'react';
-import { useFormik } from 'formik';
+import { Formik, Field, Form } from 'formik';
+import * as Yup from 'yup';
 import { toast } from 'react-toastify';
-import {
-   Container,
-   Grid,
-   Image,
-   Form,
-   Button,
-   TextArea,
-} from 'semantic-ui-react';
+import classNames from 'classnames';
 
 export default function Contact() {
    const [loading, setLoading] = useState(false);
 
-   const formik = useFormik({
-      initialValues: initialValues(),
-      validationSchema: Yup.object(validationSchema()),
-      onSubmit: (formData) => {
-         setLoading(true);
-         console.log(formData);
-         formik.resetForm();
-         toast.success('Message sent successfully!');
-         setLoading(false);
-      },
-   });
-
    return (
-      <section className="contact" id="contact">
-         <Container fluid className="contact-container">
-            <h2>Contáctanos</h2>
-            <Grid>
-               <Grid.Column width={8}>
-                  <Image fluid src="/contact.webp" />
-               </Grid.Column>
-               <Grid.Column width={8}>
-                  <Form onSubmit={formik.handleSubmit}>
-                     <Form.Group widths="equal">
-                        <Form.Input
-                           name="name"
-                           type="text"
-                           label="Nombre"
-                           placeholder="Nombre Completo"
-                           onChange={formik.handleChange}
-                           value={formik.values.name}
-                           error={formik.errors.name}
-                        />
-                        <Form.Input
-                           name="email"
-                           type="text"
-                           label="Correo"
-                           placeholder="ejemplo@xocobel.com.mx"
-                           onChange={formik.handleChange}
-                           value={formik.values.email}
-                           error={formik.errors.email}
-                        />
-                     </Form.Group>
-                     <Form.Group widths="equal">
-                        <Form.Input
-                           name="phone"
-                           type="text"
-                           label="Teléfono"
-                           placeholder="(55) 1234 5678"
-                           onChange={formik.handleChange}
-                           value={formik.values.phone}
-                           error={formik.errors.phone}
-                        />
-                        <Form.Input
-                           name="subject"
-                           type="text"
-                           label="Asunto"
-                           placeholder="Chocolate"
-                           onChange={formik.handleChange}
-                           value={formik.values.subject}
-                           error={formik.errors.subject}
-                        />
-                     </Form.Group>
-                     <Form.TextArea
-                        name="message"
-                        type="text"
-                        label="Mensaje"
-                        placeholder="Cuéntanos más sobre tus dudas..."
-                        onChange={formik.handleChange}
-                        value={formik.values.message}
-                        error={formik.errors.message}
-                     />
-                     <div className="action">
-                        <Button basic type="submit" loading={loading}>
-                           Enviar
-                        </Button>
+      <Formik
+         initialValues={initialValues()}
+         validationSchema={Yup.object(validationSchema())}
+         onSubmit={(formData, { resetForm }) => {
+            setLoading(true);
+            console.log(formData);
+            toast.success('Menaje enviado!');
+            resetForm();
+            setLoading(false);
+         }}
+      >
+         {(formik) => (
+            <section className="contact" id="contact">
+               <div className="contact-container container">
+                  <h2 className="display-5">Contáctanos</h2>
+                  <div className="contact-container_row row">
+                     <div className="contact-container_row-col d-none d-md-block d-lg-block col-md-6 col-lg-5 col-xxl-6">
+                        <div className="contact-container_row-col-img"></div>
                      </div>
-                  </Form>
-               </Grid.Column>
-            </Grid>
-         </Container>
-      </section>
+                     <div className="contact-container_row-col col-sm-12 col-md-6 col-lg-7 col-xxl-6">
+                        <Form className="contact-container_row-col_form">
+                           <div className="row">
+                              <div className="col-lg-6 form-group p-1">
+                                 <label htmlFor="name">Name</label>
+                                 <Field
+                                    name="name"
+                                    className={classNames(
+                                       'form-control',
+                                       {
+                                          'is-invalid':
+                                             formik.touched.name &&
+                                             formik.errors.name,
+                                       },
+                                       {
+                                          'is-valid':
+                                             formik.touched.name &&
+                                             !formik.errors.name,
+                                       }
+                                    )}
+                                    type="text"
+                                 />
+                              </div>
+                              <div className="col-lg-6 form-group p-1">
+                                 <label htmlFor="email">Email Address</label>
+                                 <Field
+                                    name="email"
+                                    className={classNames(
+                                       'form-control',
+                                       {
+                                          'is-invalid':
+                                             formik.touched.email &&
+                                             formik.errors.email,
+                                       },
+                                       {
+                                          'is-valid':
+                                             formik.touched.email &&
+                                             !formik.errors.email,
+                                       }
+                                    )}
+                                    type="email"
+                                 />
+                              </div>
+                              <div className=" col-lg-6 form-group p-1">
+                                 <label htmlFor="phone">Phone Number</label>
+                                 <Field
+                                    name="phone"
+                                    className={classNames(
+                                       'form-control',
+                                       {
+                                          'is-invalid':
+                                             formik.touched.phone &&
+                                             formik.errors.phone,
+                                       },
+                                       {
+                                          'is-valid':
+                                             formik.touched.phone &&
+                                             !formik.errors.phone,
+                                       }
+                                    )}
+                                    type="text"
+                                 />
+                              </div>
+                              <div className="col-lg-6 form-group p-1">
+                                 <label htmlFor="subject">Subject</label>
+                                 <Field
+                                    name="subject"
+                                    className={classNames(
+                                       'form-control',
+                                       {
+                                          'is-invalid':
+                                             formik.touched.subject &&
+                                             formik.errors.subject,
+                                       },
+                                       {
+                                          'is-valid':
+                                             formik.touched.subject &&
+                                             !formik.errors.subject,
+                                       }
+                                    )}
+                                    type="text"
+                                 />
+                              </div>
+                              <div className="col-lg-12 form-group p-1">
+                                 <label htmlFor="content">Content</label>
+                                 <Field
+                                    name="content"
+                                    className={classNames(
+                                       'form-control',
+                                       {
+                                          'is-invalid':
+                                             formik.touched.content &&
+                                             formik.errors.content,
+                                       },
+                                       {
+                                          'is-valid':
+                                             formik.touched.content &&
+                                             !formik.errors.content,
+                                       }
+                                    )}
+                                    as="textarea"
+                                    rows={3}
+                                 />
+                                 {formik.touched.content &&
+                                 formik.errors.content ? (
+                                    <div className="invalid-feedback">
+                                       {formik.errors.content}
+                                    </div>
+                                 ) : null}
+                              </div>
+                              <div className="form-group action">
+                                 <button
+                                    type="submit"
+                                    className="btn btn-primary"
+                                    disabled={loading}
+                                 >
+                                    {loading ? 'Enviando' : 'Enviar'}
+                                 </button>
+                              </div>
+                           </div>
+                        </Form>
+                     </div>
+                  </div>
+               </div>
+            </section>
+         )}
+      </Formik>
    );
 }
 
@@ -102,18 +163,20 @@ function initialValues() {
    return {
       name: '',
       email: '',
-      phone: '',
       subject: '',
-      message: '',
+      content: '',
+      phone: '',
    };
 }
 
 function validationSchema() {
    return {
       name: Yup.string().required(true),
-      email: Yup.string().email(true).required(true),
-      phone: Yup.string(),
       subject: Yup.string().required(true),
-      message: Yup.string().min(20, 'Too short!').required(true),
+      email: Yup.string().email(true).required(true),
+      phone: Yup.string().min(10).max(10).required(true),
+      content: Yup.string()
+         .min(20, 'El mensaje debe tener al menos 20 caracteres')
+         .required(true),
    };
 }
