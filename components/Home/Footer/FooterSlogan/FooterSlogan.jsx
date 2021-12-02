@@ -3,12 +3,12 @@ import { Container, Image } from 'semantic-ui-react';
 
 export default function FooterSlogan() {
    return (
-      <div className="footer-slogan">
-         <Container fluid className="footer-slogan-container">
-            <p style={{ paddingRight: '1.5rem' }}>Todo el sabor europeo</p>
+      <section className="footer-slogan">
+         <div className="footer-slogan-container container">
+            <p className="h1">Todo el sabor europeo</p>
             <Image src="/corona.png" />
-            <p style={{ paddingLeft: '1.5rem' }}>Desde 1987</p>
-         </Container>
-      </div>
+            <p className="h1">Desde 1987</p>
+         </div>
+      </section>
    );
 }
