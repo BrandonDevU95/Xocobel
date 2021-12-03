@@ -1,7 +1,6 @@
 .list-products {
    &_row {
       display: flex;
-      justify-content: space-between;
 
       @media (max-width: 768px) {
          justify-content: center;

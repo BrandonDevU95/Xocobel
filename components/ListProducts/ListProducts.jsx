@@ -1,13 +1,22 @@
+import classNames from 'classnames';
 import { map, size } from 'lodash';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { Image } from 'semantic-ui-react';
 import { BASE_PATH } from '../../utils/constants';
 
-export default function ListProducts({ products, sizeImg = 'thumbnail' }) {
+export default function ListProducts({
+   products,
+   sizeImg = 'thumbnail',
+   className,
+}) {
    return (
       <div className="list-products">
-         <div className="list-products_row row">
+         <div
+            className={classNames('list-products_row row', {
+               [className]: className,
+            })}
+         >
             {map(products, (product) => (
                <Product key={product._id} product={product} sizeImg={sizeImg} />
             ))}
