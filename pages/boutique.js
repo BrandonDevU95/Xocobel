@@ -53,6 +53,7 @@ export default function Boutique() {
       }
    }, [btn, query.type]);
 
+   // TODO: Modificar la llamada 2 veces de los productos
    useEffect(() => {
       if (query.type && !query.page) {
          setQueryType(query.type);

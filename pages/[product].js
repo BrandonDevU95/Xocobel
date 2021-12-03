@@ -5,13 +5,8 @@ import { useState, useEffect } from 'react';
 import { Container } from 'semantic-ui-react';
 import { getProductByUrlApi } from '../api/products';
 import BasicLayout from '../layouts/Basic/BasicLayout';
-
-const DynamicHeaderProduct = dynamic(() =>
-   import('../components/Product/HeaderProduct')
-);
-const DynamicRecommendedProducts = dynamic(() =>
-   import('../components/Home/RecommendedProducts')
-);
+import HeaderProduct from '../components/Product/HeaderProduct';
+import RecommendedProducts from '../components/Home/RecommendedProducts';
 
 export default function Product() {
    const { query } = useRouter();
@@ -32,10 +27,12 @@ export default function Product() {
             title={product.title.toUpperCase()}
             description={product.description}
          />
-         <Container fluid className="product-container">
-            <DynamicHeaderProduct product={product} />
-            <DynamicRecommendedProducts />
-         </Container>
+         <section className="pt-4">
+            <div className="product-container container">
+               <HeaderProduct product={product} />
+               <RecommendedProducts />
+            </div>
+         </section>
       </BasicLayout>
    );
 }
