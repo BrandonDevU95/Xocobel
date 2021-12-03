@@ -30,8 +30,7 @@ export default function Boutique() {
    const [typeChocolate, setTypeChocolate] = useState([]);
    const [categoryRetail, setCategoryRetail] = useState([]);
    const [totalProducts, setTotalProducts] = useState(null);
-   const limitPerPage = width > 576 ? 12 : 6;
-
+   const [limitPerPage, setLimitPerPage] = useState(12);
    const btn = document.getElementById(queryType);
 
    const getStartItem = () => {
@@ -39,6 +38,14 @@ export default function Boutique() {
       if (!query.page || currentPages === 1) return 0;
       else return currentPages * limitPerPage - limitPerPage;
    };
+
+   useEffect(() => {
+      if (width < 576) {
+         setLimitPerPage(6);
+      } else {
+         setLimitPerPage(12);
+      }
+   }, []);
 
    useEffect(() => {
       if (btn) {
@@ -54,13 +61,12 @@ export default function Boutique() {
          replace(`/boutique`);
       }
       setCleanUrl(false);
-   }, [cleanUrl]);
+   }, [cleanUrl, query.type]);
 
    useEffect(() => {
       (async () => {
          const response = await getCategoryRetailApi();
          if (size(response) > 0) setCategoryRetail(response);
-         else setCategoryRetail([]);
       })();
    }, []);
 
@@ -68,7 +74,6 @@ export default function Boutique() {
       (async () => {
          const response = await getTypeChocolateApi();
          if (size(response) > 0) setTypeChocolate(response);
-         else setTypeChocolate([]);
       })();
    }, []);
 
@@ -165,7 +170,7 @@ export default function Boutique() {
                         </div>
                      )}
                      {size(products) > 0 && (
-                        <ListProducts products={products} size="small" />
+                        <ListProducts products={products} sizeImg="small" />
                      )}
                      {size(products) > 0 && totalProducts ? (
                         <Pagination
