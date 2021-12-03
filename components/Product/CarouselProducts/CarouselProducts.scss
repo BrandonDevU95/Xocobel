@@ -9,9 +9,7 @@
    }
 
    &_product {
-      width: 250px;
-      height: auto;
-      padding: 15px;
+      padding: 10px;
 
       &:hover {
          opacity: 0.6;
@@ -19,23 +17,22 @@
 
       h2 {
          text-align: center;
-         margin-top: 5px;
+         margin-top: 1rem;
          font-size: 15px;
          color: $font-honey;
          white-space: nowrap;
          text-overflow: ellipsis;
          overflow: hidden;
          padding: 0 10px;
+
+         @media (max-width: 576px) {
+            font-size: 18px;
+         }
       }
 
       &__product {
          &-poster {
             position: relative;
-
-            &-poster > img {
-               height: 150px;
-               width: 150px;
-            }
 
             &-info {
                position: absolute;
@@ -55,12 +52,20 @@
                   font-size: 13px;
                   padding: 1px 6px;
                   border-radius: 0 0 0 5px;
+
+                  @media (max-width: 576px) {
+                     font-size: 24px;
+                  }
                }
 
                .price {
                   color: $font-gold;
                   padding: 0 5px 3px 0;
                   font-size: 18px;
+
+                  @media (max-width: 576px) {
+                     font-size: 24px;
+                  }
                }
             }
          }

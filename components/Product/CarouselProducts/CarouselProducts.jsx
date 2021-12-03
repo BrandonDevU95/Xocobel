@@ -1,21 +1,46 @@
-import { map } from 'lodash';
+import { map, size } from 'lodash';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
-import { Container, Image } from 'semantic-ui-react';
+import { Image } from 'semantic-ui-react';
 import { BASE_PATH } from '../../../utils/constants';
+import useWindowSize from '../../../hooks/useWindowSize';
 
 export default function CarouselProducts({ products }) {
+   const { width } = useWindowSize();
+   const [slides, setSlides] = useState(4);
+
    const settings = {
       className: 'carousel-screen',
       dots: false,
       Infinity: true,
       speed: 500,
-      slidesToShow: 4,
+      slidesToShow: slides,
       swipeToSlide: true,
    };
 
+   useEffect(() => {
+      switch (true) {
+         case width >= 1200:
+            setSlides(6);
+            break;
+         case width >= 992:
+            setSlides(5);
+            break;
+         case width >= 768:
+            setSlides(4);
+            break;
+         case width >= 576:
+            setSlides(3);
+            break;
+         case width < 576:
+            setSlides(1);
+            break;
+      }
+   }, [width]);
+
    return (
-      <Container fluid className="carousel-products">
+      <div className="carousel-products container">
          <h2>Recomendados</h2>
          <Slider {...settings}>
             {map(products, (product) => (
@@ -24,8 +49,9 @@ export default function CarouselProducts({ products }) {
                      <a>
                         <div className="carousel-products_product__product-poster">
                            <Image
-                              src={`${BASE_PATH}${product.poster.formats.small?.url}`}
+                              src={`${BASE_PATH}${product.poster?.formats?.small?.url}`}
                               alt={product.title}
+                              fluid
                            />
                            <div className="carousel-products_product__product-poster-info">
                               {product.discount ? (
@@ -44,6 +70,6 @@ export default function CarouselProducts({ products }) {
                </div>
             ))}
          </Slider>
-      </Container>
+      </div>
    );
 }
