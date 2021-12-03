@@ -16,16 +16,16 @@ export default function RecommendedProducts() {
    if (!recommendedProducts) return null;
 
    return (
-      <div>
+      <section className="recommended-products">
          {!recommendedProducts && <Loader active>Cargando Productos</Loader>}
          {recommendedProducts && size(recommendedProducts) === 0 && (
-            <div className="popular-products__list-not-found">
+            <div className="p-5 text-center">
                <h3>Por el momento no hay productos recomendados disponibles</h3>
             </div>
          )}
          {size(recommendedProducts) > 0 && (
             <CarouselProducts products={recommendedProducts} />
          )}
-      </div>
+      </section>
    );
 }
