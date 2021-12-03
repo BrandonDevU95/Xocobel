@@ -26,7 +26,7 @@ export default function PopularProducts() {
                   </div>
                )}
                {size(popularProducts) > 0 && (
-                  <ListProducts products={popularProducts} size="small" />
+                  <ListProducts products={popularProducts} sizeImg="small" />
                )}
             </div>
          </div>
