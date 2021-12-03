@@ -1,14 +1,36 @@
 .boutique {
-   .content {
-      padding: 20px 0;
-   }
-
    &-container {
-      padding: 0 10rem;
-      min-height: 100vh;
+      padding-top: 3rem;
 
-      .ui.grid {
-         justify-content: space-between;
+      @media (max-width: 768px) {
+         padding-top: 0;
+      }
+
+      &_row {
+         &-col {
+            @media (max-width: 768px) {
+               padding: 0 !important;
+            }
+
+            &-mobile {
+               @media (max-width: 768px) {
+                  position: absolute;
+                  left: 0;
+                  z-index: 999;
+                  width: 100%;
+               }
+            }
+
+            &-products {
+               display: flex;
+               flex-direction: column;
+               justify-content: space-between;
+
+               @media (max-width: 768px) {
+                  padding-top: 3.5rem;
+               }
+            }
+         }
       }
    }
 }

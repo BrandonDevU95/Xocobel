@@ -18,17 +18,17 @@ export default function ListProducts({ products, size = 'thumbnail' }) {
 function Product({ product, size }) {
    const sizeImg =
       size === 'large'
-         ? BASE_PATH + product.poster.formats?.large?.url
+         ? BASE_PATH + product.poster?.formats?.large?.url
          : size === 'medium'
-         ? BASE_PATH + product.poster.formats?.medium?.url
+         ? BASE_PATH + product.poster?.formats?.medium?.url
          : size === 'small'
-         ? BASE_PATH + product.poster.formats?.small?.url
+         ? BASE_PATH + product.poster?.formats?.small?.url
          : size === 'thumbnail'
-         ? BASE_PATH + product.poster.formats?.thumbnail?.url
+         ? BASE_PATH + product.poster?.formats?.thumbnail?.url
          : '';
 
    return (
-      <div className="list-products_row-col col-12 col-sm-6 col-md-4 col-lg-2">
+      <div className="list-products_row-col col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2">
          <div className="list-products_row-col__product">
             <Link href={`/${product.url}`}>
                <a>
