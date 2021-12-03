@@ -7,11 +7,8 @@ import { useEffect, useState } from 'react';
 import { getGiftsProductsApi, getTotalGiftsApi } from '../api/products';
 import { Container, Grid, Loader } from 'semantic-ui-react';
 import Pagination from '../components/Pagination';
-
-const DynamicListProducts = dynamic(() => import('../components/ListProducts'));
-const DynamicRecommendedProducts = dynamic(() =>
-   import('../components/Home/RecommendedProducts')
-);
+import ListProducts from '../components/ListProducts';
+import RecommendedProducts from '../components/Home/RecommendedProducts';
 
 const limitPerPage = 10;
 
@@ -59,7 +56,11 @@ export default function Gifts() {
                      </div>
                   )}
                   {size(gifts) > 0 && (
-                     <DynamicListProducts products={gifts} size="medium" />
+                     <ListProducts
+                        products={gifts}
+                        sizeImg="medium"
+                        className="justify-content-between"
+                     />
                   )}
                   {size(gifts) > 0 && totalProducts ? (
                      <Pagination
@@ -70,7 +71,7 @@ export default function Gifts() {
                   ) : null}
                </Grid.Column>
             </Grid>
-            <DynamicRecommendedProducts />
+            <RecommendedProducts />
          </Container>
       </BasicLayout>
    );
