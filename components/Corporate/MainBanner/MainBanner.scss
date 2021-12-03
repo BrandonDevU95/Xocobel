@@ -1,34 +1,36 @@
 .main-banner-corporate {
-   &-container {
-      background-image: url('/corporate-banner.webp');
-      background-position: bottom;
-      background-size: cover;
-      background-repeat: no-repeat;
+   background-image: url('/corporate-banner.webp');
+   background-position: bottom;
+   background-size: cover;
+   background-repeat: no-repeat;
 
-      &__banner {
-         background-color: rgba($color: $background-chocolate, $alpha: 0.6);
-         padding: 0 10rem;
+   &_banner {
+      background-color: rgba($color: $background-chocolate, $alpha: 0.6);
 
-         .nine.wide.column {
-            padding: 0 !important;
-         }
+      @media (max-width: 768px) {
+         background-color: rgba($color: $background-chocolate, $alpha: 0.8);
+      }
 
-         &_left {
-            padding-top: 5rem;
+      &-container {
+         &_row {
+            &-col {
+               &-title {
+                  padding: 8rem 0;
 
-            h1 {
-               font-family: 'Valencia', Helvetica, sans-serif;
-               font-size: 3rem;
-               color: $font-grey-marmol;
-            }
+                  h1 {
+                     font-family: 'Valencia', Helvetica, sans-serif;
+                     font-size: 3rem;
+                     color: $font-grey-marmol;
+                  }
 
-            p {
-               font-family: 'Open Sans', Helvetica, sans-serif;
-               font-size: 1.5rem;
-               color: $font-grey-marmol;
-               text-align: justify;
-               padding-top: 1rem;
-               padding-bottom: 5rem;
+                  p {
+                     font-family: 'Open Sans', Helvetica, sans-serif;
+                     font-size: 1.5rem;
+                     color: $font-grey-marmol;
+                     text-align: justify;
+                     padding-top: 1rem;
+                  }
+               }
             }
          }
       }
