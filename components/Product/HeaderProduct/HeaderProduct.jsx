@@ -15,14 +15,15 @@ import {
 } from '../../../api/favorite';
 
 export default function HeaderProduct({ product }) {
+   const imgUrl =
+      size(product.poster.formats) === 4
+         ? BASE_PATH + product.poster.formats.large.url
+         : BASE_PATH + product.poster.url;
+
    return (
       <Grid className="header-product">
          <Grid.Column mobile={16} tablet={6} computer={6}>
-            <Image
-               src={`${BASE_PATH}${product.poster.formats?.large?.url}`}
-               alt={product.title}
-               fluid
-            />
+            <Image src={imgUrl} alt={product.title} fluid />
             {size(product.galery) >= 2 && (
                <CarouselScreen
                   title={product.title}
