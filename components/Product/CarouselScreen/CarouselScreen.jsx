@@ -7,6 +7,8 @@ import { BASE_PATH } from '../../../utils/constants';
 export default function CarouselScreen({ title, screenShots }) {
    const [showModal, setShowModal] = useState(false);
    const [urlImage, setUrlImage] = useState(null);
+   let imageUrl;
+   let imageUrlOpen;
 
    const openImage = (url) => {
       setUrlImage(url);
@@ -24,16 +26,27 @@ export default function CarouselScreen({ title, screenShots }) {
    return (
       <>
          <Slider {...settings}>
-            {map(screenShots, (screenShot) => (
-               <Image
-                  key={screenShot.id}
-                  src={`${BASE_PATH}${screenShot.formats.thumbnail?.url}`}
-                  alt={screenShot.name}
-                  onClick={() =>
-                     openImage(`${BASE_PATH}${screenShot.formats.medium?.url}`)
-                  }
-               />
-            ))}
+            {map(
+               screenShots,
+               (screenShot) => (
+                  (imageUrl =
+                     size(screenShot.formats) === 4
+                        ? BASE_PATH + screenShot.formats.small.url
+                        : BASE_PATH + screenShot.url),
+                  (imageUrlOpen =
+                     size(screenShot.formats) === 4
+                        ? BASE_PATH + screenShot.formats.large.url
+                        : BASE_PATH + screenShot.url),
+                  (
+                     <Image
+                        key={screenShot.id}
+                        src={imageUrl}
+                        alt={screenShot.name}
+                        onClick={() => openImage(imageUrlOpen)}
+                     />
+                  )
+               )
+            )}
          </Slider>
          <Modal
             open={showModal}
