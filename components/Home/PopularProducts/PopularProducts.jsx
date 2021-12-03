@@ -26,7 +26,11 @@ export default function PopularProducts() {
                   </div>
                )}
                {size(popularProducts) > 0 && (
-                  <ListProducts products={popularProducts} sizeImg="small" />
+                  <ListProducts
+                     products={popularProducts}
+                     sizeImg="small"
+                     className="justify-content-between"
+                  />
                )}
             </div>
          </div>
