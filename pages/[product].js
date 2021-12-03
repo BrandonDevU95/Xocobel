@@ -1,8 +1,6 @@
 import Seo from '../components/Seo';
-import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import { Container } from 'semantic-ui-react';
 import { getProductByUrlApi } from '../api/products';
 import BasicLayout from '../layouts/Basic/BasicLayout';
 import HeaderProduct from '../components/Product/HeaderProduct';
