@@ -1,41 +1,42 @@
 .events {
-   .content {
-      padding-top: 20px;
-   }
-
    &-container {
-      margin-top: 3rem;
-      min-height: 100vh;
-
-      &_info {
-         padding: 0 10rem;
-
-         &-description {
-            padding-top: 2rem;
-            h2 {
-               font-family: 'Valencia', Helvetica, sans-serif;
-               text-align: center;
-               color: $font-cocoa;
-               font-size: 4rem;
+      &_row {
+         &-col {
+            img {
+               @media (max-width: 992px) {
+                  padding-top: 1.5rem !important;
+               }
             }
 
-            p {
-               font-family: 'Open Sans';
-               text-align: justify;
-               font-size: 1.5rem;
-               color: $font-cocoa;
+            &-description {
+               h2 {
+                  font-family: 'Valencia', Helvetica, sans-serif;
+                  color: $font-cocoa;
+               }
+
+               p {
+                  font-family: 'Open Sans';
+                  text-align: justify;
+                  color: $font-cocoa;
+                  font-weight: 200;
+                  line-height: 2.3rem;
+               }
             }
          }
       }
 
-      .carousel-screen,
-      .slick-arrow {
-         padding: 0 10rem;
-      }
-
       .carousel-screen {
          margin: 5rem 0;
+
+         @media (max-width: 768px) {
+            margin: 2rem 0;
+            padding: 0;
+         }
+
          .slick-slide {
+            display: flex !important;
+            justify-content: center !important;
+
             .ui.image:hover {
                cursor: auto !important;
                opacity: 1;
@@ -51,11 +52,17 @@
             }
 
             &.slick-next {
-               right: 35px;
+               right: 2rem;
+
+               @media (max-width: 768px) {
+                  display: none !important;
+               }
             }
 
             &.slick-prev {
-               left: -20px;
+               @media (max-width: 768px) {
+                  display: none !important;
+               }
             }
          }
       }
