@@ -8,7 +8,7 @@ import ListProducts from '../components/ListProducts';
 import Pagination from '../components/Pagination';
 import Seo from '../components/Seo';
 
-const limitPerPage = 10;
+const limitPerPage = 12;
 
 export default function Search() {
    const { query } = useRouter();
@@ -58,7 +58,9 @@ export default function Search() {
                   <h3>No se encontraron resultados</h3>
                </div>
             )}
-            {size(products) > 0 && <ListProducts products={products} />}
+            {size(products) > 0 && (
+               <ListProducts products={products} sizeImg="small" />
+            )}
             {size(products) > 0 && totalProducts ? (
                <Pagination
                   totalProducts={totalProducts}
