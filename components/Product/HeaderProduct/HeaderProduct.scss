@@ -5,6 +5,14 @@
 
    .ui.fluid.image {
       border: 5px inset #d37b00;
+
+      @media (max-width: 992px) {
+         border: 3px inset #d37b00;
+      }
+
+      @media (max-width: 768px) {
+         margin-top: 1rem;
+      }
    }
 
    .carousel-screen {
@@ -35,6 +43,10 @@
       font-family: 'Valencia', Helvetica, sans-serif;
       padding-left: 1.5rem;
 
+      @media (max-width: 992px) {
+         font-size: 1.4rem;
+      }
+
       p {
          margin: 0;
          text-align: start;
@@ -43,6 +55,10 @@
          color: $font-grey-marmol;
          font-family: 'Open Sans';
          font-weight: lighter;
+
+         @media (max-width: 992px) {
+            font-size: 1rem;
+         }
       }
 
       .ui.loader {
@@ -87,6 +103,12 @@
    &__amount {
       padding-top: 1rem;
 
+      .ui.action.input {
+         @media (max-width: 576px) {
+            justify-content: center;
+         }
+      }
+
       &-less {
          border-radius: 0.28571429rem 0 0 0.28571429rem !important;
 
@@ -120,6 +142,10 @@
       padding: 15px 20px;
       margin-top: 15px;
 
+      @media (max-width: 576px) {
+         flex-direction: column;
+      }
+
       &-price {
          display: flex;
          flex-direction: column;
@@ -141,11 +167,19 @@
 
                &:first-of-type {
                   font-size: 25px;
+
+                  @media (max-width: 576px) {
+                     font-size: 20px !important;
+                  }
                }
 
                &:last-of-type {
                   font-size: 40px;
                   color: $font-cocoa;
+
+                  @media (max-width: 576px) {
+                     font-size: 30px !important;
+                  }
                }
             }
          }
@@ -161,8 +195,21 @@
          left: -20px;
          transition: 0.2s;
 
+         @media (max-width: 576px) {
+            font-size: 14px;
+            left: 0px;
+            padding: 1rem;
+            width: 100%;
+            margin-right: 0;
+            margin-top: 1rem;
+         }
+
          &:hover {
             left: -10px;
+
+            @media (max-width: 576px) {
+               left: 0px;
+            }
          }
 
          &:after {
@@ -176,6 +223,14 @@
             transform: rotate(45deg) skew(15deg, 15deg);
             background-color: $background-cocoa;
             content: '';
+
+            @media (max-width: 576px) {
+               top: 0px;
+               right: 0px;
+               width: 0px;
+               height: 0px;
+               border-radius: 0;
+            }
          }
       }
    }

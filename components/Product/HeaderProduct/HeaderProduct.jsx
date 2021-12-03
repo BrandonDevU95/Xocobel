@@ -21,8 +21,8 @@ export default function HeaderProduct({ product }) {
          : BASE_PATH + product.poster.url;
 
    return (
-      <Grid className="header-product">
-         <Grid.Column mobile={16} tablet={6} computer={6}>
+      <div className="header-product row">
+         <div className="col-12 col-md-4 col-lg-4 order-2 order-md-1 order-lg-1">
             <Image src={imgUrl} alt={product.title} fluid />
             {size(product.galery) >= 2 && (
                <CarouselScreen
@@ -30,12 +30,12 @@ export default function HeaderProduct({ product }) {
                   screenShots={product.galery}
                />
             )}
-         </Grid.Column>
-         <Grid.Column mobile={16} tablet={10} computer={10}>
+         </div>
+         <div className="col-12 col-md-8 col-lg-8 order-1 order-md-2 order-lg-2">
             <Info product={product} />
             <TabsProduct product={product} />
-         </Grid.Column>
-      </Grid>
+         </div>
+      </div>
    );
 }
 
@@ -89,18 +89,15 @@ function Info({ product }) {
          <div className="header-product__title">
             {product.title}
             <p>Existencia: {product.stock}</p>
-            {loading ? (
-               <Loader active={loading} size="small" />
-            ) : (
-               <Icon
-                  name={isFavorite ? 'heart' : 'heart outline'}
-                  className={classNames({
-                     like: isFavorite,
-                  })}
-                  link
-                  onClick={isFavorite ? removeFavorite : addFavorite}
-               />
-            )}
+            <Icon
+               name={isFavorite ? 'heart' : 'heart outline'}
+               className={classNames({
+                  like: isFavorite,
+               })}
+               link
+               disabled={loading}
+               onClick={isFavorite ? removeFavorite : addFavorite}
+            />
          </div>
          <div className="header-product__delivery">
             Entrega aproximada 2 días
