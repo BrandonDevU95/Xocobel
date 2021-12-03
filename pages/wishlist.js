@@ -8,9 +8,9 @@ import { Container, Loader } from 'semantic-ui-react';
 import Seo from '../components/Seo';
 import Pagination from '../components/Pagination';
 import { useRouter } from 'next/router';
+import ListProducts from '../components/ListProducts';
 
-const limitPerPage = 10;
-const DynamicListProducts = dynamic(() => import('../components/ListProducts'));
+const limitPerPage = 12;
 
 export default function Wishlist() {
    const { query } = useRouter();
@@ -69,7 +69,7 @@ export default function Wishlist() {
                      </div>
                   )}
                   {size(products) > 0 && (
-                     <DynamicListProducts products={products} size="medium" />
+                     <ListProducts products={products} sizeImg="medium" />
                   )}
                </div>
                {size(products) > 0 && totalProducts ? (
