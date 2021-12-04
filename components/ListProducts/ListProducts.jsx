@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import { map, size } from 'lodash';
 import Link from 'next/link';
-import { useEffect } from 'react';
 import { Image } from 'semantic-ui-react';
 import { BASE_PATH } from '../../utils/constants';
 

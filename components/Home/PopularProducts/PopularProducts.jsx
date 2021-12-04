@@ -29,7 +29,7 @@ export default function PopularProducts() {
                   <ListProducts
                      products={popularProducts}
                      sizeImg="small"
-                     className="justify-content-between"
+                     className="justify-content-center justify-content-sm-between justify-content-md-between justify-content-lg-between"
                   />
                )}
             </div>
