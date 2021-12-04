@@ -9,7 +9,7 @@ import Seo from '../components/Seo';
 import { useRouter } from 'next/router';
 import Pagination from '../components/Pagination';
 
-const limitPerPage = 5;
+const limitPerPage = 10;
 
 export default function Orders() {
    const { auth, logout } = useAuth();
@@ -45,8 +45,8 @@ export default function Orders() {
    return (
       <BasicLayout className="orders">
          <Seo title="Mis pedidos" />
-         <Container fluid className="orders-container">
-            <div className="orders-container__block">
+         <section className="orders-container py-4">
+            <div className="orders-container__block container">
                <div className="title">Mis pedidos</div>
                <div className="data">
                   {size(orders) === 0 ? (
@@ -65,19 +65,19 @@ export default function Orders() {
                   />
                ) : null}
             </div>
-         </Container>
+         </section>
       </BasicLayout>
    );
 }
 
 function OrdersList({ orders }) {
    return (
-      <Grid>
+      <div className="row">
          {map(orders, (order, index) => (
-            <Grid.Column key={index} mobile={16} tablet={6} computer={8}>
+            <div className="col-12 col-md-6 col-lg-6 py-1" key={index}>
                <Order order={order} />
-            </Grid.Column>
+            </div>
          ))}
-      </Grid>
+      </div>
    );
 }

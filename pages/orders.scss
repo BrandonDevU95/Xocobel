@@ -1,9 +1,8 @@
 .orders {
    &-container {
-      padding: 0 10rem;
       &__block {
          min-height: 100vh;
-         padding: 10px;
+
          .title {
             width: max-content;
             background-color: $background-cocoa;

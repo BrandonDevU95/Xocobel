@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { size } from 'lodash-es';
 import { useState } from 'react';
 import { Image, Icon } from 'semantic-ui-react';
 import BasicModal from '../../Modal/BasicModal';
@@ -15,6 +16,10 @@ export default function Order({
    },
 }) {
    const [showModal, setShowModal] = useState(false);
+   const imageUrl =
+      size(poster.formats) === 4
+         ? BASE_PATH + poster.formats.thumbnail.url
+         : BASE_PATH + poster.url;
 
    return (
       <>
@@ -23,10 +28,7 @@ export default function Order({
                <div className="order__info-data">
                   <Link href={`/${url}`}>
                      <a>
-                        <Image
-                           src={BASE_PATH + poster.formats.thumbnail.url}
-                           alt={title}
-                        />
+                        <Image src={imageUrl} alt={title} />
                      </a>
                   </Link>
                   <div>
