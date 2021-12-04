@@ -1,8 +1,4 @@
-import { Button } from 'semantic-ui-react';
-import Image from 'next/image';
-import CatalogNav from '../../../public/catalogo-navideno.jpeg';
-import CatalogEmp from '../../../public/catalogo-empresas.jpeg';
-import CatalogCus from '../../../public/catalogo-personalizado.jpeg';
+import { Button, Image } from 'semantic-ui-react';
 
 export default function Catalogs() {
    return (
@@ -11,7 +7,11 @@ export default function Catalogs() {
             <div className="row">
                <div className="col-12 col-md-6 col-lg-4">
                   <div className="catalogs-container_catalog">
-                     <Image src={CatalogNav} alt="catalogo-navideño" />
+                     <Image
+                        src="/catalogo-navideno.jpeg"
+                        alt="catalogo-navideño"
+                        fluid
+                     />
                      <h3 className="h4">Catálogo Navideño</h3>
                      <Button
                         as="a"
@@ -26,7 +26,11 @@ export default function Catalogs() {
                </div>
                <div className="col-12 col-md-6 col-lg-4">
                   <div className="catalogs-container_catalog">
-                     <Image src={CatalogEmp} alt="catalogo-empresas" />
+                     <Image
+                        src="/catalogo-empresas.jpeg"
+                        alt="catalogo-empresas"
+                        fluid
+                     />
                      <h3 className="h4">Regalos Corporativos</h3>
                      <Button
                         as="a"
@@ -40,7 +44,11 @@ export default function Catalogs() {
                </div>
                <div className="col-12 col-md-6 col-lg-4">
                   <div className="catalogs-container_catalog">
-                     <Image src={CatalogCus} alt="catalogo-personalizado" />
+                     <Image
+                        src="/catalogo-personalizado.jpeg"
+                        alt="catalogo-personalizado"
+                        fluid
+                     />
                      <h3 className="h4">Proyectos Personalizados</h3>
                      <Button
                         as="a"

@@ -1,9 +1,5 @@
-import { Button } from 'semantic-ui-react';
-import Image from 'next/image';
+import { Button, Image } from 'semantic-ui-react';
 import Link from 'next/link';
-import Product1 from '../../../public/Popular1.jpeg';
-import Product2 from '../../../public/Popular2.jpeg';
-import Product3 from '../../../public/Popular3.jpeg';
 
 export default function IconicProducts() {
    return (
@@ -12,7 +8,7 @@ export default function IconicProducts() {
             <div className="iconic-products_container_row row">
                <div className="iconic-products_container_row-col col-md-12 col-lg-6">
                   <div className="iconic-products_container_row-col-content">
-                     <Image src={Product1} alt="Product 1" />
+                     <Image src="/Popular1.jpeg" fluid alt="Product 1" />
                      <div className="iconic-products_container_row-col-content-description">
                         <p>Chocolate</p>
                         <p>Con leche</p>
@@ -33,7 +29,7 @@ export default function IconicProducts() {
                      </div>
                   </div>
                   <div className="iconic-products_container_row-col-content">
-                     <Image src={Product2} alt="Product 2" />
+                     <Image src="/Popular2.jpeg" fluid alt="Product 2" />
                      <div className="iconic-products_container_row-col-content-description">
                         <p>Chocolate</p>
                         <p>Blanco</p>
@@ -56,7 +52,7 @@ export default function IconicProducts() {
                </div>
                <div className="iconic-products_container_row-col col-md-12 col-lg-6">
                   <div className="iconic-products_container_row-col-content">
-                     <Image src={Product3} alt="Product 3" />
+                     <Image src="/Popular3.jpeg" fluid alt="Product 3" />
                      <div className="iconic-products_container_row-col-content-description">
                         <p>Chocolate</p>
                         <p>Semiamargo</p>

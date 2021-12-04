@@ -1,8 +1,6 @@
 import Link from 'next/link';
-import { Icon } from 'semantic-ui-react';
-import Image from 'next/image';
+import { Icon, Image } from 'semantic-ui-react';
 import Search from './Search';
-import LogoXoco from '../../../public/logo.png';
 
 export default function TopBar() {
    return (
@@ -10,7 +8,7 @@ export default function TopBar() {
          <div className="top-bar-container container">
             <div className="top-bar row">
                <div className="top-bar__left col-12 col-md-4 col-lg-6">
-                  <Logo logo={LogoXoco} />
+                  <Logo />
                </div>
                <div className="top-bar__right col-12 col-md-8 col-lg-6">
                   <Search />
@@ -35,11 +33,11 @@ export default function TopBar() {
    );
 }
 
-function Logo({ logo }) {
+function Logo() {
    return (
       <Link href="/">
          <a>
-            <Image src={logo} alt="Xocobel" />
+            <Image src="/logo.png" alt="Xocobel" />
          </a>
       </Link>
    );

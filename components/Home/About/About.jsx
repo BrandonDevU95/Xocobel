@@ -1,7 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import { Button } from 'semantic-ui-react';
-import AboutImg from '../../../public/chocolate-about.jpg';
+import { Button, Image } from 'semantic-ui-react';
 
 export default function About() {
    return (
@@ -25,7 +23,11 @@ export default function About() {
                   </div>
                </div>
                <div className="about-container_row-col col-sm-12 col-md-6 col-lg-6 order-1 order-md-2">
-                  <Image src={AboutImg} alt="Nuestro Chocolate" />
+                  <Image
+                     src="/chocolate-about.jpg"
+                     fluid
+                     alt="Nuestro Chocolate"
+                  />
                </div>
             </div>
          </div>

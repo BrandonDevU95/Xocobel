@@ -2,11 +2,8 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 import { useFormik } from 'formik';
 import { toast } from 'react-toastify';
-import { Button, Form } from 'semantic-ui-react';
-import Image from 'next/image';
+import { Button, Form, Image } from 'semantic-ui-react';
 import BasicModal from '../../Modal/BasicModal';
-import Service1 from '../../../public/service-info-1.jpeg';
-import Service2 from '../../../public/service-info-2.jpeg';
 
 export default function ServiceInfo() {
    const [showModal, setShowModal] = useState(false);
@@ -45,12 +42,12 @@ export default function ServiceInfo() {
                   </div>
                </div>
                <div className="col-12 col-lg-6">
-                  <Image src={Service1} alt="service-info" />
+                  <Image src="/service-info-1.jpeg" fluid alt="service-info" />
                </div>
             </div>
             <div className="row">
                <div className="col-12 col-lg-6 order-2 order-sm-2 order-md-2 order-lg-1">
-                  <Image src={Service2} alt="service-info" />
+                  <Image src="/service-info-2.jpeg" fluid alt="service-info" />
                </div>
                <div className="col-12 col-lg-6 order-1 order-sm-1 order-md-1 order-lg-2">
                   <div className="service-info-container_info">

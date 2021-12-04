@@ -1,7 +1,4 @@
-import Image from 'next/image';
-import Gift from '../../../public/icons/gift-box.svg';
-import Truck from '../../../public/icons/truck.svg';
-import Padlock from '../../../public/icons/padlock.svg';
+import { Image } from 'semantic-ui-react';
 
 export default function Shipping() {
    return (
@@ -14,7 +11,7 @@ export default function Shipping() {
                         <h3>Regalos</h3>
                         <h4>Personalizados</h4>
                      </div>
-                     <Image src={Gift} alt="Regalos" />
+                     <Image src="/icons/gift-box.svg" alt="Regalos" />
                   </div>
                </div>
                <div className="shipping-container_row-col col-12 col-md-4 col-lg-4">
@@ -23,7 +20,7 @@ export default function Shipping() {
                         <h4>Envíos Fáciles y</h4>
                         <h3>Rápidos</h3>
                      </div>
-                     <Image src={Truck} alt="Envíos" />
+                     <Image src="/icons/truck.svg" alt="Envíos" />
                   </div>
                </div>
                <div className="shipping-container_row-col col-12 col-md-4 col-lg-4">
@@ -32,7 +29,7 @@ export default function Shipping() {
                         <h3>Pagos</h3>
                         <h4>Seguros</h4>
                      </div>
-                     <Image src={Padlock} alt="Seguridad" />
+                     <Image src="/icons/padlock.svg" alt="Seguridad" />
                   </div>
                </div>
             </div>

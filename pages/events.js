@@ -1,14 +1,8 @@
-import React from 'react';
+import { Image } from 'semantic-ui-react';
 import Slider from 'react-slick';
 import BasicLayout from '../layouts/Basic';
 import Contact from '../components/Home/Contact';
-import Image from 'next/image';
 import Seo from '../components/Seo';
-import EventsBanner from '../public/events-banner.jpeg';
-import Slide1 from '../public/events-slide-1.jpeg';
-import Slide2 from '../public/events-slide-2.jpeg';
-import Slide3 from '../public/events-slide-3.jpeg';
-import Slide4 from '../public/events-slide-4.jpeg';
 
 export default function Events() {
    const settings = {
@@ -27,7 +21,7 @@ export default function Events() {
             <div className="events-container container">
                <div className="events-container_row row">
                   <div className="events-container_row-col col-12 col-lg-6 order-2 order-lg-1">
-                     <Image src={EventsBanner} alt="Events Banner" />
+                     <Image src="/events-banner.jpeg" alt="Events Banner" />
                   </div>
                   <div className="events-container_row-col col-12 col-lg-6 order-1 order-lg-2">
                      <div className="events-container_row-col-description">
@@ -50,13 +44,7 @@ export default function Events() {
                      </div>
                   </div>
                </div>
-               <SliderEvents
-                  settings={settings}
-                  Slider1={Slide1}
-                  Slider2={Slide2}
-                  Slider3={Slide3}
-                  Slider4={Slide4}
-               />
+               <SliderEvents settings={settings} />
             </div>
             <Contact />
          </section>
@@ -64,20 +52,20 @@ export default function Events() {
    );
 }
 
-function SliderEvents({ settings, Slider1, Slider2, Slider3, Slider4 }) {
+function SliderEvents({ settings }) {
    return (
       <Slider {...settings}>
          <div>
-            <Image src={Slider1} alt="Events Slide 1" />
+            <Image src="/events-slide-1.jpeg" alt="Events Slide 1" />
          </div>
          <div>
-            <Image src={Slider2} alt="Events Slide 2" />
+            <Image src="/events-slide-2.jpeg" alt="Events Slide 2" />
          </div>
          <div>
-            <Image src={Slider3} alt="Events Slide 3" />
+            <Image src="/events-slide-3.jpeg" alt="Events Slide 3" />
          </div>
          <div>
-            <Image src={Slider4} alt="Events Slide 4" />
+            <Image src="/events-slide-4.jpeg" alt="Events Slide 4" />
          </div>
       </Slider>
    );
