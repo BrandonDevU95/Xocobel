@@ -58,8 +58,8 @@ export default function Wishlist() {
                products !== null ? products?.length : 0
             }`}
          />
-         <Container fluid className="wishlist-container">
-            <div className="wishlist-container__block">
+         <section className="wishlist-container py-4">
+            <div className="wishlist-container__block container">
                <div className="title">Lista de deseos</div>
                <div className="data">
                   {!products && <Loader active>Cargando Productos</Loader>}
@@ -69,7 +69,11 @@ export default function Wishlist() {
                      </div>
                   )}
                   {size(products) > 0 && (
-                     <ListProducts products={products} sizeImg="medium" />
+                     <ListProducts
+                        products={products}
+                        sizeImg="medium"
+                        className="justify-content-center justify-content-sm-start justify-content-md-start justify-content-lg-start"
+                     />
                   )}
                </div>
                {size(products) > 0 && totalProducts ? (
@@ -80,7 +84,7 @@ export default function Wishlist() {
                   />
                ) : null}
             </div>
-         </Container>
+         </section>
       </BasicLayout>
    );
 }

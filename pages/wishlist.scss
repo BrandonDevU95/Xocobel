@@ -1,11 +1,8 @@
 .wishlist {
    &-container {
-      padding: 0 10rem;
       min-height: 100vh;
 
       &__block {
-         padding: 10px;
-
          .title {
             width: max-content;
             background-color: $background-cocoa;
