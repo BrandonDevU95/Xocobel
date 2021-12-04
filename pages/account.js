@@ -33,14 +33,16 @@ export default function Account() {
    return (
       <BasicLayout className="account">
          <Seo title={`MI CUENTA | ${user.name} ${user.lastname}`} />
-         <Container fluid className="account-container">
-            <Configuration
-               user={user}
-               logout={logout}
-               setReloadUser={setReloadUser}
-            />
-            <Addresses />
-         </Container>
+         <section className="py-4">
+            <div className="account-container container">
+               <Configuration
+                  user={user}
+                  logout={logout}
+                  setReloadUser={setReloadUser}
+               />
+               <Addresses />
+            </div>
+         </section>
       </BasicLayout>
    );
 }

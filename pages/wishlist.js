@@ -1,10 +1,9 @@
 import { size, forEach } from 'lodash';
-import dynamic from 'next/dynamic';
 import useAuth from '../hooks/useAuth';
 import BasicLayout from '../layouts/Basic';
 import { useState, useEffect } from 'react';
 import { getFavoriteApi, getTotalFavoriteApi } from '../api/favorite';
-import { Container, Loader } from 'semantic-ui-react';
+import { Loader } from 'semantic-ui-react';
 import Seo from '../components/Seo';
 import Pagination from '../components/Pagination';
 import { useRouter } from 'next/router';
