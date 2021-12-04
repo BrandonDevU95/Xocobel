@@ -104,7 +104,13 @@ function Addresses() {
                openModal={openModal}
             />
          </div>
-         <BasicModal show={showModal} setShow={setShowModal} title={titleModal}>
+         <BasicModal
+            show={showModal}
+            setShow={setShowModal}
+            title={titleModal}
+            size="lg"
+            centered
+         >
             {formModal}
          </BasicModal>
       </div>
