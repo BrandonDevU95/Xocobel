@@ -2,8 +2,11 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 import { useFormik } from 'formik';
 import { toast } from 'react-toastify';
-import { Button, Container, Grid, Image, Form, Radio } from 'semantic-ui-react';
+import { Button, Form } from 'semantic-ui-react';
+import Image from 'next/image';
 import BasicModal from '../../Modal/BasicModal';
+import Service1 from '../../../public/service-info-1.webp';
+import Service2 from '../../../public/service-info-2.webp';
 
 export default function ServiceInfo() {
    const [showModal, setShowModal] = useState(false);
@@ -16,16 +19,16 @@ export default function ServiceInfo() {
          setLoading(true);
          console.log(formData);
          formik.resetForm();
-         toast.success('Message sent successfully!');
+         toast.success('Mensaje enviado!');
          setLoading(false);
       },
    });
 
    return (
-      <Container fluid className="service-info">
-         <Container fluid className="service-info-container">
-            <Grid>
-               <Grid.Column width={8}>
+      <section className="service-info">
+         <div className="service-info-container container">
+            <div className="row">
+               <div className="col-12  col-lg-6">
                   <div className="service-info-container_info">
                      <h2>Servicios Corporativos</h2>
                      <p>
@@ -40,16 +43,16 @@ export default function ServiceInfo() {
                         Contáctanos
                      </Button>
                   </div>
-               </Grid.Column>
-               <Grid.Column width={8}>
-                  <Image src="/service-info-1.webp" alt="service-info" />
-               </Grid.Column>
-            </Grid>
-            <Grid>
-               <Grid.Column width={8}>
-                  <Image src="/service-info-2.webp" alt="service-info" />
-               </Grid.Column>
-               <Grid.Column width={8}>
+               </div>
+               <div className="col-12 col-lg-6">
+                  <Image src={Service1} alt="service-info" />
+               </div>
+            </div>
+            <div className="row">
+               <div className="col-12 col-lg-6 order-2 order-sm-2 order-md-2 order-lg-1">
+                  <Image src={Service2} alt="service-info" />
+               </div>
+               <div className="col-12 col-lg-6 order-1 order-sm-1 order-md-1 order-lg-2">
                   <div className="service-info-container_info">
                      <h2>Solicite un Presupuesto</h2>
                      <p>
@@ -68,8 +71,8 @@ export default function ServiceInfo() {
                         Solicite un Presupuesto
                      </Button>
                   </div>
-               </Grid.Column>
-            </Grid>
+               </div>
+            </div>
             <BasicModal
                show={showModal}
                setShow={setShowModal}
@@ -78,8 +81,8 @@ export default function ServiceInfo() {
             >
                <FormModal formik={formik} loading={loading} />
             </BasicModal>
-         </Container>
-      </Container>
+         </div>
+      </section>
    );
 }
 

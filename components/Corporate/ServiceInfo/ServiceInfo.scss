@@ -1,14 +1,13 @@
 .service-info {
    &-container {
       margin: 5rem 0;
-      padding: 0 10rem;
-
-      .eight.wide.column {
-         padding: 0 !important;
-      }
 
       &_info {
          padding: 3rem;
+
+         @media (max-width: 768px) {
+            text-align: center;
+         }
 
          h2 {
             font-family: 'Valencia', Helvetica, sans-serif;
@@ -24,6 +23,10 @@
             padding-right: 5rem;
             text-align: justify;
             padding-bottom: 1.5rem;
+
+            @media (max-width: 768px) {
+               padding-right: 0;
+            }
          }
 
          .ui.basic.button {
