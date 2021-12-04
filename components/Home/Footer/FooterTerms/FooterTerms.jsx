@@ -22,7 +22,6 @@ export default function FooterTerms() {
          </div>
          <BasicModal
             show={showModal}
-            size="tiny"
             setShow={setShowModal}
             title="Términos y Condiciones"
             className="footer-terms_modal"

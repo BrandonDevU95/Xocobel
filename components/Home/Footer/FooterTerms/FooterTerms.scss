@@ -43,6 +43,18 @@
    }
 
    &_modal {
+      .modal-header {
+         background-color: $background-chocolate;
+         color: $font-marmol;
+         border-radius: 0;
+
+         .modal-title {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+         }
+      }
+
       &-button {
          display: flex;
          justify-content: flex-end;
