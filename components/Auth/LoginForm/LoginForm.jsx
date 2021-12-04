@@ -64,11 +64,15 @@ export default function LoginForm({ showRegisterForm, onCloseModal }) {
             <Button type="button" basic onClick={showRegisterForm}>
                Registrarse
             </Button>
-            <div className="">
+            <div className="actions-betw">
                <Button type="submit" className="submit" loading={loading}>
                   Iniciar Sesión
                </Button>
-               <Button type="button" onClick={resetPassword}>
+               <Button
+                  type="button"
+                  className="actions-betw_rest"
+                  onClick={resetPassword}
+               >
                   ¿Has olvidado la contraseña?
                </Button>
             </div>

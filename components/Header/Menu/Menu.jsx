@@ -92,7 +92,8 @@ export default function MenuWeb() {
             show={showModal}
             setShow={setShowModal}
             title={titleModal}
-            size="small"
+            size="lg"
+            centered
          >
             <Auth onCloseModal={onCloseModal} setTitleModal={setTitleModal} />
          </BasicModal>
