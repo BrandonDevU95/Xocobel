@@ -1,18 +1,18 @@
-import { Button, Container, Grid, Image } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
+import Image from 'next/image';
+import CatalogNav from '../../../public/catalogo-navideno.webp';
+import CatalogEmp from '../../../public/catalogo-empresas.webp';
+import CatalogCus from '../../../public/catalogo-personalizado.webp';
 
 export default function Catalogs() {
    return (
-      <Container fluid className="catalogs">
-         <Container fluid className="catalogs-container">
-            <Grid columns="equal">
-               <Grid.Column>
+      <section className="catalogs">
+         <div className="catalogs-container container">
+            <div className="row">
+               <div className="col-12 col-md-6 col-lg-4">
                   <div className="catalogs-container_catalog">
-                     <Image
-                        src="/catalogo-navideno.webp"
-                        alt="catalogo-navideño"
-                        fluid
-                     />
-                     <h3>Catálogo Navideño</h3>
+                     <Image src={CatalogNav} alt="catalogo-navideño" />
+                     <h3 className="h4">Catálogo Navideño</h3>
                      <Button
                         as="a"
                         href="/pdf/catalogo-navidad.pdf"
@@ -23,15 +23,11 @@ export default function Catalogs() {
                         Descarga el Catálogo
                      </Button>
                   </div>
-               </Grid.Column>
-               <Grid.Column>
+               </div>
+               <div className="col-12 col-md-6 col-lg-4">
                   <div className="catalogs-container_catalog">
-                     <Image
-                        src="/catalogo-empresas.webp"
-                        alt="catalogo-empresas"
-                        fluid
-                     />
-                     <h3>Regalos Corporativos</h3>
+                     <Image src={CatalogEmp} alt="catalogo-empresas" />
+                     <h3 className="h4">Regalos Corporativos</h3>
                      <Button
                         as="a"
                         href="/corporate#contact"
@@ -41,15 +37,11 @@ export default function Catalogs() {
                         Contáctanos
                      </Button>
                   </div>
-               </Grid.Column>
-               <Grid.Column>
+               </div>
+               <div className="col-12 col-md-6 col-lg-4">
                   <div className="catalogs-container_catalog">
-                     <Image
-                        src="/catalogo-personalizado.webp"
-                        alt="catalogo-personalizado"
-                        fluid
-                     />
-                     <h3>Proyectos Personalizados</h3>
+                     <Image src={CatalogCus} alt="catalogo-personalizado" />
+                     <h3 className="h4">Proyectos Personalizados</h3>
                      <Button
                         as="a"
                         href="/corporate#contact"
@@ -59,9 +51,9 @@ export default function Catalogs() {
                         Contáctanos
                      </Button>
                   </div>
-               </Grid.Column>
-            </Grid>
-         </Container>
-      </Container>
+               </div>
+            </div>
+         </div>
+      </section>
    );
 }

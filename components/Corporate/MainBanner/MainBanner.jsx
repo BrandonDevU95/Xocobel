@@ -1,5 +1,3 @@
-import { Grid } from 'semantic-ui-react';
-
 export default function MainBanner() {
    return (
       <section className="main-banner-corporate">
