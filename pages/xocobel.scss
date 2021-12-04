@@ -1,141 +1,53 @@
 .xocobel {
    &-container {
-      min-height: 100vh;
-
       &-banner {
          background-image: url('/xocobel-banner.webp');
          background-size: cover;
          background-position: center;
          background-repeat: no-repeat;
-         height: 400px;
-         display: flex;
-         justify-content: center;
-         align-items: center;
 
          &-info {
             background-color: rgba($color: $background-chocolate, $alpha: 0.7);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 400px;
-            width: 100vw;
-            padding: 0 10rem;
-            text-align: center;
-            color: $font-white;
-
-            h2 {
-               font-size: 4rem;
-               font-family: 'Valencia', Helvetica, sans-serif;
-            }
+            padding: 10rem 0;
 
             p {
-               font-size: 1.5rem;
-               font-family: 'Open Sans', Helvetica, sans-serif;
+               @media (max-width: 576px) {
+                  padding: 0 2rem;
+               }
             }
          }
       }
 
-      &-band {
-         background-color: $background-grey-marmol;
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-         align-items: center;
-         padding: 5rem 0;
-         margin-bottom: 1rem;
+      &-band,
+      &-band-foot {
+         background-color: $background-marmol;
 
+         p {
+            @media (max-width: 576px) {
+               padding: 0 2rem;
+            }
+         }
+      }
+
+      &-band,
+      &-band-foot,
+      &-grid,
+      &-banner-info {
          h3 {
-            font-size: 3rem;
             font-family: 'Valencia', Helvetica, sans-serif;
+            color: $font-cocoa;
          }
 
          p {
             font-family: 'Open Sans', Helvetica, sans-serif;
             color: $font-cocoa;
-            font-size: 1.5rem;
+         }
+      }
+
+      &-grid-desc {
+         @media (max-width: 768px) {
+            padding: 5rem 0;
             text-align: center;
-         }
-      }
-
-      &-band-foot {
-         background-color: $background-marmol;
-
-         &-data {
-            height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-
-            h3 {
-               font-family: 'Valencia', Helvetica, sans-serif;
-               color: $font-cocoa;
-               font-size: 3rem;
-            }
-
-            p {
-               font-family: 'Open Sans', Helvetica, sans-serif;
-               color: $font-cocoa;
-               font-size: 1.5rem;
-            }
-         }
-      }
-
-      &-grid-1 {
-         .eight.wide.column {
-            padding-top: 0 !important;
-            padding-right: 0 !important;
-         }
-
-         &_column {
-            display: flex !important;
-            align-items: center !important;
-            padding: 0 !important;
-
-            &-description {
-               padding: 0 10rem 0 5rem;
-
-               h3 {
-                  font-family: 'Valencia';
-                  font-size: 1.8rem;
-                  color: $font-cocoa;
-               }
-
-               p {
-                  font-family: 'Open Sans', Helvetica, sans-serif;
-                  font-size: 1.3rem;
-                  color: $font-cocoa;
-               }
-            }
-         }
-      }
-
-      &-grid-2 {
-         .eight.wide.column {
-            padding-top: 0 !important;
-            padding-left: 0 !important;
-         }
-
-         &_column {
-            display: flex !important;
-            align-items: center !important;
-
-            &-description {
-               padding: 0 5rem 0 10rem;
-
-               h3 {
-                  font-family: 'Valencia';
-                  font-size: 1.8rem;
-                  color: $font-cocoa;
-               }
-
-               p {
-                  font-family: 'Open Sans', Helvetica, sans-serif;
-                  font-size: 1.2rem;
-                  color: $font-cocoa;
-               }
-            }
          }
       }
    }
