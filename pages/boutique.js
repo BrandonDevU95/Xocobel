@@ -171,7 +171,11 @@ export default function Boutique() {
                         </div>
                      )}
                      {size(products) > 0 && (
-                        <ListProducts products={products} sizeImg="small" />
+                        <ListProducts
+                           products={products}
+                           sizeImg="small"
+                           className="justify-content-center justify-content-sm-start justify-content-md-start justify-content-lg-start"
+                        />
                      )}
                      {size(products) > 0 && totalProducts ? (
                         <Pagination
