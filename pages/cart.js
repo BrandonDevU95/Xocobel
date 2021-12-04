@@ -12,8 +12,6 @@ export default function Cart() {
    const { getProductsCart } = useCart();
    const products = getProductsCart();
 
-   // return <EmptyCart />;
-
    return !products ? <EmptyCart /> : <FullCart products={products} />;
 }
 
@@ -72,21 +70,23 @@ function FullCart({ products }) {
                products !== null || products ? products?.length : 0
             }`}
          />
-         <Container fluid className="cart-full-container">
-            <SummaryCart
-               products={productsData}
-               reloadCart={reloadCart}
-               setReloadCart={setReloadCart}
-            />
-            <ShippingAddress setAddress={setAddress} />
-            {address && (
-               <Payment
+         <section className="py-4">
+            <div className="cart-full-container container">
+               <SummaryCart
                   products={productsData}
-                  address={address}
+                  reloadCart={reloadCart}
                   setReloadCart={setReloadCart}
                />
-            )}
-         </Container>
+               <ShippingAddress setAddress={setAddress} />
+               {address && (
+                  <Payment
+                     products={productsData}
+                     address={address}
+                     setReloadCart={setReloadCart}
+                  />
+               )}
+            </div>
+         </section>
       </BasicLayout>
    );
 }
