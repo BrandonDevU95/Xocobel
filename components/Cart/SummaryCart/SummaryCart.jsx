@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { map, forEach } from 'lodash';
-import { Table, Image, Icon, Tab } from 'semantic-ui-react';
+import { map, forEach, size } from 'lodash';
+import { Image, Icon } from 'semantic-ui-react';
 import { BASE_PATH } from '../../../utils/constants';
 import useCart from '../../../hooks/useCart';
 
@@ -24,56 +24,64 @@ export default function SummaryCart({ products, reloadCart, setReloadCart }) {
    if (!products) return null;
 
    return (
-      <div className="summary-cart">
+      <div className="summary-cart py-4">
          <div className="title">Resumen del Carrito</div>
          <div className="data">
-            <Table celled structured>
-               <Table.Header>
-                  <Table.Row>
-                     <Table.HeaderCell>Producto</Table.HeaderCell>
-                     <Table.HeaderCell>Categoría</Table.HeaderCell>
-                     <Table.HeaderCell>P. Unitario</Table.HeaderCell>
-                     <Table.HeaderCell>Cantidad</Table.HeaderCell>
-                     <Table.HeaderCell>Total</Table.HeaderCell>
-                  </Table.Row>
-               </Table.Header>
-               <Table.Body>
-                  {map(products, (product) => (
-                     <Table.Row
-                        key={product.id}
-                        className="summary-cart__product"
-                     >
-                        <Table.Cell>
-                           <Icon
-                              name="close"
-                              link
-                              onClick={() => removeProduct(product.url)}
-                           />
-                           <Image
-                              src={`${BASE_PATH}${product.poster.formats.thumbnail.url}`}
-                              alt={product.title}
-                           />
-                           {product.title}
-                        </Table.Cell>
-                        <Table.Cell>
-                           {product.category_retail?.title}
-                        </Table.Cell>
-                        <Table.Cell>${product.priceDiscount}</Table.Cell>
-                        <Table.Cell>{product.amount}</Table.Cell>
-                        <Table.Cell>
-                           <span className="price">$ {product.totalPrice}</span>
-                        </Table.Cell>
-                     </Table.Row>
-                  ))}
-                  <Table.Row className="summary-cart__resume">
-                     <Table.Cell className="clear" />
-                     <Table.Cell colSpan="3">Total:</Table.Cell>
-                     <Table.Cell className="total-price">
-                        ${totalPrice}
-                     </Table.Cell>
-                  </Table.Row>
-               </Table.Body>
-            </Table>
+            <div className="table-responsive">
+               <table className="table table-bordered">
+                  <thead>
+                     <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">P. Unitario</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Total</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     {map(products, (product) => (
+                        <tr className="summary-cart__product" key={product.id}>
+                           <td>
+                              <Icon
+                                 name="close"
+                                 link
+                                 onClick={() => removeProduct(product.url)}
+                              />
+                              <Image
+                                 src={
+                                    size(product.poster.formats) === 4
+                                       ? BASE_PATH +
+                                         product.poster.formats.small.url
+                                       : BASE_PATH + product.poster.url
+                                 }
+                                 alt={product.title}
+                              />
+                              {product.title}
+                           </td>
+                           <td>{product.category_retail?.title}</td>
+                           <td>${product.priceDiscount}</td>
+                           <td>{product.amount}</td>
+                           <td>
+                              <span className="price">
+                                 $ {product.totalPrice}
+                              </span>
+                           </td>
+                        </tr>
+                     ))}
+                  </tbody>
+                  <tfoot className="summary-cart__resume">
+                     <tr>
+                        <td className="clear"></td>
+                        <td colSpan="3" className="total">
+                           Total:
+                        </td>
+                        <td className="total-price">
+                           ${totalPrice.toFixed(2)}
+                        </td>
+                     </tr>
+                  </tfoot>
+               </table>
+            </div>
          </div>
       </div>
    );

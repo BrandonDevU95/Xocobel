@@ -1,6 +1,4 @@
 .summary-cart {
-   padding: 10px;
-
    .title {
       width: max-content;
       background-color: $background-cocoa;
@@ -12,7 +10,11 @@
    .data {
       background-color: $background-grey-marmol;
       box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.1);
-      padding: 15px;
+      // padding: 15px;
+   }
+
+   .table {
+      background-color: $background-white;
    }
 
    &__product {
@@ -26,6 +28,10 @@
             img {
                height: 150px;
                padding-right: 20px;
+
+               @media (max-width: 768px) {
+                  display: none;
+               }
             }
          }
       }
@@ -36,6 +42,10 @@
          &:last-of-type {
             text-align: center !important;
          }
+      }
+
+      .total {
+         font-size: 1.5rem;
       }
 
       .total-price {
