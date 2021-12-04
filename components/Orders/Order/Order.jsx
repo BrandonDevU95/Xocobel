@@ -65,8 +65,8 @@ function AddressModal({ showModal, setShowModal, addressShipping, title }) {
       <BasicModal
          show={showModal}
          setShow={setShowModal}
-         size="tiny"
          title={title}
+         centered
       >
          <h3>Datos de envío</h3>
          <p>{addressShipping.title}</p>
