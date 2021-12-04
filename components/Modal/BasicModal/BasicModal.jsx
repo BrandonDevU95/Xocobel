@@ -1,4 +1,5 @@
-import { Modal, Icon } from 'semantic-ui-react';
+import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import { Icon } from 'semantic-ui-react';
 
 export default function BasicModal({
    show,
@@ -8,13 +9,18 @@ export default function BasicModal({
    ...rest
 }) {
    const onClose = () => setShow(false);
-
    return (
-      <Modal className="basic-modal" open={show} onClose={onClose} {...rest}>
-         <Modal.Header>
+      <Modal
+         className="basic-modal"
+         toggle={onClose}
+         isOpen={show}
+         onClose={onClose}
+         {...rest}
+      >
+         <ModalHeader>
             <span>{title}</span> <Icon name="close" onClick={onClose} />
-         </Modal.Header>
-         <Modal.Content>{children}</Modal.Content>
+         </ModalHeader>
+         <ModalBody>{children}</ModalBody>
       </Modal>
    );
 }
