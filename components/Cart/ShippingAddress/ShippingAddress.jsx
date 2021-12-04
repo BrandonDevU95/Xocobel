@@ -3,7 +3,6 @@ import { map, size } from 'lodash';
 import classNames from 'classnames';
 import { useState, useEffect } from 'react';
 import useAuth from '../../../hooks/useAuth';
-import { Grid, Button } from 'semantic-ui-react';
 import { getAddressApi } from '../../../api/address';
 
 export default function ShippingAddress({ setAddress }) {
@@ -30,13 +29,11 @@ export default function ShippingAddress({ setAddress }) {
                   </Link>
                </h3>
             ) : (
-               <Grid>
+               <div className="row">
                   {map(addresses, (address) => (
-                     <Grid.Column
-                        key={address.id}
-                        mobile={16}
-                        tablet={8}
-                        computer={4}
+                     <div
+                        className="col-12 col-md-6 col-lg-3"
+                        key={address._id}
                      >
                         <Address
                            address={address}
@@ -44,9 +41,9 @@ export default function ShippingAddress({ setAddress }) {
                            setAddressActive={setAddressActive}
                            setAddress={setAddress}
                         />
-                     </Grid.Column>
+                     </div>
                   ))}
-               </Grid>
+               </div>
             )}
          </div>
       </div>
