@@ -1,29 +1,19 @@
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
-import { Container, Grid, Icon, Image } from 'semantic-ui-react';
-
-const DynamicSearch = dynamic(() => import('./Search'));
+import { Icon } from 'semantic-ui-react';
+import Image from 'next/image';
+import Search from './Search';
+import LogoXoco from '../../../public/logo.png';
 
 export default function TopBar() {
    return (
       <section className="top-bar">
          <div className="top-bar-container container">
-            <Grid className="top-bar">
-               <Grid.Column
-                  mobile={16}
-                  tablet={6}
-                  computer={8}
-                  className="top-bar__left"
-               >
-                  <Logo />
-               </Grid.Column>
-               <Grid.Column
-                  mobile={16}
-                  tablet={10}
-                  computer={8}
-                  className="top-bar__right"
-               >
-                  <DynamicSearch />
+            <div className="top-bar row">
+               <div className="top-bar__left col-12 col-md-4 col-lg-6">
+                  <Logo logo={LogoXoco} />
+               </div>
+               <div className="top-bar__right col-12 col-md-8 col-lg-6">
+                  <Search />
                   <div className="list-icons">
                      <a
                         href="https://www.facebook.com/Xocobel-107604454840465"
@@ -38,18 +28,18 @@ export default function TopBar() {
                         <Icon name="instagram" />
                      </a>
                   </div>
-               </Grid.Column>
-            </Grid>
+               </div>
+            </div>
          </div>
       </section>
    );
 }
 
-function Logo() {
+function Logo({ logo }) {
    return (
       <Link href="/">
          <a>
-            <Image src="/logo.png" alt="Xocobel" />
+            <Image src={logo} alt="Xocobel" />
          </a>
       </Link>
    );
