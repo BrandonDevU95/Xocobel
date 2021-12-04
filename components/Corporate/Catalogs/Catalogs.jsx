@@ -1,8 +1,8 @@
 import { Button } from 'semantic-ui-react';
 import Image from 'next/image';
-import CatalogNav from '../../../public/catalogo-navideno.webp';
-import CatalogEmp from '../../../public/catalogo-empresas.webp';
-import CatalogCus from '../../../public/catalogo-personalizado.webp';
+import CatalogNav from '../../../public/catalogo-navideno.jpeg';
+import CatalogEmp from '../../../public/catalogo-empresas.jpeg';
+import CatalogCus from '../../../public/catalogo-personalizado.jpeg';
 
 export default function Catalogs() {
    return (

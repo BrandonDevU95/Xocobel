@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from 'semantic-ui-react';
-import AboutImg from '../../../public/chocolate-about.webp';
+import AboutImg from '../../../public/chocolate-about.jpg';
 
 export default function About() {
    return (

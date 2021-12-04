@@ -5,8 +5,8 @@ import { toast } from 'react-toastify';
 import { Button, Form } from 'semantic-ui-react';
 import Image from 'next/image';
 import BasicModal from '../../Modal/BasicModal';
-import Service1 from '../../../public/service-info-1.webp';
-import Service2 from '../../../public/service-info-2.webp';
+import Service1 from '../../../public/service-info-1.jpeg';
+import Service2 from '../../../public/service-info-2.jpeg';
 
 export default function ServiceInfo() {
    const [showModal, setShowModal] = useState(false);

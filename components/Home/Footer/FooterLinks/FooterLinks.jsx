@@ -10,7 +10,7 @@ export default function FooterLinks() {
                <div className="col-12 col-sm-12 col-md-12 col-lg-3 footer-links-container_row-col">
                   <Image
                      fluid
-                     src="/logo_corona.webp"
+                     src="/logo_corona.png"
                      className="d-sm-none d-lg-block"
                   />
                </div>

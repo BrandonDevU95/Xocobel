@@ -4,11 +4,11 @@ import BasicLayout from '../layouts/Basic';
 import Contact from '../components/Home/Contact';
 import Image from 'next/image';
 import Seo from '../components/Seo';
-import EventsBanner from '../public/events-banner.webp';
-import Slide1 from '../public/events-slide-1.webp';
-import Slide2 from '../public/events-slide-2.webp';
-import Slide3 from '../public/events-slide-3.webp';
-import Slide4 from '../public/events-slide-4.webp';
+import EventsBanner from '../public/events-banner.jpeg';
+import Slide1 from '../public/events-slide-1.jpeg';
+import Slide2 from '../public/events-slide-2.jpeg';
+import Slide3 from '../public/events-slide-3.jpeg';
+import Slide4 from '../public/events-slide-4.jpeg';
 
 export default function Events() {
    const settings = {

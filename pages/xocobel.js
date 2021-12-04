@@ -41,7 +41,7 @@ export default function Xocobel() {
             <div className="xocobel-container-grid">
                <div className="row m-0">
                   <div className="col-12 col-md-6 col-lg-6 p-0">
-                     <Image src="/xocobel-1.webp" alt="Xocobel 1" fluid />
+                     <Image src="/xocobel-1.jpeg" alt="Xocobel 1" fluid />
                   </div>
                   <div className="col-12 col-md-6 col-lg-6 d-flex align-items-center">
                      <div className="xocobel-container-grid-desc px-5">
@@ -71,14 +71,14 @@ export default function Xocobel() {
                      </div>
                   </div>
                   <div className="col-12 col-md-6 col-lg-6 p-0 order-1 order-md-2 order-lg-2">
-                     <Image src="/xocobel-2.webp" alt="Xocobel 2" fluid />
+                     <Image src="/xocobel-2.jpeg" alt="Xocobel 2" fluid />
                   </div>
                </div>
             </div>
             <div className="xocobel-container-grid">
                <div className="row m-0">
                   <div className="col-12 col-md-6 col-lg-6 p-0">
-                     <Image src="/xocobel-3.webp" alt="Xocobel 3" fluid />
+                     <Image src="/xocobel-3.jpeg" alt="Xocobel 3" fluid />
                   </div>
                   <div className="col-12 col-md-6 col-lg-6 d-flex align-items-center ">
                      <div className="xocobel-container-grid-desc px-5">
@@ -106,7 +106,7 @@ export default function Xocobel() {
                      </div>
                   </div>
                   <div className="col-12 col-md-6 col-lg-6 p-0 order-1 order-md-2 order-lg-2">
-                     <Image src="/xocobel-4.webp" alt="Xocobel 4" fluid />
+                     <Image src="/xocobel-4.jpeg" alt="Xocobel 4" fluid />
                   </div>
                </div>
             </div>

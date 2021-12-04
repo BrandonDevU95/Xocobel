@@ -1,9 +1,9 @@
 import { Button } from 'semantic-ui-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Product1 from '../../../public/Popular1.webp';
-import Product2 from '../../../public/Popular2.webp';
-import Product3 from '../../../public/Popular3.webp';
+import Product1 from '../../../public/Popular1.jpeg';
+import Product2 from '../../../public/Popular2.jpeg';
+import Product3 from '../../../public/Popular3.jpeg';
 
 export default function IconicProducts() {
    return (
