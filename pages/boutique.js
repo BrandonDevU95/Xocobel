@@ -45,7 +45,7 @@ export default function Boutique() {
       } else {
          setLimitPerPage(12);
       }
-   }, []);
+   }, [width]);
 
    useEffect(() => {
       if (btn) {
@@ -99,7 +99,7 @@ export default function Boutique() {
          if (size(response) > 0) setProducts(response);
          else setProducts([]);
       })();
-   }, [query, category, chocolate]);
+   }, [query, category, chocolate, limitPerPage]);
 
    return (
       <BasicLayout>
