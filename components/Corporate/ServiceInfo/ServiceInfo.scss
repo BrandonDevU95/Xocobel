@@ -48,11 +48,15 @@
       }
 
       &_modal {
-         .header {
-            background-color: $background-honey !important;
-            color: $font-marmol !important;
-            display: flex !important;
-            justify-content: space-between !important;
+         .modal-header {
+            background-color: $background-honey;
+            color: $font-marmol;
+
+            .modal-title {
+               display: flex;
+               justify-content: space-between;
+               width: 100%;
+            }
          }
 
          .ui.form {

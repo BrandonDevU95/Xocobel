@@ -76,6 +76,7 @@ export default function ServiceInfo() {
             <BasicModal
                show={showModal}
                setShow={setShowModal}
+               size="lg"
                title="Solicite un Presupuesto"
                className="service-info-container_modal"
             >
