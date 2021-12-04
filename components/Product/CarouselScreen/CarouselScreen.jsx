@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Slider from 'react-slick';
 import { map, size } from 'lodash';
-import { Image, Modal } from 'semantic-ui-react';
+import { Image } from 'semantic-ui-react';
+import BasicModal from '../../../components/Modal/BasicModal';
 import { BASE_PATH } from '../../../utils/constants';
 
 export default function CarouselScreen({ title, screenShots }) {
@@ -48,13 +49,15 @@ export default function CarouselScreen({ title, screenShots }) {
                )
             )}
          </Slider>
-         <Modal
-            open={showModal}
-            onClose={() => setShowModal(false)}
-            size="small"
+         <BasicModal
+            show={showModal}
+            setShow={setShowModal}
+            centered
+            title={title}
+            className="service-info-container_modal"
          >
             <Image src={urlImage} alt={title} />
-         </Modal>
+         </BasicModal>
       </>
    );
 }
