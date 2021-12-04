@@ -55,7 +55,6 @@ export default function Search() {
    useEffect(() => {
       (async () => {
          const response = await getTotalsearchProductsApi(query.query);
-         console.log(response);
          setTotalProducts(response);
       })();
    }, [query]);
