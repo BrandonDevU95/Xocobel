@@ -58,6 +58,29 @@ export async function resetPasswordApi(email) {
    }
 }
 
+export async function forgotPasswordApi({
+   code,
+   password,
+   passwordConfirmation,
+}) {
+   try {
+      const url = `${BASE_PATH}/auth/reset-password`;
+      const params = {
+         method: 'POST',
+         headers: {
+            'Content-Type': 'application/json',
+         },
+         body: JSON.stringify({ code, password, passwordConfirmation }),
+      };
+      const response = await fetch(url, params);
+      const result = await response.json();
+      return result;
+   } catch (error) {
+      console.log(error);
+      return null;
+   }
+}
+
 export async function getMeApi(logout) {
    try {
       const url = `${BASE_PATH}/users/me`;
