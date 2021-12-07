@@ -15,7 +15,12 @@ export default function Contact() {
          validationSchema={Yup.object(validationSchema())}
          onSubmit={(formData, { resetForm }) => {
             setLoading(true);
-            console.log(formData);
+            const form = document.getElementById('formContact');
+            const data = new FormData(form);
+            fetch('/email.php', {
+               method: 'POST',
+               body: data,
+            });
             toast.success('Menaje enviado!');
             resetForm();
             setLoading(false);
@@ -30,12 +35,16 @@ export default function Contact() {
                         <div className="contact-container_row-col-img"></div>
                      </div>
                      <div className="contact-container_row-col col-sm-12 col-md-6 col-lg-7 col-xxl-6">
-                        <Form className="contact-container_row-col_form">
+                        <Form
+                           className="contact-container_row-col_form"
+                           id="formContact"
+                        >
                            <div className="row">
                               <div className="col-lg-6 form-group p-1">
                                  <label htmlFor="name">Name</label>
                                  <Field
                                     name="name"
+                                    id="name"
                                     className={classNames(
                                        'form-control',
                                        {
@@ -56,6 +65,7 @@ export default function Contact() {
                                  <label htmlFor="email">Email Address</label>
                                  <Field
                                     name="email"
+                                    id="email"
                                     className={classNames(
                                        'form-control',
                                        {
@@ -76,6 +86,7 @@ export default function Contact() {
                                  <label htmlFor="phone">Phone Number</label>
                                  <Field
                                     name="phone"
+                                    id="phone"
                                     className={classNames(
                                        'form-control',
                                        {
@@ -96,6 +107,7 @@ export default function Contact() {
                                  <label htmlFor="subject">Subject</label>
                                  <Field
                                     name="subject"
+                                    id="subject"
                                     className={classNames(
                                        'form-control',
                                        {
@@ -116,6 +128,7 @@ export default function Contact() {
                                  <label htmlFor="content">Content</label>
                                  <Field
                                     name="content"
+                                    id="content"
                                     className={classNames(
                                        'form-control',
                                        {

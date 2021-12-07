@@ -14,7 +14,12 @@ export default function ServiceInfo() {
       validationSchema: Yup.object(validationSchema()),
       onSubmit: (formData) => {
          setLoading(true);
-         console.log(formData);
+         const form = document.getElementById('formCorp');
+         const data = new FormData(form);
+         fetch('/corporate.php', {
+            method: 'POST',
+            body: data,
+         });
          formik.resetForm();
          toast.success('Mensaje enviado!');
          setLoading(false);
@@ -86,10 +91,11 @@ export default function ServiceInfo() {
 
 function FormModal({ formik, loading }) {
    return (
-      <Form onSubmit={formik.handleSubmit}>
+      <Form onSubmit={formik.handleSubmit} id="formCorp">
          <Form.Group widths="equal">
             <Form.Input
                name="name"
+               id="name"
                type="text"
                label="Nombre"
                placeholder="Nombre Completo"
@@ -99,6 +105,7 @@ function FormModal({ formik, loading }) {
             />
             <Form.Input
                name="email"
+               id="email"
                type="text"
                label="Correo"
                placeholder="ejemplo@xocobel.com.mx"
@@ -110,6 +117,7 @@ function FormModal({ formik, loading }) {
          <Form.Group widths="equal">
             <Form.Input
                name="organization"
+               id="organization"
                type="text"
                label="Organización"
                placeholder="Xocobel SA de CV"
@@ -121,6 +129,7 @@ function FormModal({ formik, loading }) {
          <Form.Group widths="equal">
             <Form.Input
                name="phone"
+               id="phone"
                type="text"
                label="Teléfono"
                placeholder="(56) 1234 5678"
@@ -130,6 +139,7 @@ function FormModal({ formik, loading }) {
             />
             <Form.Input
                name="subject"
+               id="subject"
                type="text"
                label="Tipo de Evento"
                placeholder="Aniversario de la Empresa"
@@ -141,6 +151,7 @@ function FormModal({ formik, loading }) {
          <Form.Group widths="equal">
             <Form.Input
                name="budget"
+               id="budget"
                type="text"
                label="Presupuesto"
                placeholder="$25,500"
@@ -150,6 +161,7 @@ function FormModal({ formik, loading }) {
             />
             <Form.Input
                name="people"
+               id="people"
                type="text"
                label="Personas Aprox"
                placeholder="15 personas"
@@ -159,6 +171,7 @@ function FormModal({ formik, loading }) {
             />
             <Form.Input
                name="date"
+               id="date"
                type="text"
                label="Fecha"
                placeholder="24/12/26"
@@ -169,6 +182,7 @@ function FormModal({ formik, loading }) {
          </Form.Group>
          <Form.TextArea
             name="message"
+            id="message"
             type="text"
             label="Mensaje"
             placeholder="Cuentanos más acerca de tu evento..."

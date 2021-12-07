@@ -1,5 +1,5 @@
-import { BASE_PATH, CART, AMOUNT } from '../utils/constants';
-import { size, includes, remove } from 'lodash';
+import { BASE_PATH, CART } from '../utils/constants';
+import { size, remove } from 'lodash';
 import { toast } from 'react-toastify';
 import { authFetch } from '../utils/fetch';
 
