@@ -40,10 +40,11 @@ export default function HeaderProduct({ product }) {
 }
 
 function Info({ product }) {
+   console.log(product);
    const { auth, logout } = useAuth();
    const { addProductCart } = useCart();
    const [loading, setLoading] = useState(false);
-   const [amount, setAmount] = useState(1);
+   const [amount, setAmount] = useState(product.stock >= 1 ? 1 : 0);
    const [isFavorite, setIsFavorite] = useState(false);
    const [reloadFavorite, setReloadFavorite] = useState(false);
 
