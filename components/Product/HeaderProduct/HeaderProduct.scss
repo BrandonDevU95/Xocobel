@@ -47,6 +47,10 @@
          font-size: 1.4rem;
       }
 
+      @media (max-width: 576px) {
+         font-size: 1.8rem;
+      }
+
       p {
          margin: 0;
          text-align: start;
