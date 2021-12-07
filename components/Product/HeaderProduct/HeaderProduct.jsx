@@ -87,7 +87,7 @@ function Info({ product }) {
    return (
       <>
          <div className="header-product__title">
-            {product.title}
+            <h6>{product.title}</h6>
             <p>Existencia: {product.stock}</p>
             <Icon
                name={isFavorite ? 'heart' : 'heart outline'}
