@@ -13,11 +13,11 @@ export async function getProductsByCategoryApi(
       const startItems = `_start=${start}`;
       const filters =
          category && chocolate
-            ? `category_retail.url=${category}&types_chocolate.url=${chocolate}`
+            ? `category_retail.url=${category}&types_chocolates.url=${chocolate}`
             : category
             ? `category_retail.url=${category}`
             : chocolate
-            ? `types_chocolate.url=${chocolate}`
+            ? `types_chocolates.url=${chocolate}`
             : '';
       let url = '';
       if (!category && !chocolate) {

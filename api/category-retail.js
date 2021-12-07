@@ -19,11 +19,11 @@ export async function getTotalProductsCategoryApi(
    try {
       const filters =
          category && chocolate
-            ? `category_retail.url=${category}&types_chocolate.url=${chocolate}`
+            ? `category_retail.url=${category}&types_chocolates.url=${chocolate}`
             : category
             ? `category_retail.url=${category}`
             : chocolate
-            ? `types_chocolate.url=${chocolate}`
+            ? `types_chocolates.url=${chocolate}`
             : '';
       let url = '';
       if (!category && !chocolate) url = `${BASE_PATH}/products/count`;
