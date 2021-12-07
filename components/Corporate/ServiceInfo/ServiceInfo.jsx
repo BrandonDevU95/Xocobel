@@ -22,6 +22,7 @@ export default function ServiceInfo() {
          });
          formik.resetForm();
          toast.success('Mensaje enviado!');
+         setShowModal(false);
          setLoading(false);
       },
    });
