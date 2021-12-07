@@ -11,6 +11,7 @@ import {
    discountingStockProductsApi,
 } from '../../../../api/products';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { getMeApi } from '../../../../api/user';
 
 export default function FormPayment({ products, address, setReloadCart }) {
    const router = useRouter();
@@ -20,6 +21,14 @@ export default function FormPayment({ products, address, setReloadCart }) {
    const { clearProductsCart, removeProductCart } = useCart();
    const [loading, setLoading] = useState(false);
    const [totalPrice, setTotalPrice] = useState(0);
+   const [user, setUser] = useState(undefined);
+
+   useEffect(() => {
+      (async () => {
+         const response = await getMeApi(logout);
+         setUser(response);
+      })();
+   }, [auth]);
 
    useEffect(() => {
       let price = 0;
@@ -70,8 +79,8 @@ export default function FormPayment({ products, address, setReloadCart }) {
                const response = await paymentCartApi(
                   result.token,
                   products,
-                  auth.idUser,
                   address,
+                  user,
                   logout
                );
                if (size(response) > 0 && response.statusCode !== 500) {
@@ -119,6 +128,10 @@ export default function FormPayment({ products, address, setReloadCart }) {
          }
       }
    };
+
+   if (!user) {
+      return null;
+   }
 
    return (
       <form className="form-payment" onSubmit={handleSubmit}>

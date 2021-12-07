@@ -62,7 +62,7 @@ export function removeProductCart(product) {
    }
 }
 
-export async function paymentCartApi(token, products, idUser, address, logout) {
+export async function paymentCartApi(token, products, address, user, logout) {
    try {
       const addressShipping = address;
       delete addressShipping.user;
@@ -77,8 +77,8 @@ export async function paymentCartApi(token, products, idUser, address, logout) {
          body: JSON.stringify({
             token,
             products,
-            idUser,
             addressShipping,
+            user,
          }),
       };
       const result = await authFetch(url, params, logout);
