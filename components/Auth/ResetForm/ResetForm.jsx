@@ -26,7 +26,6 @@ export default function ResetForm() {
             formData.code = code;
             if (formData.code) {
                const response = await forgotPasswordApi(formData);
-               console.log(response);
                if (response.jwt) {
                   toast.success('Contraseña actualizada con éxito');
                   push('/');

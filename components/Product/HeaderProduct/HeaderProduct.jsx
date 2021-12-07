@@ -40,7 +40,6 @@ export default function HeaderProduct({ product }) {
 }
 
 function Info({ product }) {
-   console.log(product);
    const { auth, logout } = useAuth();
    const { addProductCart } = useCart();
    const [loading, setLoading] = useState(false);
