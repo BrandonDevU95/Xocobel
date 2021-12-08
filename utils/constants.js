@@ -1,4 +1,5 @@
-export const BASE_PATH = 'https://xocobel.herokuapp.com';
+export const BASE_PATH = 'https://xoco-backend-4z9kv.ondigitalocean.app';
+// export const BASE_PATH = 'https://xocobel.herokuapp.com';
 // export const BASE_PATH = 'http://localhost:1337';
 export const TOKEN = 'token';
 export const CART = 'cart';
