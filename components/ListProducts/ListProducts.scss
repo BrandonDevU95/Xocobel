@@ -14,8 +14,20 @@
          }
 
          &__product {
-            &:hover {
-               opacity: 0.6;
+            position: relative;
+
+            i {
+               position: absolute;
+               z-index: 999;
+               top: 0;
+               right: 9px;
+               font-size: 1.5rem !important;
+               opacity: 1 !important;
+               color: $font-honey;
+
+               &.like {
+                  color: $font-red-wine;
+               }
             }
 
             h2 {
@@ -29,9 +41,15 @@
                padding: 0 10px;
             }
 
+            &-hover {
+               &:hover {
+                  opacity: 0.6;
+               }
+            }
+
             &-poster {
                position: relative;
-               min-height: 167.19px;
+               min-height: 170px;
 
                &-info {
                   position: absolute;
