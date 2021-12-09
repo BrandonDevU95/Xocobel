@@ -23,7 +23,6 @@ export default function Boutique() {
    const { width } = useWindowSize();
    const { query, replace } = useRouter();
    const [category, setCategory] = useState(null);
-   const [cleanUrl, setCleanUrl] = useState(false);
    const [products, setProducts] = useState(false);
    const [chocolate, setChocolate] = useState(null);
    const [queryType, setQueryType] = useState(null);
@@ -40,31 +39,6 @@ export default function Boutique() {
    };
 
    useEffect(() => {
-      if (width < 576) {
-         setLimitPerPage(6);
-      } else {
-         setLimitPerPage(12);
-      }
-   }, [width]);
-
-   useEffect(() => {
-      if (btn) {
-         btn.click();
-      }
-   }, [btn, query.type]);
-
-   // TODO: Modificar la llamada 2 veces de los productos
-   useEffect(() => {
-      if (query.type && !query.page) {
-         setQueryType(query.type);
-         replace(`/boutique`);
-      } else {
-         replace(`/boutique`);
-      }
-      setCleanUrl(false);
-   }, [cleanUrl, query.type]);
-
-   useEffect(() => {
       (async () => {
          const response = await getCategoryRetailApi();
          if (size(response) > 0) setCategoryRetail(response);
@@ -77,6 +51,26 @@ export default function Boutique() {
          if (size(response) > 0) setTypeChocolate(response);
       })();
    }, []);
+
+   useEffect(() => {
+      if (width < 576) {
+         setLimitPerPage(6);
+      } else {
+         setLimitPerPage(12);
+      }
+   }, [width]);
+
+   useEffect(() => {
+      if (btn) {
+         btn.click();
+      }
+   }, [btn]);
+
+   useEffect(() => {
+      if (query.type) {
+         setQueryType(query.type);
+      }
+   }, [query.type]);
 
    useEffect(() => {
       (async () => {
@@ -113,13 +107,15 @@ export default function Boutique() {
                         <CategoryRetail
                            categoryRetail={categoryRetail}
                            setCategory={setCategory}
-                           setCleanUrl={setCleanUrl}
+                           query={query}
+                           replace={replace}
                         />
                         <h3>Tipo de Chocolate</h3>
                         <TypeChocolate
                            typeChocolate={typeChocolate}
                            setChocolate={setChocolate}
-                           setCleanUrl={setCleanUrl}
+                           query={query}
+                           replace={replace}
                         />
                      </div>
                      <div className="boutique-container_row-col-mobile d-block d-sm-block d-md-none d-lg-none">
@@ -150,12 +146,14 @@ export default function Boutique() {
                                     <CategoryRetailMobile
                                        categoryRetail={categoryRetail}
                                        setCategory={setCategory}
-                                       setCleanUrl={setCleanUrl}
+                                       query={query}
+                                       replace={replace}
                                     />
                                     <TypeChocolateMobile
                                        typeChocolate={typeChocolate}
                                        setChocolate={setChocolate}
-                                       setCleanUrl={setCleanUrl}
+                                       query={query}
+                                       replace={replace}
                                     />
                                  </ul>
                               </div>

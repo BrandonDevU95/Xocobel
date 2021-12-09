@@ -5,20 +5,25 @@ import { Icon } from 'semantic-ui-react';
 export default function TypeChocolateMobile({
    typeChocolate,
    setChocolate,
-   setCleanUrl,
+   query,
+   replace,
 }) {
    const [categoryFocus, setCategoryFocus] = useState(null);
 
    const handleCategory = (url, title) => {
       setChocolate(url);
       setCategoryFocus(title);
-      setCleanUrl(true);
+      if (query.page || query.type) {
+         replace('/boutique');
+      }
    };
 
    const handleResetCategory = () => {
       setChocolate(null);
       setCategoryFocus(null);
-      setCleanUrl(true);
+      if (query.page || query.type) {
+         replace('/boutique');
+      }
    };
 
    return (

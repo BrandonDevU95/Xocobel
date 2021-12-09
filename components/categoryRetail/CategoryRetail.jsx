@@ -5,20 +5,25 @@ import { Menu, Button, Icon } from 'semantic-ui-react';
 export default function CategoryRetail({
    categoryRetail,
    setCategory,
-   setCleanUrl,
+   query,
+   replace,
 }) {
    const [categoryFocus, setCategoryFocus] = useState(null);
 
    const handleCategory = (url, title) => {
       setCategory(url);
       setCategoryFocus(title);
-      setCleanUrl(true);
+      if (query.page || query.type) {
+         replace('/boutique');
+      }
    };
 
    const handleResetCategory = () => {
       setCategory(null);
       setCategoryFocus(null);
-      setCleanUrl(true);
+      if (query.page || query.type) {
+         replace('/boutique');
+      }
    };
 
    return (
