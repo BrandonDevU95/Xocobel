@@ -3,6 +3,8 @@ import { map, size } from 'lodash';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Icon, Image } from 'semantic-ui-react';
+import moment from 'moment';
+import 'moment/locale/es-mx';
 import {
    addFavoriteApi,
    deleteFavoriteApi,
@@ -37,6 +39,9 @@ function Product({ product, sizeImg }) {
    const [loading, setLoading] = useState(false);
    const [isFavorite, setIsFavorite] = useState(false);
    const [reloadFavorite, setReloadFavorite] = useState(false);
+   const days = Math.ceil(
+      (moment(new Date()) - moment(product.createdAt)) / (1000 * 60 * 60 * 24)
+   );
 
    useEffect(() => {
       (async () => {
@@ -84,7 +89,11 @@ function Product({ product, sizeImg }) {
 
    return (
       <div className="list-products_row-col col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2">
-         <div className="list-products_row-col__product">
+         <div
+            className={`list-products_row-col__product ${
+               days <= 30 ? 'ribbon' : ''
+            }`}
+         >
             <Icon
                name={isFavorite ? 'heart' : 'heart outline'}
                className={classNames({
@@ -97,9 +106,9 @@ function Product({ product, sizeImg }) {
             <div className="list-products_row-col__product-hover">
                <Link href={`/${product.url}`}>
                   <a>
-                     <div className="list-products_row-col__product-poster">
+                     <div className="list-products_row-col__product-hover-poster">
                         <Image src={imgUrl} alt={product.title} fluid />
-                        <div className="list-products_row-col__product-poster-info">
+                        <div className="list-products_row-col__product-hover-poster-info">
                            {product.discount ? (
                               <span className="discount">
                                  -{product.discount}%
