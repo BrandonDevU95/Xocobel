@@ -224,6 +224,6 @@ function validationSchema() {
       people: Yup.string(),
       date: Yup.string(),
       subject: Yup.string().required(true),
-      message: Yup.string().min(20, 'Too short!').required(true),
+      message: Yup.string().min(20, 'El mensaje es muy corto!').required(true),
    };
 }
