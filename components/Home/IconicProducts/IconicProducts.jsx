@@ -61,7 +61,7 @@ export default function IconicProducts() {
                         <Link
                            href={{
                               pathname: '/boutique',
-                              query: { type: 'chocolate-blanco' },
+                              query: { type: 'chocolate-semiamargo' },
                            }}
                         >
                            <a>
