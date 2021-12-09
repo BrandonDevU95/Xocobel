@@ -1,13 +1,20 @@
-// components/contactus-form.component.js
-
-import { useState } from 'react';
-import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
-import { toast } from 'react-toastify';
+import { useState, useRef } from 'react';
 import classNames from 'classnames';
+import { toast } from 'react-toastify';
+import { Formik, Field, Form } from 'formik';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function Contact() {
+   const captcha = useRef(null);
+   const [reCaptcha, setReCaptcha] = useState(null);
    const [loading, setLoading] = useState(false);
+
+   const onChange = () => {
+      if (captcha.current.getValue()) {
+         setReCaptcha(true);
+      }
+   };
 
    return (
       <Formik
@@ -17,12 +24,23 @@ export default function Contact() {
             setLoading(true);
             const form = document.getElementById('formContact');
             const data = new FormData(form);
-            fetch('/email.php', {
-               method: 'POST',
-               body: data,
-            });
-            toast.success('Menaje enviado!');
-            resetForm();
+
+            if (captcha.current.getValue()) {
+               setReCaptcha(true);
+            } else {
+               setReCaptcha(false);
+            }
+
+            if (captcha.current.getValue()) {
+               fetch('/email.php', {
+                  method: 'POST',
+                  body: data,
+               });
+               toast.success('Menaje enviado!');
+               captcha.current.reset();
+               resetForm();
+            }
+
             setLoading(false);
          }}
       >
@@ -152,14 +170,28 @@ export default function Contact() {
                                     </div>
                                  ) : null}
                               </div>
-                              <div className="form-group action">
-                                 <button
-                                    type="submit"
-                                    className="btn btn-primary"
-                                    disabled={loading}
-                                 >
-                                    {loading ? 'Enviando' : 'Enviar'}
-                                 </button>
+                              <div className="col-12 col-lg-6 py-4 px-0">
+                                 <ReCAPTCHA
+                                    ref={captcha}
+                                    sitekey="6LfMuTgcAAAAAPdXT-cFCeby2oFeeJxakbjAPQ_3"
+                                    onChange={onChange}
+                                 />
+                                 {reCaptcha === false && (
+                                    <p className="fs-5 m-0 ps-2 text-danger">
+                                       Por favor acepte el Captcha
+                                    </p>
+                                 )}
+                              </div>
+                              <div className="col-12 col-lg-6 py-4">
+                                 <div className="form-group action">
+                                    <button
+                                       type="submit"
+                                       className="btn btn-primary"
+                                       disabled={loading}
+                                    >
+                                       {loading ? 'Enviando' : 'Enviar'}
+                                    </button>
+                                 </div>
                               </div>
                            </div>
                         </Form>

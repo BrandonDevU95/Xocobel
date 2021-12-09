@@ -1,13 +1,22 @@
 import * as Yup from 'yup';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useFormik } from 'formik';
 import { toast } from 'react-toastify';
-import { Button, Form, Image } from 'semantic-ui-react';
 import BasicModal from '../../Modal/BasicModal';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { Button, Form, Image } from 'semantic-ui-react';
 
 export default function ServiceInfo() {
+   const captcha = useRef(null);
    const [showModal, setShowModal] = useState(false);
    const [loading, setLoading] = useState(false);
+   const [reCaptcha, setReCaptcha] = useState(null);
+
+   const onChange = () => {
+      if (captcha.current.getValue()) {
+         setReCaptcha(true);
+      }
+   };
 
    const formik = useFormik({
       initialValues: initialValues(),
@@ -16,13 +25,22 @@ export default function ServiceInfo() {
          setLoading(true);
          const form = document.getElementById('formCorp');
          const data = new FormData(form);
-         fetch('/corporate.php', {
-            method: 'POST',
-            body: data,
-         });
-         formik.resetForm();
-         toast.success('Mensaje enviado!');
-         setShowModal(false);
+         if (captcha.current.getValue()) {
+            setReCaptcha(true);
+         } else {
+            setReCaptcha(false);
+         }
+
+         if (captcha.current.getValue()) {
+            fetch('/corporate.php', {
+               method: 'POST',
+               body: data,
+            });
+            toast.success('Menaje enviado!');
+            captcha.current.reset();
+            formik.resetForm();
+            setShowModal(false);
+         }
          setLoading(false);
       },
    });
@@ -83,14 +101,20 @@ export default function ServiceInfo() {
                title="Solicite un Presupuesto"
                className="service-info-container_modal"
             >
-               <FormModal formik={formik} loading={loading} />
+               <FormModal
+                  formik={formik}
+                  loading={loading}
+                  captcha={captcha}
+                  reCaptcha={reCaptcha}
+                  onChange={onChange}
+               />
             </BasicModal>
          </div>
       </section>
    );
 }
 
-function FormModal({ formik, loading }) {
+function FormModal({ formik, loading, captcha, reCaptcha, onChange }) {
    return (
       <Form onSubmit={formik.handleSubmit} id="formCorp">
          <Form.Group widths="equal">
@@ -191,6 +215,18 @@ function FormModal({ formik, loading }) {
             value={formik.values.message}
             error={formik.errors.message}
          />
+         <div className="col-12 col-lg-6 py-4 px-0">
+            <ReCAPTCHA
+               ref={captcha}
+               sitekey="6LfMuTgcAAAAAPdXT-cFCeby2oFeeJxakbjAPQ_3"
+               onChange={onChange}
+            />
+            {reCaptcha === false && (
+               <p className="fs-5 m-0 ps-2 text-danger">
+                  Por favor acepte el Captcha
+               </p>
+            )}
+         </div>
          <div className="action">
             <Button basic type="submit" loading={loading}>
                Enviar
