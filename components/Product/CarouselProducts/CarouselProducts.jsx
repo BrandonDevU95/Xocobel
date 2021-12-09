@@ -5,6 +5,7 @@ import Slider from 'react-slick';
 import { Image } from 'semantic-ui-react';
 import { BASE_PATH } from '../../../utils/constants';
 import useWindowSize from '../../../hooks/useWindowSize';
+import moment from 'moment';
 
 export default function CarouselProducts({ products }) {
    const { width } = useWindowSize();
@@ -44,7 +45,17 @@ export default function CarouselProducts({ products }) {
          <h2>Recomendados</h2>
          <Slider {...settings}>
             {map(products, (product) => (
-               <div className="carousel-products_product" key={product._id}>
+               <div
+                  className={`carousel-products_product ${
+                     Math.ceil(
+                        (moment(new Date()) - moment(product.createdAt)) /
+                           (1000 * 60 * 60 * 24)
+                     ) <= 30
+                        ? 'ribbon'
+                        : ''
+                  }`}
+                  key={product._id}
+               >
                   <Link href={`/${product.url}`}>
                      <a>
                         <div className="carousel-products_product__product-poster">

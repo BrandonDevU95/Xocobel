@@ -8,8 +8,33 @@
       color: $font-chocolate;
    }
 
+   .ribbon {
+      &::before {
+         position: absolute;
+         z-index: 998;
+         top: -8px;
+         left: -33px;
+         display: block;
+         box-sizing: border-box;
+         content: '¡Nuevo!';
+         text-transform: uppercase;
+         font-size: 13px;
+         text-align: center;
+         font-weight: 700;
+         color: #fff;
+         background: transparent;
+         height: 0;
+         width: 100px;
+         border: 25px solid transparent;
+         border-bottom: 25px solid $background-honey;
+         line-height: 26px;
+         transform: rotate(-45deg);
+      }
+   }
+
    &_product {
       padding: 10px;
+      position: relative;
 
       &:hover {
          opacity: 0.6;
