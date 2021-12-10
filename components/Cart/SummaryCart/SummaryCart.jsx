@@ -25,7 +25,7 @@ export default function SummaryCart({ products, reloadCart, setReloadCart }) {
 
    return (
       <div className="summary-cart py-4">
-         <div className="title">Resumen del Carrito</div>
+         <div className="title">Resumen del carrito</div>
          <div className="data">
             <div className="table-responsive">
                <table className="table table-bordered">
