@@ -59,7 +59,7 @@ export default function Contact() {
                         >
                            <div className="row">
                               <div className="col-lg-6 form-group p-1">
-                                 <label htmlFor="name">Name</label>
+                                 <label htmlFor="name">Nombre</label>
                                  <Field
                                     name="name"
                                     id="name"
@@ -80,7 +80,7 @@ export default function Contact() {
                                  />
                               </div>
                               <div className="col-lg-6 form-group p-1">
-                                 <label htmlFor="email">Email Address</label>
+                                 <label htmlFor="email">Correo</label>
                                  <Field
                                     name="email"
                                     id="email"
@@ -101,7 +101,7 @@ export default function Contact() {
                                  />
                               </div>
                               <div className=" col-lg-6 form-group p-1">
-                                 <label htmlFor="phone">Phone Number</label>
+                                 <label htmlFor="phone">Teléfono</label>
                                  <Field
                                     name="phone"
                                     id="phone"
@@ -122,7 +122,7 @@ export default function Contact() {
                                  />
                               </div>
                               <div className="col-lg-6 form-group p-1">
-                                 <label htmlFor="subject">Subject</label>
+                                 <label htmlFor="subject">Asunto</label>
                                  <Field
                                     name="subject"
                                     id="subject"
@@ -143,7 +143,7 @@ export default function Contact() {
                                  />
                               </div>
                               <div className="col-lg-12 form-group p-1">
-                                 <label htmlFor="content">Content</label>
+                                 <label htmlFor="content">Mensaje</label>
                                  <Field
                                     name="content"
                                     id="content"
