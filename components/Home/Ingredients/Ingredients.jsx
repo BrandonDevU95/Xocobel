@@ -20,7 +20,7 @@ export default function Ingredients() {
 
                      <Image src="/icons/chef.svg" alt="Gourmet" />
                      <p>
-                        Chocolatería y Bombonería <br /> artesanal
+                        Chocolatería y bombonería <br /> artesanal
                      </p>
                   </div>
                </div>
@@ -33,7 +33,7 @@ export default function Ingredients() {
                         alt="Hecho En México"
                      />
                      <p>
-                        Elaborada por expertos <br /> chocolateros mexicanos
+                        Elaborado por expertos <br /> chocolateros mexicanos
                      </p>
                   </div>
                </div>

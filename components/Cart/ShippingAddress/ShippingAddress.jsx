@@ -19,7 +19,7 @@ export default function ShippingAddress({ setAddress }) {
 
    return (
       <div className="shipping-address">
-         <div className="title">Direccion de envio</div>
+         <div className="title">Dirección de envío</div>
          <div className="data">
             {size(addresses) === 0 ? (
                <h3>
@@ -30,6 +30,7 @@ export default function ShippingAddress({ setAddress }) {
                </h3>
             ) : (
                <div className="row">
+                  <p className="h3">Selecciona una dirección</p>
                   {map(addresses, (address) => (
                      <div
                         className="col-12 col-md-6 col-lg-3"
