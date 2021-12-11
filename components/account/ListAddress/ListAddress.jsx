@@ -1,7 +1,7 @@
-import { map, set, size } from 'lodash';
+import { map, size } from 'lodash';
 import { useState, useEffect } from 'react';
 import useAuth from '../../../hooks/useAuth';
-import { Grid, Button } from 'semantic-ui-react';
+import { Grid, Button, Menu, Icon } from 'semantic-ui-react';
 import { getAddressApi, deleteAddressApi } from '../../../api/address';
 
 export default function ListAddress({
@@ -43,6 +43,17 @@ export default function ListAddress({
                      />
                   </Grid.Column>
                ))}
+               <Grid.Column mobile={16} tablet={8} computer={4}>
+                  <div
+                     className="add-address"
+                     onClick={() => openModal('Agregar dirección')}
+                  >
+                     <Menu.Item as="a">
+                        <Icon name="plus" />
+                        <p>Agregar dirección</p>
+                     </Menu.Item>
+                  </div>
+               </Grid.Column>
             </Grid>
          )}
       </div>

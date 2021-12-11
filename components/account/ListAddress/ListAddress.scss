@@ -1,5 +1,41 @@
 .list-address {
    padding: 10px;
+
+   .add-address {
+      padding: 10px;
+      margin: 10px 0px 10px 0px;
+      border: 2px dashed $border-honey;
+      border-radius: 5px;
+      text-align: center;
+      height: calc(100% - 20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      p {
+         font-size: 1.5rem;
+         font-weight: bold;
+         color: $font-chocolate;
+      }
+
+      i {
+         font-size: 2rem;
+         color: $font-chocolate;
+         opacity: 0.5;
+      }
+
+      &:hover {
+         cursor: pointer;
+         background-color: $background-honey;
+         border: 2px dashed $border-grey-marmol;
+         opacity: 0.8;
+
+         p,
+         i {
+            color: $font-grey-marmol;
+         }
+      }
+   }
 }
 
 .address {

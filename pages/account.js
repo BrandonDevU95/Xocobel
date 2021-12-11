@@ -89,14 +89,7 @@ function Addresses() {
 
    return (
       <div className="account-container__addresses">
-         <div className="title">
-            Direcciones
-            <Icon
-               name="plus"
-               link
-               onClick={() => openModal('Agregar dirección')}
-            />
-         </div>
+         <div className="title">Direcciones</div>
          <div className="data">
             <ListAddress
                reloadAddresses={reloadAddresses}
