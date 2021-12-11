@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Container, Grid } from 'semantic-ui-react';
 import useAuth from '../hooks/useAuth';
 import { getOrdersApi, getTotalOrdersApi } from '../api/order';
 import { map, size } from 'lodash';

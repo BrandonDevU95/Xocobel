@@ -13,6 +13,8 @@ export default function Order({
       totalPayment,
       createdAt,
       addressShipping,
+      charge,
+      idPayment,
    },
 }) {
    const [showModal, setShowModal] = useState(false);
@@ -62,12 +64,21 @@ export default function Order({
             setShowModal={setShowModal}
             addressShipping={addressShipping}
             title={title}
+            charge={charge}
+            idPayment={idPayment}
          />
       </>
    );
 }
 
-function AddressModal({ showModal, setShowModal, addressShipping, title }) {
+function AddressModal({
+   showModal,
+   setShowModal,
+   addressShipping,
+   title,
+   charge,
+   idPayment,
+}) {
    return (
       <BasicModal
          show={showModal}
@@ -75,7 +86,7 @@ function AddressModal({ showModal, setShowModal, addressShipping, title }) {
          title={title}
          centered
       >
-         <h3>Datos de envío</h3>
+         <h3>Detalles de envío</h3>
          <p>{addressShipping.title}</p>
          <p>{addressShipping.name}</p>
          <p>{addressShipping.address}</p>
@@ -84,6 +95,12 @@ function AddressModal({ showModal, setShowModal, addressShipping, title }) {
             {addressShipping.postalCode}
          </p>
          <p>{addressShipping.phone}</p>
+         <hr />
+         <h3>Pago</h3>
+         <p>ID: {idPayment.slice(idPayment.length - 10, idPayment.length)}</p>
+         <p>
+            {charge?.band} **** **** **** {charge?.last4}
+         </p>
       </BasicModal>
    );
 }
