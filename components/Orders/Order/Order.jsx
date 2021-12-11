@@ -28,7 +28,14 @@ export default function Order({
                <div className="order__info-data">
                   <Link href={`/${url}`}>
                      <a>
-                        <Image src={imageUrl} alt={title} />
+                        <Image
+                           src={imageUrl}
+                           alt={title}
+                           onError={(e) => {
+                              e.target.onerror = null;
+                              e.target.src = '/product-default.jpg';
+                           }}
+                        />
                      </a>
                   </Link>
                   <div>

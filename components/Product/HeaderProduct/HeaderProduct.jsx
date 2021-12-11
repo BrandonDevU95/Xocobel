@@ -6,7 +6,7 @@ import useAuth from '../../../hooks/useAuth';
 import { BASE_PATH } from '../../../utils/constants';
 import CarouselScreen from '../CarouselScreen';
 import { toast } from 'react-toastify';
-import { Grid, Image, Icon, Button, Loader, Input } from 'semantic-ui-react';
+import { Image, Icon, Button, Input } from 'semantic-ui-react';
 import TabsProduct from '../TabsProduct';
 import {
    isFavoriteApi,
@@ -23,7 +23,15 @@ export default function HeaderProduct({ product }) {
    return (
       <div className="header-product row">
          <div className="col-12 col-md-4 col-lg-4 order-2 order-md-1 order-lg-1">
-            <Image src={imgUrl} alt={product.title} fluid />
+            <Image
+               src={imgUrl}
+               alt={product.title}
+               fluid
+               onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = '/product-default.jpg';
+               }}
+            />
             {size(product.galery) >= 2 && (
                <CarouselScreen
                   title={product.title}

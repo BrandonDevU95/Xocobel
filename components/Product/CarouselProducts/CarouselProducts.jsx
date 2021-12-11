@@ -60,9 +60,18 @@ export default function CarouselProducts({ products }) {
                      <a>
                         <div className="carousel-products_product__product-poster">
                            <Image
-                              src={`${BASE_PATH}${product.poster?.formats?.small?.url}`}
+                              src={
+                                 size(product.poster.formats) === 4
+                                    ? BASE_PATH +
+                                      product.poster.formats.small.url
+                                    : BASE_PATH + product.poster.url
+                              }
                               alt={product.title}
                               fluid
+                              onError={(e) => {
+                                 e.target.onerror = null;
+                                 e.target.src = '/product-default.jpg';
+                              }}
                            />
                            <div className="carousel-products_product__product-poster-info">
                               {product.discount ? (

@@ -107,7 +107,15 @@ function Product({ product, sizeImg }) {
                <Link href={`/${product.url}`}>
                   <a>
                      <div className="list-products_row-col__product-hover-poster">
-                        <Image src={imgUrl} alt={product.title} fluid />
+                        <Image
+                           src={imgUrl}
+                           alt={product.title}
+                           fluid
+                           onError={(e) => {
+                              e.target.onerror = null;
+                              e.target.src = '/product-default.jpg';
+                           }}
+                        />
                         <div className="list-products_row-col__product-hover-poster-info">
                            {product.discount ? (
                               <span className="discount">

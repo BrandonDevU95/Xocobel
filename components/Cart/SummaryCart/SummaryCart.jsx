@@ -55,6 +55,10 @@ export default function SummaryCart({ products, reloadCart, setReloadCart }) {
                                        : BASE_PATH + product.poster.url
                                  }
                                  alt={product.title}
+                                 onError={(e) => {
+                                    e.target.onerror = null;
+                                    e.target.src = '/product-default.jpg';
+                                 }}
                               />
                               {product.title}
                            </td>
