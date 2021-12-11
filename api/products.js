@@ -116,13 +116,31 @@ export async function getRecommendedProductsApi() {
    }
 }
 
-export async function getGiftsProductsApi(limit, start) {
+export async function getGiftsProductsApi(
+   category = null,
+   chocolate = null,
+   limit = 10,
+   start = 0
+) {
    try {
+      let url = '';
       const limitItems = `_limit=${limit}`;
       const sortItems = `_sort=createdAt:desc`;
       const startItems = `_start=${start}`;
       const gift = 'gift=true';
-      const url = `${BASE_PATH}/products?${gift}&${limitItems}&${sortItems}&${startItems}`;
+      const filters =
+         category && chocolate
+            ? `category_retail.url=${category}&types_chocolates.url=${chocolate}`
+            : category
+            ? `category_retail.url=${category}`
+            : chocolate
+            ? `types_chocolates.url=${chocolate}`
+            : '';
+      if (!category && !chocolate) {
+         url = `${BASE_PATH}/products?${gift}&${limitItems}&${sortItems}&${startItems}`;
+      } else {
+         url = `${BASE_PATH}/products?${gift}&${filters}&${limitItems}&${sortItems}&${startItems}`;
+      }
       const response = await fetch(url);
       const result = await response.json();
       return result;
@@ -132,9 +150,20 @@ export async function getGiftsProductsApi(limit, start) {
    }
 }
 
-export async function getTotalGiftsApi() {
+export async function getTotalGiftsApi(category = null, chocolate = null) {
    try {
-      const url = `${BASE_PATH}/products/count?gift=true`;
+      let url = '';
+      const filters =
+         category && chocolate
+            ? `category_retail.url=${category}&types_chocolates.url=${chocolate}`
+            : category
+            ? `category_retail.url=${category}`
+            : chocolate
+            ? `types_chocolates.url=${chocolate}`
+            : '';
+      if (!category && !chocolate)
+         url = `${BASE_PATH}/products/count?gift=true`;
+      else url = `${BASE_PATH}/products/count?gift=true&${filters}`;
       const response = await fetch(url);
       const result = await response.json();
       return result;
