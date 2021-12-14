@@ -1,4 +1,4 @@
-import { set, size } from 'lodash';
+import { size } from 'lodash';
 import Seo from '../components/Seo';
 import { useRouter } from 'next/router';
 import { Loader } from 'semantic-ui-react';
@@ -94,26 +94,38 @@ export default function Gifts() {
                   <div className="boutique-container_row-col col-12 col-sm-12 col-md-4 col-lg-3 col-xl-2">
                      <div className="boutique-container_row-col-computer d-none d-sm-none d-md-block d-lg-block">
                         <h3>Categorías</h3>
-                        <CategoryRetail
-                           categoryRetail={categoryRetail}
-                           setCategory={setCategory}
-                           query={query}
-                           replace={replace}
-                        />
+                        {size(gifts) > 0 ? (
+                           <div>
+                              <CategoryRetail
+                                 categoryRetail={categoryRetail}
+                                 setCategory={setCategory}
+                                 query={query}
+                                 replace={replace}
+                              />
+                           </div>
+                        ) : (
+                           <p>No hay categorías</p>
+                        )}
                         <h3>Tipo de Chocolate</h3>
-                        <TypeChocolate
-                           typeChocolate={typeChocolate}
-                           setChocolate={setChocolate}
-                           query={query}
-                           replace={replace}
-                        />
+                        {size(gifts) > 0 ? (
+                           <div>
+                              <TypeChocolate
+                                 typeChocolate={typeChocolate}
+                                 setChocolate={setChocolate}
+                                 query={query}
+                                 replace={replace}
+                              />
+                           </div>
+                        ) : (
+                           <p>No hay chocolates</p>
+                        )}
                      </div>
                   </div>
                   <div className="boutique-container_row-col-products col-12 col-sm-12 col-md-8 col-lg-9 col-xl-10">
                      {!gifts && <Loader active>Cargando Productos</Loader>}
                      {gifts && size(gifts) === 0 && (
-                        <div>
-                           <h3>No hay productos</h3>
+                        <div className="text-center pt-5">
+                           <h3 className="h1">No hay productos</h3>
                         </div>
                      )}
                      {size(gifts) > 0 && (

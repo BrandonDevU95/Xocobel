@@ -64,11 +64,22 @@ export async function getFavoriteApi(idUser, logout, limit = 10, start = 0) {
    const limitItems = `_limit=${limit}`;
    const sortItems = `_sort=createdAt:desc`;
    const startItems = `_start=${start}`;
-
    try {
       const url = `${BASE_PATH}/favorites?users_permissions_user=${idUser}&${limitItems}&${sortItems}&${startItems}`;
       const result = await authFetch(url, null, logout);
-      return result;
+      const newResult = [];
+      for await (const item of result) {
+         if (item.product.category_retail !== null) {
+            const result = await fetch(
+               `${BASE_PATH}/products/${item.product.id}`
+            );
+            const data = await result.json();
+            if (data.category_retail.available === true) {
+               newResult.push(item);
+            }
+         }
+      }
+      return newResult;
    } catch (error) {
       console.log(error);
       return null;

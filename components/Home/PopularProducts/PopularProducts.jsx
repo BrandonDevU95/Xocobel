@@ -20,8 +20,8 @@ export default function PopularProducts() {
             <div className="popular-products__list">
                {popularProducts && size(popularProducts) === 0 && (
                   <div className="popular-products__list-not-found">
-                     <h3>
-                        Por el momento no hay productos populares disponibles
+                     <h3 className="text-center">
+                        Por el momento no hay productos disponibles
                      </h3>
                   </div>
                )}

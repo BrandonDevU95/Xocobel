@@ -9,7 +9,7 @@ import 'moment/locale/es-mx';
 
 export default function Order({
    order: {
-      product: { title, poster, url },
+      product: { title, poster },
       totalPayment,
       createdAt,
       addressShipping,
@@ -28,18 +28,15 @@ export default function Order({
          <div className="order">
             <div className="order__info">
                <div className="order__info-data">
-                  <Link href={`/${url}`}>
-                     <a>
-                        <Image
-                           src={imageUrl}
-                           alt={title}
-                           onError={(e) => {
-                              e.target.onerror = null;
-                              e.target.src = '/product-default.jpg';
-                           }}
-                        />
-                     </a>
-                  </Link>
+                  <Image
+                     src={imageUrl}
+                     alt={title}
+                     className="pe-3"
+                     onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = '/product-default.jpg';
+                     }}
+                  />
                   <div>
                      <h2>{title}</h2>
                      <p>${totalPayment}</p>
