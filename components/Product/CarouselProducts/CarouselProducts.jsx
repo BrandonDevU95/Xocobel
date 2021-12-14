@@ -9,7 +9,9 @@ import moment from 'moment';
 
 export default function CarouselProducts({ products }) {
    const { width } = useWindowSize();
-   const [slides, setSlides] = useState(4);
+   const [slides, setSlides] = useState(
+      size(products) > 6 ? 6 : size(products)
+   );
 
    const settings = {
       className: 'carousel-screen',
@@ -23,16 +25,16 @@ export default function CarouselProducts({ products }) {
    useEffect(() => {
       switch (true) {
          case width >= 1200:
-            setSlides(6);
+            setSlides(size(products) > 6 ? 6 : size(products));
             break;
          case width >= 992:
-            setSlides(5);
+            setSlides(size(products) > 5 ? 5 : size(products));
             break;
          case width >= 768:
-            setSlides(4);
+            setSlides(size(products) > 4 ? 4 : size(products));
             break;
          case width >= 576:
-            setSlides(3);
+            setSlides(size(products) > 3 ? 3 : size(products));
             break;
          case width < 576:
             setSlides(1);
