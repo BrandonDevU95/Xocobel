@@ -11,6 +11,7 @@ export async function getProductsByCategoryApi(
       const limitItems = `_limit=${limit}`;
       const sortItems = `_sort=createdAt:desc`;
       const startItems = `_start=${start}`;
+      const availableCategory = `category_retail.available=true`;
       const filters =
          category && chocolate
             ? `category_retail.url=${category}&types_chocolates.url=${chocolate}`
@@ -21,11 +22,10 @@ export async function getProductsByCategoryApi(
             : '';
       let url = '';
       if (!category && !chocolate) {
-         url = `${BASE_PATH}/products?${limitItems}&${sortItems}&${startItems}`;
+         url = `${BASE_PATH}/products?${availableCategory}&${limitItems}&${sortItems}&${startItems}`;
       } else {
-         url = `${BASE_PATH}/products?${filters}&${limitItems}&${sortItems}&${startItems}`;
+         url = `${BASE_PATH}/products?${availableCategory}&${filters}&${limitItems}&${sortItems}&${startItems}`;
       }
-
       const response = await fetch(url);
       const result = await response.json();
       return result;
@@ -92,7 +92,8 @@ export async function getPopularProductsApi() {
       const popular = 'popular=true';
       const limitItems = `_limit=5`;
       const sortItems = `_sort=createdAt:desc`;
-      const url = `${BASE_PATH}/products?${popular}&${limitItems}&${sortItems}`;
+      const availableCategory = `category_retail.available=true`;
+      const url = `${BASE_PATH}/products?${availableCategory}&${popular}&${limitItems}&${sortItems}`;
       const response = await fetch(url);
       const result = await response.json();
       return result;
@@ -106,7 +107,8 @@ export async function getRecommendedProductsApi() {
    try {
       const recommended = 'recommended=true';
       const sortItems = `_sort=createdAt:desc`;
-      const url = `${BASE_PATH}/products?${recommended}&${sortItems}`;
+      const availableCategory = `category_retail.available=true`;
+      const url = `${BASE_PATH}/products?${availableCategory}&${recommended}&${sortItems}`;
       const response = await fetch(url);
       const result = await response.json();
       return result;
@@ -128,6 +130,7 @@ export async function getGiftsProductsApi(
       const sortItems = `_sort=createdAt:desc`;
       const startItems = `_start=${start}`;
       const gift = 'gift=true';
+      const availableCategory = `category_retail.available=true`;
       const filters =
          category && chocolate
             ? `category_retail.url=${category}&types_chocolates.url=${chocolate}`
@@ -137,9 +140,9 @@ export async function getGiftsProductsApi(
             ? `types_chocolates.url=${chocolate}`
             : '';
       if (!category && !chocolate) {
-         url = `${BASE_PATH}/products?${gift}&${limitItems}&${sortItems}&${startItems}`;
+         url = `${BASE_PATH}/products?${availableCategory}&${gift}&${limitItems}&${sortItems}&${startItems}`;
       } else {
-         url = `${BASE_PATH}/products?${gift}&${filters}&${limitItems}&${sortItems}&${startItems}`;
+         url = `${BASE_PATH}/products?${availableCategory}&${gift}&${filters}&${limitItems}&${sortItems}&${startItems}`;
       }
       const response = await fetch(url);
       const result = await response.json();
