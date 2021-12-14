@@ -94,31 +94,19 @@ export default function Gifts() {
                   <div className="boutique-container_row-col col-12 col-sm-12 col-md-4 col-lg-3 col-xl-2">
                      <div className="boutique-container_row-col-computer d-none d-sm-none d-md-block d-lg-block">
                         <h3>Categorías</h3>
-                        {size(gifts) > 0 ? (
-                           <div>
-                              <CategoryRetail
-                                 categoryRetail={categoryRetail}
-                                 setCategory={setCategory}
-                                 query={query}
-                                 replace={replace}
-                              />
-                           </div>
-                        ) : (
-                           <p>No hay categorías</p>
-                        )}
+                        <CategoryRetail
+                           categoryRetail={categoryRetail}
+                           setCategory={setCategory}
+                           query={query}
+                           replace={replace}
+                        />
                         <h3>Tipo de Chocolate</h3>
-                        {size(gifts) > 0 ? (
-                           <div>
-                              <TypeChocolate
-                                 typeChocolate={typeChocolate}
-                                 setChocolate={setChocolate}
-                                 query={query}
-                                 replace={replace}
-                              />
-                           </div>
-                        ) : (
-                           <p>No hay chocolates</p>
-                        )}
+                        <TypeChocolate
+                           typeChocolate={typeChocolate}
+                           setChocolate={setChocolate}
+                           query={query}
+                           replace={replace}
+                        />
                      </div>
                   </div>
                   <div className="boutique-container_row-col-products col-12 col-sm-12 col-md-8 col-lg-9 col-xl-10">
