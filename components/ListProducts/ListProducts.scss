@@ -16,7 +16,7 @@
          .ribbon {
             &::before {
                position: absolute;
-               z-index: 998;
+               z-index: 900;
                top: -8px;
                left: -33px;
                display: block;
@@ -42,7 +42,7 @@
 
             i {
                position: absolute;
-               z-index: 999;
+               z-index: 901;
                top: 0;
                right: 9px;
                font-size: 1.5rem !important;
