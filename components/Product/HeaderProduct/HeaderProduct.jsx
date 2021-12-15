@@ -107,7 +107,7 @@ function Info({ product }) {
             />
          </div>
          <div className="header-product__delivery">
-            Entrega aproximada 2 días
+            Entrega aproximada 3 días
          </div>
          <div
             className="header-product__description"
