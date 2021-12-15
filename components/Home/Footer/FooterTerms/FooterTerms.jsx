@@ -10,7 +10,7 @@ export default function FooterTerms() {
          <div className="footer-terms-container container">
             <div className="footer-terms-container_content">
                <div className="footer-terms-container_content_left">
-                  <p className="m-0 pe-2">Xocobel SA DE CV</p>
+                  <p className="m-0 pe-1">Xocobel</p>
                   <Icon name="registered outline" />
                </div>
                <div className="footer-terms-container_content_right">
