@@ -91,8 +91,6 @@ function Product({ product, sizeImg }) {
       }
    }
 
-   console.log(imgUrl);
-
    return (
       <div className="list-products_row-col col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2">
          <div

@@ -15,10 +15,17 @@ import {
 } from '../../../api/favorite';
 
 export default function HeaderProduct({ product }) {
-   const imgUrl =
-      size(product.poster.formats) === 4
-         ? BASE_PATH + product.poster.formats.large.url
-         : BASE_PATH + product.poster.url;
+   let imgUrl = '';
+
+   if (product.poster === undefined) {
+      imgUrl = `/product-default.jpg`;
+   } else {
+      if (size(product.poster.formats) === 4) {
+         imgUrl = BASE_PATH + product.poster.formats.large.url;
+      } else {
+         imgUrl = BASE_PATH + product.poster.url;
+      }
+   }
 
    return (
       <div className="header-product row">

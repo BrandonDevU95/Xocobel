@@ -48,12 +48,7 @@ export default function SummaryCart({ products, reloadCart, setReloadCart }) {
                                  onClick={() => removeProduct(product.url)}
                               />
                               <Image
-                                 src={
-                                    size(product.poster.formats) === 4
-                                       ? BASE_PATH +
-                                         product.poster.formats.small.url
-                                       : BASE_PATH + product.poster.url
-                                 }
+                                 src={getUrlImage(product)}
                                  alt={product.title}
                                  onError={(e) => {
                                     e.target.onerror = null;
@@ -89,4 +84,16 @@ export default function SummaryCart({ products, reloadCart, setReloadCart }) {
          </div>
       </div>
    );
+}
+
+function getUrlImage(product) {
+   if (product.poster === undefined) {
+      return '/product-default.jpg';
+   } else {
+      if (size(product.poster.formats) === 4) {
+         return BASE_PATH + product.poster.formats.small.url;
+      } else {
+         return BASE_PATH + product.poster.url;
+      }
+   }
 }
