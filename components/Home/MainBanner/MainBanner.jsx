@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Button, Container, Image } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import { BASE_PATH } from '../../../utils/constants';
 import { getMainBannerApi } from '../../../api/sources';
+import { size } from 'lodash';
 const Catalogo = '/pdf/catalogo-navidad.pdf';
 
 export default function MainBanner() {
@@ -10,7 +11,9 @@ export default function MainBanner() {
    useEffect(() => {
       (async () => {
          const response = await getMainBannerApi();
-         setMainBanner(response[0].mainBanner[0]);
+         if (size(response) > 0) {
+            setMainBanner(response[0].mainBanner[0]);
+         }
       })();
    }, []);
 
