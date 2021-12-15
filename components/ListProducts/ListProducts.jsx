@@ -72,20 +72,26 @@ function Product({ product, sizeImg }) {
       }
    };
 
-   if (size(product?.poster?.formats) === 4) {
-      imgUrl =
-         sizeImg === 'large'
-            ? BASE_PATH + product.poster.formats.large.url
-            : sizeImg === 'medium'
-            ? BASE_PATH + product.poster.formats.medium.url
-            : sizeImg === 'small'
-            ? BASE_PATH + product.poster.formats.small.url
-            : sizeImg === 'thumbnail'
-            ? BASE_PATH + product.poster.formats.thumbnail.url
-            : '';
+   if (product.poster === undefined) {
+      imgUrl = `/product-default.jpg`;
    } else {
-      imgUrl = BASE_PATH + product?.poster?.url;
+      if (size(product.poster.formats) === 4) {
+         imgUrl =
+            sizeImg === 'large'
+               ? BASE_PATH + product.poster.formats.large.url
+               : sizeImg === 'medium'
+               ? BASE_PATH + product.poster.formats.medium.url
+               : sizeImg === 'small'
+               ? BASE_PATH + product.poster.formats.small.url
+               : sizeImg === 'thumbnail'
+               ? BASE_PATH + product.poster.formats.thumbnail.url
+               : '';
+      } else {
+         imgUrl = BASE_PATH + product.poster.url;
+      }
    }
+
+   console.log(imgUrl);
 
    return (
       <div className="list-products_row-col col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2">
