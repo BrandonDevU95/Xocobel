@@ -90,7 +90,8 @@ export default function Boutique() {
             limitPerPage,
             getStartItem()
          );
-         if (size(response) > 0) setProducts(response);
+         if (size(response) > 0 && response.statusCode !== 400)
+            setProducts(response);
          else setProducts([]);
       })();
    }, [query, category, chocolate, limitPerPage]);

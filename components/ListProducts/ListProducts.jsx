@@ -34,7 +34,7 @@ export default function ListProducts({
 }
 
 function Product({ product, sizeImg }) {
-   let imgUrl;
+   let imgUrl = '';
    const { auth, logout } = useAuth();
    const [loading, setLoading] = useState(false);
    const [isFavorite, setIsFavorite] = useState(false);
@@ -72,7 +72,7 @@ function Product({ product, sizeImg }) {
       }
    };
 
-   if (size(product.poster.formats) === 4) {
+   if (size(product?.poster?.formats) === 4) {
       imgUrl =
          sizeImg === 'large'
             ? BASE_PATH + product.poster.formats.large.url
@@ -84,7 +84,7 @@ function Product({ product, sizeImg }) {
             ? BASE_PATH + product.poster.formats.thumbnail.url
             : '';
    } else {
-      imgUrl = BASE_PATH + product.poster.url;
+      imgUrl = BASE_PATH + product?.poster?.url;
    }
 
    return (
