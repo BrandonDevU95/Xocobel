@@ -51,7 +51,7 @@ function Info({ product }) {
    const { auth, logout } = useAuth();
    const { addProductCart } = useCart();
    const [loading, setLoading] = useState(false);
-   const [amount, setAmount] = useState(product.stock >= 1 ? 1 : 0);
+   const [amount, setAmount] = useState(1);
    const [isFavorite, setIsFavorite] = useState(false);
    const [reloadFavorite, setReloadFavorite] = useState(false);
 
@@ -85,7 +85,7 @@ function Info({ product }) {
    };
 
    const handleMore = () => {
-      if (amount < product.stock) setAmount(amount + 1);
+      setAmount(amount + 1);
    };
 
    const handleLess = () => {
@@ -96,7 +96,6 @@ function Info({ product }) {
       <>
          <div className="header-product__title">
             <h6>{product.title}</h6>
-            <p>Existencia: {product.stock}</p>
             <Icon
                name={isFavorite ? 'heart' : 'heart outline'}
                className={classNames({
@@ -127,7 +126,6 @@ function Info({ product }) {
                <input disabled value={amount} />
                <Button
                   type="button"
-                  disabled={amount === product.stock}
                   onClick={handleMore}
                   className="header-product__amount-more"
                >
