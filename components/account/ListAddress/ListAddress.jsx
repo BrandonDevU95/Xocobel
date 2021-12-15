@@ -25,7 +25,22 @@ export default function ListAddress({
    return (
       <div className="list-address">
          {size(addresses) === 0 ? (
-            <h3>No hay direcciones</h3>
+            <>
+               <h3>No hay direcciones</h3>
+               <Grid>
+                  <Grid.Column mobile={16} tablet={8} computer={4}>
+                     <div
+                        className="add-address"
+                        onClick={() => openModal('Agregar dirección')}
+                     >
+                        <Menu.Item as="a">
+                           <Icon name="plus" />
+                           <p>Agregar dirección</p>
+                        </Menu.Item>
+                     </div>
+                  </Grid.Column>
+               </Grid>
+            </>
          ) : (
             <Grid>
                {map(addresses, (address) => (
