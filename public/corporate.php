@@ -10,7 +10,7 @@ $people = $_POST['people'];
 $date = $_POST['date'];
 $message = $_POST['message'];
 
-$destinatario = "xocobel@brandonvargas.com.mx";
+$destinatario = "contacto@xocobel.com";
 $asunto = "Presupuesto para" . " " . $subject;
 $carta = "De: $name \n";
 $carta .= "Correo: $email \n";

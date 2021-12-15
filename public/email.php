@@ -6,7 +6,7 @@ $phone = $_POST['phone'];
 $subject = $_POST['subject'];
 $message = $_POST['content'];
 
-$destinatario = "xocobel@brandonvargas.com.mx";
+$destinatario = "contacto@xocobel.com";
 $asunto = "Contacto" . " " . $subject;
 $carta = "De: $name \n";
 $carta .= "Correo: $email \n";
