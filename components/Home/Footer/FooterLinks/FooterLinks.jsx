@@ -92,7 +92,7 @@ export default function FooterLinks() {
                      <h3>Servicio al Cliente</h3>
                      <ul>
                         <li>
-                           <a href="#contact">Contacto</a>
+                           <a href="/#contact">Contacto</a>
                         </li>
                      </ul>
                   </div>
