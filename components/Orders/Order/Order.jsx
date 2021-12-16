@@ -18,10 +18,17 @@ export default function Order({
    },
 }) {
    const [showModal, setShowModal] = useState(false);
-   const imageUrl =
-      size(poster.formats) === 4
-         ? BASE_PATH + poster.formats.thumbnail.url
-         : BASE_PATH + poster.url;
+   let imageUrl = '';
+
+   if (poster === undefined) {
+      imageUrl = '/product-default.jpg';
+   } else {
+      if (size(product.poster.formats) === 4) {
+         imageUrl = BASE_PATH + poster.formats.thumbnail.url;
+      } else {
+         imageUrl = BASE_PATH + poster.url;
+      }
+   }
 
    return (
       <>
