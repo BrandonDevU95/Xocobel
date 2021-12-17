@@ -1,0 +1,43 @@
+.billing {
+   .title {
+      width: max-content;
+      background-color: $background-cocoa;
+      color: $font-white;
+      padding: 5px 10px;
+      border-radius: 5px 5px 0 0;
+   }
+
+   .data {
+      background-color: $background-grey-marmol;
+      box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.1);
+      padding: 15px;
+   }
+
+   .form-check-label {
+      font-size: 18px !important;
+   }
+
+   .form-check-input {
+      width: 1.3rem !important;
+      height: 1.3rem !important;
+   }
+
+   .ui.button.primary {
+      font-family: 'Open Sans', Helvetica, sans-serif;
+      background-color: transparent;
+      border: 1px solid $background-chocolate;
+      color: $font-chocolate;
+
+      &:hover {
+         background-color: $background-chocolate !important;
+         color: $font-white !important;
+      }
+
+      &:focus {
+         background-color: $background-honey !important;
+         color: $font-marmol !important;
+         border-radius: 0 !important;
+         border: none !important;
+      }
+   }
+}

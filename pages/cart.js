@@ -7,6 +7,7 @@ import ShippingAddress from '../components/Cart/ShippingAddress';
 import Payment from '../components/Cart/Payment';
 import Seo from '../components/Seo';
 import { Container } from 'semantic-ui-react';
+import Billing from '../components/Cart/Billing';
 
 export default function Cart() {
    const { getProductsCart } = useCart();
@@ -78,6 +79,7 @@ function FullCart({ products }) {
                   setReloadCart={setReloadCart}
                />
                <ShippingAddress setAddress={setAddress} />
+               <Billing />
                {address && (
                   <Payment
                      products={productsData}
