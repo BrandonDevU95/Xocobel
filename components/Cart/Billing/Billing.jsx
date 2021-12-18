@@ -11,7 +11,7 @@ export default function Billing({ bill, setBill, setBillData, address }) {
    const formik = useFormik({
       initialValues: initialValues(address),
       validationSchema: Yup.object(validationSchema()),
-      onSubmit: () => {
+      onSubmit: (formData) => {
          if (disabled) {
             setDisabled(false);
             setBill(true);
@@ -19,9 +19,7 @@ export default function Billing({ bill, setBill, setBillData, address }) {
             setLoading(true);
             setDisabled(true);
             setBill(false);
-            const form = document.getElementById('formBill');
-            const data = new FormData(form);
-            setBillData(data);
+            setBillData(formData);
             setLoading(false);
          }
       },
@@ -55,7 +53,6 @@ export default function Billing({ bill, setBill, setBillData, address }) {
                      <div className="py-3">
                         <Form
                            className="address-form"
-                           id="formBill"
                            onSubmit={formik.handleSubmit}
                         >
                            <Form.Group widths="equal">

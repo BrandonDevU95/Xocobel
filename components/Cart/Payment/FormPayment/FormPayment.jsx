@@ -59,11 +59,11 @@ export default function FormPayment({ products, address, billData }) {
                toast.success('Pago realizado con éxito');
                clearProductsCart();
                if (billData !== null) {
+                  console.log(response);
                   fetch('/bill.php', {
                      method: 'POST',
-                     body: billData,
+                     body: JSON.stringify(billData),
                   });
-                  toast.success('Factura enviada!');
                }
                router.push('/orders');
                setLoading(false);

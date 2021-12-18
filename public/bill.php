@@ -1,25 +1,18 @@
 <?php
-header("Content-Type: text/html;charset=utf-8");
-$name = $_POST['name'];
-$address = $_POST['address'];
-$city = $_POST['city'];
-$state = $_POST['state'];
-$postalCode = $_POST['postalCode'];
-$phone = $_POST['phone'];
-$email = $_POST['email'];
-$rfc = $_POST['rfc'];
+header("Content-Type: application/json");
+$data = json_decode(file_get_contents("php://input"));
 
 $destinatario = "facturacion@xocobel.com";
-$asunto = "Factura" . " " . $rfc;
+$asunto = "Factura" . " " . $data->rfc;
 
-$carta = "Nombre: $name \n";
-$carta .= "Dirección: $address \n";
-$carta .= "Ciudad: $city \n";
-$carta .= "Estado: $state \n";
-$carta .= "Codigo Postal: $postalCode \n";
-$carta .= "Teléfono: $phone \n";
-$carta .= "Correo: $email \n";
-$carta .= "RFC: $rfc";
+$carta = "Nombre: $data->name \n";
+$carta .= "Dirección: $data->address \n";
+$carta .= "Ciudad: $data->city \n";
+$carta .= "Estado: $data->state \n";
+$carta .= "Codigo Postal: $data->postalCode \n";
+$carta .= "Teléfono: $data->phone \n";
+$carta .= "Correo: $data->email \n";
+$carta .= "RFC: $data->rfc";
 
 //Enviando mensaje
 mail($destinatario, $asunto, $carta);
