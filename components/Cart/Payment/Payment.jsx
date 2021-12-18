@@ -5,7 +5,7 @@ import FormPayment from './FormPayment';
 
 const stripePromise = loadStripe(STRIPE_TOKEN);
 
-export default function Payment({ products, address, setReloadCart }) {
+export default function Payment({ products, address, billData }) {
    return (
       <div className="payment py-4">
          <div className="title">Pago</div>
@@ -14,7 +14,7 @@ export default function Payment({ products, address, setReloadCart }) {
                <FormPayment
                   products={products}
                   address={address}
-                  setReloadCart={setReloadCart}
+                  billData={billData}
                />
             </Elements>
          </div>

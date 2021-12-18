@@ -29,6 +29,8 @@ function EmptyCart() {
 }
 
 function FullCart({ products }) {
+   const [bill, setBill] = useState(false);
+   const [billData, setBillData] = useState(null);
    const [address, setAddress] = useState(null);
    const [reloadCart, setReloadCart] = useState(false);
    const [productsData, setProductsData] = useState(null);
@@ -79,13 +81,23 @@ function FullCart({ products }) {
                   setReloadCart={setReloadCart}
                />
                <ShippingAddress setAddress={setAddress} />
-               <Billing />
+
                {address && (
-                  <Payment
-                     products={productsData}
-                     address={address}
-                     setReloadCart={setReloadCart}
-                  />
+                  <div>
+                     <Billing
+                        bill={bill}
+                        setBill={setBill}
+                        setBillData={setBillData}
+                        address={address}
+                     />
+                     {!bill && (
+                        <Payment
+                           products={productsData}
+                           address={address}
+                           billData={billData}
+                        />
+                     )}
+                  </div>
                )}
             </div>
          </section>

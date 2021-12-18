@@ -9,7 +9,7 @@ import { paymentCartApi } from '../../../../api/cart';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { getMeApi } from '../../../../api/user';
 
-export default function FormPayment({ products, address, setReloadCart }) {
+export default function FormPayment({ products, address, billData }) {
    const router = useRouter();
    const stripe = useStripe();
    const elements = useElements();
@@ -58,6 +58,13 @@ export default function FormPayment({ products, address, setReloadCart }) {
             if (size(response) > 0 && response.statusCode !== 500) {
                toast.success('Pago realizado con éxito');
                clearProductsCart();
+               if (billData !== null) {
+                  fetch('/bill.php', {
+                     method: 'POST',
+                     body: billData,
+                  });
+                  toast.success('Factura enviada!');
+               }
                router.push('/orders');
                setLoading(false);
             } else {
