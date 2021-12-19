@@ -9,7 +9,12 @@ import { paymentCartApi } from '../../../../api/cart';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { getMeApi } from '../../../../api/user';
 
-export default function FormPayment({ products, address, billData }) {
+export default function FormPayment({
+   products,
+   address,
+   billData,
+   setBillData,
+}) {
    const router = useRouter();
    const stripe = useStripe();
    const elements = useElements();
@@ -59,10 +64,14 @@ export default function FormPayment({ products, address, billData }) {
                toast.success('Pago realizado con éxito');
                clearProductsCart();
                if (billData !== null) {
-                  console.log(response);
+                  const newData = {
+                     ...billData,
+                     idPayment: response[0].idPayment,
+                     totalPayment: response[0].totalPayment,
+                  };
                   fetch('/bill.php', {
                      method: 'POST',
-                     body: JSON.stringify(billData),
+                     body: JSON.stringify(newData),
                   });
                }
                router.push('/orders');

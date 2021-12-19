@@ -95,6 +95,7 @@ function FullCart({ products }) {
                            products={productsData}
                            address={address}
                            billData={billData}
+                           setBillData={setBillData}
                         />
                      )}
                   </div>

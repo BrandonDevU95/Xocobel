@@ -12,7 +12,9 @@ $carta .= "Estado: $data->state \n";
 $carta .= "Codigo Postal: $data->postalCode \n";
 $carta .= "Teléfono: $data->phone \n";
 $carta .= "Correo: $data->email \n";
-$carta .= "RFC: $data->rfc";
+$carta .= "RFC: $data->rfc \n";
+$carta .= "ID Pago: $data->idPayment \n";
+$carta .= "Total: $data->totalPayment";
 
 //Enviando mensaje
 mail($destinatario, $asunto, $carta);
