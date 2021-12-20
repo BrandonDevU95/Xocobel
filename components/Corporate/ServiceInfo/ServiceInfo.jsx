@@ -218,7 +218,7 @@ function FormModal({ formik, loading, captcha, reCaptcha, onChange }) {
          <div className="col-12 col-lg-6 py-4 px-0">
             <ReCAPTCHA
                ref={captcha}
-               sitekey="6LfMuTgcAAAAAPdXT-cFCeby2oFeeJxakbjAPQ_3"
+               sitekey="6Ld1brUdAAAAAEbYAouhReioKeSYVrZ3Dl4MOpMp"
                onChange={onChange}
             />
             {reCaptcha === false && (
