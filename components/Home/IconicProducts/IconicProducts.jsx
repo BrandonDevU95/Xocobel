@@ -8,7 +8,7 @@ export default function IconicProducts() {
             <div className="iconic-products_container_row row">
                <div className="iconic-products_container_row-col col-md-12 col-lg-6">
                   <div className="iconic-products_container_row-col-content">
-                     <Image src="/Popular1.jpeg" fluid alt="Product 1" />
+                     <Image src="/Popular1.jpg" fluid alt="Product 1" />
                      <div className="iconic-products_container_row-col-content-description">
                         <p>Chocolate</p>
                         <p>Con leche</p>
@@ -29,7 +29,12 @@ export default function IconicProducts() {
                      </div>
                   </div>
                   <div className="iconic-products_container_row-col-content">
-                     <Image src="/Popular2.jpeg" fluid alt="Product 2" />
+                     <Image
+                        src="/Popular2.jpg"
+                        fluid
+                        alt="Product 2"
+                        className="pt-3"
+                     />
                      <div className="iconic-products_container_row-col-content-description">
                         <p>Chocolate</p>
                         <p>Blanco</p>
@@ -52,7 +57,12 @@ export default function IconicProducts() {
                </div>
                <div className="iconic-products_container_row-col col-md-12 col-lg-6">
                   <div className="iconic-products_container_row-col-content">
-                     <Image src="/Popular3.jpeg" fluid alt="Product 3" />
+                     <Image
+                        src="/Popular3.jpg"
+                        fluid
+                        alt="Product 3"
+                        className="iconic-products_container_row-col-content-semi"
+                     />
                      <div className="iconic-products_container_row-col-content-description">
                         <p>Chocolate</p>
                         <p>Semiamargo</p>

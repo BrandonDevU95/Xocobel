@@ -14,9 +14,14 @@
 
             &-content {
                position: relative;
+               height: 100%;
 
                @media (max-width: 992px) {
                   padding: 1rem;
+               }
+
+               .ui.fluid.image {
+                  height: 100% !important;
                }
 
                &-description {
@@ -32,7 +37,7 @@
                   p {
                      font-family: 'Valencia', Helvetica, sans-serif;
                      font-size: 2.8rem;
-                     color: $font-chocolate;
+                     color: $font-marmol;
                      margin: 0;
 
                      @media (max-width: 768px) {
@@ -59,8 +64,8 @@
                      .ui.button.primary {
                         font-family: 'Open Sans', Helvetica, sans-serif;
                         background-color: transparent;
-                        border: 1px solid $background-chocolate;
-                        color: $font-chocolate;
+                        border: 1px solid $background-marmol;
+                        color: $font-marmol;
                         font-size: 18px;
                         padding-left: 4rem;
                         padding-right: 4rem;
@@ -73,8 +78,9 @@
                         }
 
                         &:hover {
+                           color: $font-marmol !important;
                            background-color: $background-chocolate !important;
-                           color: $font-white !important;
+                           border: 1px solid $background-chocolate !important;
                         }
 
                         &:focus {
@@ -99,9 +105,9 @@
 
                      .ui.button.primary {
                         font-family: 'Open Sans', Helvetica, sans-serif;
-                        background-color: $background-chocolate;
-                        border: 1px solid $background-chocolate;
-                        color: $font-white;
+                        background-color: $background-marmol;
+                        border: 1px solid $background-marmol;
+                        color: $font-chocolate;
                         font-size: 18px;
                         padding-left: 4rem;
                         padding-right: 4rem;
@@ -114,8 +120,9 @@
                         }
 
                         &:hover {
-                           background-color: transparent !important;
-                           color: $font-chocolate !important;
+                           color: $font-marmol !important;
+                           background-color: $background-chocolate !important;
+                           border: 1px solid $background-chocolate !important;
                         }
 
                         &:focus {
