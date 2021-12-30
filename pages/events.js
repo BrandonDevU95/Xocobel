@@ -21,7 +21,7 @@ export default function Events() {
             <div className="events-container container">
                <div className="events-container_row row">
                   <div className="events-container_row-col col-12 col-lg-6 order-2 order-lg-1">
-                     <Image src="/events-banner.jpeg" alt="Events Banner" />
+                     <Image src="/events-banner.jpg" alt="Events Banner" />
                   </div>
                   <div className="events-container_row-col col-12 col-lg-6 order-1 order-lg-2">
                      <div className="events-container_row-col-description">
