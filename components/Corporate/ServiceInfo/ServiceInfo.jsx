@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { toast } from 'react-toastify';
 import BasicModal from '../../Modal/BasicModal';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { Button, Form, Image } from 'semantic-ui-react';
+import { Button, Form, Image, Icon } from 'semantic-ui-react';
 
 export default function ServiceInfo() {
    const captcha = useRef(null);
@@ -52,14 +52,34 @@ export default function ServiceInfo() {
                <div className="col-12  col-lg-6">
                   <div className="service-info-container_info">
                      <h2>Servicios Corporativos</h2>
-                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Sed exercitationem quaerat cupiditate amet non delectus
-                        est suscipit reiciendis magni repellat incidunt, vel
-                        inventore alias beatae, blanditiis eius dolore illo
-                        corrupti. Beatae dicta ratione perspiciatis qui, odio
-                        deserunt et praesentium quia?
-                     </p>
+                     <div>
+                        <div className="d-flex align-items-center">
+                           <Icon name="circle" size="mini" />
+                           <p className="p-0">Equipo comercial</p>
+                        </div>
+                        <p>
+                           Todo nuestro equipo está a su disposición para
+                           acompañarle en su proyecto.
+                        </p>
+                     </div>
+                     <div>
+                        <div className="d-flex align-items-center">
+                           <Icon name="circle" size="mini" />
+                           <p className="p-0">Entrega</p>
+                        </div>
+                        <p>Hacemos entregas en todo México.</p>
+                     </div>
+                     <div>
+                        <div className="d-flex align-items-center">
+                           <Icon name="circle" size="mini" />
+                           <p className="p-0">Personalización</p>
+                        </div>
+                        <p>
+                           Estuches, empaques y tarjetas personalizadas,
+                           proyectos a la medida, cuidando hasta el mas mínimo
+                           detalle.
+                        </p>
+                     </div>
                      <Button as="a" href="/corporate#contact" basic>
                         Contáctanos
                      </Button>
