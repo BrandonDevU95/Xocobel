@@ -56,16 +56,28 @@ function SliderEvents({ settings }) {
    return (
       <Slider {...settings}>
          <div>
-            <Image src="/events-slide-1.jpeg" alt="Events Slide 1" />
+            <Image src="/events-slide-1.jpg" alt="Events Slide 1" />
          </div>
          <div>
-            <Image src="/events-slide-2.jpeg" alt="Events Slide 2" />
+            <Image src="/events-slide-2.jpg" alt="Events Slide 2" />
          </div>
          <div>
-            <Image src="/events-slide-3.jpeg" alt="Events Slide 3" />
+            <Image src="/events-slide-3.jpg" alt="Events Slide 3" />
          </div>
          <div>
-            <Image src="/events-slide-4.jpeg" alt="Events Slide 4" />
+            <Image src="/events-slide-4.jpg" alt="Events Slide 4" />
+         </div>
+         <div>
+            <Image src="/events-slide-5.jpg" alt="Events Slide 4" />
+         </div>
+         <div>
+            <Image src="/events-slide-6.jpg" alt="Events Slide 4" />
+         </div>
+         <div>
+            <Image src="/events-slide-7.jpg" alt="Events Slide 4" />
+         </div>
+         <div>
+            <Image src="/events-slide-8.jpg" alt="Events Slide 4" />
          </div>
       </Slider>
    );
