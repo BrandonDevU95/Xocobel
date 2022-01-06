@@ -12,7 +12,7 @@ export default function Catalogs() {
                         alt="catalogo-navideño"
                         fluid
                      />
-                     <h3 className="h4">Catálogo Navideño</h3>
+                     <h3 className="h4 pt-4">Catálogo Navideño</h3>
                      <Button
                         as="a"
                         href="/pdf/catalogo-navidad.pdf"
@@ -31,7 +31,7 @@ export default function Catalogs() {
                         alt="catalogo-empresas"
                         fluid
                      />
-                     <h3 className="h4">Regalos Corporativos</h3>
+                     <h3 className="h4 pt-4">Regalos Corporativos</h3>
                      <Button
                         as="a"
                         href="/corporate#contact"
@@ -49,7 +49,7 @@ export default function Catalogs() {
                         alt="catalogo-personalizado"
                         fluid
                      />
-                     <h3 className="h4">Proyectos Personalizados</h3>
+                     <h3 className="h4 pt-4">Proyectos Personalizados</h3>
                      <Button
                         as="a"
                         href="/corporate#contact"
