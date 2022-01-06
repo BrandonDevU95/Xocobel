@@ -8,14 +8,14 @@ export default function MainBanner() {
                      <div className="main-banner-corporate_banner-container_row-col-title">
                         <h1>Regalos de Empresa</h1>
                         <p>
-                           Lorem esse consequat amet ullamco sint ullamco
-                           consequat in amet dolor consectetur sit duis ex. Id
-                           incididunt mollit amet sint elit ex do consequat quis
-                           laboris ea. Culpa irure qui aliqua irure mollit amet
-                           excepteur adipisicing culpa pariatur ipsum laborum.
-                           Magna sint duis id qui Lorem elit ad laboris enim id.
-                           Aliquip nisi aliquip nisi fugiat aute est laborum
-                           irure proident fugiat.
+                           Todas nuestras creaciones ofrecen múltiples
+                           posibilidades para hacer el regalo de empresa ideal,
+                           ya sea para dar las gracias a sus clientes, motivar a
+                           sus equipos, celebrar o simplemente alegrar el día.
+                        </p>
+                        <p>
+                           Desde pequeños detalles hasta arreglos excepcionales,
+                           contamos con una amplia gama de regalos para ofrecer.
                         </p>
                      </div>
                   </div>
