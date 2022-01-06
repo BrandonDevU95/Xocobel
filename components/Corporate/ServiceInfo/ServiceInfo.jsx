@@ -97,12 +97,11 @@ export default function ServiceInfo() {
                   <div className="service-info-container_info">
                      <h2>Solicite un Presupuesto</h2>
                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Sed exercitationem quaerat cupiditate amet non delectus
-                        est suscipit reiciendis magni repellat incidunt, vel
-                        inventore alias beatae, blanditiis eius dolore illo
-                        corrupti. Beatae dicta ratione perspiciatis qui, odio
-                        deserunt et praesentium quia?
+                        ¿Tiene algún proyecto en mente? por favor no dude en
+                        contactarnos.
+                     </p>
+                     <p>
+                        Nuestro equipo comercial le responderá a la brevedad.
                      </p>
                      <Button
                         basic
