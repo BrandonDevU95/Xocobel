@@ -8,7 +8,7 @@ export default function Catalogs() {
                <div className="col-12 col-md-6 col-lg-4">
                   <div className="catalogs-container_catalog">
                      <Image
-                        src="/catalogo-navideno.jpeg"
+                        src="/catalogo-navideno.jpg"
                         alt="catalogo-navideño"
                         fluid
                      />
@@ -27,7 +27,7 @@ export default function Catalogs() {
                <div className="col-12 col-md-6 col-lg-4">
                   <div className="catalogs-container_catalog">
                      <Image
-                        src="/catalogo-empresas.jpeg"
+                        src="/catalogo-empresas.jpg"
                         alt="catalogo-empresas"
                         fluid
                      />
@@ -45,7 +45,7 @@ export default function Catalogs() {
                <div className="col-12 col-md-6 col-lg-4">
                   <div className="catalogs-container_catalog">
                      <Image
-                        src="/catalogo-personalizado.jpeg"
+                        src="/catalogo-personalizado.jpg"
                         alt="catalogo-personalizado"
                         fluid
                      />

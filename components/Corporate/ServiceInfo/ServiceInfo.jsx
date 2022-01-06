@@ -51,7 +51,7 @@ export default function ServiceInfo() {
             <div className="row">
                <div className="col-12  col-lg-6">
                   <div className="service-info-container_info">
-                     <h2>Servicios Corporativos</h2>
+                     <h2>Nuestros Servicios</h2>
                      <div>
                         <div className="d-flex align-items-center">
                            <Icon name="circle" size="mini" />
@@ -86,12 +86,12 @@ export default function ServiceInfo() {
                   </div>
                </div>
                <div className="col-12 col-lg-6">
-                  <Image src="/service-info-1.jpeg" fluid alt="service-info" />
+                  <Image src="/service-info-1.jpg" fluid alt="service-info" />
                </div>
             </div>
             <div className="row">
                <div className="col-12 col-lg-6 order-2 order-sm-2 order-md-2 order-lg-1">
-                  <Image src="/service-info-2.jpeg" fluid alt="service-info" />
+                  <Image src="/service-info-2.jpg" fluid alt="service-info" />
                </div>
                <div className="col-12 col-lg-6 order-1 order-sm-1 order-md-1 order-lg-2">
                   <div className="service-info-container_info">
