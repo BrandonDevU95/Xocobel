@@ -29,7 +29,7 @@ export default function HeaderProduct({ product }) {
 
    return (
       <div className="header-product row">
-         <div className="col-12 col-md-4 col-lg-4 order-2 order-md-1 order-lg-1">
+         <div className="col-12 col-md-4 col-lg-5 order-2 order-md-1 order-lg-1">
             <Image
                src={imgUrl}
                alt={product.title}
@@ -46,7 +46,7 @@ export default function HeaderProduct({ product }) {
                />
             )}
          </div>
-         <div className="col-12 col-md-8 col-lg-8 order-1 order-md-2 order-lg-2">
+         <div className="col-12 col-md-8 col-lg-7 order-1 order-md-2 order-lg-2">
             <Info product={product} />
             <TabsProduct product={product} />
          </div>
