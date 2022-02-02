@@ -74,6 +74,12 @@
                   position: relative;
                   min-height: 170px;
 
+                  .ui.image {
+                     height: 170px !important;
+                     object-fit: cover;
+                     border-radius: 0 0 8px 8px;
+                  }
+
                   &-info {
                      position: absolute;
                      width: 100%;
