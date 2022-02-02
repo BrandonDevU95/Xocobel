@@ -4,6 +4,11 @@
    .slick-slide {
       padding: 5px;
 
+      .ui.image {
+         border: 1px solid #7b7d7d;
+         padding: 10px;
+      }
+
       .ui.image:hover {
          cursor: pointer !important;
          opacity: 0.8;

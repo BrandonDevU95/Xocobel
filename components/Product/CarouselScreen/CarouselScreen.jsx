@@ -34,16 +34,12 @@ export default function CarouselScreen({ title, screenShots }) {
                      size(screenShot.formats) === 4
                         ? BASE_PATH + screenShot.formats.small.url
                         : BASE_PATH + screenShot.url),
-                  (imageUrlOpen =
-                     size(screenShot.formats) === 4
-                        ? BASE_PATH + screenShot.formats.large.url
-                        : BASE_PATH + screenShot.url),
                   (
                      <Image
                         key={screenShot.id}
                         src={imageUrl}
                         alt={screenShot.name}
-                        onClick={() => openImage(imageUrlOpen)}
+                        onClick={() => openImage(BASE_PATH + screenShot.url)}
                         onError={(e) => {
                            e.target.onerror = null;
                            e.target.src = '/product-default.jpg';
