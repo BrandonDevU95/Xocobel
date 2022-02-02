@@ -43,6 +43,7 @@ export default function HeaderProduct({ product }) {
                <CarouselScreen
                   title={product.title}
                   screenShots={product.galery}
+                  propBorder="bordeCarousel"
                />
             )}
          </div>

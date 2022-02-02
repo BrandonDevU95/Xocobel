@@ -5,11 +5,10 @@ import { Image } from 'semantic-ui-react';
 import BasicModal from '../../../components/Modal/BasicModal';
 import { BASE_PATH } from '../../../utils/constants';
 
-export default function CarouselScreen({ title, screenShots }) {
+export default function CarouselScreen({ title, screenShots, propBorder }) {
    const [showModal, setShowModal] = useState(false);
    const [urlImage, setUrlImage] = useState(null);
    let imageUrl;
-   let imageUrlOpen;
 
    const openImage = (url) => {
       setUrlImage(url);
@@ -38,6 +37,7 @@ export default function CarouselScreen({ title, screenShots }) {
                      <Image
                         key={screenShot.id}
                         src={imageUrl}
+                        className={propBorder}
                         alt={screenShot.name}
                         onClick={() => openImage(BASE_PATH + screenShot.url)}
                         onError={(e) => {
