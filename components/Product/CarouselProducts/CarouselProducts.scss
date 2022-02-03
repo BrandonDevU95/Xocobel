@@ -33,7 +33,6 @@
    }
 
    &_product {
-      padding: 10px;
       position: relative;
 
       &:hover {
@@ -58,6 +57,12 @@
       &__product {
          &-poster {
             position: relative;
+
+            .ui.image {
+               height: 170px !important;
+               object-fit: cover;
+               border-radius: 0 0 8px 8px;
+            }
 
             &-info {
                position: absolute;
