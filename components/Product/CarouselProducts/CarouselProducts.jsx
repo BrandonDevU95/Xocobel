@@ -44,7 +44,7 @@ export default function CarouselProducts({ products }) {
 
    return (
       <div className="carousel-products container">
-         <h2>Recomendados</h2>
+         <h2>Productos Recomendados</h2>
          <Slider {...settings}>
             {map(products, (product) => (
                <div
@@ -86,7 +86,7 @@ export default function CarouselProducts({ products }) {
                               <span className="price">${product.price}</span>
                            </div>
                         </div>
-                        <h2>{product.title}</h2>
+                        <h3>{product.title}</h3>
                      </a>
                   </Link>
                </div>
