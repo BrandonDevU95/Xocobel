@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import { Button } from 'semantic-ui-react';
-import { BASE_PATH } from '../../../utils/constants';
-import { getMainBannerApi } from '../../../api/sources';
-import { size } from 'lodash';
-const Catalogo = '/pdf/catalogo-navidad.pdf';
+import { useEffect, useState } from "react";
+import { Button } from "semantic-ui-react";
+import { BASE_PATH } from "../../../utils/constants";
+import { getMainBannerApi } from "../../../api/sources";
+import { size } from "lodash";
+import { CATALOGO } from "../../../utils/constants";
 
 export default function MainBanner() {
    const [mainBanner, setMainBanner] = useState(undefined);
@@ -30,7 +30,7 @@ export default function MainBanner() {
                <div className="main-banner_container-content_btn">
                   <Button
                      as="a"
-                     href={Catalogo}
+                     href={CATALOGO}
                      target="_blank"
                      size="big"
                      primary

@@ -1,4 +1,5 @@
-import { Button, Image } from 'semantic-ui-react';
+import { Button, Image } from "semantic-ui-react";
+import { CATALOGO } from "../../../utils/constants";
 
 export default function Catalogs() {
    return (
@@ -8,14 +9,14 @@ export default function Catalogs() {
                <div className="col-12 col-md-6 col-lg-4">
                   <div className="catalogs-container_catalog">
                      <Image
-                        src="/catalogo-navideno.jpg"
-                        alt="catalogo-navideño"
+                        src="/catalogo-temporada.jpg"
+                        alt="catalogo-temporada"
                         fluid
                      />
-                     <h3 className="h4 pt-4">Catálogo Navideño</h3>
+                     <h3 className="h4 pt-4">Catálogo San Valentín</h3>
                      <Button
                         as="a"
-                        href="/pdf/catalogo-navidad.pdf"
+                        href={CATALOGO}
                         target="_blank"
                         basic
                         type="button"

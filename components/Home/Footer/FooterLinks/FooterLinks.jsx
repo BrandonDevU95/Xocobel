@@ -1,5 +1,6 @@
-import Link from 'next/link';
-import { Container, Grid, Icon, Image } from 'semantic-ui-react';
+import Link from "next/link";
+import { CATALOGO } from "../../../../utils/constants";
+import { Container, Grid, Icon, Image } from "semantic-ui-react";
 
 export default function FooterLinks() {
    // TOOD: traer de la base de datos
@@ -21,8 +22,8 @@ export default function FooterLinks() {
                         <li>
                            <Link
                               href={{
-                                 pathname: '/boutique',
-                                 query: { type: 'chocolate-semiamargo' },
+                                 pathname: "/boutique",
+                                 query: { type: "chocolate-semiamargo" },
                               }}
                            >
                               <a>Chocolate Semiamargo</a>
@@ -31,8 +32,8 @@ export default function FooterLinks() {
                         <li>
                            <Link
                               href={{
-                                 pathname: '/boutique',
-                                 query: { type: 'chocolate-con-leche' },
+                                 pathname: "/boutique",
+                                 query: { type: "chocolate-con-leche" },
                               }}
                            >
                               <a>Chocolate con Leche</a>
@@ -41,8 +42,8 @@ export default function FooterLinks() {
                         <li>
                            <Link
                               href={{
-                                 pathname: '/boutique',
-                                 query: { type: 'chocolate-blanco' },
+                                 pathname: "/boutique",
+                                 query: { type: "chocolate-blanco" },
                               }}
                            >
                               <a>Chocolate Blanco</a>
@@ -64,8 +65,8 @@ export default function FooterLinks() {
                      <h3>Regalos</h3>
                      <ul>
                         <li>
-                           <a href="/pdf/catalogo-navidad.pdf" target="_blank">
-                              Navideños
+                           <a href={CATALOGO} target="_blank">
+                              San Valentín
                            </a>
                         </li>
                         <li>
@@ -81,9 +82,9 @@ export default function FooterLinks() {
                         <Icon name="truck" />
                         <Icon
                            name="shopping cart"
-                           style={{ marginLeft: '14px' }}
+                           style={{ marginLeft: "14px" }}
                         />
-                        <Icon name="tag" style={{ marginLeft: '14px' }} />
+                        <Icon name="tag" style={{ marginLeft: "14px" }} />
                      </div>
                   </div>
                </div>
