@@ -11,7 +11,7 @@ import PopularProducts from '../components/Home/PopularProducts';
 export default function Home() {
    return (
       <BasicLayout className="home">
-         <Seo title="XOCOBEL | LO MEJOR DEL CHOCOLATE" />
+         <Seo title="XOCOBEL | TODO EL SABOR EUROPEO DESDE 1987" />
          <MainBanner />
          <PopularProducts />
          <IconicProducts />
