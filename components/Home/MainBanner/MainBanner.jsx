@@ -12,7 +12,7 @@ export default function MainBanner() {
       (async () => {
          const response = await getMainBannerApi();
          if (size(response) > 0) {
-            setMainBanner(response[0].mainBanner[0]);
+            setMainBanner(response[0]);
          }
       })();
    }, []);
@@ -23,7 +23,10 @@ export default function MainBanner() {
       <section className="main-banner">
          <div className="main-banner_container container-fluid p-0">
             <div className="main-banner_container-content">
-               <img src={BASE_PATH + mainBanner.url} alt={mainBanner.name} />
+               <img
+                  src={BASE_PATH + mainBanner.mainBanner[0].url}
+                  alt={mainBanner.name}
+               />
                <div className="main-banner_container-content_btn">
                   <Button
                      as="a"
@@ -32,7 +35,7 @@ export default function MainBanner() {
                      size="big"
                      primary
                   >
-                     Catálogo Navideño 2021
+                     {mainBanner.name}
                   </Button>
                </div>
             </div>
