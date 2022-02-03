@@ -1,4 +1,5 @@
 .header-product {
+   margin-bottom: 8rem;
    &.ui.grid {
       margin: 0;
    }
@@ -44,7 +45,7 @@
       h6 {
          font-weight: bold;
          font-size: 1.6rem;
-         font-family: 'Valencia', Helvetica, sans-serif;
+         font-family: "Valencia", Helvetica, sans-serif;
 
          @media (max-width: 992px) {
             font-size: 1.4rem;
@@ -61,7 +62,7 @@
          font-size: 1.2rem;
          padding-top: 10px;
          color: $font-grey-marmol;
-         font-family: 'Open Sans';
+         font-family: "Open Sans";
          font-weight: lighter;
 
          @media (max-width: 992px) {
@@ -109,7 +110,7 @@
       color: $font-cocoa;
       text-align: justify;
       font-weight: bold;
-      font-family: 'Open Sans', Helvetica, sans-serif;
+      font-family: "Open Sans", Helvetica, sans-serif;
    }
 
    &__amount {
@@ -234,7 +235,7 @@
             -ms-transform: rotate(45deg) skew(15deg, 15deg);
             transform: rotate(45deg) skew(15deg, 15deg);
             background-color: #4b3424;
-            content: '';
+            content: "";
 
             @media (max-width: 576px) {
                top: 0px;
