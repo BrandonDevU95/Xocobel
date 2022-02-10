@@ -1,13 +1,13 @@
-import { size, forEach } from 'lodash';
-import { toast } from 'react-toastify';
-import { useRouter } from 'next/router';
-import { Button } from 'semantic-ui-react';
-import { useState, useEffect } from 'react';
-import useAuth from '../../../../hooks/useAuth';
-import useCart from '../../../../hooks/useCart';
-import { paymentCartApi } from '../../../../api/cart';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { getMeApi } from '../../../../api/user';
+import { size, forEach } from "lodash";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
+import { Button } from "semantic-ui-react";
+import { useState, useEffect } from "react";
+import useAuth from "../../../../hooks/useAuth";
+import useCart from "../../../../hooks/useCart";
+import { paymentCartApi } from "../../../../api/cart";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { getMeApi } from "../../../../api/user";
 
 export default function FormPayment({
    products,
@@ -42,7 +42,7 @@ export default function FormPayment({
    const handleSubmit = async (event) => {
       event.preventDefault();
       if (totalPrice <= 20) {
-         toast.warning('El monto minimo de compra es de $20');
+         toast.warning("El monto minimo de compra debe ser mayor a $20");
       } else {
          setLoading(true);
          if (!stripe && !elements) return null;
@@ -57,30 +57,21 @@ export default function FormPayment({
                result.token,
                products,
                address,
+               billData,
                user,
                logout
             );
             if (size(response) > 0 && response.statusCode !== 500) {
-               toast.success('Pago realizado con éxito');
+               toast.success("Pago realizado con éxito");
                clearProductsCart();
-               if (billData !== null) {
-                  const newData = {
-                     ...billData,
-                     idPayment: response[0].idPayment,
-                     totalPayment: response[0].totalPayment,
-                  };
-                  fetch('/bill.php', {
-                     method: 'POST',
-                     body: JSON.stringify(newData),
-                  });
-               }
-               router.push('/orders');
+               router.push("/orders");
                setLoading(false);
             } else {
-               toast.error('Error al realizar el pago');
+               toast.error("Error al realizar el pago");
             }
             setLoading(false);
          }
+         setLoading(false);
       }
    };
 

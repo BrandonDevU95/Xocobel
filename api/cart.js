@@ -1,7 +1,7 @@
-import { BASE_PATH, CART } from '../utils/constants';
-import { size, remove } from 'lodash';
-import { toast } from 'react-toastify';
-import { authFetch } from '../utils/fetch';
+import { BASE_PATH, CART } from "../utils/constants";
+import { size, remove } from "lodash";
+import { toast } from "react-toastify";
+import { authFetch } from "../utils/fetch";
 
 export function getProductsCart() {
    const cart = localStorage.getItem(CART);
@@ -28,15 +28,15 @@ export function addProductCart(product, amount = 1) {
 
    if (!cart) {
       localStorage.setItem(CART, JSON.stringify([{ product, amount }]));
-      toast.success('Producto añadido al carrito');
+      toast.success("Producto añadido al carrito");
    } else {
       const productFound = findCartProduct(product);
       if (productFound) {
-         toast.warning('Producto ya existe en el carrito');
+         toast.warning("Producto ya existe en el carrito");
       } else {
          cart.push({ product, amount });
          localStorage.setItem(CART, JSON.stringify(cart));
-         toast.success('Producto añadido al carrito');
+         toast.success("Producto añadido al carrito");
       }
    }
 }
@@ -62,7 +62,14 @@ export function removeProductCart(product) {
    }
 }
 
-export async function paymentCartApi(token, products, address, user, logout) {
+export async function paymentCartApi(
+   token,
+   products,
+   address,
+   billData,
+   user,
+   logout
+) {
    try {
       const addressShipping = address;
       delete addressShipping.user;
@@ -70,15 +77,16 @@ export async function paymentCartApi(token, products, address, user, logout) {
 
       const url = `${BASE_PATH}/orders`;
       const params = {
-         method: 'POST',
+         method: "POST",
          headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
          },
          body: JSON.stringify({
             token,
             products,
             addressShipping,
             user,
+            billData,
          }),
       };
       const result = await authFetch(url, params, logout);
