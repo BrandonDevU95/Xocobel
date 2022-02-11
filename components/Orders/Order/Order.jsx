@@ -1,11 +1,11 @@
-import Link from 'next/link';
-import { size } from 'lodash-es';
-import { useState } from 'react';
-import { Image, Icon } from 'semantic-ui-react';
-import BasicModal from '../../Modal/BasicModal';
-import { BASE_PATH } from '../../../utils/constants';
-import moment from 'moment';
-import 'moment/locale/es-mx';
+import Link from "next/link";
+import { size } from "lodash-es";
+import { useState } from "react";
+import { Image, Icon } from "semantic-ui-react";
+import BasicModal from "../../Modal/BasicModal";
+import { BASE_PATH } from "../../../utils/constants";
+import moment from "moment";
+import "moment/locale/es-mx";
 
 export default function Order({
    order: {
@@ -18,12 +18,12 @@ export default function Order({
    },
 }) {
    const [showModal, setShowModal] = useState(false);
-   let imageUrl = '';
+   let imageUrl = "";
 
    if (poster === undefined) {
-      imageUrl = '/product-default.jpg';
+      imageUrl = "/product-default.jpg";
    } else {
-      if (size(product.poster.formats) === 4) {
+      if (size(poster.formats) === 4) {
          imageUrl = BASE_PATH + poster.formats.thumbnail.url;
       } else {
          imageUrl = BASE_PATH + poster.url;
@@ -41,7 +41,7 @@ export default function Order({
                      className="pe-3"
                      onError={(e) => {
                         e.target.onerror = null;
-                        e.target.src = '/product-default.jpg';
+                        e.target.src = "/product-default.jpg";
                      }}
                   />
                   <div>
@@ -51,8 +51,8 @@ export default function Order({
                </div>
                <div className="order__info-other">
                   <p className="order__info-other-date">
-                     {moment(createdAt).format('L')} -{' '}
-                     {moment(createdAt).format('LT')}
+                     {moment(createdAt).format("L")} -{" "}
+                     {moment(createdAt).format("LT")}
                   </p>
                   <Icon
                      name="eye"
@@ -95,7 +95,7 @@ function AddressModal({
          <p>{addressShipping.name}</p>
          <p>{addressShipping.address}</p>
          <p>
-            {addressShipping.state}, {addressShipping.city}{' '}
+            {addressShipping.state}, {addressShipping.city}{" "}
             {addressShipping.postalCode}
          </p>
          <p>{addressShipping.phone}</p>
