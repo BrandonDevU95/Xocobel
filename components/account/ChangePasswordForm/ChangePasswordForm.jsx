@@ -1,9 +1,9 @@
-import * as Yup from 'yup';
-import { useState } from 'react';
-import { useFormik } from 'formik';
-import { toast } from 'react-toastify';
-import { Form, Button } from 'semantic-ui-react';
-import { updatePasswordApi } from '../../../api/user';
+import * as Yup from "yup";
+import { useState } from "react";
+import { useFormik } from "formik";
+import { toast } from "react-toastify";
+import { Form, Button } from "semantic-ui-react";
+import { updatePasswordApi } from "../../../api/user";
 
 export default function ChangePasswordForm({ user, logout }) {
    const [loading, setLoading] = useState(false);
@@ -19,10 +19,10 @@ export default function ChangePasswordForm({ user, logout }) {
             logout
          );
          if (!response) {
-            toast.error('Error al actualizar la contraseña');
+            toast.error("Error al actualizar la contraseña");
          } else {
             logout();
-            toast.success('Contraseña actualizada');
+            toast.success("Contraseña actualizada");
          }
          setLoading(false);
       },
@@ -60,8 +60,8 @@ export default function ChangePasswordForm({ user, logout }) {
 
 function initialValues() {
    return {
-      password: '',
-      repeatPassword: '',
+      password: "",
+      repeatPassword: "",
    };
 }
 
@@ -69,9 +69,9 @@ function validationSchema() {
    return {
       password: Yup.string()
          .required(true)
-         .oneOf([Yup.ref('repeatPassword')], 'El password no coincide'),
+         .oneOf([Yup.ref("repeatPassword")], "El password no coincide"),
       repeatPassword: Yup.string()
          .required(true)
-         .oneOf([Yup.ref('repeatPassword')], 'El password no coincide'),
+         .oneOf([Yup.ref("password")], "El password no coincide"),
    };
 }
