@@ -1,4 +1,4 @@
-import { BASE_PATH } from '../utils/constants';
+import { BASE_PATH } from "../utils/constants";
 
 export async function getCategoryRetailApi() {
    try {
@@ -19,15 +19,17 @@ export async function getTotalProductsCategoryApi(
    try {
       const filters =
          category && chocolate
-            ? `category_retail.url=${category}&types_chocolates.url=${chocolate}`
+            ? `category_retail.url=${category}&types_chocolates.url=${chocolate}&category_retail.available=true`
             : category
-            ? `category_retail.url=${category}`
+            ? `category_retail.url=${category}&category_retail.available=true`
             : chocolate
-            ? `types_chocolates.url=${chocolate}`
-            : '';
-      let url = '';
-      if (!category && !chocolate) url = `${BASE_PATH}/products/count`;
-      else url = `${BASE_PATH}/products/count?${filters}`;
+            ? `types_chocolates.url=${chocolate}&category_retail.available=true`
+            : "";
+      let url = "";
+      if (!category && !chocolate)
+         url = `${BASE_PATH}/products/count?category_retail.available=true`;
+      else
+         url = `${BASE_PATH}/products/count?category_retail.available=true&${filters}`;
 
       const response = await fetch(url);
       const result = await response.json();
